@@ -1,0 +1,72 @@
+import type { Magazine } from "@/lib/types";
+import { IMAGES } from "./images";
+
+export const magazines: Magazine[] = [
+  {
+    slug: "elle-2024-spring",
+    name: "ELLE 世界时装之苑",
+    issue: "2024 春季刊",
+    year: 2024,
+    cover: IMAGES.magazines.elle,
+    tags: ["封面", "时尚"],
+    featured: true,
+  },
+  {
+    slug: "bazaar-2023-dec",
+    name: "时尚芭莎",
+    issue: "2023 十二月刊",
+    year: 2023,
+    cover: IMAGES.magazines.bazaar,
+    tags: ["封面", "大片"],
+    featured: true,
+  },
+  {
+    slug: "vogue-2023-oct",
+    name: "VOGUE",
+    issue: "2023 十月刊",
+    year: 2023,
+    cover: IMAGES.magazines.vogue,
+    tags: ["封面"],
+    featured: true,
+  },
+  {
+    slug: "marie-claire-2023",
+    name: "嘉人 MARIE CLAIRE",
+    issue: "2023 年度特辑",
+    year: 2023,
+    cover: IMAGES.magazines.marieClaire,
+    tags: ["封面", "访谈"],
+  },
+  {
+    slug: "figaro-2022",
+    name: "费加罗 FIGARO",
+    issue: "2022 九月刊",
+    year: 2022,
+    cover: IMAGES.magazines.figaro,
+    tags: ["封面"],
+  },
+  {
+    slug: "cosmo-2022",
+    name: "时尚 COSMO",
+    issue: "2022 开年刊",
+    year: 2022,
+    cover: IMAGES.magazines.cosmo,
+    tags: ["封面", "美妆"],
+  },
+  {
+    slug: "trend-health-2021",
+    name: "时尚健康",
+    issue: "2021 公益特辑",
+    year: 2021,
+    cover: IMAGES.magazines.trendHealth,
+    tags: ["公益", "访谈"],
+  },
+  {
+    slug: "esquire-2021",
+    name: "时尚先生 Esquire",
+    issue: "2021 十一月刊",
+    year: 2021,
+    cover: IMAGES.magazines.esquire,
+    tags: ["封面"],
+  },
+];

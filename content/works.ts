@@ -1,0 +1,128 @@
+import type { Work } from "@/lib/types";
+import { IMAGES } from "./images";
+
+export const works: Work[] = [
+  {
+    slug: "sannshengsanshi-shili-taohua",
+    title: "三生三世十里桃花",
+    titleEn: "Eternal Love",
+    type: "tv",
+    year: 2017,
+    role: "白凤九",
+    poster: IMAGES.works.sannshengsanshi,
+    synopsis:
+      "改编自Fresh果果同名小说，讲述青丘帝姬白凤九与东华帝君之间跨越三生三世的仙侠情缘。迪丽热巴饰演的白凤九灵动可爱，成为众多观众心中的经典角色。",
+    highlights: ["全网播放量破300亿", "白凤九角色深入人心", "仙侠题材代表作"],
+    status: "released",
+    featured: true,
+  },
+  {
+    slug: "chang-ge-xing",
+    title: "长歌行",
+    type: "tv",
+    year: 2021,
+    role: "李长歌",
+    poster: IMAGES.works.changge,
+    synopsis:
+      "改编自夏达同名漫画，讲述大唐公主李长歌在家族变故后女扮男装、纵横草原与朝堂的成长故事。迪丽热巴以英气飒爽的形象诠释家国大义与个人信念。",
+    highlights: ["大女主成长叙事", "古装动作戏份突出"],
+    status: "released",
+    featured: true,
+  },
+  {
+    slug: "ni-shi-wo-de-rongyao",
+    title: "你是我的荣耀",
+    type: "tv",
+    year: 2021,
+    role: "乔晶晶",
+    poster: IMAGES.works.rongyao,
+    synopsis:
+      "改编自顾漫同名小说，讲述人气女星乔晶晶与航天设计师于途久别重逢、彼此成就的现代都市爱情故事。",
+    highlights: ["都市爱情口碑之作", "乔晶晶角色广受好评"],
+    status: "released",
+    featured: true,
+  },
+  {
+    slug: "an-le-zhuan",
+    title: "安乐传",
+    type: "tv",
+    year: 2023,
+    role: "任安乐 / 帝梓元",
+    poster: IMAGES.works.anle,
+    synopsis:
+      "讲述帝家孤女帝梓元以任安乐之名重返京城，在权谋与情感交织中寻求真相与正义的古装传奇故事。",
+    highlights: ["双身份角色挑战", "古装权谋题材"],
+    status: "released",
+  },
+  {
+    slug: "gong-su",
+    title: "公诉",
+    type: "tv",
+    year: 2023,
+    role: "安旎",
+    poster: IMAGES.works.gongsu,
+    synopsis:
+      "国内首部以网络犯罪检察为题材的重点剧，迪丽热巴饰演检察官安旎，展现新时代检察人守护网络清朗空间的职业精神。",
+    highlights: ["职业题材突破", "传递法治正能量"],
+    status: "released",
+    featured: true,
+  },
+  {
+    slug: "kelali-ren",
+    title: "克拉恋人",
+    type: "tv",
+    year: 2015,
+    role: "高雯",
+    poster: IMAGES.works.kelali,
+    synopsis:
+      "都市时尚爱情剧，迪丽热巴饰演人气女星高雯，以真实自然的表演赢得广泛关注，成为其早期代表性角色之一。",
+    highlights: ["高雯角色出圈", "时尚都市题材"],
+    status: "released",
+  },
+  {
+    slug: "piaoliang-de-li-huizhen",
+    title: "漂亮的李慧珍",
+    type: "tv",
+    year: 2017,
+    role: "李慧珍",
+    poster: IMAGES.works.lihuizhen,
+    synopsis:
+      "改编自韩国经典剧集，讲述平凡女孩李慧珍在职场与情感中找回自信、勇敢追梦的励志故事。",
+    highlights: ["励志成长主题", "贴近生活的角色塑造"],
+    status: "released",
+  },
+  {
+    slug: "liehuo-ruge",
+    title: "烈火如歌",
+    type: "tv",
+    year: 2018,
+    role: "烈如歌",
+    poster: IMAGES.works.liehuo,
+    synopsis:
+      "改编自明晓溪同名小说，讲述烈火山庄大小姐烈如歌在江湖恩怨与情感纠葛中历经磨砺、守护正义的故事。",
+    highlights: ["武侠江湖题材", "烈如歌角色"],
+    status: "released",
+  },
+  {
+    slug: "run-ze",
+    title: "润玉",
+    type: "film",
+    year: 2024,
+    role: "待定",
+    poster: IMAGES.works.upcoming,
+    synopsis: "电影项目信息请以官方发布为准，本站持续更新公开资讯。",
+    status: "upcoming",
+  },
+  {
+    slug: "pao-pao",
+    title: "奔跑吧",
+    type: "variety",
+    year: 2017,
+    role: "固定成员",
+    poster: IMAGES.works.paopao,
+    synopsis:
+      "热门户外竞技真人秀，迪丽热巴作为固定成员展现真实性格与团队默契，深受观众喜爱。",
+    highlights: ["综艺感自然真实", "多季参与"],
+    status: "released",
+  },
+];

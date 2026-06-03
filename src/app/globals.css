@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fff8fa;
+  --background-soft: #fff0f5;
+  --foreground: #3d2a32;
+  --primary: #e85d8a;
+  --primary-soft: #f4a4bc;
+  --primary-dark: #c94572;
+  --accent: #f0b86e;
+  --accent-light: #fde8c8;
+  --rose-glow: #ffd6e7;
+  --muted: #8a6b76;
+  --card: #ffffff;
+  --border: #f5dce6;
+  --hero-overlay: linear-gradient(
+    135deg,
+    rgba(255, 240, 247, 0.75) 0%,
+    rgba(255, 182, 210, 0.45) 45%,
+    rgba(255, 248, 250, 0.85) 100%
+  );
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-background-soft: var(--background-soft);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-soft: var(--primary-soft);
+  --color-primary-dark: var(--primary-dark);
+  --color-accent: var(--accent);
+  --color-accent-light: var(--accent-light);
+  --color-rose-glow: var(--rose-glow);
+  --color-muted: var(--muted);
+  --color-card: var(--card);
+  --color-border: var(--border);
+  --font-sans: var(--font-noto-sans);
+  --font-serif: var(--font-cormorant);
+  --font-display: var(--font-ma-shan);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-noto-sans), system-ui, sans-serif;
+    background-image:
+      radial-gradient(
+        ellipse 80% 50% at 20% -10%,
+        rgba(255, 214, 231, 0.5),
+        transparent
+      ),
+      radial-gradient(
+        ellipse 60% 40% at 90% 10%,
+        rgba(253, 232, 200, 0.35),
+        transparent
+      );
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--primary-soft) 55%, white);
+    color: var(--foreground);
+  }
+}
+
+@layer utilities {
+  .container-main {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-padding {
+    @apply py-16 sm:py-20 lg:py-24;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .fan-card {
+    @apply rounded-3xl border border-border/80 bg-card/90 shadow-sm backdrop-blur-sm;
+    box-shadow:
+      0 4px 24px -4px rgba(232, 93, 138, 0.1),
+      0 1px 3px rgba(232, 93, 138, 0.06);
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .card-hover:hover {
+    @apply -translate-y-1.5;
+    box-shadow:
+      0 16px 40px -8px rgba(232, 93, 138, 0.22),
+      0 4px 12px rgba(240, 184, 110, 0.12);
+  }
+
+  .soft-section {
+    background: linear-gradient(
+      180deg,
+      var(--background-soft) 0%,
+      var(--background) 100%
+    );
+  }
+
+  .sparkle-dot {
+    @apply inline-block h-1.5 w-1.5 rounded-full bg-primary-soft;
+    box-shadow: 0 0 8px var(--primary-soft);
+  }
+}
