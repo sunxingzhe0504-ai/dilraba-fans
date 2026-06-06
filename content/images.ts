@@ -1,3 +1,5 @@
+import { assetPath } from "@/lib/asset-path";
+
 /**
  * 本地托管图片清单（全部位于 public/images 下）
  * - 作品海报：来自 TMDB，已逐张人工目视核对与剧集一一对应
@@ -5,10 +7,10 @@
  * - 杂志封面：均为真实刊物封面/大片，已逐张核对刊名、期号与人物
  * 改为本地托管后不再受网络环境（CDN 解析到内网 IP）影响。
  */
-const W = "/images/works";
-const P = "/images/portraits";
-const M = "/images/magazines";
-const B = "/images/backdrop";
+const W = assetPath("/images/works");
+const P = assetPath("/images/portraits");
+const M = assetPath("/images/magazines");
+const B = assetPath("/images/backdrop");
 
 export const IMAGES = {
   hero: `${P}/hero-red-pearl.jpg`,
