@@ -5,12 +5,13 @@ type ContainerProps = {
   children: ReactNode;
   className?: string;
   id?: string;
+  wide?: boolean;
 };
 
-export function Container({ children, className, id }: ContainerProps) {
+export function Container({ children, className, id, wide }: ContainerProps) {
   return (
     <section id={id} className={cn("section-padding", className)}>
-      <div className="container-main">{children}</div>
+      <div className={wide ? "container-wide" : "container-main"}>{children}</div>
     </section>
   );
 }

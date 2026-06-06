@@ -74,13 +74,49 @@ src/
 
 ## 部署
 
-### Vercel（推荐）
+### GitHub Pages（推荐 · 免费静态托管）
+
+本项目已配置 GitHub Actions，推送至 `main` / `master` 分支后会自动构建并发布到 GitHub Pages。
+
+**首次部署步骤：**
+
+1. 在 GitHub 新建仓库（例如 `dilraba-fans`），**不要**勾选「Add a README」（若本地已有代码）。
+2. 在本地项目根目录提交并推送代码：
+
+```bash
+git add .
+git commit -m "chore: prepare GitHub Pages deployment"
+git remote add origin https://github.com/<你的用户名>/dilraba-fans.git
+git push -u origin master
+```
+
+3. 打开仓库 **Settings → Pages**，在 **Build and deployment → Source** 中选择 **GitHub Actions**（不要选 Deploy from a branch）。
+4. 等待 Actions 工作流跑完，站点地址为：
+
+   - 普通仓库：`https://<用户名>.github.io/dilraba-fans/`
+   - 若仓库名为 `<用户名>.github.io`：根域名 `https://<用户名>.github.io/`
+
+**本地预览 Pages 构建：**
+
+```bash
+npm run build:pages
+npx serve out
+```
+
+`build:pages` 默认使用 `/dilraba-fans` 作为 basePath；可通过环境变量覆盖：
+
+```bash
+# PowerShell
+$env:BASE_PATH="/你的仓库名"; $env:NEXT_PUBLIC_SITE_URL="https://你的用户名.github.io/你的仓库名"; npm run build:pages
+```
+
+### Vercel
 
 1. 将项目推送到 GitHub
 2. 在 [vercel.com](https://vercel.com) 导入仓库
-3. 使用默认 Next.js 构建设置，一键部署
+3. 使用默认 Next.js 构建设置，一键部署（无需 `GITHUB_PAGES` 环境变量）
 
-### 其他平台
+### 其他 Node 平台
 
 ```bash
 npm run build

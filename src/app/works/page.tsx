@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import { getWorks } from "@content/index";
-import { Container } from "@/components/Container";
-import { SectionTitle } from "@/components/SectionTitle";
-import { FadeIn } from "@/components/FadeIn";
-import { WorksGrid } from "./WorksGrid";
+import { WorksPageDesign } from "@/components/designs/pages/WorksPages";
 
 export const metadata: Metadata = {
   title: "作品库",
@@ -13,17 +10,5 @@ export const metadata: Metadata = {
 export const dynamic = "force-static";
 
 export default function WorksPage() {
-  const works = getWorks();
-
-  return (
-    <Container>
-      <FadeIn>
-        <SectionTitle
-          title="作品库"
-          subtitle="电视剧、电影与综艺，记录每一次角色的绽放。"
-        />
-      </FadeIn>
-      <WorksGrid works={works} />
-    </Container>
-  );
+  return <WorksPageDesign works={getWorks()} />;
 }

@@ -2,113 +2,124 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronDown, Heart, Sparkles } from "lucide-react";
+import { ArrowDown, Heart, Sparkles } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import { getSiteMeta } from "@content/index";
 import { IMAGES } from "@content/images";
 
 export function Hero() {
   const { heroTagline, heroSubtitle } = getSiteMeta();
-  const prefersReducedMotion = useReducedMotion();
+  const reduce = useReducedMotion();
+
+  const rise = reduce
+    ? {}
+    : {
+        initial: { opacity: 0, y: 28 },
+        animate: { opacity: 1, y: 0 },
+      };
 
   return (
-    <section className="relative flex min-h-[88vh] items-center overflow-hidden">
-      <div className="absolute inset-0">
-        <Image
-          src={IMAGES.hero}
-          alt="迪丽热巴"
-          fill
-          priority
-          className="object-cover object-top sm:object-center"
-          sizes="100vw"
-        />
-        <div
-          className="absolute inset-0"
-          style={{ background: "var(--hero-overlay)" }}
-        />
-        <div className="absolute -left-20 top-20 h-64 w-64 rounded-full bg-primary-soft/30 blur-3xl" />
-        <div className="absolute -right-10 bottom-10 h-72 w-72 rounded-full bg-accent-light/40 blur-3xl" />
+    <section className="relative overflow-hidden bg-background paper-grain">
+      {/* 柔和光晕背景 */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute right-0 top-0 h-[62vh] w-[62vh] translate-x-1/3 rounded-full bg-blush/70 blur-[130px]" />
+        <div className="absolute bottom-0 left-0 h-[46vh] w-[46vh] -translate-x-1/4 rounded-full bg-rouge/20 blur-[130px]" />
+        <div className="absolute left-1/3 top-1/4 h-[30vh] w-[30vh] rounded-full bg-gold-glow/60 blur-[120px]" />
       </div>
 
-      <div className="container-main relative z-10 grid items-center gap-10 py-20 lg:grid-cols-2 lg:py-28">
-        {prefersReducedMotion ? (
-          <HeroContent tagline={heroTagline} subtitle={heroSubtitle} />
-        ) : (
-          <motion.div
-            initial={{ opacity: 0, x: -24 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <HeroContent tagline={heroTagline} subtitle={heroSubtitle} />
-          </motion.div>
-        )}
+      <div className="container-wide relative grid min-h-[92vh] items-center gap-10 py-24 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+        {/* 文字 */}
+        <motion.div
+          {...rise}
+          transition={{ duration: 0.9, ease: [0.2, 0.7, 0.2, 1] }}
+          className="order-2 lg:order-1"
+        >
+          <p className="kicker mb-6">
+            <Heart size={13} className="fill-rouge text-rouge" aria-hidden />
+            Dilraba Dilmurat · 迪丽热巴
+          </p>
 
-        <div className="hidden lg:flex lg:justify-end">
-          <div className="fan-card relative max-w-sm rotate-2 p-6">
-            <Sparkles className="absolute -right-2 -top-2 text-accent" size={22} aria-hidden />
-            <Heart className="mb-3 text-primary" size={20} fill="currentColor" aria-hidden />
-            <p className="font-serif text-lg leading-relaxed text-foreground/90">
-              「认真生活，用心演戏，温柔对待世界。」
-            </p>
-            <p className="mt-3 text-sm text-muted">—— Dear Bar 共勉</p>
+          <h1 className="zh-display text-wine-deep leading-[0.95]">
+            <span
+              className="block"
+              style={{ fontSize: "clamp(3.4rem, 11vw, 8rem)" }}
+            >
+              迪丽热巴
+            </span>
+          </h1>
+
+          <p
+            className="display mt-6 max-w-xl text-ink"
+            style={{ fontSize: "clamp(1.4rem, 3vw, 2.2rem)" }}
+          >
+            {heroTagline}
+          </p>
+
+          <p className="mt-6 max-w-md text-base leading-relaxed text-ink-soft sm:text-lg">
+            {heroSubtitle}
+          </p>
+
+          <div className="mt-10 flex flex-wrap items-center gap-4">
+            <Link href="/works" className="btn-primary group">
+              浏览作品
+              <span className="transition-transform group-hover:translate-x-1">
+                →
+              </span>
+            </Link>
+            <Link href="/about" className="btn-ghost">
+              <Heart size={15} className="text-rouge" aria-hidden />
+              认识她
+            </Link>
           </div>
-        </div>
+        </motion.div>
+
+        {/* 人物大图 */}
+        <motion.div
+          initial={reduce ? undefined : { opacity: 0, scale: 1.04 }}
+          animate={reduce ? undefined : { opacity: 1, scale: 1 }}
+          transition={{ duration: 1.1, ease: [0.2, 0.7, 0.2, 1] }}
+          className="relative order-1 lg:order-2"
+        >
+          <div className="relative mx-auto aspect-[3/4] w-full max-w-md overflow-hidden rounded-[2.25rem] shadow-2xl shadow-wine-deep/20 lg:max-w-none">
+            <Image
+              src={IMAGES.hero}
+              alt="迪丽热巴写真"
+              fill
+              priority
+              sizes="(max-width: 1024px) 90vw, 45vw"
+              className="object-cover object-top"
+            />
+            <div className="absolute inset-0 rounded-[2.25rem] ring-1 ring-inset ring-paper/30" />
+          </div>
+
+          {/* 装饰边框 */}
+          <div className="absolute -right-3 -top-3 -z-10 hidden h-full w-full rounded-[2.25rem] border-2 border-blush-deep/60 lg:block" />
+
+          {/* 漂浮爱心装饰 */}
+          <Sparkles
+            size={26}
+            className="absolute -left-2 top-6 text-gold drop-shadow lg:-left-4"
+            aria-hidden
+          />
+
+          <div className="absolute -bottom-5 left-5 flex items-center gap-3 rounded-2xl bg-paper/95 px-5 py-3 shadow-lg backdrop-blur lg:left-auto lg:right-8">
+            <Heart size={18} className="fill-rouge text-rouge" aria-hidden />
+            <div>
+              <p className="index-num">EST. 2013</p>
+              <p className="display text-lg text-wine">演员 · 时尚 · 公益</p>
+            </div>
+          </div>
+        </motion.div>
       </div>
 
       <Link
         href="#featured-works"
-        className="absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-1 text-sm text-primary-dark/70 transition-colors hover:text-primary"
+        className="absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 text-xs uppercase tracking-[0.25em] text-ink-mute transition-colors hover:text-wine"
         aria-label="向下滚动浏览精选内容"
       >
-        <span>一起追光</span>
-        <ChevronDown className="animate-bounce" size={20} aria-hidden />
+        Scroll
+        <ArrowDown className="animate-bounce" size={16} aria-hidden />
       </Link>
     </section>
-  );
-}
-
-function HeroContent({
-  tagline,
-  subtitle,
-}: {
-  tagline: string;
-  subtitle: string;
-}) {
-  return (
-    <div className="text-left">
-      <p className="mb-3 flex items-center gap-2 text-sm tracking-widest text-primary">
-        <span className="sparkle-dot" />
-        <span className="uppercase">Dilraba · Dear Bar</span>
-      </p>
-      <h1
-        className="font-[family-name:var(--font-ma-shan)] leading-tight text-primary-dark"
-        style={{ fontSize: "clamp(3rem, 10vw, 5.5rem)" }}
-      >
-        迪丽热巴
-      </h1>
-      <p
-        className="mt-4 font-serif font-medium text-primary"
-        style={{ fontSize: "clamp(1.25rem, 3.5vw, 2rem)" }}
-      >
-        {tagline}
-      </p>
-      <p className="mt-5 max-w-lg text-base leading-relaxed text-foreground/80 sm:text-lg">
-        {subtitle}
-      </p>
-      <div className="mt-8 flex flex-wrap gap-3">
-        <Link
-          href="/works"
-          className="rounded-full bg-primary px-7 py-3 text-sm font-medium text-white shadow-md shadow-primary/25 transition-all hover:bg-primary-dark hover:shadow-lg"
-        >
-          看她的作品
-        </Link>
-        <Link
-          href="/about"
-          className="rounded-full border border-primary/30 bg-white/70 px-7 py-3 text-sm font-medium text-primary backdrop-blur-sm transition-all hover:bg-white"
-        >
-          认识她
-        </Link>
-      </div>
-    </div>
   );
 }

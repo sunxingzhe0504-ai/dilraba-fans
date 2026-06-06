@@ -1,0 +1,274 @@
+"use client";
+
+import Image from "next/image";
+import Link from "next/link";
+import { motion, useReducedMotion } from "framer-motion";
+import { IMAGES } from "@content/images";
+import { WORK_TYPE_LABELS } from "@/lib/types";
+import { FeaturedVideoStrip } from "@/components/FeaturedVideoStrip";
+import { LatestStrip } from "@/components/LatestStrip";
+import { CharacterCard } from "@/components/GalleryGrid";
+import type { HomeData } from "./types";
+
+export function DesignEditorial({ data }: { data: HomeData }) {
+  const { hero, works, magazines, events, stats, latestNews, upcoming, characters, videos } = data;
+  const reduce = useReducedMotion();
+
+  return (
+    <div className="overflow-hidden">
+      {/* ===== 刊头 / 封面 ===== */}
+      <section className="container-wide pt-12">
+        <div className="flex items-center justify-between text-[11px] uppercase tracking-[0.3em] text-ink-mute">
+          <span>迪丽热巴 · Fan Editorial</span>
+          <span>Vol.01 — Summer 2026</span>
+        </div>
+        <div className="gold-rule mt-3 h-px" />
+
+        <h1
+          className="display mt-4 text-center font-semibold leading-none text-wine-deep"
+          style={{ fontSize: "clamp(3.5rem, 16vw, 12rem)", letterSpacing: "-0.02em" }}
+        >
+          DILRABA
+        </h1>
+        <div className="gold-rule mt-4 h-px" />
+
+        <div className="mt-8 grid items-stretch gap-8 lg:grid-cols-[1fr_1.25fr]">
+          {/* 封面文案 */}
+          <div className="flex flex-col justify-center">
+            <p className="text-[11px] uppercase tracking-[0.3em] text-gold">
+              Cover Story
+            </p>
+            <p className="display mt-3 text-4xl leading-tight text-ink sm:text-5xl">
+              The Light Within
+            </p>
+            <p className="zh-display mt-4 text-2xl text-wine-deep">
+              {hero.tagline}
+            </p>
+            <p className="mt-5 max-w-md leading-relaxed text-ink-soft">
+              {hero.subtitle}
+            </p>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <Link href="/works" className="btn-primary !rounded-none">
+                进入专题 →
+              </Link>
+              <Link href="/about" className="btn-ghost !rounded-none">
+                人物档案
+              </Link>
+            </div>
+            <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-4 border-t border-border pt-6">
+              {stats.map((s) => (
+                <div key={s.label}>
+                  <p className="display text-3xl text-wine-deep">{s.value}</p>
+                  <p className="text-[11px] uppercase tracking-[0.2em] text-ink-mute">
+                    {s.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* 封面大图 · 竖版比例，避免宽扁容器裁切人像 */}
+          <motion.div
+            initial={reduce ? undefined : { opacity: 0, scale: 1.03 }}
+            animate={reduce ? undefined : { opacity: 1, scale: 1 }}
+            transition={{ duration: 1, ease: [0.2, 0.7, 0.2, 1] }}
+            className="relative aspect-[3/4] w-full max-w-lg justify-self-center overflow-hidden lg:max-w-none lg:justify-self-stretch"
+          >
+            <Image
+              src={IMAGES.portraits.redBlack}
+              alt="迪丽热巴封面大片"
+              fill
+              priority
+              sizes="(max-width:1024px) 100vw, 55vw"
+              className="portrait-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-wine-deep/45 via-transparent to-transparent" />
+            <p className="display absolute bottom-6 left-6 text-5xl text-paper sm:text-6xl">
+              RADIANT
+            </p>
+            <span className="absolute right-5 top-5 text-[11px] uppercase tracking-[0.3em] text-paper/85">
+              Issue No.01
+            </span>
+          </motion.div>
+        </div>
+      </section>
+
+      <LatestStrip items={latestNews} />
+
+      {upcoming.length > 0 && (
+        <div className="container-wide py-4 text-center">
+          <Link
+            href="/upcoming"
+            className="text-[11px] uppercase tracking-[0.25em] text-wine hover:text-wine-deep"
+          >
+            Upcoming · {upcoming.length} titles →
+          </Link>
+        </div>
+      )}
+
+      {/* ===== CONTENTS · 作品目录索引 ===== */}
+      <section className="container-wide py-24">
+        <div className="flex items-end justify-between">
+          <h2 className="display text-4xl text-ink sm:text-5xl">Contents</h2>
+          <span className="text-[11px] uppercase tracking-[0.3em] text-ink-mute">
+            Filmography · 作品
+          </span>
+        </div>
+        <div className="gold-rule mt-4 h-px" />
+
+        <ul>
+          {works.map((work, i) => (
+            <li key={work.slug}>
+              <Link
+                href={`/works/${work.slug}`}
+                className="group grid grid-cols-[3rem_1fr_auto] items-center gap-5 border-b border-border py-6 transition-colors hover:bg-blush/20 sm:grid-cols-[4rem_8rem_1fr_auto]"
+              >
+                <span className="display text-2xl text-gold">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <div className="relative hidden aspect-[3/4] w-16 overflow-hidden sm:block">
+                  <Image
+                    src={work.poster}
+                    alt={work.title}
+                    fill
+                    sizes="4rem"
+                    className="portrait-cover"
+                  />
+                </div>
+                <div>
+                  <h3 className="zh-display text-2xl text-ink transition-colors group-hover:text-wine-deep">
+                    {work.title}
+                  </h3>
+                  <p className="mt-1 text-sm text-ink-soft">
+                    {WORK_TYPE_LABELS[work.type]} · 饰 {work.role}
+                  </p>
+                </div>
+                <span className="display text-xl text-ink-mute">{work.year}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <div className="mt-8 text-right">
+          <Link
+            href="/works"
+            className="text-sm uppercase tracking-[0.2em] text-wine hover:text-wine-deep"
+          >
+            View full index →
+          </Link>
+        </div>
+      </section>
+
+      {/* ===== 引言 ===== */}
+      <section className="border-y border-border bg-background-deep/40 py-24">
+        <div className="container-main text-center">
+          <p className="display mx-auto max-w-3xl text-3xl italic leading-snug text-wine-deep sm:text-4xl">
+            “认真生活，用心演戏，温柔对待这个世界。”
+          </p>
+          <p className="mt-6 text-[11px] uppercase tracking-[0.3em] text-ink-mute">
+            Dilraba Dilmurat · 迪丽热巴
+          </p>
+        </div>
+      </section>
+
+      {characters.length > 0 && (
+        <section className="container-wide py-24">
+          <div className="flex items-end justify-between">
+            <h2 className="display text-4xl text-ink sm:text-5xl">Characters</h2>
+            <span className="text-[11px] uppercase tracking-[0.3em] text-ink-mute">
+              Roles · 角色
+            </span>
+          </div>
+          <div className="gold-rule mt-4 h-px" />
+          <div className="mt-10 grid gap-6 sm:grid-cols-3">
+            {characters.map((c) => (
+              <CharacterCard key={c.slug} character={c} />
+            ))}
+          </div>
+          <div className="mt-8 text-right">
+            <Link
+              href="/characters"
+              className="text-sm uppercase tracking-[0.2em] text-wine hover:text-wine-deep"
+            >
+              View all characters →
+            </Link>
+          </div>
+        </section>
+      )}
+
+      {videos.length > 0 && (
+        <div className="pb-12">
+          <FeaturedVideoStrip videos={videos} variant="d" />
+        </div>
+      )}
+
+      {/* ===== Editorial 杂志网格 ===== */}
+      <section className="container-wide py-24">
+        <div className="flex items-end justify-between">
+          <h2 className="display text-4xl text-ink sm:text-5xl">Editorials</h2>
+          <span className="text-[11px] uppercase tracking-[0.3em] text-ink-mute">
+            Covers · 杂志
+          </span>
+        </div>
+        <div className="gold-rule mt-4 h-px" />
+        <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-4">
+          {magazines.map((m, i) => (
+            <Link key={m.slug} href={`/magazine/${m.slug}`} className="group">
+              <div className="relative aspect-[3/4] overflow-hidden border border-border">
+                <Image
+                  src={m.cover}
+                  alt={m.name}
+                  fill
+                  sizes="(max-width:640px) 45vw, 22vw"
+                  className="portrait-cover transition-transform duration-700 group-hover:scale-105"
+                />
+              </div>
+              <div className="mt-3 flex items-baseline justify-between">
+                <p className="text-sm font-medium text-ink">{m.name}</p>
+                <span className="display text-sm text-gold">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+              </div>
+              <p className="text-xs text-ink-mute">{m.issue}</p>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* ===== Agenda · 活动 ===== */}
+      <section className="container-wide pb-24">
+        <div className="flex items-end justify-between">
+          <h2 className="display text-4xl text-ink sm:text-5xl">Agenda</h2>
+          <span className="text-[11px] uppercase tracking-[0.3em] text-ink-mute">
+            Recent · 活动
+          </span>
+        </div>
+        <div className="gold-rule mt-4 h-px" />
+        <div className="mt-8 grid gap-x-12 sm:grid-cols-2">
+          {events.map((ev) => (
+            <Link
+              key={ev.slug}
+              href={`/events/${ev.slug}`}
+              className="grid grid-cols-[7rem_1fr] gap-4 border-b border-border py-6 transition-colors hover:bg-blush/10"
+            >
+              <span className="text-sm uppercase tracking-[0.15em] text-gold">
+                {ev.date}
+              </span>
+              <div>
+                <h3 className="text-lg font-medium text-ink">{ev.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-ink-soft">
+                  {ev.summary}
+                </p>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        <div className="mt-20 text-center">
+          <Link href="/about" className="btn-primary !rounded-none">
+            了解更多关于她 →
+          </Link>
+        </div>
+      </section>
+    </div>
+  );
+}

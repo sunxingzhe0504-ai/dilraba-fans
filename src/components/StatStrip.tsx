@@ -6,16 +6,18 @@ type StatStripProps = {
 
 export function StatStrip({ stats }: StatStripProps) {
   return (
-    <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-6">
+    <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-5">
       {stats.map((stat) => (
         <div
           key={stat.label}
-          className="fan-card px-5 py-7 text-center sm:px-6 sm:py-8"
+          className="rounded-[1.5rem] border border-border bg-paper px-6 py-9 text-center shadow-[0_14px_34px_-24px_rgba(176,78,105,0.3)]"
         >
-          <p className="font-serif text-3xl font-bold gradient-text sm:text-4xl">
+          <p className="display gradient-text text-5xl sm:text-6xl">
             {stat.value}
           </p>
-          <p className="mt-2 text-sm text-muted">{stat.label}</p>
+          <p className="mt-3 text-xs uppercase tracking-[0.2em] text-ink-mute">
+            {stat.label}
+          </p>
         </div>
       ))}
     </div>

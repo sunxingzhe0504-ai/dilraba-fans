@@ -1,9 +1,11 @@
-import { Sparkles } from "lucide-react";
+import { Heart } from "lucide-react";
 import { cn } from "@/lib/cn";
 
 type SectionTitleProps = {
   title: string;
   subtitle?: string;
+  kicker?: string;
+  index?: string;
   align?: "left" | "center";
   className?: string;
 };
@@ -11,51 +13,36 @@ type SectionTitleProps = {
 export function SectionTitle({
   title,
   subtitle,
+  kicker = "Dilraba",
+  index,
   align = "left",
   className,
 }: SectionTitleProps) {
   return (
-    <div
-      className={cn(
-        "mb-10",
-        align === "center" && "text-center",
-        className,
-      )}
-    >
+    <div className={cn("mb-12", align === "center" && "text-center", className)}>
       <div
         className={cn(
-          "mb-2 flex items-center gap-2",
+          "mb-4 flex items-center gap-3",
           align === "center" && "justify-center",
         )}
       >
-        <Sparkles className="text-accent" size={16} aria-hidden />
-        <span className="text-xs font-medium uppercase tracking-[0.2em] text-primary/70">
-          Dilraba
+        {index && <span className="index-num">{index}</span>}
+        <span className="kicker">
+          <Heart size={12} className="fill-rouge text-rouge" aria-hidden />
+          {kicker}
         </span>
       </div>
-      <h2 className="font-serif text-3xl font-semibold tracking-tight text-primary-dark sm:text-4xl">
-        {title}
-      </h2>
+      <h2 className="display text-4xl text-wine-deep sm:text-5xl">{title}</h2>
       {subtitle && (
         <p
           className={cn(
-            "mt-3 max-w-2xl text-muted sm:text-lg",
+            "mt-4 max-w-2xl text-ink-soft sm:text-lg",
             align === "center" && "mx-auto",
           )}
         >
           {subtitle}
         </p>
       )}
-      <div
-        className={cn(
-          "mt-4 flex items-center gap-2",
-          align === "center" && "justify-center",
-        )}
-      >
-        <span className="h-px w-8 bg-gradient-to-r from-transparent to-primary-soft" />
-        <span className="h-2 w-2 rounded-full bg-primary-soft" />
-        <span className="h-px w-8 bg-gradient-to-l from-transparent to-primary-soft" />
-      </div>
     </div>
   );
 }

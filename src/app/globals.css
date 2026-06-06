@@ -1,39 +1,134 @@
 @import "tailwindcss";
 
+/* ===== 默认主题 C · 追光暖阳（奶油暖 × 暖玫 × 落日橘金）===== */
 :root {
-  --background: #fff8fa;
-  --background-soft: #fff0f5;
-  --foreground: #3d2a32;
-  --primary: #e85d8a;
-  --primary-soft: #f4a4bc;
-  --primary-dark: #c94572;
-  --accent: #f0b86e;
-  --accent-light: #fde8c8;
-  --rose-glow: #ffd6e7;
-  --muted: #8a6b76;
-  --card: #ffffff;
-  --border: #f5dce6;
-  --hero-overlay: linear-gradient(
-    135deg,
-    rgba(255, 240, 247, 0.75) 0%,
-    rgba(255, 182, 210, 0.45) 45%,
-    rgba(255, 248, 250, 0.85) 100%
-  );
+  --background: #fdf4ea;
+  --background-deep: #fbe7d6;
+  --paper: #fffaf3;
+  --ink: #543728;
+  --ink-soft: #84604a;
+  --ink-mute: #b18d74;
+
+  --wine: #d3697a;
+  --wine-deep: #ba5266;
+  --rouge: #ef9a72;
+  --gold: #ef9a4e;
+  --gold-light: #f7c98c;
+  --gold-glow: #fce0c0;
+
+  --blush: #fbd9c9;
+  --blush-deep: #f6c1a8;
+
+  --border: #f3ddc9;
+  --border-strong: #ebc8ad;
+
+  --radius-card: 1.75rem;
 }
+
+/* ===== 主题 A · 桃夭仙途（云青白 × 桃粉 × 青碧）===== */
+[data-theme="a"] {
+  --background: #eef4f1;
+  --background-deep: #e2ece7;
+  --paper: #fffdfb;
+  --ink: #3a4641;
+  --ink-soft: #647069;
+  --ink-mute: #97a39c;
+
+  --wine: #d27d97;
+  --wine-deep: #bd6480;
+  --rouge: #e89bb0;
+  --gold: #9ec9bb;
+  --gold-light: #c5e0d6;
+  --gold-glow: #e3efe7;
+
+  --blush: #f6d7e0;
+  --blush-deep: #ebbccc;
+
+  --border: #dde9e3;
+  --border-strong: #cadbd2;
+
+  --radius-card: 1.9rem;
+}
+
+/* ===== 主题 B · 甜桃应援（蜜桃 × 糖粉 × 暖橘）===== */
+[data-theme="b"] {
+  --background: #fff2f5;
+  --background-deep: #ffe3ea;
+  --paper: #fffafc;
+  --ink: #5a2f43;
+  --ink-soft: #8a5468;
+  --ink-mute: #c08aa0;
+
+  --wine: #ff6f9c;
+  --wine-deep: #f0548a;
+  --rouge: #ff8fb0;
+  --gold: #ffb24d;
+  --gold-light: #ffd9a3;
+  --gold-glow: #ffe6cf;
+
+  --blush: #ffd5e2;
+  --blush-deep: #ffbcd2;
+
+  --border: #ffdde6;
+  --border-strong: #ffc6d6;
+
+  --radius-card: 2.1rem;
+}
+
+/* ===== 主题 D · 高定玫瑰刊（象牙 × 玫瑰酒红 × 金）===== */
+[data-theme="d"] {
+  --background: #f7f1e8;
+  --background-deep: #efe5d6;
+  --paper: #fffdf8;
+  --ink: #2c1f1a;
+  --ink-soft: #5d4c43;
+  --ink-mute: #8a7568;
+
+  --wine: #9c3850;
+  --wine-deep: #7a2538;
+  --rouge: #c2566b;
+  --gold: #b08d4f;
+  --gold-light: #ddc79a;
+  --gold-glow: #ece0c8;
+
+  --blush: #ecd8d3;
+  --blush-deep: #ddbdb6;
+
+  --border: #e4d6c2;
+  --border-strong: #d2bea0;
+
+  --radius-card: 0.5rem;
+}
+/* E / F 复用默认 C 调色，仅装饰层不同（由 JS 控制） */
 
 @theme inline {
   --color-background: var(--background);
-  --color-background-soft: var(--background-soft);
-  --color-foreground: var(--foreground);
-  --color-primary: var(--primary);
-  --color-primary-soft: var(--primary-soft);
-  --color-primary-dark: var(--primary-dark);
-  --color-accent: var(--accent);
-  --color-accent-light: var(--accent-light);
-  --color-rose-glow: var(--rose-glow);
-  --color-muted: var(--muted);
-  --color-card: var(--card);
+  --color-background-deep: var(--background-deep);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-mute: var(--ink-mute);
+  --color-wine: var(--wine);
+  --color-wine-deep: var(--wine-deep);
+  --color-rouge: var(--rouge);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-gold-glow: var(--gold-glow);
+  --color-blush: var(--blush);
+  --color-blush-deep: var(--blush-deep);
   --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+
+  --color-foreground: var(--ink);
+  --color-primary: var(--wine);
+  --color-primary-dark: var(--wine-deep);
+  --color-primary-soft: var(--rouge);
+  --color-accent: var(--gold);
+  --color-accent-light: var(--gold-light);
+  --color-muted: var(--ink-soft);
+  --color-card: var(--paper);
+  --color-rose-glow: var(--gold-glow);
+
   --font-sans: var(--font-noto-sans);
   --font-serif: var(--font-cormorant);
   --font-display: var(--font-ma-shan);
@@ -48,7 +143,6 @@
     html {
       scroll-behavior: auto;
     }
-
     *,
     *::before,
     *::after {
@@ -60,72 +154,259 @@
 
   body {
     background: var(--background);
-    color: var(--foreground);
+    color: var(--ink);
     font-family: var(--font-noto-sans), system-ui, sans-serif;
-    background-image:
-      radial-gradient(
-        ellipse 80% 50% at 20% -10%,
-        rgba(255, 214, 231, 0.5),
-        transparent
-      ),
-      radial-gradient(
-        ellipse 60% 40% at 90% 10%,
-        rgba(253, 232, 200, 0.35),
-        transparent
-      );
-    background-attachment: fixed;
+    transition:
+      background-color 0.5s ease,
+      color 0.5s ease;
   }
 
   ::selection {
-    background: color-mix(in srgb, var(--primary-soft) 55%, white);
-    color: var(--foreground);
+    background: color-mix(in srgb, var(--rouge) 35%, transparent);
+    color: var(--ink);
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-feature-settings: "ss01";
   }
 }
 
 @layer utilities {
   .container-main {
-    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8;
+  }
+
+  .container-wide {
+    @apply mx-auto w-full max-w-[88rem] px-5 sm:px-8 lg:px-12;
   }
 
   .section-padding {
-    @apply py-16 sm:py-20 lg:py-24;
+    @apply py-20 sm:py-24 lg:py-32;
+  }
+
+  .kicker {
+    @apply inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.28em] text-wine;
+  }
+
+  .display {
+    font-family: var(--font-cormorant), Georgia, serif;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  .zh-display {
+    font-family: var(--font-ma-shan), var(--font-noto-sans), serif;
   }
 
   .gradient-text {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    background: linear-gradient(120deg, var(--wine) 0%, var(--gold) 130%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
 
-  .fan-card {
-    @apply rounded-3xl border border-border/80 bg-card/90 shadow-sm backdrop-blur-sm;
-    box-shadow:
-      0 4px 24px -4px rgba(232, 93, 138, 0.1),
-      0 1px 3px rgba(232, 93, 138, 0.06);
-  }
-
-  .card-hover {
-    @apply transition-all duration-300 ease-out;
-  }
-
-  .card-hover:hover {
-    @apply -translate-y-1.5;
-    box-shadow:
-      0 16px 40px -8px rgba(232, 93, 138, 0.22),
-      0 4px 12px rgba(240, 184, 110, 0.12);
-  }
-
-  .soft-section {
+  .gold-rule {
     background: linear-gradient(
-      180deg,
-      var(--background-soft) 0%,
-      var(--background) 100%
+      90deg,
+      transparent,
+      var(--gold-light) 20%,
+      var(--gold-light) 80%,
+      transparent
     );
   }
 
-  .sparkle-dot {
-    @apply inline-block h-1.5 w-1.5 rounded-full bg-primary-soft;
-    box-shadow: 0 0 8px var(--primary-soft);
+  .edit-card {
+    @apply relative overflow-hidden border border-border bg-paper;
+    border-radius: var(--radius-card);
+    box-shadow: 0 14px 34px -22px rgba(120, 60, 50, 0.26);
+    transition:
+      transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1),
+      box-shadow 0.45s ease,
+      border-color 0.45s ease;
+  }
+
+  .edit-card:hover {
+    border-color: var(--blush-deep);
+    transform: translateY(-4px);
+    box-shadow:
+      0 30px 60px -26px rgba(120, 60, 50, 0.32),
+      0 10px 22px -12px rgba(224, 165, 137, 0.32);
+  }
+
+  .hover-zoom img {
+    transition: transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+
+  .hover-zoom:hover img {
+    transform: scale(1.05);
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 rounded-full px-8 py-3.5 text-sm font-medium tracking-wide text-paper transition-all duration-300;
+    background: linear-gradient(120deg, var(--wine) 0%, var(--rouge) 100%);
+    box-shadow: 0 12px 28px -12px color-mix(in srgb, var(--wine) 55%, transparent);
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 34px -12px color-mix(in srgb, var(--wine) 60%, transparent);
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 rounded-full border border-wine/30 px-7 py-3.5 text-sm font-medium tracking-wide text-wine transition-all duration-300;
+  }
+  .btn-ghost:hover {
+    background: color-mix(in srgb, var(--blush) 60%, transparent);
+    border-color: var(--wine);
+  }
+
+  .pill {
+    @apply inline-flex items-center rounded-full px-3 py-1 text-[11px] tracking-wide;
+  }
+
+  .paper-grain {
+    position: relative;
+  }
+  .paper-grain::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .soft-section {
+    background:
+      radial-gradient(
+        ellipse 70% 55% at 100% 0%,
+        color-mix(in srgb, var(--blush) 55%, transparent),
+        transparent
+      ),
+      radial-gradient(
+        ellipse 60% 50% at 0% 100%,
+        color-mix(in srgb, var(--gold-glow) 60%, transparent),
+        transparent
+      ),
+      linear-gradient(180deg, var(--background-deep) 0%, var(--background) 72%);
+  }
+
+  .index-num {
+    font-family: var(--font-cormorant), Georgia, serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    color: var(--wine);
+  }
+
+  /* 竖版人像 / 海报：保留面部与上半身，避免居中裁切 */
+  .portrait-cover {
+    object-fit: cover;
+    object-position: top center;
+  }
+}
+
+/* ===== 装饰层（花瓣 / 爱心星星 / 暖光晕）===== */
+.decor-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.decor-petal,
+.decor-heart,
+.decor-spark,
+.decor-glow {
+  position: absolute;
+  will-change: transform, opacity;
+}
+
+.decor-petal {
+  top: -6vh;
+  font-size: 1.25rem;
+  animation: petal-fall linear infinite;
+}
+
+.decor-heart {
+  bottom: -5vh;
+  color: var(--wine);
+  animation: heart-rise ease-in infinite;
+}
+
+.decor-spark {
+  color: var(--gold);
+  animation: spark-twinkle ease-in-out infinite;
+}
+
+.decor-glow {
+  border-radius: 9999px;
+  filter: blur(60px);
+  opacity: 0.5;
+  animation: glow-drift ease-in-out infinite alternate;
+}
+
+@keyframes petal-fall {
+  0% {
+    transform: translate3d(0, -8vh, 0) rotate(0deg);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.85;
+  }
+  50% {
+    transform: translate3d(48px, 52vh, 0) rotate(200deg);
+  }
+  88% {
+    opacity: 0.45;
+  }
+  100% {
+    transform: translate3d(-12px, 112vh, 0) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes heart-rise {
+  0% {
+    transform: translate3d(0, 0, 0) scale(0.7);
+    opacity: 0;
+  }
+  18% {
+    opacity: 0.9;
+  }
+  60% {
+    transform: translate3d(30px, -55vh, 0) scale(1.05);
+  }
+  100% {
+    transform: translate3d(-10px, -110vh, 0) scale(1.15);
+    opacity: 0;
+  }
+}
+
+@keyframes spark-twinkle {
+  0%,
+  100% {
+    transform: scale(0.6) rotate(0deg);
+    opacity: 0.2;
+  }
+  50% {
+    transform: scale(1.1) rotate(90deg);
+    opacity: 0.9;
+  }
+}
+
+@keyframes glow-drift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(40px, -36px, 0) scale(1.15);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .decor-layer {
+    display: none;
   }
 }

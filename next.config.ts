@@ -1,27 +1,23 @@
 import type { NextConfig } from "next";
 
+const isGithubPages = process.env.GITHUB_PAGES === "true";
+const basePath = process.env.BASE_PATH || "";
+
 const nextConfig: NextConfig = {
+  ...(isGithubPages
+    ? {
+        output: "export",
+        basePath,
+        assetPrefix: basePath ? `${basePath}/` : undefined,
+        trailingSlash: true,
+      }
+    : {}),
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "media.themoviedb.org",
-        pathname: "/t/p/**",
-      },
-      {
-        protocol: "https",
-        hostname: "image.tmdb.org",
-        pathname: "/t/p/**",
-      },
-      {
-        protocol: "https",
-        hostname: "upload.wikimedia.org",
-        pathname: "/wikipedia/commons/**",
-      },
-    ],
+    // 所有图片均本地托管于 public/images，无需远程域名白名单。
     dangerouslyAllowSVG: true,
     contentDispositionType: "attachment",
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    ...(isGithubPages ? { unoptimized: true } : {}),
   },
 };
 

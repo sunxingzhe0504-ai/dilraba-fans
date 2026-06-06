@@ -6,31 +6,20 @@ type TimelineProps = {
 
 export function Timeline({ entries }: TimelineProps) {
   return (
-    <div className="relative space-y-8 before:absolute before:left-4 before:top-2 before:h-[calc(100%-1rem)] before:w-px before:bg-border sm:before:left-1/2">
-      {entries.map((entry, index) => (
+    <div className="relative border-l border-border pl-8 sm:pl-12">
+      {entries.map((entry) => (
         <div
           key={`${entry.year}-${entry.title}`}
-          className={`relative flex flex-col gap-4 sm:flex-row sm:items-center ${
-            index % 2 === 0 ? "sm:flex-row-reverse" : ""
-          }`}
+          className="group relative pb-12 last:pb-0"
         >
-          <div className="hidden flex-1 sm:block" />
-          <div className="absolute left-4 z-10 flex h-8 w-8 -translate-x-1/2 items-center justify-center rounded-full border-2 border-accent bg-background sm:left-1/2">
-            <span className="h-2 w-2 rounded-full bg-primary" />
-          </div>
-          <div className="ml-12 flex-1 sm:ml-0">
-            <article className="fan-card p-6 shadow-sm">
-              <time className="text-sm font-medium text-accent">
-                {entry.year} 年
-              </time>
-              <h3 className="mt-1 font-serif text-lg font-semibold text-primary">
-                {entry.title}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted">
-                {entry.description}
-              </p>
-            </article>
-          </div>
+          <span className="absolute -left-[37px] top-1.5 flex h-3 w-3 items-center justify-center sm:-left-[53px]">
+            <span className="h-3 w-3 rounded-full border border-gold bg-background transition-colors group-hover:bg-wine" />
+          </span>
+          <time className="display text-3xl text-gold">{entry.year}</time>
+          <h3 className="display mt-1 text-xl text-wine-deep">{entry.title}</h3>
+          <p className="mt-2 max-w-xl text-sm leading-relaxed text-ink-soft">
+            {entry.description}
+          </p>
         </div>
       ))}
     </div>

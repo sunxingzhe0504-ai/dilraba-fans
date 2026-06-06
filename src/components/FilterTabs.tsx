@@ -6,7 +6,7 @@ import { WORK_TYPE_LABELS } from "@/lib/types";
 import { cn } from "@/lib/cn";
 
 const filters: { value: WorkType | "all"; label: string }[] = [
-  { value: "all", label: "全部 ✨" },
+  { value: "all", label: "全部" },
   { value: "tv", label: WORK_TYPE_LABELS.tv },
   { value: "film", label: WORK_TYPE_LABELS.film },
   { value: "variety", label: WORK_TYPE_LABELS.variety },
@@ -20,27 +20,31 @@ type FilterTabsProps = {
 export function FilterTabs({ active, onChange }: FilterTabsProps) {
   return (
     <div
-      className="flex flex-wrap gap-2"
+      className="flex flex-wrap gap-6 border-b border-border pb-px"
       role="tablist"
       aria-label="作品类型筛选"
     >
-      {filters.map((filter) => (
-        <button
-          key={filter.value}
-          type="button"
-          role="tab"
-          aria-selected={active === filter.value}
-          onClick={() => onChange(filter.value)}
-          className={cn(
-            "rounded-full px-5 py-2 text-sm font-medium transition-all",
-            active === filter.value
-              ? "bg-gradient-to-r from-primary to-primary-soft text-white shadow-md shadow-primary/20"
-              : "bg-white/80 text-muted ring-1 ring-border hover:bg-rose-glow/50 hover:text-primary",
-          )}
-        >
-          {filter.label}
-        </button>
-      ))}
+      {filters.map((filter) => {
+        const isActive = active === filter.value;
+        return (
+          <button
+            key={filter.value}
+            type="button"
+            role="tab"
+            aria-selected={isActive}
+            onClick={() => onChange(filter.value)}
+            className={cn(
+              "relative -mb-px pb-3 text-sm tracking-wide transition-colors",
+              isActive ? "text-wine" : "text-ink-mute hover:text-ink",
+            )}
+          >
+            {filter.label}
+            {isActive && (
+              <span className="absolute -bottom-px left-0 h-0.5 w-full bg-wine" />
+            )}
+          </button>
+        );
+      })}
     </div>
   );
 }
