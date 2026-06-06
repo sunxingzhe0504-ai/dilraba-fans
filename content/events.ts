@@ -2,7 +2,7 @@ import type { FanEvent } from "@/lib/types";
 
 /**
  * 活动信息（品牌 / 公益 / 首映 / 颁奖等）。
- * 仅收录正面、公开的活动；以公开报道为准，个别仅知月份的活动日期为近似值。
+ * 仅收录有公开报道或官方渠道可核实的活动；日期与出席情况须可追溯，勿写入未证实信息。
  */
 export const events: FanEvent[] = [
   {
@@ -23,16 +23,6 @@ export const events: FanEvent[] = [
     location: "爱奇艺",
     summary:
       "微尘剧场 6 集迷你剧释出首支预告，迪丽热巴一人分饰双生卫蓝，改编自《蓝，另一种蓝》。",
-    featured: true,
-  },
-  {
-    slug: "weibo-night-2026",
-    title: "微博之夜 2026",
-    date: "2026-06-06",
-    category: "award",
-    location: "待公布",
-    summary:
-      "正式官宣出席微博之夜年度盛典，时隔一年再度亮相红毯，与业界同仁共同见证年度文娱高光时刻。",
     featured: true,
   },
   {
@@ -68,11 +58,11 @@ export const events: FanEvent[] = [
   {
     slug: "dior-suzhou-high-jewelry-2026",
     title: "Dior 高级珠宝系列活动（苏州）",
-    date: "2026-03-15",
+    date: "2026-03-20",
     category: "brand",
     location: "苏州",
     summary:
-      "作为 Dior 全球品牌大使，出席品牌于苏州举办的高级珠宝系列活动，以东方韵致的造型亮相，展现高级珠宝的优雅气场。",
+      "作为 Dior 全球品牌大使，出席品牌于苏州举办的高级珠宝晚宴（VILLA DIOR 臻赏晚宴），佩戴 Belle Dior 系列珠宝亮相。",
     featured: true,
   },
   {

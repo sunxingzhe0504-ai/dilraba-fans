@@ -11,7 +11,7 @@ export const news: NewsItem[] = [
     summary:
       "爱奇艺微尘剧场迷你剧释出首支预告，迪丽热巴一人分饰双生卫蓝，搭档陈昊森，改编自《蓝，另一种蓝》。",
     body:
-      "该剧共 6 集，每集约 45 分钟，由翁子光监制、吴辰珵执导，卢文莹与王一寓编剧。拍摄横跨北京与泉州，通过都市与小镇的双线对比呈现两个卫蓝的人生落差。爱奇艺站内预约量已突破 80 万。",
+      "该剧共 6 集，每集约 45 分钟，由翁子光监制、吴辰珵执导，卢文莹与王一寓编剧。拍摄横跨北京与泉州，通过都市与小镇的双线对比呈现两个卫蓝的人生落差。播出信息以爱奇艺平台官宣为准。",
     workSlug: "sui-ran-bu-neng-yiqie",
     externalUrl: "https://movie.douban.com/subject/36707564/",
     featured: true,
@@ -28,23 +28,13 @@ export const news: NewsItem[] = [
     featured: true,
   },
   {
-    slug: "weibo-night-2026",
-    title: "官宣出席微博之夜",
-    date: "2026-06-06",
-    category: "event",
-    summary: "正式官宣加盟微博之夜年度盛典，时隔一年再度亮相红毯，引发广泛关注。",
-    eventSlug: "weibo-night-2026",
-    externalUrl: OFFICIAL_CHANNELS.weibo.personal.href,
-    featured: true,
-  },
-  {
     slug: "jia-ren-june-2026",
     title: "《嘉人》六月刊生日封面",
     date: "2026-06-02",
     category: "fashion",
     summary: "登上《嘉人》2026 年 6 月生日刊封面「AS SHE IS / 如她所是」，成为中国 90 后首位完成五大女刊全满贯的艺人。",
     magazineSlug: "jia-ren-2026-06",
-    externalUrl: OFFICIAL_CHANNELS.weibo.personal.href,
+    externalUrl: "https://www.marieclaire.com.cn/",
     featured: true,
   },
   {
@@ -80,10 +70,11 @@ export const news: NewsItem[] = [
   {
     slug: "dior-suzhou-2026",
     title: "Dior 苏州高级珠宝活动",
-    date: "2026-03-15",
+    date: "2026-03-20",
     category: "fashion",
-    summary: "以 Dior 全球品牌大使身份出席苏州高级珠宝系列活动，东方韵致造型亮相。",
-    externalUrl: OFFICIAL_CHANNELS.dior.href,
+    summary: "以 Dior 全球品牌大使身份出席苏州高级珠宝晚宴，佩戴 Belle Dior 系列珠宝亮相。",
+    eventSlug: "dior-suzhou-high-jewelry-2026",
+    externalUrl: "https://news.qq.com/rain/a/20260320A08FSQ00",
     featured: true,
   },
   {

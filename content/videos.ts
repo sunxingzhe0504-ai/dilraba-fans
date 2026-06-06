@@ -319,12 +319,12 @@ export const videos: VideoItem[] = [
   {
     slug: "dior-suzhou-event",
     title: "Dior 苏州高级珠宝活动",
-    date: "2026-03-15",
+    date: "2026-03-20",
     category: "event",
     platform: "weibo",
-    href: "https://www.dior.cn/zh_cn",
+    href: "https://news.qq.com/rain/a/20260320A08FSQ00",
     thumbnail: p.redBlack,
-    summary: "全球品牌大使出席高级珠宝系列活动。",
+    summary: "全球品牌大使出席苏州高级珠宝晚宴，佩戴 Belle Dior 系列珠宝亮相。",
     featured: true,
   },
   {

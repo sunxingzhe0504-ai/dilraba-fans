@@ -78,9 +78,9 @@ export const brandHighlights: BrandHighlight[] = [
   {
     slug: "dior-suzhou-jewelry",
     title: "苏州高级珠宝活动",
-    date: "2026-03",
-    summary: "出席 Dior 于苏州举办的高级珠宝系列活动，东方韵致与高定珠宝相映。",
-    externalUrl: "https://www.dior.cn/zh_cn",
+    date: "2026-03-20",
+    summary: "出席 Dior 于苏州举办的高级珠宝晚宴，佩戴 Belle Dior 系列珠宝亮相。",
+    externalUrl: "https://news.qq.com/rain/a/20260320A08FSQ00",
   },
   {
     slug: "magazine-grand-slam-2026",
@@ -122,6 +122,14 @@ export const charityItems: CharityItem[] = [
 ];
 
 export const changelog: ChangelogEntry[] = [
+  {
+    date: "2026-06-07",
+    items: [
+      "移除无法核实的「微博之夜 2026」活动与动态条目",
+      "校正 Dior 苏州高珠活动日期为 2026-03-20，并补充可查证报道链接",
+      "移除未核实预约量表述；嘉人六月刊动态改为链至官方刊物页面",
+    ],
+  },
   {
     date: "2026-06-04",
     items: [

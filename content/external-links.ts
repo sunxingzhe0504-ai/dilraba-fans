@@ -137,9 +137,9 @@ export const EVENT_EXTERNAL_LINKS: Record<string, ExternalLink[]> = {
   "dior-suzhou-high-jewelry-2026": [
     linkDiorCn(),
     {
-      label: "Dior 官方新闻",
-      href: "https://www.dior.com/en_int/news",
-      kind: "official",
+      label: "腾讯新闻 · 苏州高珠晚宴",
+      href: "https://news.qq.com/rain/a/20260320A08FSQ00",
+      kind: "info",
     },
   ],
   "li-jian-mei-gui-premiere-2025": [
@@ -171,10 +171,6 @@ export const EVENT_EXTERNAL_LINKS: Record<string, ExternalLink[]> = {
     db("36707564"),
     watchIqiyi("虽然不能同时拥有一切"),
   ],
-  "weibo-night-2026": [
-    linkWeiboNight(),
-    linkWeiboPersonal(),
-  ],
   "birthday-2026": [
     linkWeiboStudio(),
     linkWeiboPersonal(),
@@ -185,7 +181,11 @@ export const EVENT_EXTERNAL_LINKS: Record<string, ExternalLink[]> = {
       href: "https://www.marieclaire.com.cn/",
       kind: "official",
     },
-    linkWeiboPersonal(),
+    {
+      label: "新浪娱乐 · 五大女刊满贯",
+      href: "https://ent.sina.cn/2026-06-03/detail-iniacaet1017107.d.html",
+      kind: "info",
+    },
   ],
   "dior-paris-fashion-week-2024": [
     linkDiorCn(),
