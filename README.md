@@ -155,7 +155,8 @@ npm run start
 
 ## 功能特性
 
-- **全站搜索**：导航栏 `Ctrl+K` / `⌘K` 快捷搜索作品、角色、杂志、活动、动态
+- **全站搜索**：导航栏 `Ctrl+K` / `⌘K` 快捷搜索作品、角色、杂志、活动、动态（支持中英关键词）
+- **中英双语**：导航栏 `中文 / EN` 切换，UI 与内容字段同步本地化，偏好保存在本机
 - **四套百变风格**：右下角主题切换，偏好保存在本机
 - **RSS 订阅**：`/feed.xml` 聚合最新动态与站点更新
 - **SEO**：自动生成 `sitemap.xml`、`robots.txt`、Open Graph 与 Twitter Card 预览
@@ -165,7 +166,7 @@ npm run start
 
 - [ ] 接入 Headless CMS（Notion / Contentful）
 - [ ] MDX 长文（`/stories/[slug]`）活动回顾
-- [ ] 多语言支持
+- [ ] 补全更多内容的英文翻译字段
 
 ## 免责声明
 

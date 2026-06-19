@@ -3,10 +3,12 @@ import Script from "next/script";
 import { Cormorant_Garamond, Ma_Shan_Zheng, Noto_Sans_SC } from "next/font/google";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { LocaleProvider } from "@/components/LocaleProvider";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 import { Decorations } from "@/components/Decorations";
 import { DEFAULT_THEME, THEME_STORAGE_KEY } from "@/lib/themes";
+import { DEFAULT_LOCALE, LOCALE_STORAGE_KEY } from "@/lib/i18n/types";
 import { getSiteUrl } from "@/lib/site-url";
 import { assetPath } from "@/lib/asset-path";
 import "./globals.css";
@@ -72,17 +74,19 @@ export default function RootLayout({
     >
       <head>
         <Script id="theme-init" strategy="beforeInteractive">
-          {`(function(){try{var t=localStorage.getItem('${THEME_STORAGE_KEY}')||'${DEFAULT_THEME}';document.documentElement.dataset.theme=t;}catch(e){document.documentElement.dataset.theme='${DEFAULT_THEME}';}})();`}
+          {`(function(){try{var t=localStorage.getItem('${THEME_STORAGE_KEY}')||'${DEFAULT_THEME}';document.documentElement.dataset.theme=t;var l=localStorage.getItem('${LOCALE_STORAGE_KEY}')||'${DEFAULT_LOCALE}';document.documentElement.lang=l==='en'?'en':'zh-CN';}catch(e){document.documentElement.dataset.theme='${DEFAULT_THEME}';document.documentElement.lang='zh-CN';}})();`}
         </Script>
       </head>
       <body className="flex min-h-full flex-col antialiased">
-        <ThemeProvider>
-          <Decorations />
-          <SiteHeader />
-          <main className="flex-1">{children}</main>
-          <SiteFooter />
-          <ThemeSwitcher />
-        </ThemeProvider>
+        <LocaleProvider>
+          <ThemeProvider>
+            <Decorations />
+            <SiteHeader />
+            <main className="flex-1">{children}</main>
+            <SiteFooter />
+            <ThemeSwitcher />
+          </ThemeProvider>
+        </LocaleProvider>
       </body>
     </html>
   );

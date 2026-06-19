@@ -4,6 +4,37 @@ import { OFFICIAL_CHANNELS } from "./official-channels";
 /** 最新动态：以公开信息为准，按时间倒序维护 */
 export const news: NewsItem[] = [
   {
+    slug: "china-film-tv-night-2026",
+    title: "中国影视之夜红毯 · 获 CMG 年度推荐女演员",
+    titleEn: "China Film & TV Night · CMG Recommended TV Actress",
+    date: "2026-06-15",
+    category: "event",
+    summary:
+      "时隔 605 天重返公开红毯，Georges Hobeika 高定搭配 Mikimoto 珠宝亮相；凭《利剑·玫瑰》获 CMG 年度推荐电视剧女演员。",
+    summaryEn:
+      "First red carpet in 605 days in Georges Hobeika couture and Mikimoto jewels; CMG Recommended TV Actress for Sword Rose.",
+    body:
+      "2026 中国影视之夜于上海国际电影节期间在上海举办，为总台主办的行业活动。迪丽热巴身着 Georges Hobeika 2026 春夏玫红钉珠鱼尾礼服亮相红毯，并获 CMG 年度推荐电视剧女演员。",
+    bodyEn:
+      "The 2026 China Film & TV Night was held in Shanghai during the film festival. Dilraba appeared in a Georges Hobeika 2026 SS gown and received CMG Recommended TV Actress.",
+    eventSlug: "china-film-tv-night-2026",
+    externalUrl: "https://k.sina.com.cn/article_7096020439_1a6f4add706801rzeo.html",
+    featured: true,
+  },
+  {
+    slug: "macalline-june-2026",
+    title: "六月行程 · 红星美凯龙品牌活动",
+    titleEn: "June Schedule · Macalline Brand Event",
+    date: "2026-06-01",
+    category: "event",
+    summary: "工作室发布六月行程，6 月 27 日将出席红星美凯龙品牌活动。",
+    summaryEn:
+      "Studio released the June schedule — a Macalline brand event is set for June 27.",
+    eventSlug: "macalline-brand-2026",
+    externalUrl: OFFICIAL_CHANNELS.weibo.studio.href,
+    featured: true,
+  },
+  {
     slug: "sui-ran-bu-neng-yiqie-trailer-news",
     title: "《虽然不能同时拥有一切》首支预告发布",
     date: "2026-04-20",
@@ -30,9 +61,12 @@ export const news: NewsItem[] = [
   {
     slug: "jia-ren-june-2026",
     title: "《嘉人》六月刊生日封面",
+    titleEn: "Marie Claire June Birthday Cover",
     date: "2026-06-02",
     category: "fashion",
     summary: "登上《嘉人》2026 年 6 月生日刊封面「AS SHE IS / 如她所是」，成为中国 90 后首位完成五大女刊全满贯的艺人。",
+    summaryEn:
+      "Covers Marie Claire China June 2026 \"AS SHE IS\" — first post-90s artist to complete China's \"Big Five\" women's magazine cover grand slam.",
     magazineSlug: "jia-ren-2026-06",
     externalUrl: "https://www.marieclaire.com.cn/",
     featured: true,
@@ -40,9 +74,12 @@ export const news: NewsItem[] = [
   {
     slug: "birthday-2026",
     title: "2026 生日 · 六月行程发布",
+    titleEn: "2026 Birthday · June Schedule",
     date: "2026-06-03",
     category: "event",
     summary: "工作室发布 6 月 3 日生日祝福与六月行程，开启「甜心模式」夏日奇遇。",
+    summaryEn:
+      "Studio shared birthday wishes on June 3 and released the June schedule — \"sweetheart mode\" summer adventures.",
     eventSlug: "birthday-2026",
     externalUrl: OFFICIAL_CHANNELS.weibo.studio.href,
     featured: true,

@@ -280,42 +280,102 @@ export type SearchResult = {
   excerpt?: string;
 };
 
-/** 全站搜索索引（静态内容） */
+/** 全站搜索索引（静态内容，中英双语字段） */
 export function searchSite(query: string, limit = 12): SearchResult[] {
   const q = query.trim().toLowerCase();
   if (!q) return [];
 
   const pool: SearchResult[] = [
-    ...getWorks().map((w) => ({
-      title: w.title,
-      href: `/works/${w.slug}`,
-      type: "作品",
-      excerpt: `饰 ${w.role}`,
-    })),
-    ...getMagazines().map((m) => ({
-      title: m.name,
-      href: `/magazine/${m.slug}`,
-      type: "杂志",
-      excerpt: m.issue,
-    })),
-    ...getEvents().map((e) => ({
-      title: e.title,
-      href: `/events/${e.slug}`,
-      type: "活动",
-      excerpt: e.summary.slice(0, 60),
-    })),
-    ...getNews().map((n) => ({
-      title: n.title,
-      href: `/latest/${n.slug}`,
-      type: "动态",
-      excerpt: n.summary.slice(0, 60),
-    })),
-    ...getCharacters().map((c) => ({
-      title: c.name,
-      href: `/characters/${c.slug}`,
-      type: "角色",
-      excerpt: c.workTitle,
-    })),
+    ...getWorks().flatMap((w) => [
+      {
+        title: w.title,
+        href: `/works/${w.slug}`,
+        type: "作品",
+        excerpt: `饰 ${w.role}`,
+      },
+      ...(w.titleEn
+        ? [
+            {
+              title: w.titleEn,
+              href: `/works/${w.slug}`,
+              type: "Work",
+              excerpt: `as ${(w as { roleEn?: string }).roleEn ?? w.role}`,
+            },
+          ]
+        : []),
+    ]),
+    ...getMagazines().flatMap((m) => [
+      {
+        title: m.name,
+        href: `/magazine/${m.slug}`,
+        type: "杂志",
+        excerpt: m.issue,
+      },
+      ...((m as { nameEn?: string }).nameEn
+        ? [
+            {
+              title: (m as { nameEn: string }).nameEn,
+              href: `/magazine/${m.slug}`,
+              type: "Magazine",
+              excerpt: (m as { issueEn?: string }).issueEn ?? m.issue,
+            },
+          ]
+        : []),
+    ]),
+    ...getEvents().flatMap((e) => [
+      {
+        title: e.title,
+        href: `/events/${e.slug}`,
+        type: "活动",
+        excerpt: e.summary.slice(0, 60),
+      },
+      ...(e.titleEn
+        ? [
+            {
+              title: e.titleEn,
+              href: `/events/${e.slug}`,
+              type: "Event",
+              excerpt: (e.summaryEn ?? e.summary).slice(0, 60),
+            },
+          ]
+        : []),
+    ]),
+    ...getNews().flatMap((n) => [
+      {
+        title: n.title,
+        href: `/latest/${n.slug}`,
+        type: "动态",
+        excerpt: n.summary.slice(0, 60),
+      },
+      ...(n.titleEn
+        ? [
+            {
+              title: n.titleEn,
+              href: `/latest/${n.slug}`,
+              type: "News",
+              excerpt: (n.summaryEn ?? n.summary).slice(0, 60),
+            },
+          ]
+        : []),
+    ]),
+    ...getCharacters().flatMap((c) => [
+      {
+        title: c.name,
+        href: `/characters/${c.slug}`,
+        type: "角色",
+        excerpt: c.workTitle,
+      },
+      ...(c.nameEn
+        ? [
+            {
+              title: c.nameEn,
+              href: `/characters/${c.slug}`,
+              type: "Character",
+              excerpt: (c as { workTitleEn?: string }).workTitleEn ?? c.workTitle,
+            },
+          ]
+        : []),
+    ]),
     ...getGallery().map((g) => ({
       title: g.title,
       href: "/gallery",
@@ -335,7 +395,7 @@ export function searchSite(query: string, limit = 12): SearchResult[] {
       (item) =>
         item.title.toLowerCase().includes(q) ||
         item.excerpt?.toLowerCase().includes(q) ||
-        item.type.includes(q),
+        item.type.toLowerCase().includes(q),
     )
     .slice(0, limit);
 }

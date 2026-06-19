@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { Search, X } from "lucide-react";
 import { searchSite, type SearchResult } from "@content/index";
+import { useT } from "@/components/LocaleProvider";
 
 type Props = {
   open?: boolean;
@@ -24,6 +25,7 @@ export function SearchDialog({
   onOpenChange,
   showTrigger = true,
 }: Props) {
+  const t = useT();
   const [internalOpen, setInternalOpen] = useState(false);
   const open = controlledOpen ?? internalOpen;
   const setOpen = onOpenChange ?? setInternalOpen;
@@ -65,10 +67,10 @@ export function SearchDialog({
           type="button"
           onClick={() => setOpen(true)}
           className="hidden items-center gap-2 rounded-full border border-border px-3 py-1.5 text-xs text-ink-mute transition-colors hover:border-wine hover:text-wine lg:inline-flex"
-          aria-label="搜索"
+          aria-label={t("nav.search")}
         >
           <Search size={14} />
-          搜索
+          {t("nav.search")}
           <kbd className="rounded bg-background-deep px-1.5 py-0.5 text-[10px]">{modKey}K</kbd>
         </button>
       )}
@@ -83,7 +85,7 @@ export function SearchDialog({
             className="w-full max-w-lg overflow-hidden rounded-2xl border border-border bg-paper shadow-2xl"
             role="dialog"
             aria-modal="true"
-            aria-label="全站搜索"
+            aria-label={t("search.dialog")}
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center gap-2 border-b border-border px-4">
@@ -92,17 +94,17 @@ export function SearchDialog({
                 autoFocus
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="搜索作品、角色、杂志、活动…"
+                placeholder={t("search.placeholder")}
                 className="flex-1 bg-transparent py-4 text-sm outline-none"
               />
-              <button type="button" onClick={close} aria-label="关闭">
+              <button type="button" onClick={close} aria-label={t("search.close")}>
                 <X size={18} className="text-ink-mute" />
               </button>
             </div>
             <ul className="max-h-[50vh] overflow-auto p-2">
               {results.length === 0 ? (
                 <li className="px-3 py-8 text-center text-sm text-ink-mute">
-                  {query ? "未找到相关内容" : "输入关键词开始搜索"}
+                  {query ? t("search.noResults") : t("search.empty")}
                 </li>
               ) : (
                 results.map((r: SearchResult) => (

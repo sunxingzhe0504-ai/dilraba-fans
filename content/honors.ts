@@ -6,8 +6,17 @@ import type { Honor, TimelineEntry } from "@/lib/types";
 export const honors: Honor[] = [
   {
     year: 2026,
-    title: "《九重天》进组，《虽然不能同时拥有一切》预告发布",
+    title: "中国影视之夜获 CMG 年度推荐电视剧女演员",
+    titleEn: "CMG Recommended TV Actress at China Film & TV Night",
     source: "公开报道",
+    sourceEn: "Public reports",
+  },
+  {
+    year: 2026,
+    title: "《九重天》进组，《虽然不能同时拥有一切》预告发布",
+    titleEn: "Nine Heavens filming; You Can't Have Everything trailer",
+    source: "公开报道",
+    sourceEn: "Public reports",
   },
   {
     year: 2026,

@@ -4,26 +4,29 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Heart, Menu, Search, X } from "lucide-react";
+import { LocaleSwitcher } from "@/components/LocaleSwitcher";
 import { SearchDialog } from "@/components/SearchDialog";
+import { useT } from "@/components/LocaleProvider";
 import { cn } from "@/lib/cn";
-
-const navItems = [
-  { href: "/", label: "首页" },
-  { href: "/latest", label: "最新" },
-  { href: "/works", label: "作品" },
-  { href: "/videos", label: "视频" },
-  { href: "/gallery", label: "图库" },
-  { href: "/characters", label: "角色" },
-  { href: "/magazine", label: "杂志" },
-  { href: "/events", label: "活动" },
-  { href: "/about", label: "关于" },
-];
 
 export function SiteHeader() {
   const pathname = usePathname();
+  const t = useT();
   const [open, setOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  const navItems = [
+    { href: "/", label: t("nav.home") },
+    { href: "/latest", label: t("nav.latest") },
+    { href: "/works", label: t("nav.works") },
+    { href: "/videos", label: t("nav.videos") },
+    { href: "/gallery", label: t("nav.gallery") },
+    { href: "/characters", label: t("nav.characters") },
+    { href: "/magazine", label: t("nav.magazine") },
+    { href: "/events", label: t("nav.events") },
+    { href: "/about", label: t("nav.about") },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16);
@@ -50,15 +53,15 @@ export function SiteHeader() {
           />
           <span className="flex flex-col">
             <span className="zh-display text-2xl text-wine-deep transition-colors group-hover:text-wine">
-              迪丽热巴
+              {t("site.name")}
             </span>
             <span className="mt-0.5 text-[10px] uppercase tracking-[0.3em] text-ink-mute">
-              Dilraba · Fan Site
+              {t("site.tagline")}
             </span>
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-5 lg:flex xl:gap-7" aria-label="主导航">
+        <nav className="hidden items-center gap-5 lg:flex xl:gap-7" aria-label={t("nav.main")}>
           {navItems.map((item) => {
             const active = pathname === item.href;
             return (
@@ -83,15 +86,17 @@ export function SiteHeader() {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
+          <LocaleSwitcher />
           <SearchDialog open={searchOpen} onOpenChange={setSearchOpen} />
         </div>
 
         <div className="flex items-center gap-2 lg:hidden">
+          <LocaleSwitcher />
           <button
             type="button"
             onClick={() => setSearchOpen(true)}
             className="text-wine"
-            aria-label="搜索"
+            aria-label={t("nav.search")}
           >
             <Search size={22} />
           </button>
@@ -100,7 +105,7 @@ export function SiteHeader() {
             className="text-wine"
             onClick={() => setOpen(!open)}
             aria-expanded={open}
-            aria-label={open ? "关闭菜单" : "打开菜单"}
+            aria-label={open ? t("nav.closeMenu") : t("nav.openMenu")}
           >
             {open ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -112,7 +117,7 @@ export function SiteHeader() {
       {open && (
         <nav
           className="border-t border-border bg-background px-5 py-4 lg:hidden"
-          aria-label="移动端导航"
+          aria-label={t("nav.mobile")}
         >
           {navItems.map((item) => (
             <Link
@@ -129,16 +134,16 @@ export function SiteHeader() {
           ))}
           <div className="mt-4 flex flex-wrap gap-3 border-t border-border pt-4 text-sm">
             <Link href="/videos" className="text-wine" onClick={() => setOpen(false)}>
-              视频专区
+              {t("nav.videoZone")}
             </Link>
             <Link href="/upcoming" className="text-wine" onClick={() => setOpen(false)}>
-              待播专区
+              {t("nav.upcoming")}
             </Link>
             <Link href="/fashion" className="text-wine" onClick={() => setOpen(false)}>
-              时尚
+              {t("nav.fashion")}
             </Link>
             <Link href="/fans" className="text-wine" onClick={() => setOpen(false)}>
-              粉丝文化
+              {t("nav.fans")}
             </Link>
           </div>
         </nav>

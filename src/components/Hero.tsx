@@ -6,9 +6,13 @@ import { ArrowDown, Heart, Sparkles } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import { getSiteMeta } from "@content/index";
 import { IMAGES } from "@content/images";
+import { useLocale, useT } from "@/components/LocaleProvider";
+import { localizeSiteMeta } from "@/lib/i18n/localize";
 
 export function Hero() {
-  const { heroTagline, heroSubtitle } = getSiteMeta();
+  const locale = useLocale();
+  const t = useT();
+  const { heroTagline, heroSubtitle } = localizeSiteMeta(getSiteMeta(), locale);
   const reduce = useReducedMotion();
 
   const rise = reduce
@@ -20,7 +24,6 @@ export function Hero() {
 
   return (
     <section className="relative overflow-hidden bg-background paper-grain">
-      {/* 柔和光晕背景 */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute right-0 top-0 h-[62vh] w-[62vh] translate-x-1/3 rounded-full bg-blush/70 blur-[130px]" />
         <div className="absolute bottom-0 left-0 h-[46vh] w-[46vh] -translate-x-1/4 rounded-full bg-rouge/20 blur-[130px]" />
@@ -28,7 +31,6 @@ export function Hero() {
       </div>
 
       <div className="container-wide relative grid min-h-[92vh] items-center gap-10 py-24 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
-        {/* 文字 */}
         <motion.div
           {...rise}
           transition={{ duration: 0.9, ease: [0.2, 0.7, 0.2, 1] }}
@@ -61,19 +63,16 @@ export function Hero() {
 
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <Link href="/works" className="btn-primary group">
-              浏览作品
-              <span className="transition-transform group-hover:translate-x-1">
-                →
-              </span>
+              {t("hero.browseWorks")}
+              <span className="transition-transform group-hover:translate-x-1">→</span>
             </Link>
             <Link href="/about" className="btn-ghost">
               <Heart size={15} className="text-rouge" aria-hidden />
-              认识她
+              {t("hero.aboutHer")}
             </Link>
           </div>
         </motion.div>
 
-        {/* 人物大图 */}
         <motion.div
           initial={reduce ? undefined : { opacity: 0, scale: 1.04 }}
           animate={reduce ? undefined : { opacity: 1, scale: 1 }}
@@ -83,7 +82,7 @@ export function Hero() {
           <div className="relative mx-auto aspect-[3/4] w-full max-w-md overflow-hidden rounded-[2.25rem] shadow-2xl shadow-wine-deep/20 lg:max-w-none">
             <Image
               src={IMAGES.hero}
-              alt="迪丽热巴写真"
+              alt={t("hero.portraitAlt")}
               fill
               priority
               sizes="(max-width: 1024px) 90vw, 45vw"
@@ -92,10 +91,8 @@ export function Hero() {
             <div className="absolute inset-0 rounded-[2.25rem] ring-1 ring-inset ring-paper/30" />
           </div>
 
-          {/* 装饰边框 */}
           <div className="absolute -right-3 -top-3 -z-10 hidden h-full w-full rounded-[2.25rem] border-2 border-blush-deep/60 lg:block" />
 
-          {/* 漂浮爱心装饰 */}
           <Sparkles
             size={26}
             className="absolute -left-2 top-6 text-gold drop-shadow lg:-left-4"
@@ -106,7 +103,7 @@ export function Hero() {
             <Heart size={18} className="fill-rouge text-rouge" aria-hidden />
             <div>
               <p className="index-num">EST. 2013</p>
-              <p className="display text-lg text-wine">演员 · 时尚 · 公益</p>
+              <p className="display text-lg text-wine">{t("hero.badge")}</p>
             </div>
           </div>
         </motion.div>
@@ -115,9 +112,9 @@ export function Hero() {
       <Link
         href="#featured-works"
         className="absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 text-xs uppercase tracking-[0.25em] text-ink-mute transition-colors hover:text-wine"
-        aria-label="向下滚动浏览精选内容"
+        aria-label={t("site.scrollHint")}
       >
-        Scroll
+        {t("hero.scroll")}
         <ArrowDown className="animate-bounce" size={16} aria-hidden />
       </Link>
     </section>

@@ -3,15 +3,18 @@
 import type { ChangelogEntry } from "@/lib/types";
 import { Container } from "@/components/Container";
 import { SectionTitle } from "@/components/SectionTitle";
-import { useT } from "@/components/LocaleProvider";
+import { useLocale, useT } from "@/components/LocaleProvider";
 import { DesignPageRouter } from "../DesignPageRouter";
 
 export type ChangelogPageProps = { log: ChangelogEntry[] };
 
 function ChangelogList({ log, variant }: ChangelogPageProps & { variant: "c" | "a" | "b" | "d" }) {
+  const locale = useLocale();
   return (
     <ul className={variant === "d" ? "mt-10 space-y-0 divide-y divide-border" : "mt-10 space-y-8"}>
-      {log.map((entry) => (
+      {log.map((entry) => {
+        const items = locale === "en" && entry.itemsEn?.length ? entry.itemsEn : entry.items;
+        return (
         <li
           key={entry.date}
           className={
@@ -24,7 +27,7 @@ function ChangelogList({ log, variant }: ChangelogPageProps & { variant: "c" | "
         >
           <time className="index-num">{entry.date}</time>
           <ul className="mt-3 space-y-2">
-            {entry.items.map((item) => (
+            {items.map((item) => (
               <li key={item} className="text-sm text-ink-soft">
                 {variant === "b" ? "✦ " : "· "}
                 {item}
@@ -32,7 +35,8 @@ function ChangelogList({ log, variant }: ChangelogPageProps & { variant: "c" | "
             ))}
           </ul>
         </li>
-      ))}
+      );
+      })}
     </ul>
   );
 }

@@ -23,9 +23,12 @@ export type Work = {
   type: WorkType;
   year: number;
   role: string;
+  roleEn?: string;
   poster: string;
   synopsis: string;
+  synopsisEn?: string;
   highlights?: string[];
+  highlightsEn?: string[];
   status: WorkStatus;
   featured?: boolean;
   /** @deprecated 请使用 externalLinks */
@@ -33,53 +36,70 @@ export type Work = {
   externalLinks?: ExternalLink[];
   /** 播出平台、集数等补充信息 */
   airInfo?: string;
+  airInfoEn?: string;
   cast?: string[];
 };
 
 export type Magazine = {
   slug: string;
   name: string;
+  nameEn?: string;
   issue: string;
+  issueEn?: string;
   year: number;
   cover: string;
   tags?: string[];
   featured?: boolean;
   externalLinks?: ExternalLink[];
   description?: string;
+  descriptionEn?: string;
 };
 
 export type FanEvent = {
   slug: string;
   title: string;
+  titleEn?: string;
   date: string;
   category: EventCategory;
   location?: string;
+  locationEn?: string;
   summary: string;
+  summaryEn?: string;
   images?: string[];
   featured?: boolean;
   externalLinks?: ExternalLink[];
   description?: string;
+  descriptionEn?: string;
 };
 
 export type Honor = {
   year: number;
   title: string;
+  titleEn?: string;
   source?: string;
+  sourceEn?: string;
 };
 
 export type TimelineEntry = {
   year: number;
   title: string;
+  titleEn?: string;
   description: string;
+  descriptionEn?: string;
 };
 
 export type SiteMeta = {
   heroTagline: string;
+  heroTaglineEn?: string;
   heroSubtitle: string;
+  heroSubtitleEn?: string;
   stats: { label: string; value: string }[];
+  statsEn?: { label: string; value: string }[];
   bio: string;
+  bioEn?: string;
   bioExtended: string[];
-  officialLinks: { label: string; href: string }[];
+  bioExtendedEn?: string[];
+  officialLinks: { label: string; labelEn?: string; href: string }[];
 };
 
 export type NewsCategory =
@@ -93,9 +113,11 @@ export type NewsCategory =
 export type NewsItem = {
   slug: string;
   title: string;
+  titleEn?: string;
   date: string;
   category: NewsCategory;
   summary: string;
+  summaryEn?: string;
   externalUrl?: string;
   featured?: boolean;
   /** 关联作品详情页 */
@@ -106,6 +128,7 @@ export type NewsItem = {
   magazineSlug?: string;
   /** 详情页补充正文（可选） */
   body?: string;
+  bodyEn?: string;
 };
 
 export type GalleryCategory =
@@ -128,19 +151,25 @@ export type GalleryItem = {
 export type Character = {
   slug: string;
   name: string;
+  nameEn?: string;
   workSlug: string;
   workTitle: string;
+  workTitleEn?: string;
   year: number;
   image: string;
   quote?: string;
+  quoteEn?: string;
   description: string;
+  descriptionEn?: string;
   featured?: boolean;
 };
 
 export type Quote = {
   id: string;
   text: string;
+  textEn?: string;
   source: string;
+  sourceEn?: string;
   context?: "interview" | "drama" | "event";
 };
 
@@ -160,8 +189,10 @@ export type CommunityLink = {
 export type FanCulture = {
   fanName: string;
   fanNameNote: string;
+  fanNameNoteEn?: string;
   nicknames: string[];
   fanGuide: string[];
+  fanGuideEn?: string[];
   anniversaries: Anniversary[];
   communityLinks: CommunityLink[];
 };
@@ -186,6 +217,7 @@ export type CharityItem = {
 export type ChangelogEntry = {
   date: string;
   items: string[];
+  itemsEn?: string[];
 };
 
 export type VideoCategory =

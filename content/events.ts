@@ -6,6 +6,38 @@ import type { FanEvent } from "@/lib/types";
  */
 export const events: FanEvent[] = [
   {
+    slug: "macalline-brand-2026",
+    title: "红星美凯龙品牌活动",
+    titleEn: "Macalline Brand Event",
+    date: "2026-06-27",
+    category: "brand",
+    location: "待定",
+    locationEn: "TBA",
+    summary:
+      "工作室六月行程公布，6 月 27 日出席红星美凯龙品牌活动；具体以官方通知为准。",
+    summaryEn:
+      "Per the studio's June schedule, Dilraba will attend a Macalline brand event on June 27; details subject to official confirmation.",
+    featured: true,
+  },
+  {
+    slug: "china-film-tv-night-2026",
+    title: "2026 中国影视之夜",
+    titleEn: "2026 China Film & TV Night",
+    date: "2026-06-15",
+    category: "award",
+    location: "上海",
+    locationEn: "Shanghai",
+    summary:
+      "时隔 605 天再度亮相公开红毯，身着 Georges Hobeika 2026 春夏高定礼服与 Mikimoto 高级珠宝；凭《利剑·玫瑰》获 CMG 年度推荐电视剧女演员。",
+    summaryEn:
+      "Returned to the red carpet after 605 days in Georges Hobeika 2026 SS couture with Mikimoto high jewelry; won CMG Recommended TV Actress for Sword Rose.",
+    description:
+      "活动由中央广播电视总台上海总站、文艺节目中心与央视频联合主办，为上海国际电影节期间的行业活动。红毯造型为 Georges Hobeika 2026 春夏玫红钉珠刺绣鱼尾礼服，搭配 Mikimoto 珍珠珠宝。内场获 CMG 年度推荐电视剧女演员，推荐作品为《利剑·玫瑰》邓妍一角。",
+    descriptionEn:
+      "Co-hosted by CMG Shanghai and related centers during the Shanghai International Film Festival. She wore a rose-pink Georges Hobeika 2026 SS beaded mermaid gown with Mikimoto pearls, and received CMG Recommended TV Actress for her role as Deng Yan in Sword Rose.",
+    featured: true,
+  },
+  {
     slug: "jiu-chong-tian-filming-2026",
     title: "《九重天》进组拍摄",
     date: "2026-01-12",

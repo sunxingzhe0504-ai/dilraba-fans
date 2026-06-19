@@ -125,9 +125,14 @@ export const changelog: ChangelogEntry[] = [
   {
     date: "2026-06-19",
     items: [
+      "全站中英双语：导航栏语言切换，内容字段与 UI 文案同步本地化",
+      "补充 2026 中国影视之夜红毯与 CMG 年度推荐女演员、六月红星美凯龙行程",
       "新增 sitemap.xml、robots.txt 与 Web App Manifest，完善 SEO 与社交分享预览",
-      "定制 404 页面；搜索支持点击遮罩关闭、Windows Ctrl+K 快捷键提示",
-      "统一 siteUrl 工具函数，RSS 链接与站点地图保持一致",
+    ],
+    itemsEn: [
+      "Site-wide zh/en toggle with localized content fields and UI copy",
+      "Added 2026 China Film & TV Night red carpet, CMG Recommended TV Actress, and June Macalline schedule",
+      "Added sitemap.xml, robots.txt, and Web App Manifest for SEO and social previews",
     ],
   },
   {
