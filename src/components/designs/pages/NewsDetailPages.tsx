@@ -1,12 +1,20 @@
 "use client";
 
+import { useMemo } from "react";
 import Link from "next/link";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import type { FanEvent, Magazine, NewsItem, Work } from "@/lib/types";
-import { NEWS_CATEGORY_LABELS } from "@/lib/types";
 import { formatDate } from "@/lib/format";
 import { Container } from "@/components/Container";
 import { ExternalLinks } from "@/components/ExternalLinks";
+import { useLocale, useT } from "@/components/LocaleProvider";
+import {
+  localizeEvent,
+  localizeMagazine,
+  localizeNews,
+  localizeWork,
+} from "@/lib/i18n/localize";
+import { newsCategoryLabel } from "@/lib/i18n/labels";
 import { DesignPageRouter } from "../DesignPageRouter";
 
 export type NewsDetailRelated = {
@@ -20,28 +28,65 @@ export type NewsDetailPageProps = {
   related: NewsDetailRelated;
 };
 
+function useLocalizedNewsDetail({ item, related }: NewsDetailPageProps) {
+  const locale = useLocale();
+  const localizedItem = useMemo(() => localizeNews(item, locale), [item, locale]);
+  const localizedRelated = useMemo(
+    () => ({
+      work: related.work ? localizeWork(related.work, locale) : undefined,
+      event: related.event ? localizeEvent(related.event, locale) : undefined,
+      magazine: related.magazine ? localizeMagazine(related.magazine, locale) : undefined,
+    }),
+    [related, locale],
+  );
+  return { item: localizedItem, related: localizedRelated };
+}
+
 function NewsMeta({ item }: { item: NewsItem }) {
+  const locale = useLocale();
   return (
     <>
       <span className="pill bg-blush/50 text-wine">
-        {NEWS_CATEGORY_LABELS[item.category]}
+        {newsCategoryLabel(item.category, locale)}
       </span>
-      <time className="mt-4 block text-sm text-ink-mute">{formatDate(item.date)}</time>
+      <time className="mt-4 block text-sm text-ink-mute">{formatDate(item.date, locale)}</time>
     </>
   );
 }
 
-function NewsRelated({ related, item }: NewsDetailPageProps) {
+function NewsRelated({
+  related,
+  item,
+}: {
+  item: NewsItem;
+  related: NewsDetailRelated;
+}) {
+  const t = useT();
   const links: { label: string; href: string }[] = [];
-  if (related.work) links.push({ label: `作品 · ${related.work.title}`, href: `/works/${related.work.slug}` });
-  if (related.event) links.push({ label: `活动 · ${related.event.title}`, href: `/events/${related.event.slug}` });
-  if (related.magazine) links.push({ label: `杂志 · ${related.magazine.name}`, href: `/magazine/${related.magazine.slug}` });
+  if (related.work) {
+    links.push({
+      label: `${t("common.relatedWorkLabel")} · ${related.work.title}`,
+      href: `/works/${related.work.slug}`,
+    });
+  }
+  if (related.event) {
+    links.push({
+      label: `${t("common.relatedEventLabel")} · ${related.event.title}`,
+      href: `/events/${related.event.slug}`,
+    });
+  }
+  if (related.magazine) {
+    links.push({
+      label: `${t("common.relatedMagazineLabel")} · ${related.magazine.name}`,
+      href: `/magazine/${related.magazine.slug}`,
+    });
+  }
 
   if (links.length === 0 && !item.externalUrl) return null;
 
   return (
     <div className="mt-10">
-      <h2 className="kicker">相关链接</h2>
+      <h2 className="kicker">{t("common.relatedLinks")}</h2>
       <div className="mt-4 flex flex-wrap gap-3">
         {links.map((l) => (
           <Link key={l.href} href={l.href} className="btn-ghost text-sm">
@@ -56,7 +101,7 @@ function NewsRelated({ related, item }: NewsDetailPageProps) {
             className="btn-ghost text-sm"
           >
             <ExternalLink size={14} />
-            原文 / 外链
+            {t("common.readSource")}
           </a>
         )}
       </div>
@@ -67,8 +112,8 @@ function NewsRelated({ related, item }: NewsDetailPageProps) {
   );
 }
 
-function NewsBody(props: NewsDetailPageProps) {
-  const { item } = props;
+function NewsBody(props: { item: NewsItem; related: NewsDetailRelated }) {
+  const { item, related } = props;
   return (
     <>
       <NewsMeta item={item} />
@@ -81,33 +126,37 @@ function NewsBody(props: NewsDetailPageProps) {
           ))}
         </div>
       )}
-      <NewsRelated {...props} />
+      <NewsRelated item={item} related={related} />
     </>
   );
 }
 
 export function NewsDetailWarmCinema(props: NewsDetailPageProps) {
+  const t = useT();
+  const { item, related } = useLocalizedNewsDetail(props);
   return (
     <Container wide className="section-padding pt-16">
       <Link href="/latest" className="mb-8 inline-flex items-center gap-2 text-sm text-ink-soft hover:text-wine">
-        <ArrowLeft size={16} /> 返回动态列表
+        <ArrowLeft size={16} /> {t("common.backToLatest")}
       </Link>
       <article className="mx-auto max-w-3xl">
-        <NewsBody {...props} />
+        <NewsBody item={item} related={related} />
       </article>
     </Container>
   );
 }
 
 export function NewsDetailXianxia(props: NewsDetailPageProps) {
+  const t = useT();
+  const { item, related } = useLocalizedNewsDetail(props);
   return (
     <div className="section-padding pt-16">
       <div className="container-main mx-auto max-w-2xl">
         <Link href="/latest" className="text-sm text-wine hover:text-wine-deep">
-          ← 返回风讯
+          {t("common.backToLatestA")}
         </Link>
         <article className="mt-8">
-          <NewsBody {...props} />
+          <NewsBody item={item} related={related} />
         </article>
       </div>
     </div>
@@ -115,27 +164,31 @@ export function NewsDetailXianxia(props: NewsDetailPageProps) {
 }
 
 export function NewsDetailFanSticker(props: NewsDetailPageProps) {
+  const t = useT();
+  const { item, related } = useLocalizedNewsDetail(props);
   return (
     <Container wide className="section-padding pt-16">
       <Link href="/latest" className="font-medium text-wine">
-        ← 回动态墙
+        {t("common.backToLatestB")}
       </Link>
       <article className="mt-8 max-w-2xl rounded-3xl border border-border bg-paper p-8 shadow-md">
-        <NewsBody {...props} />
+        <NewsBody item={item} related={related} />
       </article>
     </Container>
   );
 }
 
 export function NewsDetailEditorial(props: NewsDetailPageProps) {
+  const t = useT();
+  const { item, related } = useLocalizedNewsDetail(props);
   return (
     <Container wide className="section-padding pt-16">
       <Link href="/latest" className="text-xs uppercase tracking-[0.25em] text-ink-mute hover:text-wine">
-        ← Bulletin Index
+        ← {t("design.latest.editorialTitle")} Index
       </Link>
       <div className="gold-rule mt-8 h-px" />
       <article className="mt-10 max-w-3xl">
-        <NewsBody {...props} />
+        <NewsBody item={item} related={related} />
       </article>
     </Container>
   );

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { getHonors, getSiteMeta, getTimeline } from "@content/index";
 import { AboutPageDesign } from "@/components/designs/pages/AboutPages";
 
 export const metadata: Metadata = {
@@ -10,15 +9,5 @@ export const metadata: Metadata = {
 export const dynamic = "force-static";
 
 export default function AboutPage() {
-  const { bio, bioExtended, officialLinks } = getSiteMeta();
-
-  return (
-    <AboutPageDesign
-      bio={bio}
-      bioExtended={bioExtended}
-      officialLinks={officialLinks}
-      honors={getHonors()}
-      timeline={getTimeline()}
-    />
-  );
+  return <AboutPageDesign />;
 }

@@ -1,26 +1,35 @@
 "use client";
 
+import { useMemo } from "react";
 import Link from "next/link";
 import { ArrowLeft, Calendar, MapPin } from "lucide-react";
 import type { FanEvent } from "@/lib/types";
-import { EVENT_CATEGORY_LABELS } from "@/lib/types";
 import { formatDate } from "@/lib/format";
 import { Container } from "@/components/Container";
 import { ExternalLinks } from "@/components/ExternalLinks";
+import { useLocale, useT } from "@/components/LocaleProvider";
+import { localizeEvent } from "@/lib/i18n/localize";
+import { eventCategoryLabel } from "@/lib/i18n/labels";
 import { DesignPageRouter } from "../DesignPageRouter";
 
 export type EventDetailPageProps = { event: FanEvent };
 
+function useLocalizedEvent(event: FanEvent) {
+  const locale = useLocale();
+  return useMemo(() => localizeEvent(event, locale), [event, locale]);
+}
+
 function EventMeta({ event }: { event: FanEvent }) {
+  const locale = useLocale();
   return (
     <>
       <span className="pill bg-blush/50 text-wine">
-        {EVENT_CATEGORY_LABELS[event.category]}
+        {eventCategoryLabel(event.category, locale)}
       </span>
       <div className="mt-4 flex flex-wrap gap-4 text-sm text-ink-mute">
         <span className="flex items-center gap-1.5">
           <Calendar size={14} className="text-gold" />
-          {formatDate(event.date)}
+          {formatDate(event.date, locale)}
         </span>
         {event.location && (
           <span className="flex items-center gap-1.5">
@@ -34,6 +43,7 @@ function EventMeta({ event }: { event: FanEvent }) {
 }
 
 function EventBody({ event }: { event: FanEvent }) {
+  const t = useT();
   return (
     <>
       <p className="mt-8 text-lg leading-relaxed text-ink-soft">
@@ -41,7 +51,7 @@ function EventBody({ event }: { event: FanEvent }) {
       </p>
       {event.externalLinks && event.externalLinks.length > 0 && (
         <div className="mt-10">
-          <h2 className="kicker">相关链接</h2>
+          <h2 className="kicker">{t("common.relatedLinks")}</h2>
           <ExternalLinks links={event.externalLinks} className="mt-4" size="md" />
         </div>
       )}
@@ -49,11 +59,13 @@ function EventBody({ event }: { event: FanEvent }) {
   );
 }
 
-export function EventDetailWarmCinema({ event }: EventDetailPageProps) {
+export function EventDetailWarmCinema({ event: raw }: EventDetailPageProps) {
+  const t = useT();
+  const event = useLocalizedEvent(raw);
   return (
     <Container wide className="section-padding pt-16">
       <Link href="/events" className="mb-8 inline-flex items-center gap-2 text-sm text-ink-soft hover:text-wine">
-        <ArrowLeft size={16} /> 返回活动列表
+        <ArrowLeft size={16} /> {t("common.backToEvents")}
       </Link>
       <article className="mx-auto max-w-3xl">
         <EventMeta event={event} />
@@ -64,12 +76,14 @@ export function EventDetailWarmCinema({ event }: EventDetailPageProps) {
   );
 }
 
-export function EventDetailXianxia({ event }: EventDetailPageProps) {
+export function EventDetailXianxia({ event: raw }: EventDetailPageProps) {
+  const t = useT();
+  const event = useLocalizedEvent(raw);
   return (
     <div className="section-padding pt-16">
       <div className="container-main mx-auto max-w-2xl text-center">
         <Link href="/events" className="text-sm text-wine hover:text-wine-deep">
-          ← 返回行迹
+          {t("common.backToEventsA")}
         </Link>
         <EventMeta event={event} />
         <h1 className="zh-display mt-6 text-4xl text-wine-deep">{event.title}</h1>
@@ -81,11 +95,13 @@ export function EventDetailXianxia({ event }: EventDetailPageProps) {
   );
 }
 
-export function EventDetailFanSticker({ event }: EventDetailPageProps) {
+export function EventDetailFanSticker({ event: raw }: EventDetailPageProps) {
+  const t = useT();
+  const event = useLocalizedEvent(raw);
   return (
     <Container wide className="section-padding pt-16">
       <Link href="/events" className="font-medium text-wine">
-        ← 回活动墙
+        {t("common.backToEventsB")}
       </Link>
       <article className="mt-8 max-w-2xl rounded-3xl border border-border bg-paper p-8 shadow-md">
         <EventMeta event={event} />
@@ -96,11 +112,13 @@ export function EventDetailFanSticker({ event }: EventDetailPageProps) {
   );
 }
 
-export function EventDetailEditorial({ event }: EventDetailPageProps) {
+export function EventDetailEditorial({ event: raw }: EventDetailPageProps) {
+  const t = useT();
+  const event = useLocalizedEvent(raw);
   return (
     <Container wide className="section-padding pt-16">
       <Link href="/events" className="text-xs uppercase tracking-[0.25em] text-ink-mute hover:text-wine">
-        ← Agenda Index
+        ← {t("pages.events.title")} Index
       </Link>
       <div className="gold-rule mt-8 h-px" />
       <article className="mt-10 max-w-3xl">

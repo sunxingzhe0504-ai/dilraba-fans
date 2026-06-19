@@ -1,14 +1,22 @@
 "use client";
 
+import { useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import type { Magazine } from "@/lib/types";
 import { Container } from "@/components/Container";
 import { ExternalLinks } from "@/components/ExternalLinks";
+import { useLocale, useT } from "@/components/LocaleProvider";
+import { localizeMagazine } from "@/lib/i18n/localize";
 import { DesignPageRouter } from "../DesignPageRouter";
 
 export type MagazineDetailPageProps = { magazine: Magazine };
+
+function useLocalizedMagazine(magazine: Magazine) {
+  const locale = useLocale();
+  return useMemo(() => localizeMagazine(magazine, locale), [magazine, locale]);
+}
 
 function MagazineMeta({ magazine }: { magazine: Magazine }) {
   return (
@@ -17,9 +25,9 @@ function MagazineMeta({ magazine }: { magazine: Magazine }) {
       <p className="mt-4 text-lg text-ink-soft">{magazine.issue}</p>
       {magazine.tags && (
         <div className="mt-6 flex flex-wrap gap-2">
-          {magazine.tags.map((t) => (
-            <span key={t} className="pill bg-blush/50 text-wine">
-              {t}
+          {magazine.tags.map((tag) => (
+            <span key={tag} className="pill bg-blush/50 text-wine">
+              {tag}
             </span>
           ))}
         </div>
@@ -29,6 +37,7 @@ function MagazineMeta({ magazine }: { magazine: Magazine }) {
 }
 
 function MagazineBody({ magazine }: { magazine: Magazine }) {
+  const t = useT();
   return (
     <>
       {magazine.description && (
@@ -36,7 +45,7 @@ function MagazineBody({ magazine }: { magazine: Magazine }) {
       )}
       {magazine.externalLinks && magazine.externalLinks.length > 0 && (
         <div className="mt-10">
-          <h2 className="kicker">相关链接</h2>
+          <h2 className="kicker">{t("common.relatedLinks")}</h2>
           <ExternalLinks links={magazine.externalLinks} className="mt-4" size="md" />
         </div>
       )}
@@ -52,11 +61,13 @@ function MagazineCover({ magazine, className }: { magazine: Magazine; className?
   );
 }
 
-export function MagazineDetailWarmCinema({ magazine }: MagazineDetailPageProps) {
+export function MagazineDetailWarmCinema({ magazine: raw }: MagazineDetailPageProps) {
+  const t = useT();
+  const magazine = useLocalizedMagazine(raw);
   return (
     <Container wide className="section-padding pt-16">
       <Link href="/magazine" className="mb-8 inline-flex items-center gap-2 text-sm text-ink-soft hover:text-wine">
-        <ArrowLeft size={16} /> 返回杂志列表
+        <ArrowLeft size={16} /> {t("common.backToMagazine")}
       </Link>
       <div className="grid gap-12 lg:grid-cols-[360px_1fr]">
         <MagazineCover magazine={magazine} className="rounded-[var(--radius-card)]" />
@@ -70,12 +81,14 @@ export function MagazineDetailWarmCinema({ magazine }: MagazineDetailPageProps) 
   );
 }
 
-export function MagazineDetailXianxia({ magazine }: MagazineDetailPageProps) {
+export function MagazineDetailXianxia({ magazine: raw }: MagazineDetailPageProps) {
+  const t = useT();
+  const magazine = useLocalizedMagazine(raw);
   return (
     <div className="section-padding pt-16">
       <div className="container-main text-center">
         <Link href="/magazine" className="text-sm text-wine hover:text-wine-deep">
-          ← 返回刊录
+          {t("common.backToMagazineA")}
         </Link>
         <div className="relative mx-auto mt-10 w-56">
           <MagazineCover magazine={magazine} className="rounded-[2rem] border-2 border-gold/50 p-2" />
@@ -90,11 +103,13 @@ export function MagazineDetailXianxia({ magazine }: MagazineDetailPageProps) {
   );
 }
 
-export function MagazineDetailFanSticker({ magazine }: MagazineDetailPageProps) {
+export function MagazineDetailFanSticker({ magazine: raw }: MagazineDetailPageProps) {
+  const t = useT();
+  const magazine = useLocalizedMagazine(raw);
   return (
     <Container wide className="section-padding pt-16">
       <Link href="/magazine" className="font-medium text-wine">
-        ← 回封面墙
+        {t("common.backToMagazineB")}
       </Link>
       <div className="mt-10 grid gap-10 lg:grid-cols-[280px_1fr]">
         <div className="rotate-1 rounded-2xl bg-paper p-3 shadow-xl">
@@ -110,11 +125,13 @@ export function MagazineDetailFanSticker({ magazine }: MagazineDetailPageProps) 
   );
 }
 
-export function MagazineDetailEditorial({ magazine }: MagazineDetailPageProps) {
+export function MagazineDetailEditorial({ magazine: raw }: MagazineDetailPageProps) {
+  const t = useT();
+  const magazine = useLocalizedMagazine(raw);
   return (
     <Container wide className="section-padding pt-16">
       <Link href="/magazine" className="text-xs uppercase tracking-[0.25em] text-ink-mute hover:text-wine">
-        ← Cover Index
+        ← {t("pages.magazine.title")} Index
       </Link>
       <div className="gold-rule mt-8 h-px" />
       <div className="mt-10 grid gap-12 lg:grid-cols-[1fr_1.1fr]">
