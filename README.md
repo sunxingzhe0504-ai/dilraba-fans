@@ -4,7 +4,7 @@
 
 ## 技术栈
 
-- **Next.js 16**（App Router）
+- **Next.js 16**（App Router · 静态导出兼容 GitHub Pages）
 - **React 19** + **TypeScript**
 - **Tailwind CSS v4**
 - **Framer Motion**（动效，支持 `prefers-reduced-motion` 降级）
@@ -27,12 +27,17 @@ content/              # 结构化内容数据（可后期替换为 CMS）
   magazines.ts        # 杂志封面
   events.ts           # 公开活动
   honors.ts           # 荣誉与时间轴
+  news.ts             # 最新动态
+  characters.ts       # 角色图鉴
+  gallery.ts          # 图库壁纸
+  videos.ts           # 视频专区
+  fan-culture.ts      # 粉丝文化 / 公益 / 更新日志
   site-meta.ts        # 站点元信息
-  index.ts            # 统一查询函数
-public/images/        # 图片资源（请替换为授权素材）
+  index.ts            # 统一查询函数（含全站搜索）
+public/images/        # 图片资源（本地托管）
 src/
   app/                # 页面路由
-  components/         # UI 组件
+  components/         # UI 组件（含四套百变风格）
   lib/                # 类型与工具函数
 ```
 
@@ -51,26 +56,24 @@ src/
   type: "tv",           // tv | film | variety
   year: 2025,
   role: "角色名",
-  poster: "/images/works/my-new-work.svg",
+  poster: "/images/works/my-new-work.jpg",
   synopsis: "剧情简介…",
   status: "released",   // released | upcoming
   featured: true,       // 是否在首页展示
 }
 ```
 
-### 添加杂志 / 活动
+### 添加杂志 / 活动 / 动态
 
-分别编辑 [`content/magazines.ts`](content/magazines.ts) 与 [`content/events.ts`](content/events.ts)。
+分别编辑 [`content/magazines.ts`](content/magazines.ts)、[`content/events.ts`](content/events.ts)、[`content/news.ts`](content/news.ts)。
 
 ### 替换图片
 
-图片链接统一维护在 [`content/images.ts`](content/images.ts)：
+将图片放入 `public/images/` 对应子目录，并在 [`content/images.ts`](content/images.ts) 中维护路径映射。图片已全部本地托管，无需配置远程域名白名单。
 
-- **影视海报**：来自 [TMDB](https://www.themoviedb.org/) 公开海报 CDN
-- **杂志/时尚图**：来自 [Wikimedia Commons](https://commons.wikimedia.org/wiki/Category:Dilraba_Dilmurat) 等公开渠道
-- **首页 Hero**：迪丽热巴公开活动写真
+### 待播作品一键开播
 
-如需更换，直接修改 `content/images.ts` 中的 URL，并确保域名已在 `next.config.ts` 的 `remotePatterns` 中允许。
+编辑 [`content/work-release.ts`](content/work-release.ts)，将对应作品的 `live` 设为 `true`，即可同步更新作品状态、动态与图库标签。
 
 ## 部署
 
@@ -127,19 +130,42 @@ npm run start
 
 | 路由 | 说明 |
 |------|------|
-| `/` | 首页 |
+| `/` | 首页（四套百变风格可切换） |
+| `/latest` | 最新动态列表 |
+| `/latest/[slug]` | 动态详情 |
 | `/works` | 作品库（支持类型筛选） |
 | `/works/[slug]` | 作品详情 |
+| `/upcoming` | 待播待映专区 |
+| `/videos` | 视频专区 |
+| `/gallery` | 图库壁纸 |
+| `/characters` | 角色图鉴 |
+| `/characters/[slug]` | 角色详情 |
 | `/magazine` | 杂志封面 |
+| `/magazine/[slug]` | 杂志详情 |
 | `/events` | 活动资讯 |
+| `/events/[slug]` | 活动详情 |
+| `/fashion` | 时尚代言 |
+| `/charity` | 公益足迹 |
+| `/fans` | 粉丝文化 |
 | `/about` | 关于她 |
+| `/changelog` | 更新日志 |
+| `/feed.xml` | RSS 订阅 |
+| `/sitemap.xml` | 站点地图 |
+| `/robots.txt` | 爬虫规则 |
+
+## 功能特性
+
+- **全站搜索**：导航栏 `Ctrl+K` / `⌘K` 快捷搜索作品、角色、杂志、活动、动态
+- **四套百变风格**：右下角主题切换，偏好保存在本机
+- **RSS 订阅**：`/feed.xml` 聚合最新动态与站点更新
+- **SEO**：自动生成 `sitemap.xml`、`robots.txt`、Open Graph 与 Twitter Card 预览
+- **静态导出**：兼容 GitHub Pages，图片本地托管
 
 ## 后续扩展（Roadmap）
 
 - [ ] 接入 Headless CMS（Notion / Contentful）
 - [ ] MDX 长文（`/stories/[slug]`）活动回顾
 - [ ] 多语言支持
-- [ ] 站内搜索
 
 ## 免责声明
 

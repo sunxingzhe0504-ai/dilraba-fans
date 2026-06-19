@@ -123,6 +123,14 @@ export const charityItems: CharityItem[] = [
 
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-06-19",
+    items: [
+      "新增 sitemap.xml、robots.txt 与 Web App Manifest，完善 SEO 与社交分享预览",
+      "定制 404 页面；搜索支持点击遮罩关闭、Windows Ctrl+K 快捷键提示",
+      "统一 siteUrl 工具函数，RSS 链接与站点地图保持一致",
+    ],
+  },
+  {
     date: "2026-06-07",
     items: [
       "移除无法核实的「微博之夜 2026」活动与动态条目",

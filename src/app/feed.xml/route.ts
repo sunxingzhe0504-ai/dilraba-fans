@@ -1,5 +1,5 @@
 import { getLatestNews, getChangelog } from "@content/index";
-import { getSiteUrl } from "@/lib/site-url";
+import { siteUrl } from "@/lib/site-url";
 
 export const dynamic = "force-static";
 
@@ -13,25 +13,24 @@ function escapeXml(text: string) {
 }
 
 export async function GET() {
-  const siteUrl = getSiteUrl();
   const news = getLatestNews(20);
   const changelog = getChangelog();
 
   const items = [
     ...news.map((n) => ({
       title: n.title,
-      link: `${siteUrl}/latest/${n.slug}`,
+      link: siteUrl(`/latest/${n.slug}`),
       description: n.summary,
       pubDate: new Date(n.date).toUTCString(),
-      guid: `${siteUrl}/latest/${n.slug}`,
+      guid: siteUrl(`/latest/${n.slug}`),
     })),
     ...changelog.flatMap((entry) =>
       entry.items.map((item, i) => ({
         title: `站点更新 · ${item}`,
-        link: `${siteUrl}/changelog`,
+        link: siteUrl("/changelog"),
         description: item,
         pubDate: new Date(entry.date).toUTCString(),
-        guid: `${siteUrl}/changelog#${entry.date}-${i}`,
+        guid: `${siteUrl("/changelog")}#${entry.date}-${i}`,
       })),
     ),
   ].sort((a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime());
@@ -40,11 +39,11 @@ export async function GET() {
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>迪丽热巴 · 粉丝资讯站</title>
-    <link>${siteUrl}</link>
+    <link>${siteUrl("/")}</link>
     <description>迪丽热巴粉丝资讯站最新动态与更新 — 非官方</description>
     <language>zh-CN</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
-    <atom:link href="${siteUrl}/feed.xml" rel="self" type="application/rss+xml"/>
+    <atom:link href="${siteUrl("/feed.xml")}" rel="self" type="application/rss+xml"/>
     ${items
       .map(
         (item) => `

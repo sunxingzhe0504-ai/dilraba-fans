@@ -7,6 +7,8 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 import { Decorations } from "@/components/Decorations";
 import { DEFAULT_THEME, THEME_STORAGE_KEY } from "@/lib/themes";
+import { getSiteUrl } from "@/lib/site-url";
+import { assetPath } from "@/lib/asset-path";
 import "./globals.css";
 
 const notoSans = Noto_Sans_SC({
@@ -28,6 +30,7 @@ const maShan = Ma_Shan_Zheng({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(getSiteUrl()),
   title: {
     default: "迪丽热巴 · 粉丝资讯站",
     template: "%s | 迪丽热巴粉丝站",
@@ -40,6 +43,13 @@ export const metadata: Metadata = {
     description: "温柔有力量，追光而行 —— 迪丽热巴粉丝资讯站",
     locale: "zh_CN",
     type: "website",
+    images: [{ url: assetPath("/images/portraits/hero-red-pearl.jpg"), alt: "迪丽热巴" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "迪丽热巴 · 粉丝资讯站",
+    description: "温柔有力量，追光而行 —— 迪丽热巴粉丝资讯站",
+    images: [assetPath("/images/portraits/hero-red-pearl.jpg")],
   },
   alternates: {
     types: {
