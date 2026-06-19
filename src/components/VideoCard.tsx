@@ -1,8 +1,12 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { ExternalLink, Play } from "lucide-react";
 import type { VideoItem } from "@/lib/types";
-import { VIDEO_CATEGORY_LABELS, VIDEO_PLATFORM_LABELS } from "@/lib/types";
+import { useLocale, useT } from "@/components/LocaleProvider";
+import { localizeVideo } from "@/lib/i18n/localize";
+import { videoCategoryLabel, videoPlatformLabel } from "@/lib/i18n/labels";
 import { formatDate } from "@/lib/format";
 import { cn } from "@/lib/cn";
 
@@ -13,7 +17,11 @@ type Props = {
   layout?: "card" | "compact";
 };
 
-export function VideoCard({ video, className, layout = "card" }: Props) {
+export function VideoCard({ video: raw, className, layout = "card" }: Props) {
+  const locale = useLocale();
+  const t = useT();
+  const video = localizeVideo(raw, locale);
+
   if (layout === "compact") {
     return (
       <a
@@ -34,16 +42,16 @@ export function VideoCard({ video, className, layout = "card" }: Props) {
         <div className="min-w-0 flex-1">
           <div className="flex flex-wrap items-center gap-2">
             <span className="pill bg-blush/50 text-xs text-wine">
-              {VIDEO_CATEGORY_LABELS[video.category]}
+              {videoCategoryLabel(video.category, locale)}
             </span>
             <span className="text-xs text-ink-mute">
-              {VIDEO_PLATFORM_LABELS[video.platform]}
+              {videoPlatformLabel(video.platform, locale)}
             </span>
           </div>
           <h3 className="mt-1 truncate font-medium text-ink group-hover:text-wine">
             {video.title}
           </h3>
-          <time className="text-xs text-ink-mute">{formatDate(video.date)}</time>
+          <time className="text-xs text-ink-mute">{formatDate(video.date, locale)}</time>
         </div>
         <ExternalLink size={16} className="shrink-0 self-center text-ink-mute" />
       </a>
@@ -81,12 +89,12 @@ export function VideoCard({ video, className, layout = "card" }: Props) {
       <div className="p-4">
         <div className="flex flex-wrap items-center gap-2">
           <span className="pill bg-blush/50 text-xs text-wine">
-            {VIDEO_CATEGORY_LABELS[video.category]}
+            {videoCategoryLabel(video.category, locale)}
           </span>
           <span className="text-xs text-ink-mute">
-            {VIDEO_PLATFORM_LABELS[video.platform]}
+            {videoPlatformLabel(video.platform, locale)}
           </span>
-          <time className="text-xs text-ink-mute">{formatDate(video.date)}</time>
+          <time className="text-xs text-ink-mute">{formatDate(video.date, locale)}</time>
         </div>
         <h3 className="mt-2 font-medium leading-snug text-ink">{video.title}</h3>
         {video.summary && (
@@ -100,11 +108,11 @@ export function VideoCard({ video, className, layout = "card" }: Props) {
             className="btn-primary text-sm"
           >
             <Play size={14} className="fill-paper" />
-            前往观看
+            {t("common.watchExternal")}
           </a>
           {video.workSlug && (
             <Link href={`/works/${video.workSlug}`} className="btn-ghost text-sm">
-              相关作品
+              {t("common.relatedWork")}
             </Link>
           )}
         </div>

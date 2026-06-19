@@ -1,13 +1,20 @@
+"use client";
+
 import Image from "next/image";
 import { Heart } from "lucide-react";
 import { IMAGES } from "@content/images";
+import { useT } from "@/components/LocaleProvider";
 
 type CinematicBandProps = {
-  quote: string;
+  quote?: string;
   caption?: string;
 };
 
 export function CinematicBand({ quote, caption }: CinematicBandProps) {
+  const t = useT();
+  const displayQuote = quote ?? t("home.quote");
+  const displayCaption = caption ?? t("home.quoteCaption");
+
   return (
     <section className="relative overflow-hidden">
       <div className="relative h-[60vh] min-h-[420px] w-full">
@@ -29,11 +36,11 @@ export function CinematicBand({ quote, caption }: CinematicBandProps) {
               className="display max-w-3xl text-paper"
               style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", lineHeight: 1.25 }}
             >
-              “{quote}”
+              “{displayQuote}”
             </blockquote>
-            {caption && (
+            {displayCaption && (
               <p className="mt-6 text-sm uppercase tracking-[0.25em] text-paper/70">
-                {caption}
+                {displayCaption}
               </p>
             )}
           </div>

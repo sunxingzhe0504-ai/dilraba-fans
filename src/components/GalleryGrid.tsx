@@ -3,8 +3,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Download } from "lucide-react";
-import type { GalleryItem, GalleryCategory } from "@/lib/types";
-import { GALLERY_CATEGORY_LABELS } from "@/lib/types";
+import type { GalleryItem, GalleryCategory, Character } from "@/lib/types";
+import { useLocale, useT } from "@/components/LocaleProvider";
+import { localizeCharacter } from "@/lib/i18n/localize";
+import { galleryCategoryLabel } from "@/lib/i18n/labels";
 import { cn } from "@/lib/cn";
 
 type Props = {
@@ -13,6 +15,9 @@ type Props = {
 };
 
 export function GalleryGrid({ items, className }: Props) {
+  const locale = useLocale();
+  const t = useT();
+
   return (
     <div className={cn("grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4", className)}>
       {items.map((item) => (
@@ -26,7 +31,7 @@ export function GalleryGrid({ items, className }: Props) {
               className="portrait-cover transition-transform duration-500 group-hover:scale-105"
             />
             <span className="pill absolute left-2 top-2 bg-paper/90 text-wine text-[10px]">
-              {GALLERY_CATEGORY_LABELS[item.category as GalleryCategory]}
+              {galleryCategoryLabel(item.category as GalleryCategory, locale)}
             </span>
           </div>
           <div className="p-4">
@@ -41,7 +46,7 @@ export function GalleryGrid({ items, className }: Props) {
                 className="mt-3 inline-flex items-center gap-1.5 text-xs font-medium text-wine hover:text-wine-deep"
               >
                 <Download size={12} />
-                下载壁纸
+                {t("common.download")}
               </a>
             )}
           </div>
@@ -51,11 +56,10 @@ export function GalleryGrid({ items, className }: Props) {
   );
 }
 
-export function CharacterCard({
-  character,
-}: {
-  character: import("@/lib/types").Character;
-}) {
+export function CharacterCard({ character: raw }: { character: Character }) {
+  const locale = useLocale();
+  const character = localizeCharacter(raw, locale);
+
   return (
     <Link
       href={`/characters/${character.slug}`}

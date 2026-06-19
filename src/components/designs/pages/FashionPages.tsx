@@ -1,5 +1,6 @@
 "use client";
 
+import { useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ExternalLink } from "lucide-react";
@@ -9,6 +10,8 @@ import { Container } from "@/components/Container";
 import { SectionTitle } from "@/components/SectionTitle";
 import { MagazineCard } from "@/components/MagazineCard";
 import { formatDate } from "@/lib/format";
+import { useLocale, useT } from "@/components/LocaleProvider";
+import { localizeNews } from "@/lib/i18n/localize";
 import { DesignPageRouter } from "../DesignPageRouter";
 
 export type FashionPageProps = {
@@ -18,14 +21,15 @@ export type FashionPageProps = {
 };
 
 function FashionMagazines({ magazines }: { magazines: Magazine[] }) {
+  const t = useT();
   if (!magazines.length) return null;
   return (
     <div className="mt-16">
       <SectionTitle
         index="—"
         kicker="Covers"
-        title="封面大片"
-        subtitle="主流时尚女刊与品牌活动造型。"
+        title={t("pages.fashion.coversTitle")}
+        subtitle={t("pages.fashion.coversSubtitle")}
         className="mb-8"
       />
       <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-6">
@@ -35,7 +39,7 @@ function FashionMagazines({ magazines }: { magazines: Magazine[] }) {
       </div>
       <div className="mt-8 text-center">
         <Link href="/magazine" className="text-sm text-wine hover:underline">
-          查看全部杂志 →
+          {t("common.viewAllMagazine")}
         </Link>
       </div>
     </div>
@@ -43,22 +47,28 @@ function FashionMagazines({ magazines }: { magazines: Magazine[] }) {
 }
 
 function FashionNews({ fashionNews }: { fashionNews: NewsItem[] }) {
-  if (!fashionNews.length) return null;
+  const locale = useLocale();
+  const t = useT();
+  const news = useMemo(
+    () => fashionNews.map((item) => localizeNews(item, locale)),
+    [fashionNews, locale],
+  );
+  if (!news.length) return null;
   return (
     <div className="mt-16">
       <SectionTitle
         index="—"
         kicker="News"
-        title="时尚动态"
-        subtitle="封面发布、品牌活动与红毯高光。"
+        title={t("pages.fashion.newsTitle")}
+        subtitle={t("pages.fashion.newsSubtitle")}
         className="mb-8"
       />
       <ul className="space-y-4">
-        {fashionNews.map((item) => {
+        {news.map((item) => {
           const { href, external } = resolveNewsHref(item);
           return (
             <li key={item.slug} className="edit-card p-5">
-              <time className="text-xs text-ink-mute">{formatDate(item.date)}</time>
+              <time className="text-xs text-ink-mute">{formatDate(item.date, locale)}</time>
               <Link
                 href={href}
                 target={external ? "_blank" : undefined}
@@ -74,7 +84,7 @@ function FashionNews({ fashionNews }: { fashionNews: NewsItem[] }) {
       </ul>
       <div className="mt-8 text-center">
         <Link href="/latest" className="text-sm text-wine hover:underline">
-          更多动态 →
+          {t("common.moreUpdates")}
         </Link>
       </div>
     </div>
@@ -82,6 +92,7 @@ function FashionNews({ fashionNews }: { fashionNews: NewsItem[] }) {
 }
 
 function FashionList({ highlights, variant }: { highlights: BrandHighlight[]; variant: "c" | "a" | "b" | "d" }) {
+  const t = useT();
   return (
     <div className={variant === "d" ? "mt-12 space-y-0 divide-y divide-border" : "mt-12 space-y-8"}>
       {highlights.map((item) => (
@@ -114,9 +125,7 @@ function FashionList({ highlights, variant }: { highlights: BrandHighlight[]; va
               className={
                 variant === "a"
                   ? "zh-display mt-2 text-2xl text-ink"
-                  : variant === "d"
-                    ? "display mt-2 text-2xl text-ink"
-                    : "display mt-2 text-2xl text-ink"
+                  : "display mt-2 text-2xl text-ink"
               }
             >
               {item.title}
@@ -130,7 +139,7 @@ function FashionList({ highlights, variant }: { highlights: BrandHighlight[]; va
                 className="btn-ghost mt-6"
               >
                 <ExternalLink size={14} />
-                官方链接
+                {t("common.officialLink")}
               </a>
             )}
           </div>
@@ -141,13 +150,14 @@ function FashionList({ highlights, variant }: { highlights: BrandHighlight[]; va
 }
 
 export function FashionWarmCinema({ highlights, magazines, fashionNews }: FashionPageProps) {
+  const t = useT();
   return (
     <Container wide className="section-padding pt-16">
       <SectionTitle
         index="—"
         kicker="Fashion"
-        title="高定 × 热巴"
-        subtitle="Dior 全球品牌大使，在国际时尚舞台上的东方气质。"
+        title={t("pages.fashion.warmTitle")}
+        subtitle={t("pages.fashion.warmSubtitle")}
       />
       <FashionList highlights={highlights} variant="c" />
       <FashionMagazines magazines={magazines} />
@@ -157,11 +167,12 @@ export function FashionWarmCinema({ highlights, magazines, fashionNews }: Fashio
 }
 
 export function FashionXianxia({ highlights, magazines, fashionNews }: FashionPageProps) {
+  const t = useT();
   return (
     <div className="section-padding pt-16">
       <div className="container-main mb-8 text-center">
         <p className="kicker justify-center">华 · Fashion</p>
-        <h1 className="zh-display text-5xl text-wine-deep">高定华章</h1>
+        <h1 className="zh-display text-5xl text-wine-deep">{t("design.fashion.xianxiaTitle")}</h1>
       </div>
       <div className="container-main">
         <FashionList highlights={highlights} variant="a" />
@@ -173,10 +184,11 @@ export function FashionXianxia({ highlights, magazines, fashionNews }: FashionPa
 }
 
 export function FashionFanSticker({ highlights, magazines, fashionNews }: FashionPageProps) {
+  const t = useT();
   return (
     <Container wide className="section-padding pt-16">
       <h1 className="mb-8 text-center text-4xl font-extrabold text-wine-deep">
-        时尚高光 ✨
+        {t("design.fashion.fanStickerTitle")}
       </h1>
       <FashionList highlights={highlights} variant="b" />
       <FashionMagazines magazines={magazines} />
@@ -186,11 +198,12 @@ export function FashionFanSticker({ highlights, magazines, fashionNews }: Fashio
 }
 
 export function FashionEditorial({ highlights, magazines, fashionNews }: FashionPageProps) {
+  const t = useT();
   return (
     <Container wide className="section-padding pt-16">
       <div className="gold-rule h-px" />
       <h1 className="display mt-6 text-5xl text-wine-deep">Haute</h1>
-      <p className="text-xs uppercase tracking-[0.3em] text-ink-mute">时尚 · Dior</p>
+      <p className="text-xs uppercase tracking-[0.3em] text-ink-mute">{t("pages.fashion.title")} · Dior</p>
       <div className="gold-rule mt-6 h-px" />
       <FashionList highlights={highlights} variant="d" />
       <FashionMagazines magazines={magazines} />

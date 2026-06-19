@@ -2,12 +2,21 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useMemo } from "react";
 import { motion, useReducedMotion } from "framer-motion";
+import { getSiteMeta } from "@content/index";
 import { IMAGES } from "@content/images";
-import { WORK_TYPE_LABELS } from "@/lib/types";
 import { FeaturedVideoStrip } from "@/components/FeaturedVideoStrip";
 import { LatestStrip } from "@/components/LatestStrip";
 import { CharacterCard } from "@/components/GalleryGrid";
+import { useLocale, useT } from "@/components/LocaleProvider";
+import {
+  localizeEvent,
+  localizeMagazine,
+  localizeSiteMeta,
+  localizeWork,
+} from "@/lib/i18n/localize";
+import { workTypeLabel } from "@/lib/i18n/labels";
 import type { HomeData } from "./types";
 
 function Seal({ text }: { text: string }) {
@@ -29,14 +38,38 @@ function InkRule() {
 }
 
 export function DesignXianxia({ data }: { data: HomeData }) {
-  const { hero, works, magazines, events, stats, latestNews, upcoming, characters, videos } = data;
+  const locale = useLocale();
+  const t = useT();
+  const { works: rawWorks, magazines: rawMagazines, events: rawEvents, latestNews, upcoming, characters, videos } = data;
   const reduce = useReducedMotion();
+
+  const hero = useMemo(
+    () => {
+      const meta = localizeSiteMeta(getSiteMeta(), locale);
+      return { tagline: meta.heroTagline, subtitle: meta.heroSubtitle };
+    },
+    [locale],
+  );
+  const stats = useMemo(
+    () => localizeSiteMeta(getSiteMeta(), locale).stats,
+    [locale],
+  );
+  const works = useMemo(
+    () => rawWorks.map((w) => localizeWork(w, locale)),
+    [rawWorks, locale],
+  );
+  const magazines = useMemo(
+    () => rawMagazines.map((m) => localizeMagazine(m, locale)),
+    [rawMagazines, locale],
+  );
+  const events = useMemo(
+    () => rawEvents.map((e) => localizeEvent(e, locale)),
+    [rawEvents, locale],
+  );
 
   return (
     <div className="overflow-hidden">
-      {/* ===== Hero · 居中书法 ===== */}
       <section className="relative px-5 pb-10 pt-24 text-center sm:pt-28">
-        {/* 竖排对联 */}
         <div className="pointer-events-none absolute inset-y-24 left-4 hidden text-2xl tracking-[0.4em] text-wine/40 [writing-mode:vertical-rl] lg:block zh-display">
           一笑千山暖
         </div>
@@ -70,7 +103,6 @@ export function DesignXianxia({ data }: { data: HomeData }) {
           {hero.subtitle}
         </p>
 
-        {/* 画卷人物图 */}
         <motion.div
           initial={reduce ? undefined : { opacity: 0, y: 24 }}
           animate={reduce ? undefined : { opacity: 1, y: 0 }}
@@ -81,7 +113,7 @@ export function DesignXianxia({ data }: { data: HomeData }) {
             <div className="relative aspect-[3/4] overflow-hidden rounded-[2.5rem]">
               <Image
                 src={IMAGES.heroAlt}
-                alt="迪丽热巴写真"
+                alt={t("hero.portraitAlt")}
                 fill
                 priority
                 sizes="(max-width:768px) 90vw, 24rem"
@@ -96,10 +128,10 @@ export function DesignXianxia({ data }: { data: HomeData }) {
 
         <div className="mt-10 flex flex-wrap justify-center gap-4">
           <Link href="/works" className="btn-primary">
-            入卷赏作 →
+            {t("design.home.xianxia.browseWorks")}
           </Link>
           <Link href="/about" className="btn-ghost">
-            ❀ 识她
+            {t("design.home.xianxia.knowHer")}
           </Link>
         </div>
       </section>
@@ -109,19 +141,18 @@ export function DesignXianxia({ data }: { data: HomeData }) {
       {upcoming.length > 0 && (
         <div className="container-main py-4 text-center">
           <Link href="/upcoming" className="text-sm text-wine hover:text-wine-deep">
-            ❀ {upcoming.length} 部待播 · 展开期待卷 →
+            {t("design.home.xianxia.upcoming", { n: upcoming.length })}
           </Link>
         </div>
       )}
 
       <InkRule />
 
-      {/* ===== 卷一 · 作品（画卷式交替）===== */}
       <section className="container-main">
         <div className="mb-12 text-center">
           <p className="kicker justify-center">卷一 · Filmography</p>
           <h2 className="zh-display mt-3 text-4xl text-wine-deep sm:text-5xl">
-            荧幕之上
+            {t("design.home.xianxia.worksTitle")}
           </h2>
         </div>
 
@@ -159,7 +190,7 @@ export function DesignXianxia({ data }: { data: HomeData }) {
                     {work.title}
                   </h3>
                   <p className="mt-2 text-sm text-wine">
-                    {WORK_TYPE_LABELS[work.type]} · 饰 {work.role}
+                    {workTypeLabel(work.type, locale)} · {t("work.role")} {work.role}
                   </p>
                   <p
                     className={`mt-4 max-w-md text-sm leading-relaxed text-ink-soft ${
@@ -175,7 +206,7 @@ export function DesignXianxia({ data }: { data: HomeData }) {
         </div>
         <div className="mt-12 text-center">
           <Link href="/works" className="btn-ghost">
-            展开全卷作品 →
+            {t("design.home.xianxia.viewAllWorks")}
           </Link>
         </div>
       </section>
@@ -187,7 +218,7 @@ export function DesignXianxia({ data }: { data: HomeData }) {
             <div className="mb-10 text-center">
               <p className="kicker justify-center">卷 · Characters</p>
               <h2 className="zh-display mt-3 text-4xl text-wine-deep sm:text-5xl">
-                角色名册
+                {t("design.home.xianxia.charactersTitle")}
               </h2>
             </div>
             <div className="grid gap-6 sm:grid-cols-3">
@@ -197,7 +228,7 @@ export function DesignXianxia({ data }: { data: HomeData }) {
             </div>
             <div className="mt-8 text-center">
               <Link href="/characters" className="btn-ghost">
-                展开全部角色 →
+                {t("design.home.xianxia.viewAllCharacters")}
               </Link>
             </div>
           </section>
@@ -213,12 +244,11 @@ export function DesignXianxia({ data }: { data: HomeData }) {
 
       <InkRule />
 
-      {/* ===== 卷二 · 杂志 ===== */}
       <section className="container-main">
         <div className="mb-12 text-center">
           <p className="kicker justify-center">卷二 · Editorial</p>
           <h2 className="zh-display mt-3 text-4xl text-wine-deep sm:text-5xl">
-            时尚镜匣
+            {t("design.home.xianxia.magazinesTitle")}
           </h2>
         </div>
         <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-4">
@@ -242,12 +272,11 @@ export function DesignXianxia({ data }: { data: HomeData }) {
 
       <InkRule />
 
-      {/* ===== 卷三 · 活动 ===== */}
       <section className="container-main">
         <div className="mb-10 text-center">
           <p className="kicker justify-center">卷三 · Recent</p>
           <h2 className="zh-display mt-3 text-4xl text-wine-deep sm:text-5xl">
-            近来行迹
+            {t("design.home.xianxia.eventsTitle")}
           </h2>
         </div>
         <ul className="mx-auto max-w-2xl">
@@ -257,13 +286,13 @@ export function DesignXianxia({ data }: { data: HomeData }) {
                 href={`/events/${ev.slug}`}
                 className="flex flex-col gap-1 border-b border-gold/30 py-5 transition-colors hover:text-wine sm:flex-row sm:items-baseline sm:gap-6"
               >
-              <span className="index-num shrink-0 sm:w-28">{ev.date}</span>
-              <div>
-                <h3 className="zh-display text-xl text-ink">{ev.title}</h3>
-                <p className="mt-1 text-sm leading-relaxed text-ink-soft">
-                  {ev.summary}
-                </p>
-              </div>
+                <span className="index-num shrink-0 sm:w-28">{ev.date}</span>
+                <div>
+                  <h3 className="zh-display text-xl text-ink">{ev.title}</h3>
+                  <p className="mt-1 text-sm leading-relaxed text-ink-soft">
+                    {ev.summary}
+                  </p>
+                </div>
               </Link>
             </li>
           ))}
@@ -272,7 +301,6 @@ export function DesignXianxia({ data }: { data: HomeData }) {
 
       <InkRule />
 
-      {/* ===== 荣誉数据 + 结语 ===== */}
       <section className="container-main pb-24 text-center">
         <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-center gap-y-6">
           {stats.map((s, i) => (
@@ -294,10 +322,10 @@ export function DesignXianxia({ data }: { data: HomeData }) {
 
         <div className="mt-20">
           <p className="zh-display text-3xl leading-relaxed text-wine-deep sm:text-4xl">
-            愿以山海为卷，<br className="sm:hidden" />共赴一程温柔时光
+            {t("design.home.xianxia.closing")}
           </p>
           <Link href="/about" className="btn-primary mt-10">
-            了解更多关于她 →
+            {t("common.learnMoreAbout")}
           </Link>
         </div>
       </section>

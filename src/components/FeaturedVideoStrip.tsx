@@ -1,25 +1,31 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import type { VideoItem } from "@/lib/types";
+import type { ThemeId } from "@/lib/themes";
 import { VideoCard } from "@/components/VideoCard";
 import { Container } from "@/components/Container";
 import { SectionTitle } from "@/components/SectionTitle";
 import { FadeIn } from "@/components/FadeIn";
+import { useT } from "@/components/LocaleProvider";
 
 type Props = {
   videos: VideoItem[];
   /** a=古风 / b=甜桃 / c=影院 / d=刊物 */
-  variant?: "a" | "b" | "c" | "d";
+  variant?: ThemeId;
 };
 
 export function FeaturedVideoStrip({ videos, variant = "c" }: Props) {
+  const t = useT();
+
   if (!videos.length) return null;
 
   const titles = {
-    a: { kicker: "影 · Videos", title: "影像拾光" },
-    b: { kicker: "Video", title: "必看片段 🎬" },
-    c: { kicker: "Videos", title: "精选视频" },
-    d: { kicker: "Screen", title: "Moving Image" },
+    a: { kicker: t("design.videos.a.kicker"), title: t("design.videos.a.title") },
+    b: { kicker: t("design.videos.b.kicker"), title: t("design.videos.b.title") },
+    c: { kicker: t("design.videos.c.kicker"), title: t("design.videos.c.title") },
+    d: { kicker: t("design.videos.d.kicker"), title: t("design.videos.d.title") },
   }[variant];
 
   return (
@@ -30,14 +36,14 @@ export function FeaturedVideoStrip({ videos, variant = "c" }: Props) {
             index="—"
             kicker={titles.kicker}
             title={titles.title}
-            subtitle="预告、工作室物料与公开活动片段，链接至正版平台。"
+            subtitle={t("design.videos.subtitle")}
             className="mb-0"
           />
           <Link
             href="/videos"
             className="inline-flex items-center gap-1 text-sm font-medium text-wine hover:text-wine-deep"
           >
-            全部视频
+            {t("design.videos.viewAll")}
             <ArrowRight size={14} />
           </Link>
         </div>

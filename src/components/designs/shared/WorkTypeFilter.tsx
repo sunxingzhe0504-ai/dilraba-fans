@@ -1,16 +1,11 @@
 "use client";
 
 import type { WorkType } from "@/lib/types";
-import { WORK_TYPE_LABELS } from "@/lib/types";
+import { useLocale, useT } from "@/components/LocaleProvider";
+import { filterAllLabel, workTypeLabel } from "@/lib/i18n/labels";
 import { cn } from "@/lib/cn";
 import type { ThemeId } from "@/lib/themes";
-
-const filters: { value: WorkType | "all"; label: string }[] = [
-  { value: "all", label: "全部" },
-  { value: "tv", label: WORK_TYPE_LABELS.tv },
-  { value: "film", label: WORK_TYPE_LABELS.film },
-  { value: "variety", label: WORK_TYPE_LABELS.variety },
-];
+import { useMemo } from "react";
 
 type Props = {
   variant: ThemeId;
@@ -19,9 +14,22 @@ type Props = {
 };
 
 export function WorkTypeFilter({ variant, active, onChange }: Props) {
+  const locale = useLocale();
+  const t = useT();
+  const filters = useMemo(
+    () => [
+      { value: "all" as const, label: filterAllLabel(locale) },
+      { value: "tv" as const, label: workTypeLabel("tv", locale) },
+      { value: "film" as const, label: workTypeLabel("film", locale) },
+      { value: "variety" as const, label: workTypeLabel("variety", locale) },
+    ],
+    [locale],
+  );
+  const aria = t("common.filterWorks");
+
   if (variant === "b") {
     return (
-      <div className="flex flex-wrap gap-2" role="tablist" aria-label="作品类型筛选">
+      <div className="flex flex-wrap gap-2" role="tablist" aria-label={aria}>
         {filters.map((f) => (
           <button
             key={f.value}
@@ -48,7 +56,7 @@ export function WorkTypeFilter({ variant, active, onChange }: Props) {
       <div
         className="flex flex-wrap gap-x-8 gap-y-2 border-b border-border"
         role="tablist"
-        aria-label="作品类型筛选"
+        aria-label={aria}
       >
         {filters.map((f) => (
           <button
@@ -71,7 +79,7 @@ export function WorkTypeFilter({ variant, active, onChange }: Props) {
 
   if (variant === "a") {
     return (
-      <div className="flex flex-wrap justify-center gap-4" role="tablist" aria-label="作品类型筛选">
+      <div className="flex flex-wrap justify-center gap-4" role="tablist" aria-label={aria}>
         {filters.map((f) => (
           <button
             key={f.value}
@@ -97,7 +105,7 @@ export function WorkTypeFilter({ variant, active, onChange }: Props) {
     <div
       className="flex flex-wrap gap-x-7 gap-y-3 border-b border-border pb-px"
       role="tablist"
-      aria-label="作品类型筛选"
+      aria-label={aria}
     >
       {filters.map((f) => {
         const isActive = active === f.value;

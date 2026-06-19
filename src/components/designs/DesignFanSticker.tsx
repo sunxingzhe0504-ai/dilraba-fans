@@ -2,13 +2,22 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useMemo } from "react";
 import { Heart, Sparkles, Star } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
+import { getSiteMeta } from "@content/index";
 import { IMAGES } from "@content/images";
-import { WORK_TYPE_LABELS } from "@/lib/types";
 import { FeaturedVideoStrip } from "@/components/FeaturedVideoStrip";
 import { LatestStrip } from "@/components/LatestStrip";
 import { CharacterCard } from "@/components/GalleryGrid";
+import { useLocale, useT } from "@/components/LocaleProvider";
+import {
+  localizeEvent,
+  localizeMagazine,
+  localizeSiteMeta,
+  localizeWork,
+} from "@/lib/i18n/localize";
+import { workTypeLabel } from "@/lib/i18n/labels";
 import type { HomeData } from "./types";
 
 const TICKER = [
@@ -23,7 +32,9 @@ const TICKER = [
 const TILTS = ["-rotate-3", "rotate-2", "-rotate-1", "rotate-3", "-rotate-2", "rotate-1"];
 
 export function DesignFanSticker({ data }: { data: HomeData }) {
-  const { hero, works, magazines, events, stats, latestNews, upcoming, characters, videos } = data;
+  const locale = useLocale();
+  const t = useT();
+  const { works: rawWorks, magazines: rawMagazines, events: rawEvents, latestNews, upcoming, characters, videos } = data;
   const reduce = useReducedMotion();
   const photos = [
     IMAGES.portraits.redPearl,
@@ -31,18 +42,38 @@ export function DesignFanSticker({ data }: { data: HomeData }) {
     IMAGES.portraits.warmCandid,
   ];
 
+  const hero = useMemo(() => {
+    const meta = localizeSiteMeta(getSiteMeta(), locale);
+    return { tagline: meta.heroTagline, subtitle: meta.heroSubtitle };
+  }, [locale]);
+  const stats = useMemo(
+    () => localizeSiteMeta(getSiteMeta(), locale).stats,
+    [locale],
+  );
+  const works = useMemo(
+    () => rawWorks.map((w) => localizeWork(w, locale)),
+    [rawWorks, locale],
+  );
+  const magazines = useMemo(
+    () => rawMagazines.map((m) => localizeMagazine(m, locale)),
+    [rawMagazines, locale],
+  );
+  const events = useMemo(
+    () => rawEvents.map((e) => localizeEvent(e, locale)),
+    [rawEvents, locale],
+  );
+
   return (
     <div className="overflow-hidden">
-      {/* ===== 跑马灯 ===== */}
       <div className="overflow-hidden border-y-2 border-dashed border-wine/30 bg-blush/40 py-2.5">
         <motion.div
           className="flex shrink-0 gap-8 whitespace-nowrap pr-8 text-sm font-semibold tracking-wide text-wine"
           animate={reduce ? undefined : { x: ["0%", "-50%"] }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
         >
-          {[...TICKER, ...TICKER].map((t, i) => (
+          {[...TICKER, ...TICKER].map((item, i) => (
             <span key={i} className="flex items-center gap-8">
-              {t}
+              {item}
               <Heart size={13} className="fill-rouge text-rouge" />
             </span>
           ))}
@@ -57,22 +88,21 @@ export function DesignFanSticker({ data }: { data: HomeData }) {
             href="/upcoming"
             className="inline-flex items-center gap-1 rounded-full bg-rouge/15 px-5 py-2 text-sm font-semibold text-wine-deep hover:bg-rouge/25"
           >
-            ✨ {upcoming.length} 部待播 · 期待清单 →
+            {t("design.home.fanSticker.upcoming", { n: upcoming.length })}
           </Link>
         </div>
       )}
 
-      {/* ===== Hero ===== */}
       <section className="container-wide grid items-center gap-10 py-16 lg:grid-cols-2 lg:py-20">
         <div>
           <span className="pill bg-rouge/20 text-wine-deep">
-            <Sparkles size={12} className="mr-1" /> 官方粉丝应援站
+            <Sparkles size={12} className="mr-1" /> {t("design.home.fanSticker.fanSite")}
           </span>
           <h1 className="mt-5 text-5xl font-extrabold leading-[1.05] text-wine-deep sm:text-7xl">
-            永远和
+            {t("design.home.fanSticker.heroLine1")}
             <span className="gradient-text">热巴</span>
             <br />
-            一起发光 ✨
+            {t("design.home.fanSticker.heroLine2")}
           </h1>
           <p className="display mt-5 text-2xl text-ink">{hero.tagline}</p>
           <p className="mt-3 max-w-md text-sm leading-relaxed text-ink-soft">
@@ -80,25 +110,24 @@ export function DesignFanSticker({ data }: { data: HomeData }) {
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <Link href="/works" className="btn-primary">
-              <Heart size={15} className="fill-paper" /> 加入应援
+              <Heart size={15} className="fill-paper" /> {t("design.home.fanSticker.joinSupport")}
             </Link>
             <Link href="/events" className="btn-ghost">
-              看新动态 →
+              {t("design.home.fanSticker.viewUpdates")}
             </Link>
           </div>
           <div className="mt-8 flex flex-wrap gap-2.5">
-            {["甜妹", "古装神颜", "时尚大花", "演技派", "公益担当"].map((t) => (
+            {["甜妹", "古装神颜", "时尚大花", "演技派", "公益担当"].map((tag) => (
               <span
-                key={t}
+                key={tag}
                 className="pill border border-wine/20 bg-paper text-wine-deep shadow-sm"
               >
-                # {t}
+                # {tag}
               </span>
             ))}
           </div>
         </div>
 
-        {/* 拍立得堆叠 */}
         <div className="relative mx-auto h-[26rem] w-full max-w-md">
           {photos.map((src, i) => {
             const styles = [
@@ -117,7 +146,7 @@ export function DesignFanSticker({ data }: { data: HomeData }) {
                 <div className="relative aspect-[3/4] overflow-hidden rounded-xl">
                   <Image
                     src={src}
-                    alt="迪丽热巴写真"
+                    alt={t("hero.portraitAlt")}
                     fill
                     priority={i === 2}
                     sizes="13rem"
@@ -137,12 +166,11 @@ export function DesignFanSticker({ data }: { data: HomeData }) {
         </div>
       </section>
 
-      {/* ===== 作品 · 倾斜拍立得墙 ===== */}
       <section className="container-wide py-12">
         <div className="mb-10 flex items-center justify-center gap-2 text-center">
           <Heart size={18} className="fill-rouge text-rouge" />
           <h2 className="text-3xl font-extrabold text-wine-deep sm:text-4xl">
-            她的高光作品
+            {t("design.home.fanSticker.worksTitle")}
           </h2>
           <Heart size={18} className="fill-rouge text-rouge" />
         </div>
@@ -164,13 +192,13 @@ export function DesignFanSticker({ data }: { data: HomeData }) {
                   className="object-cover"
                 />
                 <span className="pill absolute left-2 top-2 bg-wine/85 text-paper">
-                  {WORK_TYPE_LABELS[work.type]}
+                  {workTypeLabel(work.type, locale)}
                 </span>
               </div>
               <p className="mt-2.5 text-center text-base font-bold text-ink">
                 {work.title}
               </p>
-              <p className="text-center text-xs text-wine">饰 {work.role}</p>
+              <p className="text-center text-xs text-wine">{t("work.role")} {work.role}</p>
             </Link>
           ))}
         </div>
@@ -180,7 +208,7 @@ export function DesignFanSticker({ data }: { data: HomeData }) {
         <section className="container-wide py-12">
           <div className="mb-8 flex items-center justify-center gap-2">
             <Sparkles size={18} className="text-gold" />
-            <h2 className="text-3xl font-extrabold text-wine-deep">角色图鉴</h2>
+            <h2 className="text-3xl font-extrabold text-wine-deep">{t("design.home.fanSticker.charactersTitle")}</h2>
           </div>
           <div className="grid gap-5 sm:grid-cols-3">
             {characters.map((c) => (
@@ -189,7 +217,7 @@ export function DesignFanSticker({ data }: { data: HomeData }) {
           </div>
           <div className="mt-6 text-center">
             <Link href="/characters" className="text-sm font-semibold text-wine hover:underline">
-              查看全部角色 →
+              {t("home.characters.viewAll")}
             </Link>
           </div>
         </section>
@@ -201,11 +229,10 @@ export function DesignFanSticker({ data }: { data: HomeData }) {
         </div>
       )}
 
-      {/* ===== 杂志 · 贴纸卡 ===== */}
       <section className="container-wide py-12">
         <div className="mb-10 text-center">
           <h2 className="text-3xl font-extrabold text-wine-deep sm:text-4xl">
-            美图杂志墙 📸
+            {t("design.home.fanSticker.magazinesTitle")}
           </h2>
         </div>
         <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-6">
@@ -234,10 +261,9 @@ export function DesignFanSticker({ data }: { data: HomeData }) {
         </div>
       </section>
 
-      {/* ===== 打 call 墙 ===== */}
       <section className="container-main py-12">
         <div className="rounded-[2.5rem] border-2 border-dashed border-wine/30 bg-blush/30 px-6 py-12 text-center">
-          <h2 className="text-3xl font-extrabold text-wine-deep">为热巴打 call 💗</h2>
+          <h2 className="text-3xl font-extrabold text-wine-deep">{t("design.home.fanSticker.cheerTitle")}</h2>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             {stats.map((s) => (
               <div
@@ -252,10 +278,9 @@ export function DesignFanSticker({ data }: { data: HomeData }) {
         </div>
       </section>
 
-      {/* ===== 活动 · 气泡卡 ===== */}
       <section className="container-main py-12">
         <h2 className="mb-8 text-center text-3xl font-extrabold text-wine-deep">
-          最近在忙这些
+          {t("design.home.fanSticker.eventsTitle")}
         </h2>
         <div className="grid gap-5 sm:grid-cols-2">
           {events.map((ev) => (
@@ -274,21 +299,20 @@ export function DesignFanSticker({ data }: { data: HomeData }) {
         </div>
       </section>
 
-      {/* ===== CTA ===== */}
       <section className="container-main pb-24 pt-6 text-center">
         <div className="rounded-[2.5rem] bg-gradient-to-br from-wine via-wine to-wine-deep px-6 py-16 text-paper shadow-xl">
           <Heart size={30} className="mx-auto fill-paper" />
           <h2 className="mt-4 text-3xl font-extrabold sm:text-4xl">
-            一起成为她的光 ✨
+            {t("design.home.fanSticker.ctaTitle")}
           </h2>
           <p className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-paper/85">
-            理性追星、温柔应援，把喜欢藏进每一个认真生活的日子里。
+            {t("design.home.fanSticker.ctaBody")}
           </p>
           <Link
             href="/about"
             className="mt-8 inline-flex items-center gap-2 rounded-full bg-paper px-8 py-3.5 text-sm font-semibold text-wine transition-transform hover:-translate-y-0.5"
           >
-            了解更多关于她 →
+            {t("common.learnMoreAbout")}
           </Link>
         </div>
       </section>

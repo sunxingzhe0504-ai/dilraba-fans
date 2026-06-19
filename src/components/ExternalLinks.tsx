@@ -1,5 +1,8 @@
+"use client";
+
 import { ExternalLink } from "lucide-react";
 import type { ExternalLink as ExternalLinkType } from "@/lib/types";
+import { useT } from "@/components/LocaleProvider";
 import { cn } from "@/lib/cn";
 
 type Props = {
@@ -10,19 +13,21 @@ type Props = {
   size?: "sm" | "md";
 };
 
-const kindLabel: Record<string, string> = {
-  info: "资料",
-  watch: "观看",
-  buy: "购买",
-  official: "官方",
-};
-
 export function ExternalLinks({
   links,
   className,
   layout = "inline",
   size = "sm",
 }: Props) {
+  const t = useT();
+
+  const kindLabel: Record<string, string> = {
+    info: t("common.info"),
+    watch: t("common.watch"),
+    buy: t("common.buy"),
+    official: t("common.official"),
+  };
+
   if (!links.length) return null;
 
   const btnClass =

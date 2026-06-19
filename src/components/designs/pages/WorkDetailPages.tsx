@@ -1,26 +1,41 @@
 "use client";
 
+import { useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import type { Character, Work } from "@/lib/types";
-import { WORK_TYPE_LABELS } from "@/lib/types";
 import { ExternalLinks } from "@/components/ExternalLinks";
 import { Container } from "@/components/Container";
+import { useLocale, useT } from "@/components/LocaleProvider";
+import { localizeCharacter, localizeWork } from "@/lib/i18n/localize";
+import { workTypeLabel } from "@/lib/i18n/labels";
 import { DesignPageRouter } from "../DesignPageRouter";
 
 export type WorkDetailPageProps = { work: Work; character?: Character };
 
+function useLocalizedWorkDetail({ work, character }: WorkDetailPageProps) {
+  const locale = useLocale();
+  const localizedWork = useMemo(() => localizeWork(work, locale), [work, locale]);
+  const localizedCharacter = useMemo(
+    () => (character ? localizeCharacter(character, locale) : undefined),
+    [character, locale],
+  );
+  return { work: localizedWork, character: localizedCharacter };
+}
+
 function WorkMeta({ work }: { work: Work }) {
+  const locale = useLocale();
+  const t = useT();
   return (
     <>
       <div className="flex flex-wrap items-center gap-3 text-sm text-ink-mute">
         <span className="text-xs uppercase tracking-[0.18em] text-wine">
-          {WORK_TYPE_LABELS[work.type]}
+          {workTypeLabel(work.type, locale)}
         </span>
         <span className="index-num">{work.year}</span>
         {work.status === "upcoming" && (
-          <span className="pill bg-gold/30 text-ink">即将上映</span>
+          <span className="pill bg-gold/30 text-ink">{t("work.upcoming")}</span>
         )}
       </div>
       {work.airInfo && (
@@ -28,41 +43,42 @@ function WorkMeta({ work }: { work: Work }) {
       )}
       {work.cast && work.cast.length > 0 && (
         <p className="mt-2 text-sm text-ink-mute">
-          主演：{work.cast.join("、")}
+          {t("common.starring")}{work.cast.join(locale === "en" ? ", " : "、")}
         </p>
       )}
-      {work.titleEn && (
+      {work.titleEn && locale === "zh" && (
         <p className="display mt-2 text-xl text-ink-soft">{work.titleEn}</p>
       )}
       <p className="mt-4 text-lg">
-        饰演 <span className="display text-wine">{work.role}</span>
+        {t("common.castRole")} <span className="display text-wine">{work.role}</span>
       </p>
     </>
   );
 }
 
 function WorkBody({ work, character }: { work: Work; character?: Character }) {
+  const t = useT();
   return (
     <>
       <div className="mt-8">
-        <h2 className="kicker">剧情简介</h2>
+        <h2 className="kicker">{t("common.synopsis")}</h2>
         <p className="mt-4 leading-relaxed text-ink-soft">{work.synopsis}</p>
       </div>
       {character && (
         <div className="mt-8">
-          <h2 className="kicker">角色图鉴</h2>
+          <h2 className="kicker">{t("pages.characters.title")}</h2>
           <Link
             href={`/characters/${character.slug}`}
             className="mt-4 inline-flex items-center gap-2 rounded-2xl border border-border bg-paper px-5 py-4 text-sm text-ink-soft transition-colors hover:border-wine hover:text-wine"
           >
-            查看 <span className="font-medium text-wine">{character.name}</span>
+            {t("common.viewCharacter")} <span className="font-medium text-wine">{character.name}</span>
             <span className="text-ink-mute">· {character.workTitle}</span>
           </Link>
         </div>
       )}
       {work.highlights && work.highlights.length > 0 && (
         <div className="mt-8">
-          <h2 className="kicker">亮点</h2>
+          <h2 className="kicker">{t("common.highlights")}</h2>
           <ul className="mt-4 space-y-2">
             {work.highlights.map((item) => (
               <li key={item} className="flex gap-3 text-sm text-ink-soft">
@@ -75,7 +91,7 @@ function WorkBody({ work, character }: { work: Work; character?: Character }) {
       )}
       {work.externalLinks && work.externalLinks.length > 0 && (
         <div className="mt-10">
-          <h2 className="kicker">相关链接</h2>
+          <h2 className="kicker">{t("common.relatedLinks")}</h2>
           <ExternalLinks links={work.externalLinks} className="mt-4" size="md" />
         </div>
       )}
@@ -83,15 +99,17 @@ function WorkBody({ work, character }: { work: Work; character?: Character }) {
   );
 }
 
-export function WorkDetailWarmCinema({ work, character }: WorkDetailPageProps) {
+export function WorkDetailWarmCinema(props: WorkDetailPageProps) {
+  const t = useT();
+  const { work, character } = useLocalizedWorkDetail(props);
   return (
     <Container wide className="section-padding pt-16">
       <Link href="/works" className="mb-10 inline-flex items-center gap-2 text-sm text-ink-soft hover:text-wine">
-        <ArrowLeft size={16} /> 返回作品库
+        <ArrowLeft size={16} /> {t("common.backToWorks")}
       </Link>
       <div className="grid gap-12 lg:grid-cols-[360px_1fr]">
         <div className="relative mx-auto aspect-[2/3] w-full max-w-xs overflow-hidden rounded-[var(--radius-card)] shadow-2xl lg:mx-0">
-          <Image src={work.poster} alt={`${work.title} 海报`} fill priority className="object-cover" sizes="320px" />
+          <Image src={work.poster} alt={`${work.title} ${t("work.posterAlt")}`} fill priority className="object-cover" sizes="320px" />
         </div>
         <div>
           <WorkMeta work={work} />
@@ -103,12 +121,14 @@ export function WorkDetailWarmCinema({ work, character }: WorkDetailPageProps) {
   );
 }
 
-export function WorkDetailXianxia({ work, character }: WorkDetailPageProps) {
+export function WorkDetailXianxia(props: WorkDetailPageProps) {
+  const t = useT();
+  const { work, character } = useLocalizedWorkDetail(props);
   return (
     <div className="section-padding pt-16">
       <div className="container-main">
         <Link href="/works" className="text-sm text-wine hover:text-wine-deep">
-          ← 返回卷宗
+          {t("common.backToWorksA")}
         </Link>
         <div className="mt-12 text-center">
           <div className="relative mx-auto w-56">
@@ -127,11 +147,13 @@ export function WorkDetailXianxia({ work, character }: WorkDetailPageProps) {
   );
 }
 
-export function WorkDetailFanSticker({ work, character }: WorkDetailPageProps) {
+export function WorkDetailFanSticker(props: WorkDetailPageProps) {
+  const t = useT();
+  const { work, character } = useLocalizedWorkDetail(props);
   return (
     <Container wide className="section-padding pt-16">
       <Link href="/works" className="font-medium text-wine">
-        ← 回作品墙
+        {t("common.backToWorksB")}
       </Link>
       <div className="mt-10 grid gap-10 lg:grid-cols-[280px_1fr]">
         <div className="rotate-2 rounded-2xl bg-paper p-3 shadow-xl">
@@ -150,7 +172,8 @@ export function WorkDetailFanSticker({ work, character }: WorkDetailPageProps) {
   );
 }
 
-export function WorkDetailEditorial({ work, character }: WorkDetailPageProps) {
+export function WorkDetailEditorial(props: WorkDetailPageProps) {
+  const { work, character } = useLocalizedWorkDetail(props);
   return (
     <div className="section-padding pt-16">
       <Container wide>
@@ -181,6 +204,6 @@ const workDetailVariants = {
   d: WorkDetailEditorial,
 };
 
-export function WorkDetailPageDesign({ work, character }: WorkDetailPageProps) {
-  return <DesignPageRouter variants={workDetailVariants} props={{ work, character }} />;
+export function WorkDetailPageDesign(props: WorkDetailPageProps) {
+  return <DesignPageRouter variants={workDetailVariants} props={props} />;
 }

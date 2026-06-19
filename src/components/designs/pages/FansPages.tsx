@@ -1,10 +1,13 @@
 "use client";
 
+import { useMemo } from "react";
 import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 import type { FanCulture, Quote } from "@/lib/types";
 import { Container } from "@/components/Container";
 import { SectionTitle } from "@/components/SectionTitle";
+import { useLocale, useT } from "@/components/LocaleProvider";
+import { localizeFanCulture, localizeQuote } from "@/lib/i18n/localize";
 import { DesignPageRouter } from "../DesignPageRouter";
 
 export type FansPageProps = {
@@ -12,7 +15,14 @@ export type FansPageProps = {
   quotes: Quote[];
 };
 
-function FansContent({ culture, quotes, variant }: FansPageProps & { variant: "c" | "a" | "b" | "d" }) {
+function FansContent({ culture: rawCulture, quotes: rawQuotes, variant }: FansPageProps & { variant: "c" | "a" | "b" | "d" }) {
+  const locale = useLocale();
+  const t = useT();
+  const culture = useMemo(() => localizeFanCulture(rawCulture, locale), [rawCulture, locale]);
+  const quotes = useMemo(
+    () => rawQuotes.map((q) => localizeQuote(q, locale)),
+    [rawQuotes, locale],
+  );
   const { fanName, fanNameNote, nicknames, fanGuide, anniversaries, communityLinks } = culture;
   const titleClass =
     variant === "a" ? "zh-display text-4xl text-wine-deep" : "display text-4xl text-wine-deep";
@@ -23,12 +33,12 @@ function FansContent({ culture, quotes, variant }: FansPageProps & { variant: "c
     <>
       <Container wide className="section-padding pt-16">
         {variant === "c" && (
-          <SectionTitle index="—" kicker="Dear Bar" title="粉丝文化" subtitle="同好相聚，追光而行。" align="center" />
+          <SectionTitle index="—" kicker="Dear Bar" title={t("pages.fans.title")} subtitle={t("pages.fans.subtitle")} align="center" />
         )}
         {variant === "a" && (
           <div className="mb-10 text-center">
             <p className="kicker justify-center">同 · Dear Bar</p>
-            <h1 className="zh-display text-5xl text-wine-deep">粉丝文化</h1>
+            <h1 className="zh-display text-5xl text-wine-deep">{t("pages.fans.title")}</h1>
           </div>
         )}
         {variant === "b" && (
@@ -38,7 +48,7 @@ function FansContent({ culture, quotes, variant }: FansPageProps & { variant: "c
           <>
             <div className="gold-rule h-px" />
             <h1 className="display mt-6 text-5xl text-wine-deep">Community</h1>
-            <p className="text-xs uppercase tracking-[0.3em] text-ink-mute">粉丝文化</p>
+            <p className="text-xs uppercase tracking-[0.3em] text-ink-mute">{t("pages.fans.title")}</p>
             <div className="gold-rule mt-6 h-px" />
           </>
         )}
@@ -56,7 +66,7 @@ function FansContent({ culture, quotes, variant }: FansPageProps & { variant: "c
       </Container>
 
       <Container wide className={variant === "c" ? "soft-section" : "section-padding"}>
-        <h2 className={sectionTitle}>闪光语录</h2>
+        <h2 className={sectionTitle}>{t("pages.fans.quotes")}</h2>
         <ul className="mt-8 grid gap-4 sm:grid-cols-2">
           {quotes.map((q) => (
             <li
@@ -75,7 +85,7 @@ function FansContent({ culture, quotes, variant }: FansPageProps & { variant: "c
       </Container>
 
       <Container wide className="section-padding">
-        <h2 className={sectionTitle}>理性追星指南</h2>
+        <h2 className={sectionTitle}>{t("pages.fans.guide")}</h2>
         <ul className="mt-6 space-y-3">
           {fanGuide.map((line) => (
             <li key={line} className="flex gap-3 text-sm text-ink-soft">
@@ -87,7 +97,7 @@ function FansContent({ culture, quotes, variant }: FansPageProps & { variant: "c
       </Container>
 
       <Container wide className="pb-16">
-        <h2 className={sectionTitle}>纪念日</h2>
+        <h2 className={sectionTitle}>{t("pages.fans.anniversaries")}</h2>
         <div className="mt-6 grid gap-4 sm:grid-cols-3">
           {anniversaries.map((a) => (
             <div key={a.id} className="edit-card p-6 text-center">
@@ -100,7 +110,7 @@ function FansContent({ culture, quotes, variant }: FansPageProps & { variant: "c
       </Container>
 
       <Container wide className="pb-24">
-        <h2 className={sectionTitle}>同好 · 官方链接</h2>
+        <h2 className={sectionTitle}>{t("pages.fans.community")}</h2>
         <ul className="mt-6 space-y-3">
           {communityLinks.map((link) => (
             <li key={link.href}>
@@ -123,13 +133,13 @@ function FansContent({ culture, quotes, variant }: FansPageProps & { variant: "c
         </ul>
         <div className="mt-10 flex flex-wrap justify-center gap-4 text-sm">
           <Link href="/fashion" className="text-wine hover:underline">
-            时尚专题 →
+            {t("pages.fans.fashionLink")}
           </Link>
           <Link href="/charity" className="text-wine hover:underline">
-            公益专题 →
+            {t("pages.fans.charityLink")}
           </Link>
           <Link href="/changelog" className="text-wine hover:underline">
-            更新日志 →
+            {t("pages.fans.changelogLink")}
           </Link>
         </div>
       </Container>

@@ -1,16 +1,11 @@
 "use client";
 
 import type { EventCategory } from "@/lib/types";
-import { EVENT_CATEGORY_LABELS } from "@/lib/types";
+import { useLocale, useT } from "@/components/LocaleProvider";
+import { eventCategoryLabel, filterAllLabel } from "@/lib/i18n/labels";
 import { cn } from "@/lib/cn";
 import type { ThemeId } from "@/lib/themes";
-
-const filters: { value: EventCategory | "all"; label: string }[] = [
-  { value: "all", label: "全部" },
-  ...(
-    Object.entries(EVENT_CATEGORY_LABELS) as [EventCategory, string][]
-  ).map(([value, label]) => ({ value, label })),
-];
+import { useMemo } from "react";
 
 type Props = {
   variant: ThemeId;
@@ -18,10 +13,26 @@ type Props = {
   onChange: (v: EventCategory | "all") => void;
 };
 
+const CATEGORIES: EventCategory[] = ["brand", "charity", "premiere", "award", "other"];
+
 export function EventCategoryFilter({ variant, active, onChange }: Props) {
+  const locale = useLocale();
+  const t = useT();
+  const filters = useMemo(
+    () => [
+      { value: "all" as const, label: filterAllLabel(locale) },
+      ...CATEGORIES.map((value) => ({
+        value,
+        label: eventCategoryLabel(value, locale),
+      })),
+    ],
+    [locale],
+  );
+  const aria = t("common.filterEvents");
+
   if (variant === "b") {
     return (
-      <div className="flex flex-wrap gap-2" role="tablist" aria-label="活动类型筛选">
+      <div className="flex flex-wrap gap-2" role="tablist" aria-label={aria}>
         {filters.map((f) => (
           <button
             key={f.value}
@@ -45,7 +56,7 @@ export function EventCategoryFilter({ variant, active, onChange }: Props) {
 
   if (variant === "d") {
     return (
-      <div className="flex flex-wrap gap-x-8 border-b border-border" role="tablist">
+      <div className="flex flex-wrap gap-x-8 border-b border-border" role="tablist" aria-label={aria}>
         {filters.map((f) => (
           <button
             key={f.value}
@@ -65,7 +76,7 @@ export function EventCategoryFilter({ variant, active, onChange }: Props) {
 
   if (variant === "a") {
     return (
-      <div className="flex flex-wrap justify-center gap-3" role="tablist">
+      <div className="flex flex-wrap justify-center gap-3" role="tablist" aria-label={aria}>
         {filters.map((f) => (
           <button
             key={f.value}
@@ -87,7 +98,7 @@ export function EventCategoryFilter({ variant, active, onChange }: Props) {
     <div
       className="flex flex-wrap gap-x-7 gap-y-3 border-b border-border pb-px"
       role="tablist"
-      aria-label="活动类型筛选"
+      aria-label={aria}
     >
       {filters.map((f) => {
         const isActive = active === f.value;

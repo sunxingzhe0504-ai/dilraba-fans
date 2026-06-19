@@ -4,6 +4,7 @@ import type { Character } from "@/lib/types";
 import { Container } from "@/components/Container";
 import { SectionTitle } from "@/components/SectionTitle";
 import { CharacterCard } from "@/components/GalleryGrid";
+import { useT } from "@/components/LocaleProvider";
 import { DesignPageRouter } from "../DesignPageRouter";
 
 export type CharactersPageProps = { characters: Character[] };
@@ -19,13 +20,14 @@ function CharacterGrid({ characters }: CharactersPageProps) {
 }
 
 export function CharactersWarmCinema({ characters }: CharactersPageProps) {
+  const t = useT();
   return (
     <Container wide className="section-padding pt-16">
       <SectionTitle
         index="—"
         kicker="Characters"
-        title="角色图鉴"
-        subtitle="从仙侠到都市，每一个角色都是她表演路上的印记。"
+        title={t("pages.characters.title")}
+        subtitle={t("design.characters.warmSubtitle")}
         align="center"
       />
       <CharacterGrid characters={characters} />
@@ -34,11 +36,12 @@ export function CharactersWarmCinema({ characters }: CharactersPageProps) {
 }
 
 export function CharactersXianxia({ characters }: CharactersPageProps) {
+  const t = useT();
   return (
     <div className="section-padding pt-16">
       <div className="container-main mb-10 text-center">
         <p className="kicker justify-center">谱 · Characters</p>
-        <h1 className="zh-display text-5xl text-wine-deep">角色名册</h1>
+        <h1 className="zh-display text-5xl text-wine-deep">{t("design.characters.xianxiaTitle")}</h1>
       </div>
       <div className="container-main">
         <CharacterGrid characters={characters} />
@@ -48,10 +51,11 @@ export function CharactersXianxia({ characters }: CharactersPageProps) {
 }
 
 export function CharactersFanSticker({ characters }: CharactersPageProps) {
+  const t = useT();
   return (
     <Container wide className="section-padding pt-16">
       <h1 className="mb-10 text-center text-4xl font-extrabold text-wine-deep">
-        角色收藏册 💫
+        {t("design.characters.fanStickerTitle")}
       </h1>
       <CharacterGrid characters={characters} />
     </Container>
@@ -59,11 +63,12 @@ export function CharactersFanSticker({ characters }: CharactersPageProps) {
 }
 
 export function CharactersEditorial({ characters }: CharactersPageProps) {
+  const t = useT();
   return (
     <Container wide className="section-padding pt-16">
       <div className="gold-rule h-px" />
       <h1 className="display mt-6 text-5xl text-wine-deep">Roles</h1>
-      <p className="text-xs uppercase tracking-[0.3em] text-ink-mute">角色图鉴</p>
+      <p className="text-xs uppercase tracking-[0.3em] text-ink-mute">{t("pages.characters.title")}</p>
       <div className="gold-rule mt-6 h-px" />
       <CharacterGrid characters={characters} />
     </Container>

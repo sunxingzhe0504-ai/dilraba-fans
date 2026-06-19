@@ -2,21 +2,52 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useMemo } from "react";
 import { motion, useReducedMotion } from "framer-motion";
+import { getSiteMeta } from "@content/index";
 import { IMAGES } from "@content/images";
-import { WORK_TYPE_LABELS } from "@/lib/types";
 import { FeaturedVideoStrip } from "@/components/FeaturedVideoStrip";
 import { LatestStrip } from "@/components/LatestStrip";
 import { CharacterCard } from "@/components/GalleryGrid";
+import { useLocale, useT } from "@/components/LocaleProvider";
+import {
+  localizeEvent,
+  localizeMagazine,
+  localizeSiteMeta,
+  localizeWork,
+} from "@/lib/i18n/localize";
+import { workTypeLabel } from "@/lib/i18n/labels";
 import type { HomeData } from "./types";
 
 export function DesignEditorial({ data }: { data: HomeData }) {
-  const { hero, works, magazines, events, stats, latestNews, upcoming, characters, videos } = data;
+  const locale = useLocale();
+  const t = useT();
+  const { works: rawWorks, magazines: rawMagazines, events: rawEvents, latestNews, upcoming, characters, videos } = data;
   const reduce = useReducedMotion();
+
+  const hero = useMemo(() => {
+    const meta = localizeSiteMeta(getSiteMeta(), locale);
+    return { tagline: meta.heroTagline, subtitle: meta.heroSubtitle };
+  }, [locale]);
+  const stats = useMemo(
+    () => localizeSiteMeta(getSiteMeta(), locale).stats,
+    [locale],
+  );
+  const works = useMemo(
+    () => rawWorks.map((w) => localizeWork(w, locale)),
+    [rawWorks, locale],
+  );
+  const magazines = useMemo(
+    () => rawMagazines.map((m) => localizeMagazine(m, locale)),
+    [rawMagazines, locale],
+  );
+  const events = useMemo(
+    () => rawEvents.map((e) => localizeEvent(e, locale)),
+    [rawEvents, locale],
+  );
 
   return (
     <div className="overflow-hidden">
-      {/* ===== 刊头 / 封面 ===== */}
       <section className="container-wide pt-12">
         <div className="flex items-center justify-between text-[11px] uppercase tracking-[0.3em] text-ink-mute">
           <span>迪丽热巴 · Fan Editorial</span>
@@ -33,7 +64,6 @@ export function DesignEditorial({ data }: { data: HomeData }) {
         <div className="gold-rule mt-4 h-px" />
 
         <div className="mt-8 grid items-stretch gap-8 lg:grid-cols-[1fr_1.25fr]">
-          {/* 封面文案 */}
           <div className="flex flex-col justify-center">
             <p className="text-[11px] uppercase tracking-[0.3em] text-gold">
               Cover Story
@@ -49,10 +79,10 @@ export function DesignEditorial({ data }: { data: HomeData }) {
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link href="/works" className="btn-primary !rounded-none">
-                进入专题 →
+                {t("design.home.editorial.enterFeature")}
               </Link>
               <Link href="/about" className="btn-ghost !rounded-none">
-                人物档案
+                {t("design.home.editorial.profile")}
               </Link>
             </div>
             <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-4 border-t border-border pt-6">
@@ -67,7 +97,6 @@ export function DesignEditorial({ data }: { data: HomeData }) {
             </div>
           </div>
 
-          {/* 封面大图 · 竖版比例，避免宽扁容器裁切人像 */}
           <motion.div
             initial={reduce ? undefined : { opacity: 0, scale: 1.03 }}
             animate={reduce ? undefined : { opacity: 1, scale: 1 }}
@@ -76,7 +105,7 @@ export function DesignEditorial({ data }: { data: HomeData }) {
           >
             <Image
               src={IMAGES.portraits.redBlack}
-              alt="迪丽热巴封面大片"
+              alt={t("hero.portraitAlt")}
               fill
               priority
               sizes="(max-width:1024px) 100vw, 55vw"
@@ -106,7 +135,6 @@ export function DesignEditorial({ data }: { data: HomeData }) {
         </div>
       )}
 
-      {/* ===== CONTENTS · 作品目录索引 ===== */}
       <section className="container-wide py-24">
         <div className="flex items-end justify-between">
           <h2 className="display text-4xl text-ink sm:text-5xl">Contents</h2>
@@ -140,7 +168,7 @@ export function DesignEditorial({ data }: { data: HomeData }) {
                     {work.title}
                   </h3>
                   <p className="mt-1 text-sm text-ink-soft">
-                    {WORK_TYPE_LABELS[work.type]} · 饰 {work.role}
+                    {workTypeLabel(work.type, locale)} · {t("work.role")} {work.role}
                   </p>
                 </div>
                 <span className="display text-xl text-ink-mute">{work.year}</span>
@@ -153,19 +181,18 @@ export function DesignEditorial({ data }: { data: HomeData }) {
             href="/works"
             className="text-sm uppercase tracking-[0.2em] text-wine hover:text-wine-deep"
           >
-            View full index →
+            {t("design.home.editorial.viewFullIndex")}
           </Link>
         </div>
       </section>
 
-      {/* ===== 引言 ===== */}
       <section className="border-y border-border bg-background-deep/40 py-24">
         <div className="container-main text-center">
           <p className="display mx-auto max-w-3xl text-3xl italic leading-snug text-wine-deep sm:text-4xl">
-            “认真生活，用心演戏，温柔对待这个世界。”
+            “{t("home.quote")}”
           </p>
           <p className="mt-6 text-[11px] uppercase tracking-[0.3em] text-ink-mute">
-            Dilraba Dilmurat · 迪丽热巴
+            {t("home.quoteCaption")}
           </p>
         </div>
       </section>
@@ -189,7 +216,7 @@ export function DesignEditorial({ data }: { data: HomeData }) {
               href="/characters"
               className="text-sm uppercase tracking-[0.2em] text-wine hover:text-wine-deep"
             >
-              View all characters →
+              {t("design.home.editorial.viewAllCharacters")}
             </Link>
           </div>
         </section>
@@ -201,7 +228,6 @@ export function DesignEditorial({ data }: { data: HomeData }) {
         </div>
       )}
 
-      {/* ===== Editorial 杂志网格 ===== */}
       <section className="container-wide py-24">
         <div className="flex items-end justify-between">
           <h2 className="display text-4xl text-ink sm:text-5xl">Editorials</h2>
@@ -234,7 +260,6 @@ export function DesignEditorial({ data }: { data: HomeData }) {
         </div>
       </section>
 
-      {/* ===== Agenda · 活动 ===== */}
       <section className="container-wide pb-24">
         <div className="flex items-end justify-between">
           <h2 className="display text-4xl text-ink sm:text-5xl">Agenda</h2>
@@ -265,7 +290,7 @@ export function DesignEditorial({ data }: { data: HomeData }) {
 
         <div className="mt-20 text-center">
           <Link href="/about" className="btn-primary !rounded-none">
-            了解更多关于她 →
+            {t("common.learnMoreAbout")}
           </Link>
         </div>
       </section>

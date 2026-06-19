@@ -1,7 +1,11 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import type { Magazine } from "@/lib/types";
 import { ExternalLinks } from "@/components/ExternalLinks";
+import { useLocale } from "@/components/LocaleProvider";
+import { localizeMagazine } from "@/lib/i18n/localize";
 import { cn } from "@/lib/cn";
 
 type MagazineCardProps = {
@@ -9,7 +13,10 @@ type MagazineCardProps = {
   className?: string;
 };
 
-export function MagazineCard({ magazine, className }: MagazineCardProps) {
+export function MagazineCard({ magazine: raw, className }: MagazineCardProps) {
+  const locale = useLocale();
+  const magazine = localizeMagazine(raw, locale);
+
   return (
     <div className={cn("group edit-card hover-zoom flex-shrink-0", className)}>
       <Link href={`/magazine/${magazine.slug}`} className="block">

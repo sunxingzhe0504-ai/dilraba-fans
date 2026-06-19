@@ -4,11 +4,13 @@ import { ExternalLink } from "lucide-react";
 import type { CharityItem } from "@/lib/types";
 import { Container } from "@/components/Container";
 import { SectionTitle } from "@/components/SectionTitle";
+import { useT } from "@/components/LocaleProvider";
 import { DesignPageRouter } from "../DesignPageRouter";
 
 export type CharityPageProps = { items: CharityItem[] };
 
 function CharityList({ items, variant }: CharityPageProps & { variant: "c" | "a" | "b" | "d" }) {
+  const t = useT();
   return (
     <ul
       className={
@@ -53,7 +55,7 @@ function CharityList({ items, variant }: CharityPageProps & { variant: "c" | "a"
               className="btn-ghost mt-5"
             >
               <ExternalLink size={14} />
-              了解更多
+              {t("design.charity.learnMore")}
             </a>
           )}
         </li>
@@ -63,13 +65,14 @@ function CharityList({ items, variant }: CharityPageProps & { variant: "c" | "a"
 }
 
 export function CharityWarmCinema({ items }: CharityPageProps) {
+  const t = useT();
   return (
     <Container wide className="section-padding pt-16">
       <SectionTitle
         index="—"
         kicker="Charity"
-        title="公益 · 温暖同行"
-        subtitle="以行动传递温暖，关注儿童、灾害救援与社会责任。"
+        title={t("pages.charity.warmTitle")}
+        subtitle={t("pages.charity.warmSubtitle")}
         align="center"
       />
       <CharityList items={items} variant="c" />
@@ -78,11 +81,12 @@ export function CharityWarmCinema({ items }: CharityPageProps) {
 }
 
 export function CharityXianxia({ items }: CharityPageProps) {
+  const t = useT();
   return (
     <div className="section-padding pt-16">
       <div className="container-main mb-8 text-center">
         <p className="kicker justify-center">善 · Charity</p>
-        <h1 className="zh-display text-5xl text-wine-deep">公益行迹</h1>
+        <h1 className="zh-display text-5xl text-wine-deep">{t("design.charity.xianxiaTitle")}</h1>
       </div>
       <CharityList items={items} variant="a" />
     </div>
@@ -90,10 +94,11 @@ export function CharityXianxia({ items }: CharityPageProps) {
 }
 
 export function CharityFanSticker({ items }: CharityPageProps) {
+  const t = useT();
   return (
     <Container wide className="section-padding pt-16">
       <h1 className="mb-8 text-center text-4xl font-extrabold text-wine-deep">
-        温暖同行 💗
+        {t("design.charity.fanStickerTitle")}
       </h1>
       <CharityList items={items} variant="b" />
     </Container>
@@ -101,11 +106,12 @@ export function CharityFanSticker({ items }: CharityPageProps) {
 }
 
 export function CharityEditorial({ items }: CharityPageProps) {
+  const t = useT();
   return (
     <Container wide className="section-padding pt-16">
       <div className="gold-rule h-px" />
       <h1 className="display mt-6 text-5xl text-wine-deep">Impact</h1>
-      <p className="text-xs uppercase tracking-[0.3em] text-ink-mute">公益专题</p>
+      <p className="text-xs uppercase tracking-[0.3em] text-ink-mute">{t("pages.charity.title")}</p>
       <div className="gold-rule mt-6 h-px" />
       <CharityList items={items} variant="d" />
     </Container>

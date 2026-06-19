@@ -2,21 +2,17 @@
 
 import { useMemo, useState } from "react";
 import type { VideoCategory, VideoItem } from "@/lib/types";
-import { VIDEO_CATEGORY_LABELS } from "@/lib/types";
 import { Container } from "@/components/Container";
 import { SectionTitle } from "@/components/SectionTitle";
 import { VideoCard } from "@/components/VideoCard";
+import { useLocale, useT } from "@/components/LocaleProvider";
+import { filterAllLabel, videoCategoryLabel } from "@/lib/i18n/labels";
 import { ThemeCategoryFilter } from "../shared/ThemeCategoryFilter";
 import { DesignPageRouter } from "../DesignPageRouter";
 
 export type VideosPageProps = { videos: VideoItem[] };
 
-const filterOptions: { value: VideoCategory | "all"; label: string }[] = [
-  { value: "all", label: "全部" },
-  ...(
-    Object.entries(VIDEO_CATEGORY_LABELS) as [VideoCategory, string][]
-  ).map(([value, label]) => ({ value, label })),
-];
+const CATEGORIES: VideoCategory[] = ["mv", "studio", "trailer", "interview", "event", "variety"];
 
 function useFiltered(videos: VideoItem[], active: VideoCategory | "all") {
   return useMemo(() => {
@@ -45,45 +41,69 @@ function VideoGrid({ videos, layout }: { videos: VideoItem[]; layout: "card" | "
 }
 
 export function VideosWarmCinema({ videos }: VideosPageProps) {
+  const locale = useLocale();
+  const t = useT();
   const [active, setActive] = useState<VideoCategory | "all">("all");
   const filtered = useFiltered(videos, active);
+  const filterOptions = useMemo(
+    () => [
+      { value: "all" as const, label: filterAllLabel(locale) },
+      ...CATEGORIES.map((value) => ({
+        value,
+        label: videoCategoryLabel(value, locale),
+      })),
+    ],
+    [locale],
+  );
 
   return (
     <Container wide className="section-padding pt-16">
       <SectionTitle
         index="—"
         kicker="Videos"
-        title="视频专区"
-        subtitle="预告、MV、工作室与活动现场 — 链接至公开平台观看，本站不托管视频。"
+        title={t("pages.videos.title")}
+        subtitle={t("pages.videos.warmSubtitle")}
       />
       <ThemeCategoryFilter
         variant="c"
         active={active}
         onChange={setActive}
         filters={filterOptions}
-        ariaLabel="视频分类"
+        ariaLabel={t("common.filterVideos")}
       />
       <div className="mt-10">
         <VideoGrid videos={filtered} layout="card" />
       </div>
       <p className="mt-10 text-center text-sm text-ink-mute">
-        视频版权归各平台及原权利人所有 · 仅供跳转观看
+        {t("pages.videos.disclaimer")}
       </p>
     </Container>
   );
 }
 
 export function VideosXianxia({ videos }: VideosPageProps) {
+  const locale = useLocale();
+  const t = useT();
   const [active, setActive] = useState<VideoCategory | "all">("all");
   const filtered = useFiltered(videos, active);
+  const filterOptions = useMemo(
+    () => [
+      { value: "all" as const, label: filterAllLabel(locale) },
+      ...CATEGORIES.map((value) => ({
+        value,
+        label: videoCategoryLabel(value, locale),
+      })),
+    ],
+    [locale],
+  );
 
   return (
     <div className="section-padding pt-16">
       <div className="container-main mb-8 text-center">
         <p className="kicker justify-center">影 · Videos</p>
-        <h1 className="zh-display text-5xl text-wine-deep">影像集</h1>
+        <h1 className="zh-display text-5xl text-wine-deep">{t("design.videos.xianxiaTitle")}</h1>
         <div className="mt-8">
-          <ThemeCategoryFilter variant="a" active={active} onChange={setActive} filters={filterOptions} />
+          <ThemeCategoryFilter variant="a" active={active} onChange={setActive} filters={filterOptions} ariaLabel={t("common.filterVideos")} />
         </div>
       </div>
       <div className="container-main pb-8">
@@ -94,15 +114,27 @@ export function VideosXianxia({ videos }: VideosPageProps) {
 }
 
 export function VideosFanSticker({ videos }: VideosPageProps) {
+  const locale = useLocale();
+  const t = useT();
   const [active, setActive] = useState<VideoCategory | "all">("all");
   const filtered = useFiltered(videos, active);
+  const filterOptions = useMemo(
+    () => [
+      { value: "all" as const, label: filterAllLabel(locale) },
+      ...CATEGORIES.map((value) => ({
+        value,
+        label: videoCategoryLabel(value, locale),
+      })),
+    ],
+    [locale],
+  );
 
   return (
     <Container wide className="section-padding pt-16">
       <h1 className="mb-8 text-center text-4xl font-extrabold text-wine-deep">
-        视频安利 🎬
+        {t("design.videos.fanStickerTitle")}
       </h1>
-      <ThemeCategoryFilter variant="b" active={active} onChange={setActive} filters={filterOptions} />
+      <ThemeCategoryFilter variant="b" active={active} onChange={setActive} filters={filterOptions} ariaLabel={t("common.filterVideos")} />
       <div className="mt-10">
         <VideoGrid videos={filtered} layout="card" />
       </div>
@@ -111,17 +143,29 @@ export function VideosFanSticker({ videos }: VideosPageProps) {
 }
 
 export function VideosEditorial({ videos }: VideosPageProps) {
+  const locale = useLocale();
+  const t = useT();
   const [active, setActive] = useState<VideoCategory | "all">("all");
   const filtered = useFiltered(videos, active);
+  const filterOptions = useMemo(
+    () => [
+      { value: "all" as const, label: filterAllLabel(locale) },
+      ...CATEGORIES.map((value) => ({
+        value,
+        label: videoCategoryLabel(value, locale),
+      })),
+    ],
+    [locale],
+  );
 
   return (
     <Container wide className="section-padding pt-16">
       <div className="gold-rule h-px" />
       <h1 className="display mt-6 text-5xl text-wine-deep">Screen</h1>
-      <p className="text-xs uppercase tracking-[0.3em] text-ink-mute">视频专区</p>
+      <p className="text-xs uppercase tracking-[0.3em] text-ink-mute">{t("pages.videos.title")}</p>
       <div className="gold-rule mt-6 h-px" />
       <div className="mt-8">
-        <ThemeCategoryFilter variant="d" active={active} onChange={setActive} filters={filterOptions} />
+        <ThemeCategoryFilter variant="d" active={active} onChange={setActive} filters={filterOptions} ariaLabel={t("common.filterVideos")} />
       </div>
       <div className="mt-10">
         <VideoGrid videos={filtered} layout="card" />

@@ -1,7 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import { useMemo } from "react";
 import { Heart } from "lucide-react";
+import { getSiteMeta } from "@content/index";
 import { FeaturedVideoStrip } from "@/components/FeaturedVideoStrip";
 import { Hero } from "@/components/Hero";
 import { LatestStrip } from "@/components/LatestStrip";
@@ -14,10 +16,23 @@ import { MagazineCard } from "@/components/MagazineCard";
 import { EventCard, ViewAllLink } from "@/components/EventCard";
 import { StatStrip } from "@/components/StatStrip";
 import { FadeIn, StaggerGrid, StaggerItem } from "@/components/FadeIn";
+import { useLocale, useT } from "@/components/LocaleProvider";
+import { localizeHonor, localizeSiteMeta } from "@/lib/i18n/localize";
 import type { HomeData } from "./types";
 
 export function DesignWarmCinema({ data }: { data: HomeData }) {
-  const { works, magazines, events, stats, honors, latestNews, upcoming, characters, videos } = data;
+  const locale = useLocale();
+  const t = useT();
+  const { works, magazines, events, latestNews, upcoming, characters, videos } = data;
+
+  const stats = useMemo(
+    () => localizeSiteMeta(getSiteMeta(), locale).stats,
+    [locale],
+  );
+  const honors = useMemo(
+    () => data.honors.map((h) => localizeHonor(h, locale)),
+    [data.honors, locale],
+  );
 
   return (
     <>
@@ -27,7 +42,7 @@ export function DesignWarmCinema({ data }: { data: HomeData }) {
       {upcoming.length > 0 && (
         <div className="container-wide py-6 text-center">
           <Link href="/upcoming" className="text-sm font-medium text-wine hover:text-wine-deep">
-            ✦ {upcoming.length} 部待播作品 · 点击查看期待清单 →
+            {t("home.upcoming", { n: upcoming.length })}
           </Link>
         </div>
       )}
@@ -37,12 +52,12 @@ export function DesignWarmCinema({ data }: { data: HomeData }) {
           <div className="mb-12 flex flex-wrap items-end justify-between gap-6">
             <SectionTitle
               index="01 —"
-              kicker="Filmography"
-              title="精选作品"
-              subtitle="从仙侠到都市，从古装到职业题材，多元角色见证她的成长。"
+              kicker={t("home.works.kicker")}
+              title={t("home.works.title")}
+              subtitle={t("home.works.subtitle")}
               className="mb-0"
             />
-            <ViewAllLink href="/works" label="查看全部作品" />
+            <ViewAllLink href="/works" label={t("home.works.viewAll")} />
           </div>
         </FadeIn>
         <StaggerGrid className="grid grid-cols-2 gap-5 lg:grid-cols-4">
@@ -59,9 +74,9 @@ export function DesignWarmCinema({ data }: { data: HomeData }) {
           <FadeIn>
             <SectionTitle
               index="—"
-              kicker="Characters"
-              title="角色图鉴"
-              subtitle="每一个角色，都是她表演路上的印记。"
+              kicker={t("home.characters.kicker")}
+              title={t("home.characters.title")}
+              subtitle={t("home.characters.subtitle")}
               className="mb-8"
             />
           </FadeIn>
@@ -72,7 +87,7 @@ export function DesignWarmCinema({ data }: { data: HomeData }) {
           </div>
           <div className="mt-8 text-center">
             <Link href="/characters" className="text-sm text-wine hover:underline">
-              查看全部角色 →
+              {t("home.characters.viewAll")}
             </Link>
           </div>
         </Container>
@@ -84,22 +99,19 @@ export function DesignWarmCinema({ data }: { data: HomeData }) {
         </div>
       )}
 
-      <CinematicBand
-        quote="认真生活，用心演戏，温柔对待这个世界。"
-        caption="Dilraba Dilmurat · 迪丽热巴"
-      />
+      <CinematicBand />
 
       <Container wide className="soft-section">
         <FadeIn>
           <div className="mb-12 flex flex-wrap items-end justify-between gap-6">
             <SectionTitle
               index="02 —"
-              kicker="Editorial"
-              title="杂志封面"
-              subtitle="时尚镜头下的多元气质，记录每一个高光时刻。"
+              kicker={t("home.magazines.kicker")}
+              title={t("home.magazines.title")}
+              subtitle={t("home.magazines.subtitle")}
               className="mb-0"
             />
-            <ViewAllLink href="/magazine" label="查看全部杂志" />
+            <ViewAllLink href="/magazine" label={t("home.magazines.viewAll")} />
           </div>
         </FadeIn>
         <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-6">
@@ -118,12 +130,12 @@ export function DesignWarmCinema({ data }: { data: HomeData }) {
           <div className="mb-12 flex flex-wrap items-end justify-between gap-6">
             <SectionTitle
               index="03 —"
-              kicker="Events"
-              title="近期活动"
-              subtitle="品牌合作、公益行动、首映礼与颁奖典礼。"
+              kicker={t("home.events.kicker")}
+              title={t("design.home.warmCinema.eventsTitle")}
+              subtitle={t("design.home.warmCinema.eventsSubtitle")}
               className="mb-0"
             />
-            <ViewAllLink href="/events" label="查看全部活动" />
+            <ViewAllLink href="/events" label={t("home.events.viewAll")} />
           </div>
         </FadeIn>
         <div className="grid gap-5 lg:grid-cols-2">
@@ -139,9 +151,9 @@ export function DesignWarmCinema({ data }: { data: HomeData }) {
         <FadeIn>
           <SectionTitle
             index="04 —"
-            kicker="Recognition"
-            title="荣誉与数据"
-            subtitle="每一步都算数，每一束光都值得被记住。"
+            kicker={t("home.honors.kicker")}
+            title={t("design.home.warmCinema.honorsTitle")}
+            subtitle={t("design.home.warmCinema.honorsSubtitle")}
             align="center"
           />
         </FadeIn>
@@ -169,13 +181,13 @@ export function DesignWarmCinema({ data }: { data: HomeData }) {
               With Love
             </p>
             <h2 className="zh-display text-4xl text-wine-deep sm:text-5xl">
-              以光之名，温暖同行
+              {t("design.home.warmCinema.ctaTitle")}
             </h2>
             <p className="mx-auto mt-6 max-w-2xl leading-relaxed text-ink-soft">
-              喜欢迪丽热巴，是喜欢她的认真与温柔，是她镜头里外的真诚与闪光。愿每一位同路人都能在追光的过程中，也成为更好的自己。
+              {t("design.home.warmCinema.ctaBody")}
             </p>
             <Link href="/about" className="btn-primary mt-10">
-              了解更多关于她 →
+              {t("common.learnMoreAbout")}
             </Link>
           </div>
         </FadeIn>
