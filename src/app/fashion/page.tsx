@@ -1,11 +1,8 @@
-import type { Metadata } from "next";
 import { getBrandHighlights, getFeaturedMagazines, getFashionNews } from "@content/index";
 import { FashionPageDesign } from "@/components/designs/pages/FashionPages";
+import { listPageMetadata } from "@/lib/i18n/page-metadata";
 
-export const metadata: Metadata = {
-  title: "时尚 · Dior",
-  description: "迪丽热巴 Dior 全球品牌大使与时尚高光时刻。",
-};
+export const metadata = listPageMetadata("fashion");
 
 export default function FashionPage() {
   return (

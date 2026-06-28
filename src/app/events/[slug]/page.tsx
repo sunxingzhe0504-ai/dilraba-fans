@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getEventBySlug, getEventSlugs } from "@content/index";
 import { EventDetailPageDesign } from "@/components/designs/pages/EventDetailPages";
+import { JsonLd } from "@/components/JsonLd";
 import { detailMetadata } from "@/lib/i18n/metadata";
+import { breadcrumbJsonLd, eventJsonLd } from "@/lib/structured-data";
+import { siteUrl } from "@/lib/site-url";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -27,5 +30,17 @@ export default async function EventDetailPage({ params }: Props) {
   const event = getEventBySlug(slug);
   if (!event) notFound();
 
-  return <EventDetailPageDesign event={event} />;
+  return (
+    <>
+      <JsonLd data={eventJsonLd(event)} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", url: siteUrl("/") },
+          { name: "Events", url: siteUrl("/events") },
+          { name: event.titleEn ?? event.title, url: siteUrl(`/events/${slug}`) },
+        ])}
+      />
+      <EventDetailPageDesign event={event} />
+    </>
+  );
 }

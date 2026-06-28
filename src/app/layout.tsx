@@ -9,7 +9,9 @@ import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 import { Decorations } from "@/components/Decorations";
 import { DEFAULT_THEME, THEME_STORAGE_KEY } from "@/lib/themes";
 import { DEFAULT_LOCALE, LOCALE_STORAGE_KEY } from "@/lib/i18n/types";
+import { JsonLd } from "@/components/JsonLd";
 import { SITE_METADATA_EN } from "@/lib/i18n/metadata";
+import { websiteJsonLd } from "@/lib/structured-data";
 import { getSiteUrl } from "@/lib/site-url";
 import { assetPath } from "@/lib/asset-path";
 import "./globals.css";
@@ -93,6 +95,7 @@ export default function RootLayout({
         </Script>
       </head>
       <body className="flex min-h-full flex-col antialiased">
+        <JsonLd data={websiteJsonLd()} />
         <LocaleProvider>
           <ThemeProvider>
             <Decorations />

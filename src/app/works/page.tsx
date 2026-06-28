@@ -1,11 +1,8 @@
-import type { Metadata } from "next";
 import { getWorks } from "@content/index";
 import { WorksPageDesign } from "@/components/designs/pages/WorksPages";
+import { listPageMetadata } from "@/lib/i18n/page-metadata";
 
-export const metadata: Metadata = {
-  title: "作品库",
-  description: "迪丽热巴影视作品、电影与综艺作品一览。",
-};
+export const metadata = listPageMetadata("works");
 
 export const dynamic = "force-static";
 

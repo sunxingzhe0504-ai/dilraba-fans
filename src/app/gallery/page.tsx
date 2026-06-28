@@ -1,11 +1,8 @@
-import type { Metadata } from "next";
 import { getGallery, getWallpapers } from "@content/index";
 import { GalleryPageDesign } from "@/components/designs/pages/GalleryPages";
+import { listPageMetadata } from "@/lib/i18n/page-metadata";
 
-export const metadata: Metadata = {
-  title: "图库 · 壁纸",
-  description: "迪丽热巴精选写真、杂志大片与壁纸下载。",
-};
+export const metadata = listPageMetadata("gallery");
 
 export default function GalleryPage() {
   return (

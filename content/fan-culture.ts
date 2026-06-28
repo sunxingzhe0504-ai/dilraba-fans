@@ -199,6 +199,17 @@ export const changelog: ChangelogEntry[] = [
   {
     date: "2026-06-19",
     items: [
+      "列表页双语 SEO metadata 统一；sitemap 按内容日期更新 lastModified",
+      "全站 WebSite / Person JSON-LD；作品、动态、活动详情页结构化数据与面包屑",
+    ],
+    itemsEn: [
+      "Bilingual list-page SEO metadata; sitemap lastModified from content dates",
+      "Site-wide WebSite/Person JSON-LD; structured data and breadcrumbs on key detail pages",
+    ],
+  },
+  {
+    date: "2026-06-19",
+    items: [
       "详情页 SEO 双语 metadata；新增英文 RSS /feed-en.xml",
       "全站搜索随语言切换，角色/视频/图库英译可检索",
       "根 layout 与 manifest 补充英文描述与 RSS  alternate",

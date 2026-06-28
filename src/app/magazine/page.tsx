@@ -1,11 +1,8 @@
-import type { Metadata } from "next";
 import { getMagazines } from "@content/index";
 import { MagazinePageDesign } from "@/components/designs/pages/MagazinePages";
+import { listPageMetadata } from "@/lib/i18n/page-metadata";
 
-export const metadata: Metadata = {
-  title: "杂志封面",
-  description: "迪丽热巴时尚杂志封面与大片一览。",
-};
+export const metadata = listPageMetadata("magazine");
 
 export const dynamic = "force-static";
 

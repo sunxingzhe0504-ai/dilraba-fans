@@ -3,8 +3,11 @@ import { notFound } from "next/navigation";
 import { WORKS_EN } from "@content/translations/en";
 import { getCharacterByWorkSlug, getWorkBySlug, getWorkSlugs } from "@content/index";
 import { WorkDetailPageDesign } from "@/components/designs/pages/WorkDetailPages";
+import { JsonLd } from "@/components/JsonLd";
 import { detailMetadata } from "@/lib/i18n/metadata";
 import { assetPath } from "@/lib/asset-path";
+import { breadcrumbJsonLd, workJsonLd } from "@/lib/structured-data";
+import { siteUrl } from "@/lib/site-url";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -37,5 +40,17 @@ export default async function WorkDetailPage({ params }: Props) {
 
   const character = getCharacterByWorkSlug(slug);
 
-  return <WorkDetailPageDesign work={work} character={character} />;
+  return (
+    <>
+      <JsonLd data={workJsonLd(work)} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", url: siteUrl("/") },
+          { name: "Works", url: siteUrl("/works") },
+          { name: work.titleEn ?? work.title, url: siteUrl(`/works/${slug}`) },
+        ])}
+      />
+      <WorkDetailPageDesign work={work} character={character} />
+    </>
+  );
 }

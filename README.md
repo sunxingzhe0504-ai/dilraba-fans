@@ -161,7 +161,7 @@ npm run start
 - **中英双语**：导航栏 `中文 / EN` 切换，UI 与内容字段同步本地化，偏好保存在本机
 - **四套百变风格**：右下角主题切换，偏好保存在本机
 - **RSS 订阅**：`/feed.xml`（中文）与 `/feed-en.xml`（English）聚合最新动态与站点更新
-- **SEO**：自动生成 `sitemap.xml`、`robots.txt`、Open Graph 与 Twitter Card 预览
+- **SEO**：自动生成 `sitemap.xml`、`robots.txt`、Open Graph 与 Twitter Card 预览；列表页双语 metadata；JSON-LD 结构化数据
 - **静态导出**：兼容 GitHub Pages，图片本地托管
 
 ## 后续扩展（Roadmap）

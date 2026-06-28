@@ -1,16 +1,17 @@
-import type { Metadata } from "next";
 import { getNews } from "@content/index";
 import { LatestPageDesign } from "@/components/designs/pages/LatestPages";
+import { listPageMetadata } from "@/lib/i18n/page-metadata";
 
-export const metadata: Metadata = {
-  title: "最新动态",
-  description: "迪丽热巴近期作品、时尚、活动与公益动态。",
+export const metadata = listPageMetadata("latest", {
   alternates: {
     types: {
-      "application/rss+xml": "/feed.xml",
+      "application/rss+xml": [
+        { url: "/feed.xml", title: "RSS · 中文" },
+        { url: "/feed-en.xml", title: "RSS · English" },
+      ],
     },
   },
-};
+});
 
 export default function LatestPage() {
   return <LatestPageDesign news={getNews()} />;

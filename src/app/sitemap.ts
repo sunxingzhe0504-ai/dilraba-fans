@@ -2,15 +2,23 @@ import type { MetadataRoute } from "next";
 import {
   getCharacterSlugs,
   getEventSlugs,
+  getEvents,
   getMagazineSlugs,
+  getMagazines,
+  getNews,
   getNewsSlugs,
   getWorkSlugs,
+  getWorks,
 } from "@content/index";
 import { siteUrl } from "@/lib/site-url";
 
 export const dynamic = "force-static";
 
-const STATIC_ROUTES: { path: string; priority: number; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"] }[] = [
+const STATIC_ROUTES: {
+  path: string;
+  priority: number;
+  changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"];
+}[] = [
   { path: "/", priority: 1, changeFrequency: "weekly" },
   { path: "/latest", priority: 0.9, changeFrequency: "daily" },
   { path: "/works", priority: 0.9, changeFrequency: "weekly" },
@@ -27,43 +35,69 @@ const STATIC_ROUTES: { path: string; priority: number; changeFrequency: Metadata
   { path: "/changelog", priority: 0.5, changeFrequency: "weekly" },
 ];
 
+function parseDate(value?: string, fallbackYear?: number): Date {
+  if (value) {
+    const d = new Date(value);
+    if (!Number.isNaN(d.getTime())) return d;
+  }
+  if (fallbackYear) return new Date(`${fallbackYear}-06-01`);
+  return new Date();
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date();
+  const buildTime = new Date();
+  const newsDates = Object.fromEntries(getNews().map((n) => [n.slug, parseDate(n.date)]));
+  const eventDates = Object.fromEntries(getEvents().map((e) => [e.slug, parseDate(e.date)]));
+  const workDates = Object.fromEntries(
+    getWorks().map((w) => [w.slug, parseDate(undefined, w.year)]),
+  );
+  const magazineDates = Object.fromEntries(
+    getMagazines().map((m) => [m.slug, parseDate(undefined, m.year)]),
+  );
+
+  const latestNewsDate =
+    getNews().length > 0
+      ? getNews().reduce(
+          (max, n) => Math.max(max, parseDate(n.date).getTime()),
+          0,
+        )
+      : buildTime.getTime();
 
   return [
     ...STATIC_ROUTES.map(({ path, priority, changeFrequency }) => ({
       url: siteUrl(path),
-      lastModified,
+      lastModified:
+        path === "/latest" ? new Date(latestNewsDate) : buildTime,
       changeFrequency,
       priority,
     })),
     ...getWorkSlugs().map((slug) => ({
       url: siteUrl(`/works/${slug}`),
-      lastModified,
+      lastModified: workDates[slug] ?? buildTime,
       changeFrequency: "monthly" as const,
       priority: 0.7,
     })),
     ...getMagazineSlugs().map((slug) => ({
       url: siteUrl(`/magazine/${slug}`),
-      lastModified,
+      lastModified: magazineDates[slug] ?? buildTime,
       changeFrequency: "yearly" as const,
       priority: 0.6,
     })),
     ...getEventSlugs().map((slug) => ({
       url: siteUrl(`/events/${slug}`),
-      lastModified,
+      lastModified: eventDates[slug] ?? buildTime,
       changeFrequency: "yearly" as const,
       priority: 0.6,
     })),
     ...getNewsSlugs().map((slug) => ({
       url: siteUrl(`/latest/${slug}`),
-      lastModified,
+      lastModified: newsDates[slug] ?? buildTime,
       changeFrequency: "monthly" as const,
       priority: 0.7,
     })),
     ...getCharacterSlugs().map((slug) => ({
       url: siteUrl(`/characters/${slug}`),
-      lastModified,
+      lastModified: buildTime,
       changeFrequency: "monthly" as const,
       priority: 0.6,
     })),

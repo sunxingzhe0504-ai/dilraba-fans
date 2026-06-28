@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getNewsSlugs, getNewsWithRelated } from "@content/index";
 import { NewsDetailPageDesign } from "@/components/designs/pages/NewsDetailPages";
+import { JsonLd } from "@/components/JsonLd";
 import { detailMetadata } from "@/lib/i18n/metadata";
+import { breadcrumbJsonLd, newsJsonLd } from "@/lib/structured-data";
+import { siteUrl } from "@/lib/site-url";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -27,5 +30,17 @@ export default async function NewsDetailPage({ params }: Props) {
   const data = getNewsWithRelated(slug);
   if (!data) notFound();
 
-  return <NewsDetailPageDesign item={data.item} related={data.related} />;
+  return (
+    <>
+      <JsonLd data={newsJsonLd(data.item)} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", url: siteUrl("/") },
+          { name: "Latest", url: siteUrl("/latest") },
+          { name: data.item.titleEn ?? data.item.title, url: siteUrl(`/latest/${slug}`) },
+        ])}
+      />
+      <NewsDetailPageDesign item={data.item} related={data.related} />
+    </>
+  );
 }
