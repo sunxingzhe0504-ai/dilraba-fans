@@ -1,5 +1,5 @@
-import { WORKS_EN } from "@content/translations/en";
-import type { FanEvent, NewsItem, Work } from "@/lib/types";
+import { WORKS_EN, CHARACTERS_EN, MAGAZINES_EN } from "@content/translations/en";
+import type { Character, FanEvent, Magazine, NewsItem, Work } from "@/lib/types";
 import { siteUrl } from "@/lib/site-url";
 
 const PERSON = {
@@ -90,5 +90,39 @@ export function eventJsonLd(event: FanEvent) {
       : {}),
     url: siteUrl(`/events/${event.slug}`),
     performer: PERSON,
+  };
+}
+
+export function characterJsonLd(character: Character) {
+  const extra = CHARACTERS_EN[character.slug];
+  return {
+    "@context": "https://schema.org",
+    "@type": "PerformanceRole",
+    name: extra?.nameEn ?? character.name,
+    ...(extra?.nameEn ? { alternateName: character.name } : {}),
+    description: extra?.descriptionEn ?? character.description,
+    characterName: extra?.nameEn ?? character.name,
+    url: siteUrl(`/characters/${character.slug}`),
+    actor: PERSON,
+    partOfSeries: {
+      "@type": "CreativeWork",
+      name: extra?.workTitleEn ?? character.workTitle,
+      url: siteUrl(`/works/${character.workSlug}`),
+    },
+  };
+}
+
+export function magazineJsonLd(magazine: Magazine) {
+  const extra = MAGAZINES_EN[magazine.slug];
+  return {
+    "@context": "https://schema.org",
+    "@type": "PublicationIssue",
+    name: extra?.nameEn ?? magazine.nameEn ?? magazine.name,
+    description: extra?.descriptionEn ?? magazine.description ?? magazine.issue,
+    datePublished: String(magazine.year),
+    url: siteUrl(`/magazine/${magazine.slug}`),
+    ...(magazine.cover
+      ? { image: magazine.cover.startsWith("http") ? magazine.cover : siteUrl(magazine.cover) }
+      : {}),
   };
 }

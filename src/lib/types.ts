@@ -12,6 +12,7 @@ export type ExternalLinkKind = "info" | "watch" | "buy" | "official";
 
 export type ExternalLink = {
   label: string;
+  labelEn?: string;
   href: string;
   kind?: ExternalLinkKind;
 };

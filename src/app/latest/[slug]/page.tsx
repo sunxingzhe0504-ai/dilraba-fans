@@ -22,6 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     titleEn: data.item.titleEn,
     description: data.item.summary,
     descriptionEn: data.item.summaryEn,
+    canonical: siteUrl(`/latest/${slug}`),
   });
 }
 

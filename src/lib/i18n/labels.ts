@@ -135,3 +135,19 @@ export function filterAllLabel(locale: Locale) {
 export function wallpaperPicksLabel(locale: Locale) {
   return locale === "en" ? "Wallpapers" : "壁纸精选";
 }
+
+const EXTERNAL_LINK_LABEL_EN: Record<string, string> = {
+  豆瓣条目: "Douban",
+  腾讯视频: "Tencent Video",
+  爱奇艺: "iQiyi",
+  优酷: "Youku",
+  "芒果 TV": "Mango TV",
+  央视网: "CCTV",
+  嘉行传媒: "Jaywalk Media",
+  工作室微博: "Studio Weibo",
+};
+
+export function externalLinkLabel(label: string, locale: Locale, labelEn?: string) {
+  if (locale === "zh") return label;
+  return labelEn ?? EXTERNAL_LINK_LABEL_EN[label] ?? label;
+}

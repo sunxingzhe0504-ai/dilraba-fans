@@ -2,7 +2,8 @@
 
 import { ExternalLink } from "lucide-react";
 import type { ExternalLink as ExternalLinkType } from "@/lib/types";
-import { useT } from "@/components/LocaleProvider";
+import { useLocale, useT } from "@/components/LocaleProvider";
+import { externalLinkLabel } from "@/lib/i18n/labels";
 import { cn } from "@/lib/cn";
 
 type Props = {
@@ -20,6 +21,7 @@ export function ExternalLinks({
   size = "sm",
 }: Props) {
   const t = useT();
+  const locale = useLocale();
 
   const kindLabel: Record<string, string> = {
     info: t("common.info"),
@@ -52,7 +54,7 @@ export function ExternalLinks({
           title={link.kind ? kindLabel[link.kind] : undefined}
         >
           <ExternalLink size={size === "sm" ? 12 : 14} aria-hidden />
-          {link.label}
+          {externalLinkLabel(link.label, locale, link.labelEn)}
         </a>
       ))}
     </div>

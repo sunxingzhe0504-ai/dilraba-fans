@@ -2,11 +2,10 @@
 
 import { useMemo } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
 import type { Magazine } from "@/lib/types";
 import { Container } from "@/components/Container";
 import { ExternalLinks } from "@/components/ExternalLinks";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { useLocale, useT } from "@/components/LocaleProvider";
 import { localizeMagazine } from "@/lib/i18n/localize";
 import { DesignPageRouter } from "../DesignPageRouter";
@@ -66,9 +65,14 @@ export function MagazineDetailWarmCinema({ magazine: raw }: MagazineDetailPagePr
   const magazine = useLocalizedMagazine(raw);
   return (
     <Container wide className="section-padding pt-16">
-      <Link href="/magazine" className="mb-8 inline-flex items-center gap-2 text-sm text-ink-soft hover:text-wine">
-        <ArrowLeft size={16} /> {t("common.backToMagazine")}
-      </Link>
+      <Breadcrumbs
+        className="mb-8"
+        items={[
+          { label: t("nav.home"), href: "/" },
+          { label: t("nav.magazine"), href: "/magazine" },
+          { label: magazine.name },
+        ]}
+      />
       <div className="grid gap-12 lg:grid-cols-[360px_1fr]">
         <MagazineCover magazine={magazine} className="rounded-[var(--radius-card)]" />
         <div>
@@ -87,9 +91,14 @@ export function MagazineDetailXianxia({ magazine: raw }: MagazineDetailPageProps
   return (
     <div className="section-padding pt-16">
       <div className="container-main text-center">
-        <Link href="/magazine" className="text-sm text-wine hover:text-wine-deep">
-          {t("common.backToMagazineA")}
-        </Link>
+        <Breadcrumbs
+          className="mb-6"
+          items={[
+            { label: t("nav.home"), href: "/" },
+            { label: t("nav.magazine"), href: "/magazine" },
+            { label: magazine.name },
+          ]}
+        />
         <div className="relative mx-auto mt-10 w-56">
           <MagazineCover magazine={magazine} className="rounded-[2rem] border-2 border-gold/50 p-2" />
         </div>
@@ -108,9 +117,14 @@ export function MagazineDetailFanSticker({ magazine: raw }: MagazineDetailPagePr
   const magazine = useLocalizedMagazine(raw);
   return (
     <Container wide className="section-padding pt-16">
-      <Link href="/magazine" className="font-medium text-wine">
-        {t("common.backToMagazineB")}
-      </Link>
+      <Breadcrumbs
+        className="mb-6"
+        items={[
+          { label: t("nav.home"), href: "/" },
+          { label: t("nav.magazine"), href: "/magazine" },
+          { label: magazine.name },
+        ]}
+      />
       <div className="mt-10 grid gap-10 lg:grid-cols-[280px_1fr]">
         <div className="rotate-1 rounded-2xl bg-paper p-3 shadow-xl">
           <MagazineCover magazine={magazine} className="rounded-xl" />
@@ -130,9 +144,13 @@ export function MagazineDetailEditorial({ magazine: raw }: MagazineDetailPagePro
   const magazine = useLocalizedMagazine(raw);
   return (
     <Container wide className="section-padding pt-16">
-      <Link href="/magazine" className="text-xs uppercase tracking-[0.25em] text-ink-mute hover:text-wine">
-        ← {t("pages.magazine.title")} Index
-      </Link>
+      <Breadcrumbs
+        items={[
+          { label: t("nav.home"), href: "/" },
+          { label: t("nav.magazine"), href: "/magazine" },
+          { label: magazine.name },
+        ]}
+      />
       <div className="gold-rule mt-8 h-px" />
       <div className="mt-10 grid gap-12 lg:grid-cols-[1fr_1.1fr]">
         <div>

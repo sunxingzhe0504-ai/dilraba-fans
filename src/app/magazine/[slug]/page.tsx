@@ -3,8 +3,11 @@ import { notFound } from "next/navigation";
 import { MAGAZINES_EN } from "@content/translations/en";
 import { getMagazineBySlug, getMagazineSlugs } from "@content/index";
 import { MagazineDetailPageDesign } from "@/components/designs/pages/MagazineDetailPages";
+import { JsonLd } from "@/components/JsonLd";
 import { detailMetadata } from "@/lib/i18n/metadata";
 import { assetPath } from "@/lib/asset-path";
+import { breadcrumbJsonLd, magazineJsonLd } from "@/lib/structured-data";
+import { siteUrl } from "@/lib/site-url";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -23,6 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: mag.description ?? mag.issue,
     descriptionEn: extra?.descriptionEn ?? extra?.issueEn ?? mag.issueEn,
     image: mag.cover ? assetPath(mag.cover) : undefined,
+    canonical: siteUrl(`/magazine/${slug}`),
   });
 }
 
@@ -31,5 +35,19 @@ export default async function MagazineDetailPage({ params }: Props) {
   const mag = getMagazineBySlug(slug);
   if (!mag) notFound();
 
-  return <MagazineDetailPageDesign magazine={mag} />;
+  const extra = MAGAZINES_EN[slug];
+
+  return (
+    <>
+      <JsonLd data={magazineJsonLd(mag)} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", url: siteUrl("/") },
+          { name: "Magazine", url: siteUrl("/magazine") },
+          { name: extra?.nameEn ?? mag.nameEn ?? mag.name, url: siteUrl(`/magazine/${slug}`) },
+        ])}
+      />
+      <MagazineDetailPageDesign magazine={mag} />
+    </>
+  );
 }

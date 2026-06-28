@@ -87,6 +87,14 @@ export const PAGE_SEO = {
     description: "迪丽热巴粉丝站功能与内容更新记录。",
     descriptionEn: "Site feature and content maintenance log.",
   },
+  home: {
+    title: "迪丽热巴 · 粉丝资讯站",
+    titleEn: "Dilraba · Fan Info Site",
+    description:
+      "温柔有力量，追光而行。汇聚迪丽热巴影视作品、时尚杂志与公开活动的非官方粉丝资讯站。",
+    descriptionEn:
+      "Unofficial fan site — works, fashion editorials, public events, and positive news about Dilraba Dilmurat.",
+  },
 } as const satisfies Record<string, PageSeo>;
 
 export type PageSeoKey = keyof typeof PAGE_SEO;

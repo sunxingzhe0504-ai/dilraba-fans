@@ -3,10 +3,10 @@
 import { useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
 import type { Character, VideoItem, Work } from "@/lib/types";
 import { Container } from "@/components/Container";
 import { ExternalLinks } from "@/components/ExternalLinks";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { useLocale, useT } from "@/components/LocaleProvider";
 import { localizeCharacter, localizeVideo, localizeWork } from "@/lib/i18n/localize";
 import { DesignPageRouter } from "../DesignPageRouter";
@@ -121,9 +121,14 @@ export function CharacterDetailWarmCinema(props: CharacterDetailPageProps) {
   const { character, work, videos } = useLocalizedCharacterDetail(props);
   return (
     <Container wide className="section-padding pt-16">
-      <Link href="/characters" className="mb-8 inline-flex items-center gap-2 text-sm text-ink-soft hover:text-wine">
-        <ArrowLeft size={16} /> {t("common.backToCharacters")}
-      </Link>
+      <Breadcrumbs
+        className="mb-8"
+        items={[
+          { label: t("nav.home"), href: "/" },
+          { label: t("nav.characters"), href: "/characters" },
+          { label: character.name },
+        ]}
+      />
       <div className="grid gap-12 lg:grid-cols-[360px_1fr]">
         <CharacterHero character={character} />
         <div>
@@ -141,9 +146,14 @@ export function CharacterDetailXianxia(props: CharacterDetailPageProps) {
   return (
     <div className="section-padding pt-16">
       <div className="container-main text-center">
-        <Link href="/characters" className="text-sm text-wine hover:text-wine-deep">
-          {t("common.backToCharactersA")}
-        </Link>
+        <Breadcrumbs
+          className="mb-6"
+          items={[
+            { label: t("nav.home"), href: "/" },
+            { label: t("nav.characters"), href: "/characters" },
+            { label: character.name },
+          ]}
+        />
         <div className="relative mx-auto mt-10 w-56">
           <CharacterHero character={character} />
         </div>
@@ -161,9 +171,14 @@ export function CharacterDetailFanSticker(props: CharacterDetailPageProps) {
   const { character, work, videos } = useLocalizedCharacterDetail(props);
   return (
     <Container wide className="section-padding pt-16">
-      <Link href="/characters" className="font-medium text-wine">
-        {t("common.backToCharactersB")}
-      </Link>
+      <Breadcrumbs
+        className="mb-6"
+        items={[
+          { label: t("nav.home"), href: "/" },
+          { label: t("nav.characters"), href: "/characters" },
+          { label: character.name },
+        ]}
+      />
       <div className="mt-10 grid gap-10 lg:grid-cols-[280px_1fr]">
         <div className="rotate-1 rounded-2xl bg-paper p-3 shadow-xl">
           <CharacterHero character={character} />
@@ -182,9 +197,13 @@ export function CharacterDetailEditorial(props: CharacterDetailPageProps) {
   const { character, work, videos } = useLocalizedCharacterDetail(props);
   return (
     <Container wide className="section-padding pt-16">
-      <Link href="/characters" className="text-xs uppercase tracking-[0.25em] text-ink-mute hover:text-wine">
-        ← {t("pages.characters.title")} Index
-      </Link>
+      <Breadcrumbs
+        items={[
+          { label: t("nav.home"), href: "/" },
+          { label: t("nav.characters"), href: "/characters" },
+          { label: character.name },
+        ]}
+      />
       <div className="gold-rule mt-8 h-px" />
       <div className="mt-10 grid gap-12 lg:grid-cols-[1fr_1.1fr]">
         <div>

@@ -20,6 +20,7 @@ export function detailMetadata(opts: {
   description: string;
   descriptionEn?: string;
   image?: string;
+  canonical?: string;
 }): Metadata {
   const title = metaTitle(opts.title, opts.titleEn);
   const description = metaDescription(opts.description, opts.descriptionEn);
@@ -27,6 +28,7 @@ export function detailMetadata(opts: {
   return {
     title,
     description,
+    ...(opts.canonical ? { alternates: { canonical: opts.canonical } } : {}),
     openGraph: {
       title,
       description,

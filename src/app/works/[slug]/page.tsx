@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { WORKS_EN } from "@content/translations/en";
-import { getCharacterByWorkSlug, getWorkBySlug, getWorkSlugs } from "@content/index";
+import { getCharacterByWorkSlug, getNewsForWork, getWorkBySlug, getWorkSlugs } from "@content/index";
 import { WorkDetailPageDesign } from "@/components/designs/pages/WorkDetailPages";
 import { JsonLd } from "@/components/JsonLd";
 import { detailMetadata } from "@/lib/i18n/metadata";
@@ -29,6 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: work.synopsis,
     descriptionEn: extra?.synopsisEn ?? work.synopsisEn,
     image: work.poster ? assetPath(work.poster) : undefined,
+    canonical: siteUrl(`/works/${slug}`),
   });
 }
 
@@ -39,6 +40,7 @@ export default async function WorkDetailPage({ params }: Props) {
   if (!work) notFound();
 
   const character = getCharacterByWorkSlug(slug);
+  const relatedNews = getNewsForWork(slug);
 
   return (
     <>
@@ -50,7 +52,7 @@ export default async function WorkDetailPage({ params }: Props) {
           { name: work.titleEn ?? work.title, url: siteUrl(`/works/${slug}`) },
         ])}
       />
-      <WorkDetailPageDesign work={work} character={character} />
+      <WorkDetailPageDesign work={work} character={character} relatedNews={relatedNews} />
     </>
   );
 }

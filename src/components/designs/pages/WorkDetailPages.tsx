@@ -3,25 +3,30 @@
 import { useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
-import type { Character, Work } from "@/lib/types";
+import type { Character, NewsItem, Work } from "@/lib/types";
 import { ExternalLinks } from "@/components/ExternalLinks";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { RelatedNewsList } from "@/components/RelatedNewsList";
 import { Container } from "@/components/Container";
 import { useLocale, useT } from "@/components/LocaleProvider";
 import { localizeCharacter, localizeWork } from "@/lib/i18n/localize";
 import { workTypeLabel } from "@/lib/i18n/labels";
 import { DesignPageRouter } from "../DesignPageRouter";
 
-export type WorkDetailPageProps = { work: Work; character?: Character };
+export type WorkDetailPageProps = {
+  work: Work;
+  character?: Character;
+  relatedNews?: NewsItem[];
+};
 
-function useLocalizedWorkDetail({ work, character }: WorkDetailPageProps) {
+function useLocalizedWorkDetail({ work, character, relatedNews }: WorkDetailPageProps) {
   const locale = useLocale();
   const localizedWork = useMemo(() => localizeWork(work, locale), [work, locale]);
   const localizedCharacter = useMemo(
     () => (character ? localizeCharacter(character, locale) : undefined),
     [character, locale],
   );
-  return { work: localizedWork, character: localizedCharacter };
+  return { work: localizedWork, character: localizedCharacter, relatedNews };
 }
 
 function WorkMeta({ work }: { work: Work }) {
@@ -56,7 +61,15 @@ function WorkMeta({ work }: { work: Work }) {
   );
 }
 
-function WorkBody({ work, character }: { work: Work; character?: Character }) {
+function WorkBody({
+  work,
+  character,
+  relatedNews,
+}: {
+  work: Work;
+  character?: Character;
+  relatedNews?: NewsItem[];
+}) {
   const t = useT();
   return (
     <>
@@ -95,18 +108,26 @@ function WorkBody({ work, character }: { work: Work; character?: Character }) {
           <ExternalLinks links={work.externalLinks} className="mt-4" size="md" />
         </div>
       )}
+      {relatedNews && relatedNews.length > 0 && (
+        <RelatedNewsList items={relatedNews} className="mt-10" />
+      )}
     </>
   );
 }
 
 export function WorkDetailWarmCinema(props: WorkDetailPageProps) {
   const t = useT();
-  const { work, character } = useLocalizedWorkDetail(props);
+  const { work, character, relatedNews } = useLocalizedWorkDetail(props);
   return (
     <Container wide className="section-padding pt-16">
-      <Link href="/works" className="mb-10 inline-flex items-center gap-2 text-sm text-ink-soft hover:text-wine">
-        <ArrowLeft size={16} /> {t("common.backToWorks")}
-      </Link>
+      <Breadcrumbs
+        className="mb-10"
+        items={[
+          { label: t("nav.home"), href: "/" },
+          { label: t("nav.works"), href: "/works" },
+          { label: work.title },
+        ]}
+      />
       <div className="grid gap-12 lg:grid-cols-[360px_1fr]">
         <div className="relative mx-auto aspect-[2/3] w-full max-w-xs overflow-hidden rounded-[var(--radius-card)] shadow-2xl lg:mx-0">
           <Image src={work.poster} alt={`${work.title} ${t("work.posterAlt")}`} fill priority className="object-cover" sizes="320px" />
@@ -114,7 +135,7 @@ export function WorkDetailWarmCinema(props: WorkDetailPageProps) {
         <div>
           <WorkMeta work={work} />
           <h1 className="zh-display mt-4 text-5xl text-wine-deep sm:text-6xl">{work.title}</h1>
-          <WorkBody work={work} character={character} />
+          <WorkBody work={work} character={character} relatedNews={relatedNews} />
         </div>
       </div>
     </Container>
@@ -123,13 +144,18 @@ export function WorkDetailWarmCinema(props: WorkDetailPageProps) {
 
 export function WorkDetailXianxia(props: WorkDetailPageProps) {
   const t = useT();
-  const { work, character } = useLocalizedWorkDetail(props);
+  const { work, character, relatedNews } = useLocalizedWorkDetail(props);
   return (
     <div className="section-padding pt-16">
       <div className="container-main">
-        <Link href="/works" className="text-sm text-wine hover:text-wine-deep">
-          {t("common.backToWorksA")}
-        </Link>
+        <Breadcrumbs
+          className="mb-8"
+          items={[
+            { label: t("nav.home"), href: "/" },
+            { label: t("nav.works"), href: "/works" },
+            { label: work.title },
+          ]}
+        />
         <div className="mt-12 text-center">
           <div className="relative mx-auto w-56">
             <div className="relative aspect-[3/4] overflow-hidden rounded-[2.5rem] border-2 border-gold/50 p-2">
@@ -139,7 +165,7 @@ export function WorkDetailXianxia(props: WorkDetailPageProps) {
           <h1 className="zh-display mt-10 text-5xl text-wine-deep">{work.title}</h1>
           <WorkMeta work={work} />
           <div className="mx-auto mt-10 max-w-2xl text-left">
-            <WorkBody work={work} character={character} />
+            <WorkBody work={work} character={character} relatedNews={relatedNews} />
           </div>
         </div>
       </div>
@@ -149,12 +175,17 @@ export function WorkDetailXianxia(props: WorkDetailPageProps) {
 
 export function WorkDetailFanSticker(props: WorkDetailPageProps) {
   const t = useT();
-  const { work, character } = useLocalizedWorkDetail(props);
+  const { work, character, relatedNews } = useLocalizedWorkDetail(props);
   return (
     <Container wide className="section-padding pt-16">
-      <Link href="/works" className="font-medium text-wine">
-        {t("common.backToWorksB")}
-      </Link>
+      <Breadcrumbs
+        className="mb-8"
+        items={[
+          { label: t("nav.home"), href: "/" },
+          { label: t("nav.works"), href: "/works" },
+          { label: work.title },
+        ]}
+      />
       <div className="mt-10 grid gap-10 lg:grid-cols-[280px_1fr]">
         <div className="rotate-2 rounded-2xl bg-paper p-3 shadow-xl">
           <div className="relative aspect-[3/4] overflow-hidden rounded-xl">
@@ -165,7 +196,7 @@ export function WorkDetailFanSticker(props: WorkDetailPageProps) {
         <div>
           <h1 className="text-4xl font-extrabold text-wine-deep">{work.title}</h1>
           <WorkMeta work={work} />
-          <WorkBody work={work} character={character} />
+          <WorkBody work={work} character={character} relatedNews={relatedNews} />
         </div>
       </div>
     </Container>
@@ -173,13 +204,18 @@ export function WorkDetailFanSticker(props: WorkDetailPageProps) {
 }
 
 export function WorkDetailEditorial(props: WorkDetailPageProps) {
-  const { work, character } = useLocalizedWorkDetail(props);
+  const t = useT();
+  const { work, character, relatedNews } = useLocalizedWorkDetail(props);
   return (
     <div className="section-padding pt-16">
       <Container wide>
-        <Link href="/works" className="text-xs uppercase tracking-[0.25em] text-ink-mute hover:text-wine">
-          ← Filmography Index
-        </Link>
+        <Breadcrumbs
+          items={[
+            { label: t("nav.home"), href: "/" },
+            { label: t("nav.works"), href: "/works" },
+            { label: work.title },
+          ]}
+        />
         <div className="gold-rule mt-8 h-px" />
         <div className="mt-10 grid gap-12 lg:grid-cols-[1fr_1.1fr]">
           <div className="relative aspect-[2/3] w-full max-w-md border border-border lg:order-2 lg:max-w-none lg:justify-self-end">
@@ -189,7 +225,7 @@ export function WorkDetailEditorial(props: WorkDetailPageProps) {
             <p className="text-xs uppercase tracking-[0.3em] text-gold">Feature</p>
             <h1 className="display mt-2 text-5xl text-wine-deep sm:text-6xl">{work.title}</h1>
             <WorkMeta work={work} />
-            <WorkBody work={work} character={character} />
+            <WorkBody work={work} character={character} relatedNews={relatedNews} />
           </div>
         </div>
       </Container>

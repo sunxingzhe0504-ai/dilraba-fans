@@ -195,6 +195,14 @@ export function getCharacterSlugs() {
   return characters.map((c) => c.slug);
 }
 
+export function getNewsForWork(workSlug: string, limit = 4) {
+  return getNews().filter((n) => n.workSlug === workSlug).slice(0, limit);
+}
+
+export function getNewsForEvent(eventSlug: string, limit = 4) {
+  return getNews().filter((n) => n.eventSlug === eventSlug).slice(0, limit);
+}
+
 export function getCharacterWithWork(slug: string) {
   const character = getCharacterBySlug(slug);
   if (!character) return undefined;

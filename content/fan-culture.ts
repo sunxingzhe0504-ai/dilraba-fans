@@ -199,6 +199,17 @@ export const changelog: ChangelogEntry[] = [
   {
     date: "2026-06-19",
     items: [
+      "详情页可视化面包屑导航；作品/活动页展示关联动态",
+      "角色/杂志详情 JSON-LD；全详情页 canonical URL；首页双语 SEO",
+    ],
+    itemsEn: [
+      "Visual breadcrumb nav on detail pages; related news on work and event pages",
+      "Character/magazine JSON-LD; canonical URLs on all detail pages; home page bilingual SEO",
+    ],
+  },
+  {
+    date: "2026-06-19",
+    items: [
       "列表页双语 SEO metadata 统一；sitemap 按内容日期更新 lastModified",
       "全站 WebSite / Person JSON-LD；作品、动态、活动详情页结构化数据与面包屑",
     ],

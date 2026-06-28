@@ -2,11 +2,12 @@
 
 import { useMemo } from "react";
 import Link from "next/link";
-import { ArrowLeft, ExternalLink } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import type { FanEvent, Magazine, NewsItem, Work } from "@/lib/types";
 import { formatDate } from "@/lib/format";
 import { Container } from "@/components/Container";
 import { ExternalLinks } from "@/components/ExternalLinks";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { useLocale, useT } from "@/components/LocaleProvider";
 import {
   localizeEvent,
@@ -136,9 +137,14 @@ export function NewsDetailWarmCinema(props: NewsDetailPageProps) {
   const { item, related } = useLocalizedNewsDetail(props);
   return (
     <Container wide className="section-padding pt-16">
-      <Link href="/latest" className="mb-8 inline-flex items-center gap-2 text-sm text-ink-soft hover:text-wine">
-        <ArrowLeft size={16} /> {t("common.backToLatest")}
-      </Link>
+      <Breadcrumbs
+        className="mb-8"
+        items={[
+          { label: t("nav.home"), href: "/" },
+          { label: t("nav.latest"), href: "/latest" },
+          { label: item.title },
+        ]}
+      />
       <article className="mx-auto max-w-3xl">
         <NewsBody item={item} related={related} />
       </article>
@@ -152,9 +158,14 @@ export function NewsDetailXianxia(props: NewsDetailPageProps) {
   return (
     <div className="section-padding pt-16">
       <div className="container-main mx-auto max-w-2xl">
-        <Link href="/latest" className="text-sm text-wine hover:text-wine-deep">
-          {t("common.backToLatestA")}
-        </Link>
+        <Breadcrumbs
+          className="mb-6"
+          items={[
+            { label: t("nav.home"), href: "/" },
+            { label: t("nav.latest"), href: "/latest" },
+            { label: item.title },
+          ]}
+        />
         <article className="mt-8">
           <NewsBody item={item} related={related} />
         </article>
@@ -168,9 +179,14 @@ export function NewsDetailFanSticker(props: NewsDetailPageProps) {
   const { item, related } = useLocalizedNewsDetail(props);
   return (
     <Container wide className="section-padding pt-16">
-      <Link href="/latest" className="font-medium text-wine">
-        {t("common.backToLatestB")}
-      </Link>
+      <Breadcrumbs
+        className="mb-6"
+        items={[
+          { label: t("nav.home"), href: "/" },
+          { label: t("nav.latest"), href: "/latest" },
+          { label: item.title },
+        ]}
+      />
       <article className="mt-8 max-w-2xl rounded-3xl border border-border bg-paper p-8 shadow-md">
         <NewsBody item={item} related={related} />
       </article>
@@ -183,9 +199,13 @@ export function NewsDetailEditorial(props: NewsDetailPageProps) {
   const { item, related } = useLocalizedNewsDetail(props);
   return (
     <Container wide className="section-padding pt-16">
-      <Link href="/latest" className="text-xs uppercase tracking-[0.25em] text-ink-mute hover:text-wine">
-        ← {t("design.latest.editorialTitle")} Index
-      </Link>
+      <Breadcrumbs
+        items={[
+          { label: t("nav.home"), href: "/" },
+          { label: t("nav.latest"), href: "/latest" },
+          { label: item.title },
+        ]}
+      />
       <div className="gold-rule mt-8 h-px" />
       <article className="mt-10 max-w-3xl">
         <NewsBody item={item} related={related} />
