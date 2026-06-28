@@ -30,7 +30,10 @@ export function SiteFooter() {
               {t("site.themeHint")}
             </p>
             <p className="mt-3 text-xs text-paper/55">
-              <a href="/feed.xml" className="hover:text-gold-light">
+              <a
+                href={locale === "en" ? "/feed-en.xml" : "/feed.xml"}
+                className="hover:text-gold-light"
+              >
                 {t("site.rss")}
               </a>
               {" · "}

@@ -150,7 +150,8 @@ npm run start
 | `/fans` | 粉丝文化 |
 | `/about` | 关于她 |
 | `/changelog` | 更新日志 |
-| `/feed.xml` | RSS 订阅 |
+| `/feed.xml` | RSS 订阅（中文） |
+| `/feed-en.xml` | RSS 订阅（English） |
 | `/sitemap.xml` | 站点地图 |
 | `/robots.txt` | 爬虫规则 |
 
@@ -159,7 +160,7 @@ npm run start
 - **全站搜索**：导航栏 `Ctrl+K` / `⌘K` 快捷搜索作品、角色、杂志、活动、动态（支持中英关键词）
 - **中英双语**：导航栏 `中文 / EN` 切换，UI 与内容字段同步本地化，偏好保存在本机
 - **四套百变风格**：右下角主题切换，偏好保存在本机
-- **RSS 订阅**：`/feed.xml` 聚合最新动态与站点更新
+- **RSS 订阅**：`/feed.xml`（中文）与 `/feed-en.xml`（English）聚合最新动态与站点更新
 - **SEO**：自动生成 `sitemap.xml`、`robots.txt`、Open Graph 与 Twitter Card 预览
 - **静态导出**：兼容 GitHub Pages，图片本地托管
 

@@ -53,11 +53,15 @@ function NewsList({ news, className }: { news: NewsItem[]; className?: string })
 
 function RssHint() {
   const t = useT();
+  const locale = useLocale();
   return (
     <p className="mt-8 flex items-center justify-center gap-2 text-sm text-ink-mute">
       <Rss size={14} />
       {t("common.subscribe")}
-      <Link href="/feed.xml" className="text-wine hover:underline">
+      <Link
+        href={locale === "en" ? "/feed-en.xml" : "/feed.xml"}
+        className="text-wine hover:underline"
+      >
         {t("common.rssUpdates")}
       </Link>
       · {t("common.rssDisclaimer")}

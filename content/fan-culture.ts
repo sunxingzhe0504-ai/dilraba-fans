@@ -199,6 +199,19 @@ export const changelog: ChangelogEntry[] = [
   {
     date: "2026-06-19",
     items: [
+      "详情页 SEO 双语 metadata；新增英文 RSS /feed-en.xml",
+      "全站搜索随语言切换，角色/视频/图库英译可检索",
+      "根 layout 与 manifest 补充英文描述与 RSS  alternate",
+    ],
+    itemsEn: [
+      "Bilingual SEO metadata on detail pages; English RSS at /feed-en.xml",
+      "Search follows UI locale; EN entries for characters, videos, and gallery",
+      "Root layout and manifest English descriptions plus RSS alternates",
+    ],
+  },
+  {
+    date: "2026-06-19",
+    items: [
       "视频专区英译全覆盖（37 条），含时长「预告」本地化",
       "粉丝文化页英译：追星指南、纪念日与品牌亮点字段补全",
       "新增红星美凯龙沈阳活动视频条目",

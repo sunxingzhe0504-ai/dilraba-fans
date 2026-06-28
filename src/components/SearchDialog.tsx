@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { Search, X } from "lucide-react";
 import { searchSite, type SearchResult } from "@content/index";
-import { useT } from "@/components/LocaleProvider";
+import { useLocale, useT } from "@/components/LocaleProvider";
 
 type Props = {
   open?: boolean;
@@ -26,13 +26,14 @@ export function SearchDialog({
   showTrigger = true,
 }: Props) {
   const t = useT();
+  const locale = useLocale();
   const [internalOpen, setInternalOpen] = useState(false);
   const open = controlledOpen ?? internalOpen;
   const setOpen = onOpenChange ?? setInternalOpen;
   const [query, setQuery] = useState("");
   const modKey = useModKey();
 
-  const results = useMemo(() => searchSite(query), [query]);
+  const results = useMemo(() => searchSite(query, 12, locale), [query, locale]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {

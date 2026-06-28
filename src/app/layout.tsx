@@ -9,6 +9,7 @@ import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 import { Decorations } from "@/components/Decorations";
 import { DEFAULT_THEME, THEME_STORAGE_KEY } from "@/lib/themes";
 import { DEFAULT_LOCALE, LOCALE_STORAGE_KEY } from "@/lib/i18n/types";
+import { SITE_METADATA_EN } from "@/lib/i18n/metadata";
 import { getSiteUrl } from "@/lib/site-url";
 import { assetPath } from "@/lib/asset-path";
 import "./globals.css";
@@ -38,24 +39,38 @@ export const metadata: Metadata = {
     template: "%s | 迪丽热巴粉丝站",
   },
   description:
-    "温柔有力量，追光而行。四套百变首页风格并存，汇聚迪丽热巴影视作品、时尚杂志与公开活动的粉丝资讯站。",
-  keywords: ["迪丽热巴", "Dilraba", "粉丝站", "DearBar", "作品", "杂志"],
+    "温柔有力量，追光而行。四套百变首页风格并存，汇聚迪丽热巴影视作品、时尚杂志与公开活动的粉丝资讯站。 / Unofficial fan site for Dilraba — works, fashion, and public events.",
+  keywords: [
+    "迪丽热巴",
+    "Dilraba",
+    "Dilraba Dilmurat",
+    "粉丝站",
+    "DearBar",
+    "作品",
+    "杂志",
+    "fan site",
+  ],
   openGraph: {
     title: "迪丽热巴 · 粉丝资讯站",
-    description: "温柔有力量，追光而行 —— 迪丽热巴粉丝资讯站",
+    description:
+      "温柔有力量，追光而行 —— 迪丽热巴粉丝资讯站 / Dilraba unofficial fan info site",
     locale: "zh_CN",
+    alternateLocale: ["en_US"],
     type: "website",
     images: [{ url: assetPath("/images/portraits/hero-red-pearl.jpg"), alt: "迪丽热巴" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "迪丽热巴 · 粉丝资讯站",
-    description: "温柔有力量，追光而行 —— 迪丽热巴粉丝资讯站",
+    title: SITE_METADATA_EN.title,
+    description: SITE_METADATA_EN.description,
     images: [assetPath("/images/portraits/hero-red-pearl.jpg")],
   },
   alternates: {
     types: {
-      "application/rss+xml": "/feed.xml",
+      "application/rss+xml": [
+        { url: "/feed.xml", title: "RSS · 中文" },
+        { url: "/feed-en.xml", title: "RSS · English" },
+      ],
     },
   },
 };

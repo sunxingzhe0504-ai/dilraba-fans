@@ -8,7 +8,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "迪丽热巴 · 粉丝资讯站",
     short_name: "热巴粉丝站",
     description:
-      "非官方粉丝资讯站，汇聚迪丽热巴影视作品、时尚杂志与公开活动资讯。",
+      "非官方粉丝资讯站，汇聚迪丽热巴影视作品、时尚杂志与公开活动资讯。 / Unofficial Dilraba fan info site.",
     start_url: "/",
     display: "standalone",
     background_color: "#fdf4ea",

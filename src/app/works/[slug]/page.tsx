@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { WORKS_EN } from "@content/translations/en";
 import { getCharacterByWorkSlug, getWorkBySlug, getWorkSlugs } from "@content/index";
 import { WorkDetailPageDesign } from "@/components/designs/pages/WorkDetailPages";
+import { detailMetadata } from "@/lib/i18n/metadata";
+import { assetPath } from "@/lib/asset-path";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -16,14 +19,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const work = getWorkBySlug(slug);
   if (!work) return { title: "作品未找到" };
 
-  return {
+  const extra = WORKS_EN[slug];
+  return detailMetadata({
     title: work.title,
-    description: work.synopsis.slice(0, 120),
-    openGraph: {
-      title: `${work.title} | 迪丽热巴作品`,
-      description: work.synopsis.slice(0, 120),
-    },
-  };
+    titleEn: work.titleEn,
+    description: work.synopsis,
+    descriptionEn: extra?.synopsisEn ?? work.synopsisEn,
+    image: work.poster ? assetPath(work.poster) : undefined,
+  });
 }
 
 export default async function WorkDetailPage({ params }: Props) {

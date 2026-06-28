@@ -28,6 +28,13 @@ import {
   isWorkLive,
 } from "./work-release";
 import type { EventCategory, WorkType, NewsItem } from "@/lib/types";
+import {
+  CHARACTERS_EN,
+  GALLERY_EN,
+  MAGAZINES_EN,
+  VIDEOS_EN,
+  WORKS_EN,
+} from "./translations/en";
 
 function enrichWork(work: (typeof works)[number]) {
   const patched = applyWorkRelease(work);
@@ -278,125 +285,111 @@ export type SearchResult = {
   href: string;
   type: string;
   excerpt?: string;
+  /** 用于跨语言匹配，不在 UI 展示 */
+  altTitle?: string;
 };
 
-/** 全站搜索索引（静态内容，中英双语字段） */
-export function searchSite(query: string, limit = 12): SearchResult[] {
+export type SearchLocale = "zh" | "en";
+
+function matchesQuery(item: SearchResult, q: string) {
+  return (
+    item.title.toLowerCase().includes(q) ||
+    item.altTitle?.toLowerCase().includes(q) ||
+    item.excerpt?.toLowerCase().includes(q) ||
+    item.type.toLowerCase().includes(q)
+  );
+}
+
+function buildSearchPool(locale: SearchLocale): SearchResult[] {
+  const isEn = locale === "en";
+
+  return [
+    ...getWorks().map((w) => {
+      const extra = WORKS_EN[w.slug];
+      return {
+        title: isEn ? (w.titleEn ?? w.title) : w.title,
+        altTitle: isEn ? w.title : w.titleEn,
+        href: `/works/${w.slug}`,
+        type: isEn ? "Work" : "作品",
+        excerpt: isEn
+          ? `as ${w.roleEn ?? extra?.roleEn ?? w.role}`
+          : `饰 ${w.role}`,
+      };
+    }),
+    ...getMagazines().map((m) => {
+      const extra = MAGAZINES_EN[m.slug];
+      const enName = m.nameEn ?? extra?.nameEn;
+      return {
+        title: isEn ? (enName ?? m.name) : m.name,
+        altTitle: isEn ? m.name : enName,
+        href: `/magazine/${m.slug}`,
+        type: isEn ? "Magazine" : "杂志",
+        excerpt: isEn ? (m.issueEn ?? extra?.issueEn ?? m.issue) : m.issue,
+      };
+    }),
+    ...getEvents().map((e) => ({
+      title: isEn ? (e.titleEn ?? e.title) : e.title,
+      altTitle: isEn ? e.title : e.titleEn,
+      href: `/events/${e.slug}`,
+      type: isEn ? "Event" : "活动",
+      excerpt: (isEn ? (e.summaryEn ?? e.summary) : e.summary).slice(0, 60),
+    })),
+    ...getNews().map((n) => ({
+      title: isEn ? (n.titleEn ?? n.title) : n.title,
+      altTitle: isEn ? n.title : n.titleEn,
+      href: `/latest/${n.slug}`,
+      type: isEn ? "News" : "动态",
+      excerpt: (isEn ? (n.summaryEn ?? n.summary) : n.summary).slice(0, 60),
+    })),
+    ...getCharacters().map((c) => {
+      const extra = CHARACTERS_EN[c.slug];
+      const enName = extra?.nameEn;
+      return {
+        title: isEn ? (enName ?? c.name) : c.name,
+        altTitle: isEn ? c.name : enName,
+        href: `/characters/${c.slug}`,
+        type: isEn ? "Character" : "角色",
+        excerpt: isEn ? (extra?.workTitleEn ?? c.workTitle) : c.workTitle,
+      };
+    }),
+    ...getGallery().map((g) => {
+      const enTitle = g.titleEn ?? GALLERY_EN[g.slug]?.titleEn;
+      return {
+        title: isEn ? (enTitle ?? g.title) : g.title,
+        altTitle: isEn ? g.title : enTitle,
+        href: "/gallery",
+        type: isEn ? "Gallery" : "图库",
+        excerpt: g.tags?.join(" "),
+      };
+    }),
+    ...getVideos().map((v) => {
+      const extra = VIDEOS_EN[v.slug];
+      const enTitle = v.titleEn ?? extra?.titleEn;
+      return {
+        title: isEn ? (enTitle ?? v.title) : v.title,
+        altTitle: isEn ? v.title : enTitle,
+        href: "/videos",
+        type: isEn ? "Video" : "视频",
+        excerpt: (isEn
+          ? (v.summaryEn ?? extra?.summaryEn ?? v.summary)
+          : v.summary
+        )?.slice(0, 60),
+      };
+    }),
+  ];
+}
+
+/** 全站搜索索引（随界面语言切换展示与匹配） */
+export function searchSite(
+  query: string,
+  limit = 12,
+  locale: SearchLocale = "zh",
+): SearchResult[] {
   const q = query.trim().toLowerCase();
   if (!q) return [];
 
-  const pool: SearchResult[] = [
-    ...getWorks().flatMap((w) => [
-      {
-        title: w.title,
-        href: `/works/${w.slug}`,
-        type: "作品",
-        excerpt: `饰 ${w.role}`,
-      },
-      ...(w.titleEn
-        ? [
-            {
-              title: w.titleEn,
-              href: `/works/${w.slug}`,
-              type: "Work",
-              excerpt: `as ${(w as { roleEn?: string }).roleEn ?? w.role}`,
-            },
-          ]
-        : []),
-    ]),
-    ...getMagazines().flatMap((m) => [
-      {
-        title: m.name,
-        href: `/magazine/${m.slug}`,
-        type: "杂志",
-        excerpt: m.issue,
-      },
-      ...((m as { nameEn?: string }).nameEn
-        ? [
-            {
-              title: (m as { nameEn: string }).nameEn,
-              href: `/magazine/${m.slug}`,
-              type: "Magazine",
-              excerpt: (m as { issueEn?: string }).issueEn ?? m.issue,
-            },
-          ]
-        : []),
-    ]),
-    ...getEvents().flatMap((e) => [
-      {
-        title: e.title,
-        href: `/events/${e.slug}`,
-        type: "活动",
-        excerpt: e.summary.slice(0, 60),
-      },
-      ...(e.titleEn
-        ? [
-            {
-              title: e.titleEn,
-              href: `/events/${e.slug}`,
-              type: "Event",
-              excerpt: (e.summaryEn ?? e.summary).slice(0, 60),
-            },
-          ]
-        : []),
-    ]),
-    ...getNews().flatMap((n) => [
-      {
-        title: n.title,
-        href: `/latest/${n.slug}`,
-        type: "动态",
-        excerpt: n.summary.slice(0, 60),
-      },
-      ...(n.titleEn
-        ? [
-            {
-              title: n.titleEn,
-              href: `/latest/${n.slug}`,
-              type: "News",
-              excerpt: (n.summaryEn ?? n.summary).slice(0, 60),
-            },
-          ]
-        : []),
-    ]),
-    ...getCharacters().flatMap((c) => [
-      {
-        title: c.name,
-        href: `/characters/${c.slug}`,
-        type: "角色",
-        excerpt: c.workTitle,
-      },
-      ...(c.nameEn
-        ? [
-            {
-              title: c.nameEn,
-              href: `/characters/${c.slug}`,
-              type: "Character",
-              excerpt: (c as { workTitleEn?: string }).workTitleEn ?? c.workTitle,
-            },
-          ]
-        : []),
-    ]),
-    ...getGallery().map((g) => ({
-      title: g.title,
-      href: "/gallery",
-      type: "图库",
-      excerpt: g.tags?.join(" "),
-    })),
-    ...getVideos().map((v) => ({
-      title: v.title,
-      href: "/videos",
-      type: "视频",
-      excerpt: v.summary?.slice(0, 60),
-    })),
-  ];
-
-  return pool
-    .filter(
-      (item) =>
-        item.title.toLowerCase().includes(q) ||
-        item.excerpt?.toLowerCase().includes(q) ||
-        item.type.toLowerCase().includes(q),
-    )
+  return buildSearchPool(locale)
+    .filter((item) => matchesQuery(item, q))
     .slice(0, limit);
 }
 
