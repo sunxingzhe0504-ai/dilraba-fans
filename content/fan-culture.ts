@@ -126,25 +126,47 @@ export const charityItems: CharityItem[] = [
   {
     slug: "henan-flood-2021",
     title: "驰援河南暴雨灾区",
+    titleEn: "Henan Flood Relief",
     date: "2021-07",
     summary: "河南特大暴雨灾害期间个人捐款驰援，并呼吁粉丝理性关注、共同支援抗灾救援。",
+    summaryEn:
+      "Personal donation during Henan floods; urged fans to support relief thoughtfully.",
     externalUrl: OFFICIAL_CHANNELS.weibo.studio.href,
   },
   {
     slug: "children-care",
     title: "儿童关怀与公益倡导",
+    titleEn: "Children's Welfare & Charity Advocacy",
     date: "长期",
+    dateEn: "Ongoing",
     summary: "长期关注儿童关怀、健康扶贫等公益议题，多次参与慈善晚宴及公益倡导活动。",
+    summaryEn:
+      "Long-term focus on children's welfare and poverty alleviation; frequent charity gala participation.",
   },
   {
     slug: "ecology",
     title: "生态保护关注",
+    titleEn: "Ecological Conservation",
     date: "长期",
+    dateEn: "Ongoing",
     summary: "关注生态保护等议题，以公众人物影响力传递社会责任与温暖。",
+    summaryEn:
+      "Advocates ecological conservation and social responsibility through public influence.",
   },
 ];
 
 export const changelog: ChangelogEntry[] = [
+  {
+    date: "2026-06-19",
+    items: [
+      "角色图鉴英译全覆盖（34 位）；图库标题英文词典补全",
+      "公益专题接入本地化；慈善条目英译字段",
+    ],
+    itemsEn: [
+      "Full English coverage for all 34 character entries; gallery title dictionary",
+      "Charity page localization with English charity item fields",
+    ],
+  },
   {
     date: "2026-06-19",
     items: [

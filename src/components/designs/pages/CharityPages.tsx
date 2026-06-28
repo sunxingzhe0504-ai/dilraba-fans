@@ -1,16 +1,23 @@
 "use client";
 
+import { useMemo } from "react";
 import { ExternalLink } from "lucide-react";
 import type { CharityItem } from "@/lib/types";
 import { Container } from "@/components/Container";
 import { SectionTitle } from "@/components/SectionTitle";
-import { useT } from "@/components/LocaleProvider";
+import { useLocale, useT } from "@/components/LocaleProvider";
+import { localizeCharity } from "@/lib/i18n/localize";
 import { DesignPageRouter } from "../DesignPageRouter";
 
 export type CharityPageProps = { items: CharityItem[] };
 
 function CharityList({ items, variant }: CharityPageProps & { variant: "c" | "a" | "b" | "d" }) {
+  const locale = useLocale();
   const t = useT();
+  const localized = useMemo(
+    () => items.map((item) => localizeCharity(item, locale)),
+    [items, locale],
+  );
   return (
     <ul
       className={
@@ -21,7 +28,7 @@ function CharityList({ items, variant }: CharityPageProps & { variant: "c" | "a"
             : "mx-auto mt-12 max-w-3xl space-y-6"
       }
     >
-      {items.map((item) => (
+      {localized.map((item) => (
         <li
           key={item.slug}
           className={

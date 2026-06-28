@@ -23,6 +23,7 @@ npm run dev
 
 ```
 content/              # 结构化内容数据（可后期替换为 CMS）
+  translations/en.ts  # 英文翻译词典（作品/杂志/角色/图库等）
   works.ts            # 影视作品
   magazines.ts        # 杂志封面
   events.ts           # 公开活动
@@ -166,7 +167,7 @@ npm run start
 
 - [ ] 接入 Headless CMS（Notion / Contentful）
 - [ ] MDX 长文（`/stories/[slug]`）活动回顾
-- [ ] 补全更多内容的英文翻译字段
+- [x] 补全更多内容的英文翻译字段（作品/角色/图库/公益等，见 `content/translations/en.ts`）
 
 ## 免责声明
 

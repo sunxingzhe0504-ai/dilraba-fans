@@ -212,8 +212,11 @@ export type BrandHighlight = {
 export type CharityItem = {
   slug: string;
   title: string;
+  titleEn?: string;
   date: string;
+  dateEn?: string;
   summary: string;
+  summaryEn?: string;
   externalUrl?: string;
 };
 

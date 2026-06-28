@@ -16,6 +16,7 @@ import type { Locale } from "./types";
 import {
   BRAND_HIGHLIGHTS_EN,
   CHARACTERS_EN,
+  GALLERY_EN,
   MAGAZINES_EN,
   QUOTES_EN,
   WORKS_EN,
@@ -109,14 +110,25 @@ export function localizeBrandHighlight(
   };
 }
 
+export function localizeCharity(item: import("@/lib/types").CharityItem, locale: Locale) {
+  if (locale === "zh") return item;
+  return {
+    ...item,
+    title: pick(item, "title", locale),
+    date: pick(item, "date", locale),
+    summary: pick(item, "summary", locale),
+  };
+}
+
 export function localizeGalleryItem(
   item: import("@/lib/types").GalleryItem,
   locale: Locale,
 ): import("@/lib/types").GalleryItem {
   if (locale === "zh") return item;
+  const extra = GALLERY_EN[item.slug];
   return {
     ...item,
-    title: pick(item, "title", locale),
+    title: extra?.titleEn ?? pick(item, "title", locale),
   };
 }
 
