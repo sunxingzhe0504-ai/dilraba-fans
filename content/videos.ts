@@ -4,11 +4,38 @@ import { OFFICIAL_CHANNELS } from "./official-channels";
 
 const w = IMAGES.works;
 const p = IMAGES.portraits;
+const m = IMAGES.magazines;
 
 /**
  * 视频专区：链接均为公开平台播放页，本站不托管视频文件。
  */
 export const videos: VideoItem[] = [
+  {
+    slug: "deeyeo-global-2026",
+    title: "德佑全球品牌代言人官宣",
+    titleEn: "Deeyeo Global Ambassador Announcement",
+    date: "2026-06-13",
+    category: "event",
+    platform: "weibo",
+    href: "https://k.sina.com.cn/article_7857201856_1d45362c001906pez6.html",
+    thumbnail: p.warmCandid,
+    summary: "6 月 13 日正式官宣德佑全球品牌代言人。",
+    summaryEn: "Official Deeyeo global ambassador announcement on June 13.",
+    featured: true,
+  },
+  {
+    slug: "jia-ren-cover-2026-video",
+    title: "《嘉人》六月刊 · 生日封面预告",
+    titleEn: "Marie Claire June Cover Teaser",
+    date: "2026-06-02",
+    category: "studio",
+    platform: "weibo",
+    href: "https://www.marieclaire.com.cn/",
+    thumbnail: m.jiaren2026,
+    summary: "「AS SHE IS / 如她所是」生日刊封面发布。",
+    summaryEn: '"AS SHE IS" birthday cover release.',
+    featured: true,
+  },
   {
     slug: "china-film-tv-night-2026",
     title: "2026 中国影视之夜 · 红毯回顾",

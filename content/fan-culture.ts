@@ -61,6 +61,17 @@ export const fanCulture: FanCulture = {
 
 export const brandHighlights: BrandHighlight[] = [
   {
+    slug: "macalline-shenyang-2026",
+    title: "红星美凯龙 · 沈阳品牌活动",
+    titleEn: "Macalline · Shenyang Brand Event",
+    date: "2026-06-27",
+    summary:
+      "6 月 27–28 日出席红星美凯龙沈阳品牌活动，与品牌共同推广家居生活美学。",
+    summaryEn:
+      "Macalline Shenyang brand event on June 27–28 promoting home lifestyle aesthetics.",
+    image: IMAGES.portraits.warmCandid,
+  },
+  {
     slug: "deeyeo-global-2026",
     title: "德佑全球品牌代言人",
     titleEn: "Deeyeo Global Brand Ambassador",
@@ -134,6 +145,19 @@ export const charityItems: CharityItem[] = [
 ];
 
 export const changelog: ChangelogEntry[] = [
+  {
+    date: "2026-06-19",
+    items: [
+      "集中英译词典：作品、杂志、角色、语录与品牌亮点全覆盖",
+      "动态/活动/图库/视频交叉链接补全；历史活动条目英译回填",
+      "荣誉与时间轴英文摘要补充，便于英文站浏览",
+    ],
+    itemsEn: [
+      "Centralized EN translation maps for works, magazines, characters, quotes, and brand highlights",
+      "Cross-links for news/events/gallery/videos; English backfill for historical events",
+      "English summaries for honors and timeline entries",
+    ],
+  },
   {
     date: "2026-06-19",
     items: [

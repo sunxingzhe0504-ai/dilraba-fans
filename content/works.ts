@@ -382,7 +382,7 @@ export const works: Work[] = [
     highlights: ["一人分饰双生卫蓝", "爱奇艺微尘剧场独播", "导演吴辰珵 · 搭档陈昊森"],
     status: "upcoming",
     featured: true,
-    airInfo: "爱奇艺 · 2026 年 5–6 月待播（以平台官宣为准）",
+    airInfo: "爱奇艺 · 2026 年待播（以平台官宣为准）",
     cast: ["迪丽热巴", "陈昊森", "严屹宽", "叶童"],
   },
   {
@@ -466,6 +466,8 @@ export const works: Work[] = [
       "神话爱情电影，迪丽热巴搭档窦骁，饰演热爱自然、崇尚自由的新版嫦娥；影片已官宣多年，上映信息以官方公布为准。",
     highlights: ["神话改编", "搭档窦骁"],
     status: "upcoming",
+    airInfo: "上映信息待官宣",
+    airInfoEn: "Release date TBA",
   },
   {
     slug: "shaolin-nvzu",

@@ -24,26 +24,40 @@ export const WORK_RELEASE: Record<string, WorkReleaseConfig> = {
     status: "upcoming",
     airInfo: "爱奇艺微尘剧场 · 待播（平台专页已上线，开播日期待官宣）",
     live: false,
-    premiereDate: "2026-06-15",
     premiereNews: {
       slug: "sui-ran-bu-neng-yiqie-air",
       title: "《虽然不能同时拥有一切》爱奇艺开播",
+      titleEn: "You Can't Have Everything Premieres on iQiyi",
       date: "2026-06-15",
       category: "work",
       summary:
         "微尘剧场 6 集都市奇幻迷你剧正式开播，迪丽热巴一人分饰双生卫蓝，搭档陈昊森；改编自山本文绪《蓝，另一种蓝》。",
+      summaryEn:
+        "Six-episode iQiyi micro drama premieres — Dilraba as twin Wei Lans with Chen Haosen.",
       featured: true,
       externalUrl: "https://movie.douban.com/subject/36707564/",
     },
     premiereEvent: {
       slug: "sui-ran-bu-neng-yiqie-premiere-2026",
       title: "《虽然不能同时拥有一切》爱奇艺开播",
+      titleEn: "You Can't Have Everything · iQiyi Premiere",
       date: "2026-06-15",
       category: "premiere",
       location: "爱奇艺 · 微尘剧场",
+      locationEn: "iQiyi · Micro Drama",
       summary:
         "6 集迷你剧独播上线，迪丽热巴分饰双生卫蓝，探讨选择与自我觉醒。",
+      summaryEn:
+        "Six-episode exclusive premiere exploring choice and self-awakening.",
     },
+  },
+  "jiu-chong-tian": {
+    status: "upcoming",
+    airInfo: "腾讯视频 · 拍摄中（角色待官宣）",
+  },
+  "ri-yue": {
+    status: "upcoming",
+    airInfo: "上映信息待官宣",
   },
 };
 

@@ -13,18 +13,26 @@ import type {
 } from "@/lib/types";
 import { pick, pickArray } from "./pick";
 import type { Locale } from "./types";
+import {
+  BRAND_HIGHLIGHTS_EN,
+  CHARACTERS_EN,
+  MAGAZINES_EN,
+  QUOTES_EN,
+  WORKS_EN,
+} from "@content/translations/en";
 
 export function localizeWork(work: Work, locale: Locale): Work {
   if (locale === "zh") return work;
+  const extra = WORKS_EN[work.slug];
   return {
     ...work,
     title: pick(work, "title", locale),
-    role: pick(work, "role", locale),
-    synopsis: pick(work, "synopsis", locale),
-    airInfo: work.airInfo ? pick(work, "airInfo", locale) : work.airInfo,
-    highlights: work.highlights?.map((_, i) => {
-      const en = (work as Work & { highlightsEn?: string[] }).highlightsEn;
-      return en?.[i] ?? work.highlights![i];
+    role: extra?.roleEn ?? pick(work, "role", locale),
+    synopsis: extra?.synopsisEn ?? pick(work, "synopsis", locale),
+    airInfo: work.airInfo ? (extra?.airInfoEn ?? pick(work, "airInfo", locale)) : work.airInfo,
+    highlights: work.highlights?.map((h, i) => {
+      const en = extra?.highlightsEn ?? (work as Work & { highlightsEn?: string[] }).highlightsEn;
+      return en?.[i] ?? h;
     }),
     externalLinks: work.externalLinks?.map((link) => ({
       ...link,
@@ -56,22 +64,26 @@ export function localizeEvent(event: FanEvent, locale: Locale): FanEvent {
 
 export function localizeMagazine(mag: Magazine, locale: Locale): Magazine {
   if (locale === "zh") return mag;
+  const extra = MAGAZINES_EN[mag.slug];
   return {
     ...mag,
-    name: pick(mag, "name", locale),
-    issue: pick(mag, "issue", locale),
-    description: mag.description ? pick(mag, "description", locale) : mag.description,
+    name: extra?.nameEn ?? pick(mag, "name", locale),
+    issue: extra?.issueEn ?? pick(mag, "issue", locale),
+    description: mag.description
+      ? (extra?.descriptionEn ?? pick(mag, "description", locale))
+      : mag.description,
   };
 }
 
 export function localizeCharacter(c: Character, locale: Locale): Character {
   if (locale === "zh") return c;
+  const extra = CHARACTERS_EN[c.slug];
   return {
     ...c,
-    name: pick(c, "name", locale),
-    workTitle: pick(c, "workTitle", locale),
-    quote: c.quote ? pick(c, "quote", locale) : c.quote,
-    description: pick(c, "description", locale),
+    name: extra?.nameEn ?? pick(c, "name", locale),
+    workTitle: extra?.workTitleEn ?? pick(c, "workTitle", locale),
+    quote: c.quote ? (extra?.quoteEn ?? pick(c, "quote", locale)) : c.quote,
+    description: extra?.descriptionEn ?? pick(c, "description", locale),
   };
 }
 
@@ -89,10 +101,11 @@ export function localizeBrandHighlight(
   locale: Locale,
 ): import("@/lib/types").BrandHighlight {
   if (locale === "zh") return item;
+  const extra = BRAND_HIGHLIGHTS_EN[item.slug];
   return {
     ...item,
-    title: pick(item, "title", locale),
-    summary: pick(item, "summary", locale),
+    title: extra?.titleEn ?? pick(item, "title", locale),
+    summary: extra?.summaryEn ?? pick(item, "summary", locale),
   };
 }
 
@@ -127,10 +140,11 @@ export function localizeTimeline(entry: TimelineEntry, locale: Locale): Timeline
 
 export function localizeQuote(q: Quote, locale: Locale): Quote {
   if (locale === "zh") return q;
+  const extra = QUOTES_EN[q.id];
   return {
     ...q,
-    text: pick(q, "text", locale),
-    source: pick(q, "source", locale),
+    text: extra?.textEn ?? pick(q, "text", locale),
+    source: extra?.sourceEn ?? pick(q, "source", locale),
   };
 }
 
