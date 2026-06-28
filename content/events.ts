@@ -11,12 +11,30 @@ export const events: FanEvent[] = [
     titleEn: "Macalline Brand Event",
     date: "2026-06-27",
     category: "brand",
-    location: "待定",
-    locationEn: "TBA",
+    location: "辽宁 · 沈阳",
+    locationEn: "Shenyang, Liaoning",
     summary:
-      "工作室六月行程公布，6 月 27 日出席红星美凯龙品牌活动；具体以官方通知为准。",
+      "出席红星美凯龙沈阳线下品牌活动，与到场粉丝互动；据报道现场粉丝合唱《追光者》，她以亲和状态回应并提醒注意防暑。",
     summaryEn:
-      "Per the studio's June schedule, Dilraba will attend a Macalline brand event on June 27; details subject to official confirmation.",
+      "Attended a Macalline brand event in Shenyang with warm fan interactions; fans sang \"Chaser of Light\" per media reports.",
+    description:
+      "工作室六月行程公布后，迪丽热巴于 6 月 27 日至 28 日赴沈阳出席红星美凯龙品牌活动。公开现场报道显示，她与各方向粉丝互动，并叮嘱「无论如何爱自己永远都是第一步」。",
+    descriptionEn:
+      "Following the studio's June schedule, Dilraba attended the Macalline event in Shenyang on June 27–28, sharing warm interactions with fans on site.",
+    featured: true,
+  },
+  {
+    slug: "deeyeo-global-2026",
+    title: "德佑全球品牌代言人官宣",
+    titleEn: "Deeyeo Global Brand Ambassador Launch",
+    date: "2026-06-13",
+    category: "brand",
+    location: "线上发布",
+    locationEn: "Online",
+    summary:
+      "正式官宣成为德佑（Deeyeo）全球品牌代言人，品牌同步启动百城大屏推广与联名周边。",
+    summaryEn:
+      "Officially announced as Deeyeo global brand ambassador with a reported multi-city campaign and merchandise rollout.",
     featured: true,
   },
   {
@@ -40,41 +58,57 @@ export const events: FanEvent[] = [
   {
     slug: "jiu-chong-tian-filming-2026",
     title: "《九重天》进组拍摄",
+    titleEn: "Nine Heavens — Filming Begins",
     date: "2026-01-12",
     category: "premiere",
     location: "江苏 · 扬州",
+    locationEn: "Yangzhou, Jiangsu",
     summary:
       "进组腾讯视频 S+ 民国悬疑单元剧《九重天》，拍摄民国单元戏份，搭档尹昉；具体角色以官方公布为准。",
+    summaryEn:
+      "Joined Tencent S+ republic-era suspense anthology Nine Heavens with Yin Fang; role details TBA.",
     featured: true,
   },
   {
     slug: "sui-ran-bu-neng-yiqie-trailer-2026",
     title: "《虽然不能同时拥有一切》预告发布",
+    titleEn: "You Can't Have Everything — Trailer Release",
     date: "2026-04-20",
     category: "premiere",
     location: "爱奇艺",
+    locationEn: "iQiyi",
     summary:
       "微尘剧场 6 集迷你剧释出首支预告，迪丽热巴一人分饰双生卫蓝，改编自《蓝，另一种蓝》。",
+    summaryEn:
+      "iQiyi Micro Drama released the first trailer — Dilraba as twin Wei Lans, adapted from Blue, Another Blue.",
     featured: true,
   },
   {
     slug: "jia-ren-birthday-cover-2026",
     title: "《嘉人》六月刊生日封面",
+    titleEn: "Marie Claire June Birthday Cover",
     date: "2026-06-02",
     category: "brand",
     location: "线上发布",
+    locationEn: "Online",
     summary:
       "登上《嘉人》2026 年 6 月生日刊封面「AS SHE IS / 如她所是」，成为中国 90 后首位完成五大女刊全满贯的艺人。",
+    summaryEn:
+      "Marie Claire China June 2026 \"AS SHE IS\" cover — first post-90s artist to complete the Big Five women's magazine grand slam.",
     featured: true,
   },
   {
     slug: "birthday-2026",
     title: "2026 生日",
+    titleEn: "2026 Birthday",
     date: "2026-06-03",
     category: "other",
     location: "线上",
+    locationEn: "Online",
     summary:
       "工作室发布生日祝福与六月行程，粉丝以「今天星期巴」等话题送上祝福。",
+    summaryEn:
+      "Studio shared birthday wishes and the June schedule; fans celebrated with trending topics.",
     featured: true,
   },
   {

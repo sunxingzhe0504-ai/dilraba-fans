@@ -10,6 +10,33 @@ const p = IMAGES.portraits;
  */
 export const videos: VideoItem[] = [
   {
+    slug: "china-film-tv-night-2026",
+    title: "2026 中国影视之夜 · 红毯回顾",
+    titleEn: "2026 China Film & TV Night · Red Carpet",
+    date: "2026-06-15",
+    category: "event",
+    platform: "weibo",
+    href: "https://weibo.com/search?q=中国影视之夜%20迪丽热巴",
+    thumbnail: p.redBlack,
+    summary: "Georges Hobeika 高定搭配 Mikimoto 珠宝，时隔 605 天重返红毯。",
+    summaryEn: "Georges Hobeika couture with Mikimoto jewels — red carpet return after 605 days.",
+    featured: true,
+  },
+  {
+    slug: "sui-ran-shuangsheng-trailer",
+    title: "《虽然不能同时拥有一切》双生交汇版预告",
+    titleEn: "You Can't Have Everything — Twin Wei Lan Trailer",
+    date: "2026-04-20",
+    category: "trailer",
+    platform: "other",
+    href: "https://www.iqiyi.com/v_232u2nily44.html",
+    thumbnail: w["sui-ran-bu-neng-yiqie"],
+    summary: "爱奇艺微尘剧场 · 一人分饰双生卫蓝。",
+    summaryEn: "iQiyi Micro Drama — Dilraba as twin Wei Lans.",
+    workSlug: "sui-ran-bu-neng-yiqie",
+    featured: true,
+  },
+  {
     slug: "zhen-shang-shu-trailer",
     title: "《三生三世枕上书》预告 · 白凤九",
     date: "2020-01-25",

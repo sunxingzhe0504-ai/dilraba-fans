@@ -4,6 +4,42 @@ import { OFFICIAL_CHANNELS } from "./official-channels";
 /** 最新动态：以公开信息为准，按时间倒序维护 */
 export const news: NewsItem[] = [
   {
+    slug: "macalline-shenyang-2026",
+    title: "沈阳红星美凯龙品牌活动 · 粉丝合唱《追光者》",
+    titleEn: "Macalline Shenyang Event · Fans Sing \"Chaser of Light\"",
+    date: "2026-06-28",
+    category: "event",
+    summary:
+      "出席红星美凯龙沈阳线下品牌活动，与到场粉丝互动；现场粉丝合唱《追光者》，她以亲和状态回应并提醒注意防暑。",
+    summaryEn:
+      "At a Macalline brand event in Shenyang, fans sang \"Chaser of Light\" in a widely shared moment of warm interaction.",
+    body:
+      "据公开现场报道，迪丽热巴于 6 月 27 日至 28 日赴沈阳出席红星美凯龙品牌活动，与多方向粉丝挥手互动，并叮嘱「无论如何爱自己永远都是第一步」。活动细节以品牌与工作室公开信息为准。",
+    bodyEn:
+      "Public reports describe warm fan interactions at the Macalline event in Shenyang on June 27–28, including a group sing-along of \"Chaser of Light.\"",
+    eventSlug: "macalline-brand-2026",
+    externalUrl: "https://ent.sina.cn/2026-06-28/detail-inieykzq0408857.d.html",
+    featured: true,
+  },
+  {
+    slug: "deeyeo-global-2026",
+    title: "官宣德佑全球品牌代言人",
+    titleEn: "Announced Deeyeo Global Brand Ambassador",
+    date: "2026-06-13",
+    category: "fashion",
+    summary:
+      "6 月 13 日正式官宣成为德佑（Deeyeo）全球品牌代言人，品牌同步启动百城大屏应援等推广活动。",
+    summaryEn:
+      "Officially announced as global brand ambassador for Deeyeo on June 13, with a major multi-city campaign rollout.",
+    body:
+      "德佑于 6 月 10 日至 12 日发布倒计时物料，13 日上午正式官宣迪丽热巴为全球品牌代言人。据公开报道，品牌在全国多城上线大屏推广，并推出联名周边系列。",
+    bodyEn:
+      "Deeyeo released countdown teasers June 10–12 before the June 13 global ambassador announcement, accompanied by reported citywide campaigns and merchandise.",
+    externalUrl: "https://k.sina.com.cn/article_7857201856_1d45362c001906pez6.html",
+    eventSlug: "deeyeo-global-2026",
+    featured: true,
+  },
+  {
     slug: "china-film-tv-night-2026",
     title: "中国影视之夜红毯 · 获 CMG 年度推荐女演员",
     titleEn: "China Film & TV Night · CMG Recommended TV Actress",
@@ -37,12 +73,17 @@ export const news: NewsItem[] = [
   {
     slug: "sui-ran-bu-neng-yiqie-trailer-news",
     title: "《虽然不能同时拥有一切》首支预告发布",
+    titleEn: "You Can't Have Everything — First Trailer",
     date: "2026-04-20",
     category: "work",
     summary:
       "爱奇艺微尘剧场迷你剧释出首支预告，迪丽热巴一人分饰双生卫蓝，搭档陈昊森，改编自《蓝，另一种蓝》。",
+    summaryEn:
+      "iQiyi Micro Drama released the first trailer — Dilraba plays twin Wei Lans alongside Chen Haosen, adapted from Yamamoto Fumio's novel.",
     body:
       "该剧共 6 集，每集约 45 分钟，由翁子光监制、吴辰珵执导，卢文莹与王一寓编剧。拍摄横跨北京与泉州，通过都市与小镇的双线对比呈现两个卫蓝的人生落差。播出信息以爱奇艺平台官宣为准。",
+    bodyEn:
+      "Six episodes (~45 min each), produced across Beijing and Quanzhou. Premiere date to be announced by iQiyi.",
     workSlug: "sui-ran-bu-neng-yiqie",
     externalUrl: "https://movie.douban.com/subject/36707564/",
     featured: true,
@@ -50,10 +91,13 @@ export const news: NewsItem[] = [
   {
     slug: "jiu-chong-tian-filming",
     title: "《九重天》进组拍摄",
+    titleEn: "Nine Heavens — Starts Filming",
     date: "2026-01-12",
     category: "work",
     summary:
       "进组腾讯视频民国悬疑单元剧《九重天》，拍摄民国单元戏份，搭档尹昉；九个独立单元串联，以闽西琉璃寨土楼为舞台。",
+    summaryEn:
+      "Joined Tencent's republic-era suspense anthology Nine Heavens, filming with Yin Fang in Fujian tulou settings.",
     workSlug: "jiu-chong-tian",
     externalUrl: "https://movie.douban.com/subject/37191662/",
     featured: true,
@@ -87,9 +131,12 @@ export const news: NewsItem[] = [
   {
     slug: "bai-ri-ti-deng-air",
     title: "《白日提灯》腾讯视频开播",
+    titleEn: "Moonlit Reunion Premieres on Tencent Video",
     date: "2026-03-28",
     category: "work",
     summary: "古装奇幻爱情剧（原名《慕胥辞》）于腾讯视频独播，饰演归墟鬼王贺思慕，搭档陈飞宇。",
+    summaryEn:
+      "Fantasy romance (formerly Mu Xu Ci) premiered on Tencent Video — Dilraba as ghost queen He Simu with Chen Feiyu.",
     workSlug: "bai-ri-ti-deng",
     externalUrl: "https://movie.douban.com/subject/35929169/",
     featured: true,

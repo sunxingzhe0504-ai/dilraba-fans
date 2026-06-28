@@ -7,6 +7,7 @@ const W = IMAGES.works;
 const B = IMAGES.backdrop;
 
 export const gallery: GalleryItem[] = [
+  { slug: "red-black-2026", title: "中国影视之夜 · 红毯造型", titleEn: "China Film & TV Night Look", category: "red-carpet", image: P.redBlack, year: 2026, wallpaper: true, tags: ["红毯", "高定"] },
   { slug: "hero-red-pearl", title: "红珠礼服", category: "portrait", image: P.redPearl, year: 2024, wallpaper: true, tags: ["经典"] },
   { slug: "teal-floral", title: "青碧花韵", category: "portrait", image: P.tealFloral, year: 2023, wallpaper: true },
   { slug: "white-beauty", title: "纯白优雅", category: "portrait", image: P.whiteBeauty, year: 2022, wallpaper: true },

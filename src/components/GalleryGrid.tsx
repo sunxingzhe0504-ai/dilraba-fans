@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Download } from "lucide-react";
 import type { GalleryItem, GalleryCategory, Character } from "@/lib/types";
 import { useLocale, useT } from "@/components/LocaleProvider";
-import { localizeCharacter } from "@/lib/i18n/localize";
+import { localizeCharacter, localizeGalleryItem } from "@/lib/i18n/localize";
 import { galleryCategoryLabel } from "@/lib/i18n/labels";
 import { cn } from "@/lib/cn";
 
@@ -20,7 +20,9 @@ export function GalleryGrid({ items, className }: Props) {
 
   return (
     <div className={cn("grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4", className)}>
-      {items.map((item) => (
+      {items.map((raw) => {
+        const item = localizeGalleryItem(raw, locale);
+        return (
         <article key={item.slug} className="edit-card group overflow-hidden">
           <div className="relative aspect-[3/4] overflow-hidden bg-background-deep">
             <Image
@@ -51,7 +53,8 @@ export function GalleryGrid({ items, className }: Props) {
             )}
           </div>
         </article>
-      ))}
+        );
+      })}
     </div>
   );
 }

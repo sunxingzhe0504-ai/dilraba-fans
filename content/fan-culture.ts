@@ -61,6 +61,18 @@ export const fanCulture: FanCulture = {
 
 export const brandHighlights: BrandHighlight[] = [
   {
+    slug: "deeyeo-global-2026",
+    title: "德佑全球品牌代言人",
+    titleEn: "Deeyeo Global Brand Ambassador",
+    date: "2026-06-13",
+    summary:
+      "6 月 13 日正式官宣成为德佑（Deeyeo）全球品牌代言人，品牌同步启动百城大屏推广。",
+    summaryEn:
+      "Announced as Deeyeo global brand ambassador on June 13 with a reported nationwide campaign.",
+    image: IMAGES.portraits.warmCandid,
+    externalUrl: "https://k.sina.com.cn/article_7857201856_1d45362c001906pez6.html",
+  },
+  {
     slug: "dior-global-ambassador",
     title: "Dior 全球品牌大使",
     date: "2023-至今",
@@ -122,6 +134,19 @@ export const charityItems: CharityItem[] = [
 ];
 
 export const changelog: ChangelogEntry[] = [
+  {
+    date: "2026-06-19",
+    items: [
+      "补充德佑全球代言人官宣（6/13）、沈阳红星美凯龙品牌活动（6/27–28）",
+      "完善中国影视之夜、嘉人全满贯等条目英译与外链；视频区新增红毯回顾与双生预告",
+      "更新《少林女足》暑期档信息与 2026 时间轴",
+    ],
+    itemsEn: [
+      "Added Deeyeo global ambassador (Jun 13) and Macalline Shenyang event (Jun 27–28)",
+      "Enhanced English fields and links for China Film & TV Night; new red carpet and twin-trailer videos",
+      "Updated Shaolin Women's Soccer summer release note and 2026 timeline",
+    ],
+  },
   {
     date: "2026-06-19",
     items: [

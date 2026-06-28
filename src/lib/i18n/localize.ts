@@ -84,6 +84,29 @@ export function localizeVideo(v: VideoItem, locale: Locale): VideoItem {
   };
 }
 
+export function localizeBrandHighlight(
+  item: import("@/lib/types").BrandHighlight,
+  locale: Locale,
+): import("@/lib/types").BrandHighlight {
+  if (locale === "zh") return item;
+  return {
+    ...item,
+    title: pick(item, "title", locale),
+    summary: pick(item, "summary", locale),
+  };
+}
+
+export function localizeGalleryItem(
+  item: import("@/lib/types").GalleryItem,
+  locale: Locale,
+): import("@/lib/types").GalleryItem {
+  if (locale === "zh") return item;
+  return {
+    ...item,
+    title: pick(item, "title", locale),
+  };
+}
+
 export function localizeHonor(h: Honor, locale: Locale): Honor {
   if (locale === "zh") return h;
   return {

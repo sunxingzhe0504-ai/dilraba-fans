@@ -476,8 +476,13 @@ export const works: Work[] = [
     role: "钰珑",
     poster: w["shaolin-nvzu"],
     synopsis:
-      "周星驰导演作品，迪丽热巴饰演钰珑，融合功夫与女子足球元素；具体上映信息以官方公布为准。",
+      "周星驰导演作品，迪丽热巴饰演钰珑，融合功夫与女子足球元素；据公开报道有望于 2026 年暑期档上映，具体以片方官宣为准。",
+    synopsisEn:
+      "Stephen Chow-directed film with Dilraba as Yu Long — kung fu meets women's soccer; summer 2026 release reported, subject to official confirmation.",
     highlights: ["周星驰导演", "功夫足球题材"],
+    highlightsEn: ["Directed by Stephen Chow", "Kung fu soccer"],
+    airInfo: "2026 年暑期档待映（以片方官宣为准）",
+    airInfoEn: "Summer 2026 (subject to official release date)",
     status: "upcoming",
   },
 

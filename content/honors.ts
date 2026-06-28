@@ -6,6 +6,13 @@ import type { Honor, TimelineEntry } from "@/lib/types";
 export const honors: Honor[] = [
   {
     year: 2026,
+    title: "德佑全球品牌代言人官宣，商业版图持续扩展",
+    titleEn: "Deeyeo global brand ambassador announced",
+    source: "公开官宣 / 媒体报道",
+    sourceEn: "Official announcement / media reports",
+  },
+  {
+    year: 2026,
     title: "中国影视之夜获 CMG 年度推荐电视剧女演员",
     titleEn: "CMG Recommended TV Actress at China Film & TV Night",
     source: "公开报道",
@@ -173,8 +180,11 @@ export const timeline: TimelineEntry[] = [
   },
   {
     year: 2026,
-    title: "剧集与时尚双高光",
+    title: "独立发展与新阶段",
+    titleEn: "A new chapter",
     description:
-      "《白日提灯》于腾讯视频热播；进组《九重天》民国单元剧；《虽然不能同时拥有一切》释出预告；开年多刊封面与 Dior 活动持续亮相；登上《嘉人》六月刊生日封面，成为中国 90 后首位完成五大女刊全满贯的艺人。",
+      "《嘉人》六月刊达成五大女刊全满贯；中国影视之夜红毯回归并获 CMG 年度推荐电视剧女演员；官宣德佑全球代言人，出席沈阳等品牌活动。",
+    descriptionEn:
+      "Marie Claire grand slam, China Film & TV Night return with CMG Recommended TV Actress, Deeyeo global ambassador, and brand events including Shenyang.",
   },
 ];

@@ -134,6 +134,34 @@ export const MAGAZINE_EXTERNAL_LINKS: Record<string, ExternalLink[]> = {
 };
 
 export const EVENT_EXTERNAL_LINKS: Record<string, ExternalLink[]> = {
+  "china-film-tv-night-2026": [
+    {
+      label: "新浪 · CMG 年度推荐女演员",
+      href: "https://k.sina.com.cn/article_7096020439_1a6f4add706801rzeo.html",
+      kind: "info",
+    },
+    {
+      label: "腾讯新闻 · 红毯回顾",
+      href: "https://news.qq.com/rain/a/20260615A09BKJ00",
+      kind: "info",
+    },
+  ],
+  "macalline-brand-2026": [
+    linkWeiboStudio(),
+    {
+      label: "新浪娱乐 · 沈阳活动现场",
+      href: "https://ent.sina.cn/2026-06-28/detail-inieykzq0408857.d.html",
+      kind: "info",
+    },
+  ],
+  "deeyeo-global-2026": [
+    {
+      label: "新浪 · 全球代言人官宣",
+      href: "https://k.sina.com.cn/article_7857201856_1d45362c001906pez6.html",
+      kind: "info",
+    },
+    linkWeiboStudio(),
+  ],
   "dior-suzhou-high-jewelry-2026": [
     linkDiorCn(),
     {

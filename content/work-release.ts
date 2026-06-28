@@ -22,7 +22,7 @@ export type WorkReleaseConfig = {
 export const WORK_RELEASE: Record<string, WorkReleaseConfig> = {
   "sui-ran-bu-neng-yiqie": {
     status: "upcoming",
-    airInfo: "爱奇艺 · 2026 年 5–6 月待播（以平台官宣为准）",
+    airInfo: "爱奇艺微尘剧场 · 待播（平台专页已上线，开播日期待官宣）",
     live: false,
     premiereDate: "2026-06-15",
     premiereNews: {

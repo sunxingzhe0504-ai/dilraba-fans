@@ -140,6 +140,7 @@ export type GalleryCategory =
 export type GalleryItem = {
   slug: string;
   title: string;
+  titleEn?: string;
   category: GalleryCategory;
   image: string;
   year?: number;
@@ -200,8 +201,10 @@ export type FanCulture = {
 export type BrandHighlight = {
   slug: string;
   title: string;
+  titleEn?: string;
   date: string;
   summary: string;
+  summaryEn?: string;
   image?: string;
   externalUrl?: string;
 };
@@ -240,6 +243,7 @@ export type VideoPlatform =
 export type VideoItem = {
   slug: string;
   title: string;
+  titleEn?: string;
   date: string;
   category: VideoCategory;
   platform: VideoPlatform;
@@ -248,6 +252,7 @@ export type VideoItem = {
   thumbnail: string;
   duration?: string;
   summary?: string;
+  summaryEn?: string;
   featured?: boolean;
   workSlug?: string;
 };

@@ -11,7 +11,7 @@ import { SectionTitle } from "@/components/SectionTitle";
 import { MagazineCard } from "@/components/MagazineCard";
 import { formatDate } from "@/lib/format";
 import { useLocale, useT } from "@/components/LocaleProvider";
-import { localizeNews } from "@/lib/i18n/localize";
+import { localizeNews, localizeBrandHighlight } from "@/lib/i18n/localize";
 import { DesignPageRouter } from "../DesignPageRouter";
 
 export type FashionPageProps = {
@@ -93,9 +93,14 @@ function FashionNews({ fashionNews }: { fashionNews: NewsItem[] }) {
 
 function FashionList({ highlights, variant }: { highlights: BrandHighlight[]; variant: "c" | "a" | "b" | "d" }) {
   const t = useT();
+  const locale = useLocale();
+  const items = useMemo(
+    () => highlights.map((h) => localizeBrandHighlight(h, locale)),
+    [highlights, locale],
+  );
   return (
     <div className={variant === "d" ? "mt-12 space-y-0 divide-y divide-border" : "mt-12 space-y-8"}>
-      {highlights.map((item) => (
+      {items.map((item) => (
         <article
           key={item.slug}
           className={
