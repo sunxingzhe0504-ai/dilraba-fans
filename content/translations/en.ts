@@ -508,6 +508,153 @@ export const GALLERY_EN: Record<string, { titleEn: string }> = {
   "zhou-fang-poster": { titleEn: "Love Designer · Zhou Fang" },
 };
 
+export type VideoEn = {
+  titleEn: string;
+  summaryEn?: string;
+  durationEn?: string;
+};
+
+export const VIDEOS_EN: Record<string, VideoEn> = {
+  "macalline-shenyang-2026-video": {
+    titleEn: "Macalline Shenyang Event · On-Site Highlights",
+    summaryEn: 'Shenyang brand event — fans sang "Chaser of Light" in a widely shared moment.',
+  },
+  "deeyeo-global-2026": {
+    titleEn: "Deeyeo Global Ambassador Announcement",
+    summaryEn: "Official Deeyeo global ambassador announcement on June 13.",
+  },
+  "jia-ren-cover-2026-video": {
+    titleEn: "Marie Claire June Cover Teaser",
+    summaryEn: '"AS SHE IS" birthday cover release.',
+  },
+  "china-film-tv-night-2026": {
+    titleEn: "2026 China Film & TV Night · Red Carpet",
+    summaryEn: "Georges Hobeika couture with Mikimoto jewels — red carpet return after 605 days.",
+  },
+  "sui-ran-shuangsheng-trailer": {
+    titleEn: "You Can't Have Everything — Twin Wei Lan Trailer",
+    summaryEn: "iQiyi Micro Drama — Dilraba as twin Wei Lans.",
+  },
+  "zhen-shang-shu-trailer": {
+    titleEn: "Eternal Love of Dream Trailer · Bai Fengjiu",
+  },
+  "sui-ran-bu-neng-yiqie-trailer": {
+    titleEn: "You Can't Have Everything — First Trailer",
+    summaryEn: "Twin Wei Lans swap lives — iQiyi Micro Drama upcoming.",
+  },
+  "shili-taohua-trailer": {
+    titleEn: "Eternal Love Trailer · Bai Fengjiu",
+  },
+  "ke-la-lian-ren-trailer": {
+    titleEn: "Diamond Lover Trailer · Gao Wen",
+  },
+  "lie-huo-ru-ge-trailer": {
+    titleEn: "The Flame's Daughter Trailer · Lie Ruge",
+  },
+  "yu-jiao-ji-trailer": {
+    titleEn: "The Blue Whisper Trailer · Ji Yunhe",
+  },
+  "xingfu-trailer": {
+    titleEn: "Love Designer Trailer · Zhou Fang",
+  },
+  "pao-pao-variety": {
+    titleEn: "Keep Running Highlights",
+  },
+  "jixian-variety": {
+    titleEn: "Go Fighting! Season 5 Clips",
+  },
+  "kaishi-s2-variety": {
+    titleEn: "The Truth! Season 2",
+  },
+  "jiu-chong-tian-trailer": {
+    titleEn: "Nine Heavens · Official Teaser",
+    summaryEn: "Tencent S+ republic-era suspense anthology — filming 2026.",
+  },
+  "ri-yue-trailer": {
+    titleEn: "Saga of Light · Teaser",
+    summaryEn: "Mythical romance with Dou Xiao as Chang'e.",
+  },
+  "shaolin-nvzu-trailer": {
+    titleEn: "Shaolin Women's Soccer · Announcement",
+    summaryEn: "Stephen Chow-directed film — upcoming.",
+  },
+  "wei-shi-dai-trailer": {
+    titleEn: "We Era Clips · Wu Anpo",
+    summaryEn: "Tencent youth web drama — campus queen Wu Anpo.",
+  },
+  "kaishi-tuili-ba-s3-highlight": {
+    titleEn: "The Truth! S3 Highlights",
+    summaryEn: "2025 mystery variety show — season 3 regular cast.",
+  },
+  "huaer-silu-highlight": {
+    titleEn: "Divas Hit the Road · Silk Road Season Dance",
+    summaryEn: "Uyghur dance on board — widely praised in media reports.",
+  },
+  "ni-guang-zhi-lian-trailer": {
+    titleEn: "Love Against the Light Trailer · Jiang Li",
+    summaryEn: "Campus fantasy web drama lead role.",
+  },
+  "chuangzaoying-2019-highlight": {
+    titleEn: "Produce Camp 2019 · Mentor Stage",
+    summaryEn: "Head mentor (homeroom teacher) of the boy group survival show.",
+  },
+  "bai-ri-ti-deng-trailer": {
+    titleEn: "Love Under the Lantern Trailer · He Simu",
+    summaryEn: "Fantasy romance as ghost queen He Simu — Tencent Video exclusive.",
+    durationEn: "Trailer",
+  },
+  "li-jian-mei-gui-trailer": {
+    titleEn: "Sword Rose Trailer · Deng Yan",
+    summaryEn: "Anti-trafficking drama on CCTV-8 primetime.",
+    durationEn: "Trailer",
+  },
+  "xiao-qi-qing-rang-trailer": {
+    titleEn: "Legend from the Hidden Niche Trailer · Nie Jiuluo",
+    summaryEn: "Fantasy adventure with Chen Xingxu on Tencent Video.",
+    durationEn: "Trailer",
+  },
+  "ni-shi-wo-de-rongyao-trailer": {
+    titleEn: "You Are My Glory · Official Trailer",
+    durationEn: "Trailer",
+  },
+  "chang-ge-xing-trailer": {
+    titleEn: "The Long Ballad Trailer · Li Changge",
+  },
+  "gong-su-trailer": {
+    titleEn: "The Prosecution · Promo Special",
+  },
+  "an-le-zhuan-trailer": {
+    titleEn: "The Legend of Anle · Trailer",
+  },
+  "studio-birthday-2026": {
+    titleEn: "Dilraba Studio · 2026 Birthday Message",
+    summaryEn: "Studio birthday wishes and June schedule release.",
+  },
+  "studio-birthday-2025": {
+    titleEn: "Dilraba Studio · Birthday Message",
+    summaryEn: "Birthday video and posts from the official studio Weibo.",
+  },
+  "studio-li-jian-premiere": {
+    titleEn: "Studio · Sword Rose Premiere",
+    summaryEn: "CCTV primetime premiere promotion.",
+  },
+  "dior-suzhou-event": {
+    titleEn: "Dior Suzhou High Jewelry Event",
+    summaryEn: "Global ambassador at Suzhou dinner in Belle Dior jewels.",
+  },
+  "sweet-dreams-mv": {
+    titleEn: "Sweet Dreams · Insert Song MV",
+  },
+  "golden-eagle-interview": {
+    titleEn: "Golden Eagle Festival Interview Clips",
+    summaryEn: "2018 Golden Eagle Goddess related public interviews.",
+  },
+  "variety-happy-camp": {
+    titleEn: "Variety Show Highlights Collection",
+    summaryEn: "Happy Camp and other variety show clips.",
+  },
+};
+
 export const QUOTES_EN: Record<string, { textEn: string; sourceEn: string }> = {
   q1: {
     textEn: "Live earnestly, act with heart, and meet the world with gentleness.",

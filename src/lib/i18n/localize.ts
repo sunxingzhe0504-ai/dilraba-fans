@@ -19,6 +19,7 @@ import {
   GALLERY_EN,
   MAGAZINES_EN,
   QUOTES_EN,
+  VIDEOS_EN,
   WORKS_EN,
 } from "@content/translations/en";
 
@@ -90,10 +91,14 @@ export function localizeCharacter(c: Character, locale: Locale): Character {
 
 export function localizeVideo(v: VideoItem, locale: Locale): VideoItem {
   if (locale === "zh") return v;
+  const extra = VIDEOS_EN[v.slug];
   return {
     ...v,
-    title: pick(v, "title", locale),
-    summary: v.summary ? pick(v, "summary", locale) : v.summary,
+    title: extra?.titleEn ?? pick(v, "title", locale),
+    summary: v.summary ? (extra?.summaryEn ?? pick(v, "summary", locale)) : v.summary,
+    duration: v.duration
+      ? (extra?.durationEn ?? (v.duration === "预告" ? "Trailer" : v.duration))
+      : v.duration,
   };
 }
 

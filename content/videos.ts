@@ -11,6 +11,19 @@ const m = IMAGES.magazines;
  */
 export const videos: VideoItem[] = [
   {
+    slug: "macalline-shenyang-2026-video",
+    title: "红星美凯龙沈阳品牌活动 · 现场回顾",
+    titleEn: "Macalline Shenyang Event · On-Site Highlights",
+    date: "2026-06-28",
+    category: "event",
+    platform: "weibo",
+    href: "https://ent.sina.cn/2026-06-28/detail-inieykzq0408857.d.html",
+    thumbnail: p.warmCandid,
+    summary: "沈阳线下品牌活动，粉丝合唱《追光者》互动名场面。",
+    summaryEn: 'Shenyang brand event — fans sang "Chaser of Light" in a widely shared moment.',
+    featured: true,
+  },
+  {
     slug: "deeyeo-global-2026",
     title: "德佑全球品牌代言人官宣",
     titleEn: "Deeyeo Global Ambassador Announcement",

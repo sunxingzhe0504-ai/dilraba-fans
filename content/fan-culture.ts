@@ -44,6 +44,8 @@ export const quotes: Quote[] = [
 export const fanCulture: FanCulture = {
   fanName: "Dear Bar",
   fanNameNote: "「Dear Bar」是迪丽热巴粉丝群体的常用称呼之一，寓意温柔、陪伴与同路而行。",
+  fanNameNoteEn:
+    "Dear Bar is a common name for Dilraba's fan community — warmth, companionship, and walking the path together.",
   nicknames: ["热巴", "胖迪", "迪迪", "热热"],
   fanGuide: [
     "理性追星，文明交流，尊重官方与本人意愿。",
@@ -51,10 +53,37 @@ export const fanCulture: FanCulture = {
     "支持正版作品，通过官方渠道获取资讯。",
     "以她的认真与温柔为榜样，成为更好的自己。",
   ],
+  fanGuideEn: [
+    "Support thoughtfully, communicate respectfully, and honor official channels and her wishes.",
+    "Do not spread unverified rumors or engage in online harassment.",
+    "Support official releases and get news through verified channels.",
+    "Let her earnestness and gentleness inspire you to become a better person.",
+  ],
   anniversaries: [
-    { id: "birthday", title: "生日", date: "06-03", description: "1992 年 6 月 3 日，新疆乌鲁木齐。" },
-    { id: "debut", title: "出道日", date: "05-07", description: "2013 年 5 月 7 日《阿娜尔罕》央视首播，正式以演员身份进入公众视野。" },
-    { id: "golden-eagle", title: "金鹰女神", date: "10-14", description: "2018 年第 12 届中国金鹰电视艺术节金鹰女神。" },
+    {
+      id: "birthday",
+      title: "生日",
+      titleEn: "Birthday",
+      date: "06-03",
+      description: "1992 年 6 月 3 日，新疆乌鲁木齐。",
+      descriptionEn: "Born June 3, 1992 in Ürümqi, Xinjiang.",
+    },
+    {
+      id: "debut",
+      title: "出道日",
+      titleEn: "Debut Day",
+      date: "05-07",
+      description: "2013 年 5 月 7 日《阿娜尔罕》央视首播，正式以演员身份进入公众视野。",
+      descriptionEn: "Anarhan premiered on CCTV May 7, 2013 — her official acting debut.",
+    },
+    {
+      id: "golden-eagle",
+      title: "金鹰女神",
+      titleEn: "Golden Eagle Goddess",
+      date: "10-14",
+      description: "2018 年第 12 届中国金鹰电视艺术节金鹰女神。",
+      descriptionEn: "Golden Eagle Goddess at the 12th China Golden Eagle TV Art Festival, 2018.",
+    },
   ],
   communityLinks: getCommunityLinks(),
 };
@@ -86,38 +115,49 @@ export const brandHighlights: BrandHighlight[] = [
   {
     slug: "dior-global-ambassador",
     title: "Dior 全球品牌大使",
+    titleEn: "Dior Global Brand Ambassador",
     date: "2023-至今",
     summary: "2023 年 2 月官宣 Dior 品牌大使，同年 12 月升任全球品牌大使及全球彩妆及香氛代言人，连续受邀出席巴黎时装周、高级珠宝活动。",
+    summaryEn:
+      "Ambassador since Feb 2023, elevated to global ambassador Dec 2023 — Paris Fashion Week and high jewelry.",
     image: IMAGES.portraits.redBlack,
     externalUrl: "https://www.dior.cn/zh_cn",
   },
   {
     slug: "dior-paris-2024",
     title: "巴黎时装周 Dior 大秀",
+    titleEn: "Paris Fashion Week · Dior",
     date: "2024-02",
     summary: "以优雅造型亮相国际时尚舞台，多套高定造型获广泛关注。",
+    summaryEn: "Elegant looks at Dior's international runway show.",
     externalUrl: "https://www.dior.com/en_int/womens-fashion/shows",
   },
   {
     slug: "dior-suzhou-jewelry",
     title: "苏州高级珠宝活动",
+    titleEn: "Suzhou High Jewelry Event",
     date: "2026-03-20",
     summary: "出席 Dior 于苏州举办的高级珠宝晚宴，佩戴 Belle Dior 系列珠宝亮相。",
+    summaryEn: "Belle Dior jewelry at Dior's Suzhou high jewelry dinner.",
     externalUrl: "https://news.qq.com/rain/a/20260320A08FSQ00",
   },
   {
     slug: "magazine-grand-slam-2026",
     title: "嘉人六月刊 · 五大女刊全满贯",
+    titleEn: "Marie Claire · Big Five Grand Slam",
     date: "2026-06",
     summary: "登上《嘉人》2026 年 6 月生日刊封面，成为中国 90 后首位完成五大女刊全满贯的艺人。",
+    summaryEn: "First post-90s artist to complete all five major women's magazine solo covers.",
     image: IMAGES.portraits.redPearl,
     externalUrl: "https://www.marieclaire.com.cn/",
   },
   {
     slug: "magazine-2026",
     title: "2026 开年多刊封面",
+    titleEn: "2026 Multi-Cover Run",
     date: "2026-01",
     summary: "ELLE、GRAZIA、BAZAAR 等主流时尚女刊开年封面，时尚影响力持续走高。",
+    summaryEn: "ELLE, GRAZIA, BAZAAR and more — fashion momentum into 2026.",
     image: IMAGES.magazines.elle2026,
   },
 ];
@@ -156,6 +196,19 @@ export const charityItems: CharityItem[] = [
 ];
 
 export const changelog: ChangelogEntry[] = [
+  {
+    date: "2026-06-19",
+    items: [
+      "视频专区英译全覆盖（37 条），含时长「预告」本地化",
+      "粉丝文化页英译：追星指南、纪念日与品牌亮点字段补全",
+      "新增红星美凯龙沈阳活动视频条目",
+    ],
+    itemsEn: [
+      "Full English for all 37 video entries including Trailer duration label",
+      "Fan culture page EN: fan guide, anniversaries, and brand highlight fields",
+      "Added Macalline Shenyang event video entry",
+    ],
+  },
   {
     date: "2026-06-19",
     items: [

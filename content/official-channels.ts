@@ -80,19 +80,43 @@ export function linkDiorCn(): ExternalLink {
 /** 页脚 / 关于页展示的官方链接列表 */
 export function getOfficialLinksForSite() {
   return [
-    { label: "官方微博", href: W.personal.href },
-    { label: "工作室微博", href: W.studio.href },
-    { label: "抖音", href: D.personal.href },
-    { label: "Instagram", href: OFFICIAL_CHANNELS.instagram.href },
+    { label: "官方微博", labelEn: "Weibo", href: W.personal.href },
+    { label: "工作室微博", labelEn: "Studio Weibo", href: W.studio.href },
+    { label: "抖音", labelEn: "Douyin", href: D.personal.href },
+    { label: "Instagram", labelEn: "Instagram", href: OFFICIAL_CHANNELS.instagram.href },
   ];
 }
 
 /** 粉丝文化页的社区链接 */
 export function getCommunityLinks() {
   return [
-    { label: W.personal.label, href: W.personal.href, note: W.personal.note },
-    { label: W.studio.label, href: W.studio.href, note: W.studio.note },
-    { label: D.personal.label, href: D.personal.href, note: "官方抖音" },
-    { label: "Dior 中国官网", href: OFFICIAL_CHANNELS.dior.href, note: "全球品牌大使相关资讯" },
+    {
+      label: W.personal.label,
+      labelEn: W.personal.label,
+      href: W.personal.href,
+      note: W.personal.note,
+      noteEn: "Official Weibo",
+    },
+    {
+      label: W.studio.label,
+      labelEn: "Dilraba Studio",
+      href: W.studio.href,
+      note: W.studio.note,
+      noteEn: "Official studio Weibo",
+    },
+    {
+      label: D.personal.label,
+      labelEn: D.personal.label,
+      href: D.personal.href,
+      note: "官方抖音",
+      noteEn: "Official Douyin",
+    },
+    {
+      label: "Dior 中国官网",
+      labelEn: "Dior China",
+      href: OFFICIAL_CHANNELS.dior.href,
+      note: "全球品牌大使相关资讯",
+      noteEn: "Global ambassador news",
+    },
   ];
 }

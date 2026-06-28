@@ -177,14 +177,18 @@ export type Quote = {
 export type Anniversary = {
   id: string;
   title: string;
+  titleEn?: string;
   date: string; // MM-DD
   description: string;
+  descriptionEn?: string;
 };
 
 export type CommunityLink = {
   label: string;
+  labelEn?: string;
   href: string;
   note?: string;
+  noteEn?: string;
 };
 
 export type FanCulture = {
