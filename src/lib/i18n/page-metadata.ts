@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { metaDescription, metaTitle } from "./metadata";
+import { localizePath } from "./path";
+import { siteUrl } from "@/lib/site-url";
 
 type PageSeo = {
   title: string;
@@ -93,6 +95,12 @@ export const PAGE_SEO = {
     description: "素材版权下架、内容纠错与站点反馈渠道。",
     descriptionEn: "Copyright takedown requests, corrections, and site feedback.",
   },
+  stories: {
+    title: "专题长文",
+    titleEn: "Stories & Recaps",
+    description: "活动回顾、公益专题与粉丝向深度图文。",
+    descriptionEn: "Event recaps, charity features, and in-depth fan articles.",
+  },
   home: {
     title: "迪丽热巴 · 粉丝资讯站",
     titleEn: "Dilraba · Fan Info Site",
@@ -105,6 +113,25 @@ export const PAGE_SEO = {
 
 export type PageSeoKey = keyof typeof PAGE_SEO;
 
+export const PAGE_PATHS: Record<PageSeoKey, string> = {
+  works: "/works",
+  latest: "/latest",
+  events: "/events",
+  magazine: "/magazine",
+  gallery: "/gallery",
+  characters: "/characters",
+  videos: "/videos",
+  upcoming: "/upcoming",
+  fashion: "/fashion",
+  charity: "/charity",
+  fans: "/fans",
+  about: "/about",
+  changelog: "/changelog",
+  contact: "/contact",
+  stories: "/stories",
+  home: "/",
+};
+
 export function listPageMetadata(
   key: PageSeoKey,
   extra?: Metadata,
@@ -112,12 +139,20 @@ export function listPageMetadata(
   const p = PAGE_SEO[key];
   const title = metaTitle(p.title, p.titleEn);
   const description = metaDescription(p.description, p.descriptionEn);
+  const path = PAGE_PATHS[key];
 
   return {
     title,
     description,
     openGraph: { title, description },
     twitter: { title, description },
+    alternates: {
+      canonical: siteUrl(path),
+      languages: {
+        "zh-CN": siteUrl(path),
+        en: siteUrl(localizePath(path, "en")),
+      },
+    },
     ...extra,
   };
 }

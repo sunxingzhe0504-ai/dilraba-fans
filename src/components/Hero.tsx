@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import { LocaleLink as Link } from "@/components/LocaleLink";
 import { ArrowDown, Heart, Sparkles } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import { getSiteMeta } from "@content/index";

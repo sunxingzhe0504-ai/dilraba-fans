@@ -2,7 +2,7 @@
 
 import { useMemo } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import { LocaleLink as Link } from "@/components/LocaleLink";
 import type { Magazine } from "@/lib/types";
 import { Container } from "@/components/Container";
 import { SectionTitle } from "@/components/SectionTitle";

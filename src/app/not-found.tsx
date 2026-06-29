@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { LocaleLink as Link } from "@/components/LocaleLink";
 import { ArrowLeft, Home, Search } from "lucide-react";
 import { Container } from "@/components/Container";
 import { useT } from "@/components/LocaleProvider";

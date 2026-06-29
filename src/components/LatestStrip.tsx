@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { LocaleLink as Link } from "@/components/LocaleLink";
 import { ArrowRight } from "lucide-react";
 import type { NewsItem } from "@/lib/types";
 import { resolveNewsHref } from "@content/index";

@@ -18,6 +18,7 @@ import {
 import { honors, timeline } from "./honors";
 import { magazines } from "./magazines";
 import { siteMeta } from "./site-meta";
+import { stories } from "./stories";
 import { videos } from "./videos";
 import { works } from "./works";
 import {
@@ -284,6 +285,26 @@ export function getSiteMeta() {
   return siteMeta;
 }
 
+export function getStories() {
+  return [...stories].sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+  );
+}
+
+export function getStoryBySlug(slug: string) {
+  return getStories().find((s) => s.slug === slug);
+}
+
+export function getStorySlugs() {
+  return getStories().map((s) => s.slug);
+}
+
+export function getFeaturedStories(limit = 3) {
+  return getStories()
+    .filter((s) => s.featured)
+    .slice(0, limit);
+}
+
 export function getWorkSlugs() {
   return works.map((work) => work.slug);
 }
@@ -405,6 +426,13 @@ function buildSearchPool(locale: SearchLocale): SearchResult[] {
       type: isEn ? "Charity" : "公益",
       excerpt: (isEn ? (c.summaryEn ?? c.summary) : c.summary)?.slice(0, 60),
     })),
+    ...getStories().map((s) => ({
+      title: isEn ? (s.titleEn ?? s.title) : s.title,
+      altTitle: isEn ? s.title : s.titleEn,
+      href: `/stories/${s.slug}`,
+      type: isEn ? "Story" : "专题",
+      excerpt: (isEn ? (s.summaryEn ?? s.summary) : s.summary)?.slice(0, 60),
+    })),
   ];
 }
 
@@ -437,4 +465,5 @@ export {
   charityItems,
   changelog,
   videos,
+  stories,
 };

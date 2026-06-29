@@ -6,14 +6,15 @@ import {
   useContext,
   useEffect,
   useMemo,
-  useState,
 } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import { translate, type UiKey } from "@/lib/i18n/ui";
 import {
-  DEFAULT_LOCALE,
-  LOCALE_STORAGE_KEY,
-  type Locale,
-} from "@/lib/i18n/types";
+  getLocaleFromPathname,
+  localizePath,
+  stripLocalePrefix,
+} from "@/lib/i18n/path";
+import { LOCALE_STORAGE_KEY, type Locale } from "@/lib/i18n/types";
 
 type I18nContextValue = {
   locale: Locale;
@@ -22,7 +23,7 @@ type I18nContextValue = {
 };
 
 const I18nContext = createContext<I18nContextValue>({
-  locale: DEFAULT_LOCALE,
+  locale: "zh",
   setLocale: () => {},
   t: (key) => key,
 });
@@ -45,29 +46,25 @@ export function useI18n() {
 }
 
 export function LocaleProvider({ children }: { children: React.ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>(() => {
-    if (typeof window === "undefined") return DEFAULT_LOCALE;
-    try {
-      const stored = window.localStorage.getItem(LOCALE_STORAGE_KEY);
-      return stored === "en" ? "en" : DEFAULT_LOCALE;
-    } catch {
-      return DEFAULT_LOCALE;
-    }
-  });
+  const pathname = usePathname();
+  const router = useRouter();
+  const locale = getLocaleFromPathname(pathname);
 
   useEffect(() => {
     document.documentElement.lang = locale === "en" ? "en" : "zh-CN";
-  }, [locale]);
-
-  const setLocale = useCallback((next: Locale) => {
-    setLocaleState(next);
-    document.documentElement.lang = next === "en" ? "en" : "zh-CN";
     try {
-      window.localStorage.setItem(LOCALE_STORAGE_KEY, next);
+      window.localStorage.setItem(LOCALE_STORAGE_KEY, locale);
     } catch {
       /* ignore */
     }
-  }, []);
+  }, [locale]);
+
+  const setLocale = useCallback(
+    (next: Locale) => {
+      router.push(localizePath(stripLocalePrefix(pathname), next));
+    },
+    [pathname, router],
+  );
 
   const t = useCallback(
     (key: UiKey, params?: Record<string, string | number>) =>

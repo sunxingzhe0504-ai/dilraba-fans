@@ -76,6 +76,7 @@ const newsSrc = readContent("news.ts");
 const charactersSrc = readContent("characters.ts");
 const gallerySrc = readContent("gallery.ts");
 const videosSrc = readContent("videos.ts");
+const storiesSrc = readContent("stories.ts");
 const imagesSrc = readContent("images.ts");
 
 const workSlugs = new Set(extractSlugs(worksSrc, "works").map((x) => x.slug));
@@ -91,12 +92,17 @@ checkDuplicateSlugs([
   ...extractSlugs(charactersSrc, "characters"),
   ...extractSlugs(gallerySrc, "gallery"),
   ...extractSlugs(videosSrc, "videos"),
+  ...extractSlugs(storiesSrc, "stories"),
 ]);
 
 // Cross-references in news
 checkRefs(newsSrc, "workSlug", workSlugs, "news", "works");
 checkRefs(newsSrc, "eventSlug", eventSlugs, "news", "events");
 checkRefs(newsSrc, "magazineSlug", magazineSlugs, "news", "magazines");
+
+// Stories cross-refs
+checkRefs(storiesSrc, "eventSlug", eventSlugs, "stories", "events");
+checkRefs(storiesSrc, "newsSlug", newsSlugs, "stories", "news");
 
 // Characters → works
 checkRefs(charactersSrc, "workSlug", workSlugs, "characters", "works");

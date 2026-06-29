@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { LocaleLink as Link } from "@/components/LocaleLink";
 import { ExternalLink, Mail, ShieldAlert } from "lucide-react";
 import { Container } from "@/components/Container";
 import { SectionTitle } from "@/components/SectionTitle";

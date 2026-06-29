@@ -1,16 +1,18 @@
 "use client";
 
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Heart, Menu, Search, X } from "lucide-react";
+import { LocaleLink } from "@/components/LocaleLink";
 import { LocaleSwitcher } from "@/components/LocaleSwitcher";
 import { SearchDialog } from "@/components/SearchDialog";
 import { useT } from "@/components/LocaleProvider";
+import { stripLocalePrefix } from "@/lib/i18n/path";
 import { cn } from "@/lib/cn";
 
 export function SiteHeader() {
   const pathname = usePathname();
+  const barePath = stripLocalePrefix(pathname);
   const t = useT();
   const [open, setOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
@@ -35,6 +37,9 @@ export function SiteHeader() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const isActive = (href: string) =>
+    href === "/" ? barePath === "/" : barePath === href || barePath.startsWith(`${href}/`);
+
   return (
     <header
       className={cn(
@@ -45,7 +50,7 @@ export function SiteHeader() {
       )}
     >
       <div className="container-wide flex h-20 items-center justify-between">
-        <Link href="/" className="group flex items-center gap-2 leading-none">
+        <LocaleLink href="/" className="group flex items-center gap-2 leading-none">
           <Heart
             size={18}
             className="fill-rouge text-rouge transition-transform group-hover:scale-110"
@@ -59,13 +64,13 @@ export function SiteHeader() {
               {t("site.tagline")}
             </span>
           </span>
-        </Link>
+        </LocaleLink>
 
         <nav className="hidden items-center gap-5 lg:flex xl:gap-7" aria-label={t("nav.main")}>
           {navItems.map((item) => {
-            const active = pathname === item.href;
+            const active = isActive(item.href);
             return (
-              <Link
+              <LocaleLink
                 key={item.href}
                 href={item.href}
                 className={cn(
@@ -80,7 +85,7 @@ export function SiteHeader() {
                     active ? "w-full" : "w-0 group-hover:w-full",
                   )}
                 />
-              </Link>
+              </LocaleLink>
             );
           })}
         </nav>
@@ -120,31 +125,31 @@ export function SiteHeader() {
           aria-label={t("nav.mobile")}
         >
           {navItems.map((item) => (
-            <Link
+            <LocaleLink
               key={item.href}
               href={item.href}
               onClick={() => setOpen(false)}
               className={cn(
                 "block border-b border-border/60 py-4 text-base last:border-0",
-                pathname === item.href ? "text-wine" : "text-ink-soft",
+                isActive(item.href) ? "text-wine" : "text-ink-soft",
               )}
             >
               {item.label}
-            </Link>
+            </LocaleLink>
           ))}
           <div className="mt-4 flex flex-wrap gap-3 border-t border-border pt-4 text-sm">
-            <Link href="/videos" className="text-wine" onClick={() => setOpen(false)}>
+            <LocaleLink href="/videos" className="text-wine" onClick={() => setOpen(false)}>
               {t("nav.videoZone")}
-            </Link>
-            <Link href="/upcoming" className="text-wine" onClick={() => setOpen(false)}>
+            </LocaleLink>
+            <LocaleLink href="/upcoming" className="text-wine" onClick={() => setOpen(false)}>
               {t("nav.upcoming")}
-            </Link>
-            <Link href="/fashion" className="text-wine" onClick={() => setOpen(false)}>
+            </LocaleLink>
+            <LocaleLink href="/fashion" className="text-wine" onClick={() => setOpen(false)}>
               {t("nav.fashion")}
-            </Link>
-            <Link href="/fans" className="text-wine" onClick={() => setOpen(false)}>
+            </LocaleLink>
+            <LocaleLink href="/fans" className="text-wine" onClick={() => setOpen(false)}>
               {t("nav.fans")}
-            </Link>
+            </LocaleLink>
           </div>
         </nav>
       )}

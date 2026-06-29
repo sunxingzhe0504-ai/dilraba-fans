@@ -2,7 +2,7 @@
 
 import { useMemo } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import { LocaleLink as Link } from "@/components/LocaleLink";
 import { ExternalLink, Heart } from "lucide-react";
 import { getHonors, getSiteMeta, getTimeline } from "@content/index";
 import { IMAGES } from "@content/images";

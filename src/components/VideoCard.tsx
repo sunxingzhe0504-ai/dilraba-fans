@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import { LocaleLink as Link } from "@/components/LocaleLink";
 import { ExternalLink, Play } from "lucide-react";
 import type { VideoItem } from "@/lib/types";
 import { useLocale, useT } from "@/components/LocaleProvider";

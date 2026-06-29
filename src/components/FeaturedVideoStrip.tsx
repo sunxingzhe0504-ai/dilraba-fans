@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { LocaleLink as Link } from "@/components/LocaleLink";
 import { ArrowRight } from "lucide-react";
 import type { VideoItem } from "@/lib/types";
 import type { ThemeId } from "@/lib/themes";

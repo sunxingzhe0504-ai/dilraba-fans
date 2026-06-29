@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
-import Link from "next/link";
+import { LocaleLink as Link } from "@/components/LocaleLink";
 import type { NewsItem } from "@/lib/types";
 import { formatDate } from "@/lib/format";
 import { useLocale, useT } from "@/components/LocaleProvider";

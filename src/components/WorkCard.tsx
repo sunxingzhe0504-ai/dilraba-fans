@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
-import Image from "next/image";
+import { LocaleLink as Link } from "@/components/LocaleLink";
+import { ContentImage } from "@/components/ContentImage";
 import type { Work } from "@/lib/types";
 import { ExternalLinks } from "@/components/ExternalLinks";
 import { useLocale, useT } from "@/components/LocaleProvider";
@@ -23,7 +23,7 @@ export function WorkCard({ work: raw, className }: WorkCardProps) {
     <div className={cn("group edit-card hover-zoom flex flex-col", className)}>
       <Link href={`/works/${work.slug}`} className="flex flex-col flex-1">
         <div className="relative aspect-[2/3] overflow-hidden bg-background-deep">
-          <Image
+          <ContentImage
             src={work.poster}
             alt={`${work.title} ${t("work.posterAlt")}`}
             fill

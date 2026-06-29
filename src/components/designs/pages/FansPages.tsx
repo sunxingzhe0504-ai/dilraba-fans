@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
-import Link from "next/link";
+import { LocaleLink as Link } from "@/components/LocaleLink";
 import { ExternalLink } from "lucide-react";
 import type { FanCulture, Quote } from "@/lib/types";
 import { Container } from "@/components/Container";

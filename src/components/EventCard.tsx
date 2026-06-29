@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { LocaleLink as Link } from "@/components/LocaleLink";
 import { Calendar, MapPin } from "lucide-react";
 import type { FanEvent } from "@/lib/types";
 import { ExternalLinks } from "@/components/ExternalLinks";

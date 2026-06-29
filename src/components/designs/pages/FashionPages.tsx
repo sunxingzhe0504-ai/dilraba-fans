@@ -2,7 +2,7 @@
 
 import { useMemo } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import { LocaleLink as Link } from "@/components/LocaleLink";
 import { ExternalLink } from "lucide-react";
 import type { BrandHighlight, Magazine, NewsItem } from "@/lib/types";
 import { resolveNewsHref } from "@content/index";

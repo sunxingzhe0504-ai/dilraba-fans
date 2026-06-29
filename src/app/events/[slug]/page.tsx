@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     titleEn: ev.titleEn,
     description: ev.summary,
     descriptionEn: ev.summaryEn,
-    canonical: siteUrl(`/events/${slug}`),
+    path: `/events/${slug}`,
   });
 }
 

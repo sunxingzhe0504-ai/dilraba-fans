@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import Link from "next/link";
+import { LocaleLink as Link } from "@/components/LocaleLink";
 import { Rss } from "lucide-react";
 import type { NewsItem } from "@/lib/types";
 import { Container } from "@/components/Container";

@@ -134,6 +134,24 @@ export type NewsItem = {
   bodyEn?: string;
 };
 
+export type Story = {
+  slug: string;
+  title: string;
+  titleEn?: string;
+  date: string;
+  summary: string;
+  summaryEn?: string;
+  /** Markdown 正文 */
+  body: string;
+  bodyEn?: string;
+  cover?: string;
+  tags?: string[];
+  featured?: boolean;
+  /** 关联活动 / 动态 */
+  eventSlug?: string;
+  newsSlug?: string;
+};
+
 export type GalleryCategory =
   | "portrait"
   | "red-carpet"

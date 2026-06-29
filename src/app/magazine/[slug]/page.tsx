@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: mag.description ?? mag.issue,
     descriptionEn: extra?.descriptionEn ?? extra?.issueEn ?? mag.issueEn,
     image: mag.cover ? assetPath(mag.cover) : undefined,
-    canonical: siteUrl(`/magazine/${slug}`),
+    path: `/magazine/${slug}`,
   });
 }
 

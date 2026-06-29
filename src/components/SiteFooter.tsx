@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { LocaleLink } from "@/components/LocaleLink";
 import { getSiteMeta } from "@content/index";
 import { useT } from "@/components/LocaleProvider";
 import { useLocale } from "@/components/LocaleProvider";
@@ -37,9 +37,9 @@ export function SiteFooter() {
                 {t("site.rss")}
               </a>
               {" · "}
-              <Link href="/videos" className="hover:text-gold-light">
+              <LocaleLink href="/videos" className="hover:text-gold-light">
                 {t("site.videos")}
-              </Link>
+              </LocaleLink>
             </p>
           </div>
 
@@ -69,74 +69,79 @@ export function SiteFooter() {
             </h3>
             <ul className="mt-5 space-y-3 text-sm text-paper/70">
               <li>
-                <Link href="/latest" className="hover:text-gold-light">
+                <LocaleLink href="/latest" className="hover:text-gold-light">
                   {t("nav.latestNews")}
-                </Link>
+                </LocaleLink>
               </li>
               <li>
-                <Link href="/works" className="hover:text-gold-light">
+                <LocaleLink href="/works" className="hover:text-gold-light">
                   {t("nav.worksLib")}
-                </Link>
+                </LocaleLink>
               </li>
               <li>
-                <Link href="/videos" className="hover:text-gold-light">
+                <LocaleLink href="/videos" className="hover:text-gold-light">
                   {t("nav.videoZone")}
-                </Link>
+                </LocaleLink>
               </li>
               <li>
-                <Link href="/gallery" className="hover:text-gold-light">
+                <LocaleLink href="/gallery" className="hover:text-gold-light">
                   {t("nav.galleryWall")}
-                </Link>
+                </LocaleLink>
               </li>
               <li>
-                <Link href="/characters" className="hover:text-gold-light">
+                <LocaleLink href="/characters" className="hover:text-gold-light">
                   {t("nav.charactersAtlas")}
-                </Link>
+                </LocaleLink>
               </li>
               <li>
-                <Link href="/magazine" className="hover:text-gold-light">
+                <LocaleLink href="/magazine" className="hover:text-gold-light">
                   {t("nav.magazineCovers")}
-                </Link>
+                </LocaleLink>
               </li>
               <li>
-                <Link href="/events" className="hover:text-gold-light">
+                <LocaleLink href="/events" className="hover:text-gold-light">
                   {t("nav.eventNews")}
-                </Link>
+                </LocaleLink>
               </li>
               <li>
-                <Link href="/upcoming" className="hover:text-gold-light">
+                <LocaleLink href="/upcoming" className="hover:text-gold-light">
                   {t("nav.upcomingWorks")}
-                </Link>
+                </LocaleLink>
               </li>
               <li>
-                <Link href="/fashion" className="hover:text-gold-light">
+                <LocaleLink href="/fashion" className="hover:text-gold-light">
                   {t("nav.fashionBrand")}
-                </Link>
+                </LocaleLink>
               </li>
               <li>
-                <Link href="/charity" className="hover:text-gold-light">
+                <LocaleLink href="/charity" className="hover:text-gold-light">
                   {t("nav.charity")}
-                </Link>
+                </LocaleLink>
               </li>
               <li>
-                <Link href="/fans" className="hover:text-gold-light">
+                <LocaleLink href="/fans" className="hover:text-gold-light">
                   {t("nav.fans")}
-                </Link>
+                </LocaleLink>
               </li>
               <li>
-                <Link href="/about" className="hover:text-gold-light">
+                <LocaleLink href="/about" className="hover:text-gold-light">
                   {t("nav.aboutHer")}
-                </Link>
+                </LocaleLink>
               </li>
               <li>
-                <Link href="/changelog" className="hover:text-gold-light">
+                <LocaleLink href="/changelog" className="hover:text-gold-light">
                   {t("nav.changelog")}
-                </Link>
+                </LocaleLink>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-gold-light">
+                <LocaleLink href="/stories" className="hover:text-gold-light">
+                  {t("nav.stories")}
+                </LocaleLink>
+              </li>
+              <li>
+                <LocaleLink href="/contact" className="hover:text-gold-light">
                   {t("nav.contact")}
-                </Link>
+                </LocaleLink>
               </li>
             </ul>
           </div>

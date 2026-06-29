@@ -2,7 +2,7 @@
 
 import { useMemo } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import { LocaleLink as Link } from "@/components/LocaleLink";
 import type { Character, NewsItem, Work } from "@/lib/types";
 import { ExternalLinks } from "@/components/ExternalLinks";
 import { Breadcrumbs } from "@/components/Breadcrumbs";

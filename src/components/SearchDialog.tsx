@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import Link from "next/link";
+import { LocaleLink } from "@/components/LocaleLink";
 import { Search, X } from "lucide-react";
 import { searchSite, type SearchResult } from "@content/index";
 import { useLocale, useT } from "@/components/LocaleProvider";
@@ -111,7 +111,7 @@ export function SearchDialog({
               ) : (
                 results.map((r: SearchResult) => (
                   <li key={`${r.href}-${r.title}`}>
-                    <Link
+                    <LocaleLink
                       href={r.href}
                       onClick={close}
                       className="block rounded-xl px-3 py-3 hover:bg-blush/30"
@@ -123,7 +123,7 @@ export function SearchDialog({
                       {r.excerpt && (
                         <p className="mt-0.5 truncate text-xs text-ink-mute">{r.excerpt}</p>
                       )}
-                    </Link>
+                    </LocaleLink>
                   </li>
                 ))
               )}

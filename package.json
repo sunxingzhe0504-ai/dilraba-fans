@@ -7,6 +7,9 @@
     "build": "next build",
     "build:pages": "node scripts/build-pages.mjs",
     "validate": "node scripts/validate-content.mjs",
+    "optimize:images": "node scripts/optimize-images.mjs",
+    "generate:en-routes": "node scripts/generate-en-routes.mjs",
+    "prebuild": "node scripts/optimize-images.mjs",
     "start": "next start",
     "lint": "eslint"
   },
@@ -17,6 +20,7 @@
     "next": "16.2.7",
     "react": "19.2.4",
     "react-dom": "19.2.4",
+    "react-markdown": "^10.1.0",
     "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {
@@ -26,6 +30,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.7",
+    "sharp": "^0.35.2",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

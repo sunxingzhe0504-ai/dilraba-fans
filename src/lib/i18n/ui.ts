@@ -54,6 +54,7 @@ const zh = {
     charity: "公益足迹",
     changelog: "更新日志",
     contact: "联系",
+    stories: "专题",
     latestNews: "最新动态",
     worksLib: "作品库",
     videoZone: "视频专区",
@@ -338,6 +339,12 @@ const zh = {
       generalBody: "内容纠错、链接失效或功能建议，同样欢迎反馈。也可先查阅以下页面：",
       footer: "理性追星，文明交流。请通过官方渠道获取第一手资讯。",
     },
+    stories: {
+      title: "专题长文",
+      subtitle: "活动回顾、公益专题与粉丝向深度图文。",
+      relatedEvent: "查看相关活动 →",
+      relatedNews: "阅读相关动态 →",
+    },
   },
   design: {
     home: {
@@ -488,6 +495,8 @@ const en = {
     fans: "Fan Culture",
     charity: "Charity",
     changelog: "Changelog",
+    contact: "Contact",
+    stories: "Stories",
     latestNews: "Latest News",
     worksLib: "Filmography",
     videoZone: "Videos",
@@ -503,7 +512,6 @@ const en = {
     openMenu: "Open menu",
     closeMenu: "Close menu",
     search: "Search",
-    contact: "Contact",
   },
   search: {
     placeholder: "Search works, roles, magazines, events, honors…",
@@ -772,6 +780,12 @@ const en = {
       generalTitle: "Other feedback",
       generalBody: "Corrections, broken links, or feature suggestions are also welcome. You may also check:",
       footer: "Support thoughtfully and respect official channels for first-hand news.",
+    },
+    stories: {
+      title: "Stories & Recaps",
+      subtitle: "Event recaps, charity features, and in-depth articles.",
+      relatedEvent: "Related event →",
+      relatedNews: "Related news →",
     },
   },
   design: {

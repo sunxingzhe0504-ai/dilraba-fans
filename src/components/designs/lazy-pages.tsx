@@ -71,6 +71,14 @@ export const UpcomingPageDesign = dynamic(
   () => import("./pages/UpcomingPages").then((m) => ({ default: m.UpcomingPageDesign })),
   { loading: () => <DesignPageFallback /> },
 );
+export const StoriesPageDesign = dynamic(
+  () => import("./pages/StoriesPages").then((m) => ({ default: m.StoriesPageDesign })),
+  { loading: () => <DesignPageFallback /> },
+);
+export const StoryDetailPageDesign = dynamic(
+  () => import("./pages/StoryDetailPages").then((m) => ({ default: m.StoryDetailPageDesign })),
+  { loading: () => <DesignPageFallback /> },
+);
 export const VideosPageDesign = dynamic(
   () => import("./pages/VideosPages").then((m) => ({ default: m.VideosPageDesign })),
   { loading: () => <DesignPageFallback /> },

@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { ChevronRight } from "lucide-react";
+import { LocaleLink } from "@/components/LocaleLink";
 import { cn } from "@/lib/cn";
 
 export type BreadcrumbItem = {
@@ -26,9 +26,9 @@ export function Breadcrumbs({ items, className }: Props) {
                 <ChevronRight size={14} className="shrink-0 text-ink-mute/60" aria-hidden />
               )}
               {item.href && !isLast ? (
-                <Link href={item.href} className="transition-colors hover:text-wine">
+                <LocaleLink href={item.href} className="transition-colors hover:text-wine">
                   {item.label}
-                </Link>
+                </LocaleLink>
               ) : (
                 <span className={isLast ? "font-medium text-ink-soft" : undefined}>
                   {item.label}

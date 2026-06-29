@@ -12,7 +12,7 @@ import { DEFAULT_LOCALE, LOCALE_STORAGE_KEY } from "@/lib/i18n/types";
 import { JsonLd } from "@/components/JsonLd";
 import { SITE_METADATA_EN } from "@/lib/i18n/metadata";
 import { websiteJsonLd } from "@/lib/structured-data";
-import { getSiteUrl } from "@/lib/site-url";
+import { getSiteUrl, siteUrl } from "@/lib/site-url";
 import { assetPath } from "@/lib/asset-path";
 import "./globals.css";
 
@@ -68,6 +68,11 @@ export const metadata: Metadata = {
     images: [assetPath("/images/portraits/hero-red-pearl.jpg")],
   },
   alternates: {
+    canonical: siteUrl("/"),
+    languages: {
+      "zh-CN": siteUrl("/"),
+      en: siteUrl("/en"),
+    },
     types: {
       "application/rss+xml": [
         { url: "/feed.xml", title: "RSS · 中文" },
@@ -91,7 +96,7 @@ export default function RootLayout({
     >
       <head>
         <Script id="theme-init" strategy="beforeInteractive">
-          {`(function(){try{var t=localStorage.getItem('${THEME_STORAGE_KEY}')||'${DEFAULT_THEME}';document.documentElement.dataset.theme=t;var l=localStorage.getItem('${LOCALE_STORAGE_KEY}')||'${DEFAULT_LOCALE}';document.documentElement.lang=l==='en'?'en':'zh-CN';}catch(e){document.documentElement.dataset.theme='${DEFAULT_THEME}';document.documentElement.lang='zh-CN';}})();`}
+          {`(function(){try{var t=localStorage.getItem('${THEME_STORAGE_KEY}')||'${DEFAULT_THEME}';document.documentElement.dataset.theme=t;var p=location.pathname;var fromPath=(p==='/en'||p.indexOf('/en/')===0)?'en':null;var l=fromPath||(localStorage.getItem('${LOCALE_STORAGE_KEY}')||'${DEFAULT_LOCALE}');document.documentElement.lang=l==='en'?'en':'zh-CN';}catch(e){document.documentElement.dataset.theme='${DEFAULT_THEME}';document.documentElement.lang='zh-CN';}})();`}
         </Script>
       </head>
       <body className="flex min-h-full flex-col antialiased">

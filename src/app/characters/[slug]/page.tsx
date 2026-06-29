@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: character.description,
     descriptionEn: extra?.descriptionEn,
     image: character.image ? assetPath(character.image) : undefined,
-    canonical: siteUrl(`/characters/${slug}`),
+    path: `/characters/${slug}`,
   });
 }
 

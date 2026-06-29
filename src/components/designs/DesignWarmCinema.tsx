@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { LocaleLink as Link } from "@/components/LocaleLink";
 import { useMemo } from "react";
 import { Heart } from "lucide-react";
 import { getSiteMeta } from "@content/index";

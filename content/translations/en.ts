@@ -37,6 +37,24 @@ export const WORKS_EN: Record<string, WorkEn> = {
     synopsisEn: "Special appearance as imperial consort Qingcheng in a Tang-styled costume drama.",
     highlightsEn: ["Tang styling", "Guest role"],
   },
+  "ma-la-bian-xing-ji": {
+    roleEn: "Guan Xiaodi",
+    synopsisEn:
+      "Urban action drama — rebellious female bodyguard Guan Xiaodi grows through brutal training.",
+    highlightsEn: ["Urban action lead", "Guan Xiaodi breakout"],
+    airInfoEn: "Hunan TV · Aug 2016",
+  },
+  "liu-shan-men": {
+    roleEn: "Su Yiqing",
+    synopsisEn: "Wuxia mystery — heroic Su Yiqing alongside Raymond Lam in the Six Doors bureau.",
+    highlightsEn: ["Wuxia heroine", "With Raymond Lam"],
+  },
+  "ai-de-jie-ti": {
+    roleEn: "Song Zihan",
+    synopsisEn:
+      "Family business melodrama — Song Zihan navigates corporate feud and emotional entanglements.",
+    highlightsEn: ["Song Zihan depth", "Early urban drama"],
+  },
   "ke-la-lian-ren": {
     roleEn: "Gao Wen",
     synopsisEn: "Flashy jewelry designer Gao Wen in a hit urban romance.",

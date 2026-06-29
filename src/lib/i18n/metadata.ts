@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { localizePath } from "./path";
+import { siteUrl } from "@/lib/site-url";
 
 /** 详情页 title：英文优先展示，保留中文便于识别 */
 export function metaTitle(zh: string, en?: string): string {
@@ -20,7 +22,8 @@ export function detailMetadata(opts: {
   description: string;
   descriptionEn?: string;
   image?: string;
-  canonical?: string;
+  /** 中文站 canonical 路径，如 /works/foo */
+  path: string;
 }): Metadata {
   const title = metaTitle(opts.title, opts.titleEn);
   const description = metaDescription(opts.description, opts.descriptionEn);
@@ -28,7 +31,13 @@ export function detailMetadata(opts: {
   return {
     title,
     description,
-    ...(opts.canonical ? { alternates: { canonical: opts.canonical } } : {}),
+    alternates: {
+      canonical: siteUrl(opts.path),
+      languages: {
+        "zh-CN": siteUrl(opts.path),
+        en: siteUrl(localizePath(opts.path, "en")),
+      },
+    },
     openGraph: {
       title,
       description,

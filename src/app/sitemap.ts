@@ -7,9 +7,12 @@ import {
   getMagazines,
   getNews,
   getNewsSlugs,
+  getStories,
+  getStorySlugs,
   getWorkSlugs,
   getWorks,
 } from "@content/index";
+import { localizePath } from "@/lib/i18n/path";
 import { siteUrl } from "@/lib/site-url";
 
 export const dynamic = "force-static";
@@ -22,6 +25,7 @@ const STATIC_ROUTES: {
   { path: "/", priority: 1, changeFrequency: "weekly" },
   { path: "/latest", priority: 0.9, changeFrequency: "daily" },
   { path: "/works", priority: 0.9, changeFrequency: "weekly" },
+  { path: "/stories", priority: 0.75, changeFrequency: "weekly" },
   { path: "/upcoming", priority: 0.8, changeFrequency: "weekly" },
   { path: "/videos", priority: 0.8, changeFrequency: "weekly" },
   { path: "/gallery", priority: 0.7, changeFrequency: "monthly" },
@@ -45,10 +49,27 @@ function parseDate(value?: string, fallbackYear?: number): Date {
   return new Date();
 }
 
+type Entry = MetadataRoute.Sitemap[number];
+
+function mirrorEnglish(entries: Entry[]): Entry[] {
+  return entries.flatMap((entry) => {
+    const path = new URL(entry.url).pathname;
+    return [
+      entry,
+      {
+        ...entry,
+        url: siteUrl(localizePath(path, "en")),
+        priority: Math.round(((entry.priority ?? 0.5) * 0.95) * 100) / 100,
+      },
+    ];
+  });
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const buildTime = new Date();
   const newsDates = Object.fromEntries(getNews().map((n) => [n.slug, parseDate(n.date)]));
   const eventDates = Object.fromEntries(getEvents().map((e) => [e.slug, parseDate(e.date)]));
+  const storyDates = Object.fromEntries(getStories().map((s) => [s.slug, parseDate(s.date)]));
   const workDates = Object.fromEntries(
     getWorks().map((w) => [w.slug, parseDate(undefined, w.year)]),
   );
@@ -58,17 +79,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const latestNewsDate =
     getNews().length > 0
-      ? getNews().reduce(
-          (max, n) => Math.max(max, parseDate(n.date).getTime()),
-          0,
-        )
+      ? getNews().reduce((max, n) => Math.max(max, parseDate(n.date).getTime()), 0)
       : buildTime.getTime();
 
-  return [
+  const zhEntries: Entry[] = [
     ...STATIC_ROUTES.map(({ path, priority, changeFrequency }) => ({
       url: siteUrl(path),
-      lastModified:
-        path === "/latest" ? new Date(latestNewsDate) : buildTime,
+      lastModified: path === "/latest" ? new Date(latestNewsDate) : buildTime,
       changeFrequency,
       priority,
     })),
@@ -96,6 +113,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.7,
     })),
+    ...getStorySlugs().map((slug) => ({
+      url: siteUrl(`/stories/${slug}`),
+      lastModified: storyDates[slug] ?? buildTime,
+      changeFrequency: "monthly" as const,
+      priority: 0.65,
+    })),
     ...getCharacterSlugs().map((slug) => ({
       url: siteUrl(`/characters/${slug}`),
       lastModified: buildTime,
@@ -103,4 +126,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.6,
     })),
   ];
+
+  return mirrorEnglish(zhEntries);
 }
