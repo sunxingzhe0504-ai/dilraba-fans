@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getNewsSlugs, getNewsWithRelated } from "@content/index";
-import { NewsDetailPageDesign } from "@/components/designs/pages/NewsDetailPages";
+import { NewsDetailPageDesign } from "@/components/designs/lazy-pages";
 import { JsonLd } from "@/components/JsonLd";
 import { detailMetadata } from "@/lib/i18n/metadata";
 import { breadcrumbJsonLd, newsJsonLd } from "@/lib/structured-data";

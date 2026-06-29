@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getEventBySlug, getEventSlugs, getNewsForEvent } from "@content/index";
-import { EventDetailPageDesign } from "@/components/designs/pages/EventDetailPages";
+import { EventDetailPageDesign } from "@/components/designs/lazy-pages";
 import { JsonLd } from "@/components/JsonLd";
 import { detailMetadata } from "@/lib/i18n/metadata";
 import { breadcrumbJsonLd, eventJsonLd } from "@/lib/structured-data";

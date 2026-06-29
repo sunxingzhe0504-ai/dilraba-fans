@@ -87,6 +87,12 @@ export const PAGE_SEO = {
     description: "迪丽热巴粉丝站功能与内容更新记录。",
     descriptionEn: "Site feature and content maintenance log.",
   },
+  contact: {
+    title: "联系与反馈",
+    titleEn: "Contact & Feedback",
+    description: "素材版权下架、内容纠错与站点反馈渠道。",
+    descriptionEn: "Copyright takedown requests, corrections, and site feedback.",
+  },
   home: {
     title: "迪丽热巴 · 粉丝资讯站",
     titleEn: "Dilraba · Fan Info Site",

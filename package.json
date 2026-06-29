@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "build:pages": "node scripts/build-pages.mjs",
+    "validate": "node scripts/validate-content.mjs",
     "start": "next start",
     "lint": "eslint"
   },

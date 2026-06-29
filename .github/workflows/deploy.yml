@@ -39,6 +39,8 @@ jobs:
           echo "GITHUB_PAGES=true" >> "$GITHUB_ENV"
 
       - run: npm ci
+      - run: npm run lint
+      - run: npm run validate
       - run: npm run build
 
       - uses: actions/upload-pages-artifact@v3

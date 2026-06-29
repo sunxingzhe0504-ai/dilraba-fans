@@ -1,5 +1,5 @@
 import { getGallery, getWallpapers } from "@content/index";
-import { GalleryPageDesign } from "@/components/designs/pages/GalleryPages";
+import { GalleryPageDesign } from "@/components/designs/lazy-pages";
 import { listPageMetadata } from "@/lib/i18n/page-metadata";
 
 export const metadata = listPageMetadata("gallery");

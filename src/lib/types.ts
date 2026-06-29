@@ -101,6 +101,8 @@ export type SiteMeta = {
   bioExtended: string[];
   bioExtendedEn?: string[];
   officialLinks: { label: string; labelEn?: string; href: string }[];
+  /** GitHub Issues or similar — copyright / takedown requests */
+  feedbackUrl: string;
 };
 
 export type NewsCategory =

@@ -34,4 +34,7 @@ export const siteMeta: SiteMeta = {
     "Beyond acting and fashion, she supports causes including child welfare, poverty relief, and environmental protection. This unofficial fan site gathers positive public information for fellow fans.",
   ],
   officialLinks: getOfficialLinksForSite(),
+  /** 素材下架 / 纠错反馈 — 部署前请改为你的仓库 Issues 地址 */
+  feedbackUrl:
+    "https://github.com/OWNER/dilraba-fans/issues/new?labels=takedown&title=%5BTakedown%5D+",
 };

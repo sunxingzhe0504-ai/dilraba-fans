@@ -4,7 +4,6 @@ import {
   createContext,
   useCallback,
   useContext,
-  useEffect,
   useState,
 } from "react";
 import {
@@ -12,6 +11,7 @@ import {
   THEME_STORAGE_KEY,
   type ThemeId,
 } from "@/lib/themes";
+import { prefetchHomeTheme } from "@/components/designs/HomeDesignRouter";
 
 type ThemeContextValue = {
   theme: ThemeId;
@@ -28,21 +28,19 @@ export function useTheme() {
 }
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setThemeState] = useState<ThemeId>(DEFAULT_THEME);
-
-  useEffect(() => {
-    let stored: string | null = null;
+  const [theme, setThemeState] = useState<ThemeId>(() => {
+    if (typeof window === "undefined") return DEFAULT_THEME;
     try {
-      stored = window.localStorage.getItem(THEME_STORAGE_KEY);
+      const stored = window.localStorage.getItem(THEME_STORAGE_KEY);
+      const current = (stored ||
+        document.documentElement.dataset.theme ||
+        DEFAULT_THEME) as ThemeId;
+      document.documentElement.dataset.theme = current;
+      return current;
     } catch {
-      /* ignore */
+      return DEFAULT_THEME;
     }
-    const current = (stored ||
-      document.documentElement.dataset.theme ||
-      DEFAULT_THEME) as ThemeId;
-    setThemeState(current);
-    document.documentElement.dataset.theme = current;
-  }, []);
+  });
 
   const setTheme = useCallback((id: ThemeId) => {
     setThemeState(id);
@@ -52,6 +50,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     } catch {
       /* ignore */
     }
+    prefetchHomeTheme(id);
   }, []);
 
   return (

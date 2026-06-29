@@ -53,6 +53,7 @@ const zh = {
     fans: "粉丝文化",
     charity: "公益足迹",
     changelog: "更新日志",
+    contact: "联系",
     latestNews: "最新动态",
     worksLib: "作品库",
     videoZone: "视频专区",
@@ -70,7 +71,7 @@ const zh = {
     search: "搜索",
   },
   search: {
-    placeholder: "搜索作品、角色、杂志、活动…",
+    placeholder: "搜索作品、角色、杂志、活动、荣誉…",
     close: "关闭",
     empty: "输入关键词开始搜索",
     noResults: "未找到相关内容",
@@ -87,6 +88,11 @@ const zh = {
     b: "甜桃应援",
     c: "追光暖阳",
     d: "高定玫瑰刊",
+    panelTitle: "百变风格 · 四套并存",
+    panelHint: "像热巴一样美丽且多变——首页与全部内页均为独立版式，随时切换，选择会保存在本机。",
+    close: "关闭",
+    countHint: "共 {n} 套风格 · 无需只选其一",
+    defaultName: "百变风格",
   },
   hero: {
     browseWorks: "浏览作品",
@@ -319,6 +325,19 @@ const zh = {
       title: "更新日志",
       subtitle: "站点功能与内容维护记录。",
     },
+    contact: {
+      title: "联系与反馈",
+      subtitle: "素材下架、内容纠错与站点相关事宜。",
+      intro:
+        "本站为非官方粉丝资讯站，内容整理自公开信息。如有素材版权、内容纠错或其他反馈，欢迎通过以下渠道联系。",
+      takedownTitle: "版权 / 素材下架",
+      takedownBody:
+        "如认为本站某张图片、文字或其他素材侵犯您的合法权益，请提交下架申请并说明具体页面与理由，我们会尽快处理。",
+      takedownCta: "提交下架申请",
+      generalTitle: "其他反馈",
+      generalBody: "内容纠错、链接失效或功能建议，同样欢迎反馈。也可先查阅以下页面：",
+      footer: "理性追星，文明交流。请通过官方渠道获取第一手资讯。",
+    },
   },
   design: {
     home: {
@@ -484,9 +503,10 @@ const en = {
     openMenu: "Open menu",
     closeMenu: "Close menu",
     search: "Search",
+    contact: "Contact",
   },
   search: {
-    placeholder: "Search works, roles, magazines, events…",
+    placeholder: "Search works, roles, magazines, events, honors…",
     close: "Close",
     empty: "Type to search",
     noResults: "No results found",
@@ -503,6 +523,12 @@ const en = {
     b: "Sweet Support",
     c: "Warm Cinema",
     d: "Haute Rose",
+    panelTitle: "Four themes · all available",
+    panelHint:
+      "Beautiful and versatile like Dilraba — every page has four layouts; switch anytime; preference saved locally.",
+    close: "Close",
+    countHint: "{n} themes · no need to pick just one",
+    defaultName: "Themes",
   },
   hero: {
     browseWorks: "Browse Works",
@@ -733,6 +759,19 @@ const en = {
     changelog: {
       title: "Changelog",
       subtitle: "Site updates and content maintenance log.",
+    },
+    contact: {
+      title: "Contact & Feedback",
+      subtitle: "Takedown requests, corrections, and site inquiries.",
+      intro:
+        "This is an unofficial fan info site compiled from public sources. For copyright, corrections, or other feedback, please use the channels below.",
+      takedownTitle: "Copyright / Takedown",
+      takedownBody:
+        "If you believe any image, text, or other material on this site infringes your rights, please submit a takedown request with the page URL and reason.",
+      takedownCta: "Submit takedown request",
+      generalTitle: "Other feedback",
+      generalBody: "Corrections, broken links, or feature suggestions are also welcome. You may also check:",
+      footer: "Support thoughtfully and respect official channels for first-hand news.",
     },
   },
   design: {

@@ -1,5 +1,5 @@
 import { getEvents } from "@content/index";
-import { EventsPageDesign } from "@/components/designs/pages/EventsPages";
+import { EventsPageDesign } from "@/components/designs/lazy-pages";
 import { listPageMetadata } from "@/lib/i18n/page-metadata";
 
 export const metadata = listPageMetadata("events");

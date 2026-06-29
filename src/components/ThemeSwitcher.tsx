@@ -3,13 +3,15 @@
 import { useState } from "react";
 import { Check, Sparkles, X } from "lucide-react";
 import { STYLE_COUNT, THEMES } from "@/lib/themes";
+import { useT } from "@/components/LocaleProvider";
 import { useTheme } from "./ThemeProvider";
 import { cn } from "@/lib/cn";
 
 export function ThemeSwitcher() {
+  const t = useT();
   const { theme, setTheme } = useTheme();
   const [open, setOpen] = useState(false);
-  const current = THEMES.find((t) => t.id === theme);
+  const current = THEMES.find((item) => item.id === theme);
 
   return (
     <div className="fixed bottom-5 right-5 z-[60] flex flex-col items-end gap-3">
@@ -18,15 +20,13 @@ export function ThemeSwitcher() {
           <div className="border-b border-border px-5 py-4">
             <div className="flex items-start justify-between gap-3">
               <div>
-                <p className="text-sm font-medium text-ink">百变风格 · 四套并存</p>
-                <p className="mt-1 text-xs leading-relaxed text-ink-mute">
-                  像热巴一样美丽且多变——首页与全部内页均为独立版式，随时切换，选择会保存在本机。
-                </p>
+                <p className="text-sm font-medium text-ink">{t("theme.panelTitle")}</p>
+                <p className="mt-1 text-xs leading-relaxed text-ink-mute">{t("theme.panelHint")}</p>
               </div>
               <button
                 type="button"
                 onClick={() => setOpen(false)}
-                aria-label="关闭"
+                aria-label={t("theme.close")}
                 className="shrink-0 text-ink-mute transition-colors hover:text-wine"
               >
                 <X size={18} />
@@ -34,13 +34,13 @@ export function ThemeSwitcher() {
             </div>
           </div>
           <ul className="max-h-[58vh] space-y-1.5 overflow-auto p-3">
-            {THEMES.map((t) => {
-              const active = t.id === theme;
+            {THEMES.map((item) => {
+              const active = item.id === theme;
               return (
-                <li key={t.id}>
+                <li key={item.id}>
                   <button
                     type="button"
-                    onClick={() => setTheme(t.id)}
+                    onClick={() => setTheme(item.id)}
                     className={cn(
                       "flex w-full items-center gap-3 rounded-2xl border px-3 py-2.5 text-left transition-all",
                       active
@@ -49,37 +49,29 @@ export function ThemeSwitcher() {
                     )}
                   >
                     <span className="flex shrink-0 overflow-hidden rounded-full border border-border-strong">
-                      {t.swatch.map((c) => (
-                        <span
-                          key={c}
-                          className="h-7 w-3.5"
-                          style={{ background: c }}
-                        />
+                      {item.swatch.map((c) => (
+                        <span key={c} className="h-7 w-3.5" style={{ background: c }} />
                       ))}
                     </span>
-                    <span className="flex-1 min-w-0">
+                    <span className="min-w-0 flex-1">
                       <span className="flex items-center gap-2">
-                        <span className="text-sm font-medium text-ink">
-                          {t.name}
-                        </span>
+                        <span className="text-sm font-medium text-ink">{item.name}</span>
                         <span className="pill shrink-0 bg-wine/10 py-0.5 text-[10px] text-wine">
-                          {t.facet}
+                          {item.facet}
                         </span>
                       </span>
                       <span className="mt-0.5 block truncate text-xs text-ink-mute">
-                        {t.tagline}
+                        {item.tagline}
                       </span>
                     </span>
-                    {active && (
-                      <Check size={16} className="shrink-0 text-wine" />
-                    )}
+                    {active && <Check size={16} className="shrink-0 text-wine" />}
                   </button>
                 </li>
               );
             })}
           </ul>
           <p className="border-t border-border px-5 py-3 text-center text-[11px] text-ink-mute">
-            共 {STYLE_COUNT} 套风格 · 无需只选其一
+            {t("theme.countHint", { n: STYLE_COUNT })}
           </p>
         </div>
       )}
@@ -87,13 +79,13 @@ export function ThemeSwitcher() {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        aria-label="切换百变风格"
+        aria-label={t("theme.switch")}
         aria-expanded={open}
         className="btn-primary !px-5 !py-3 shadow-xl"
       >
         <Sparkles size={18} />
         <span className="hidden sm:inline">
-          {current ? current.name : "百变风格"}
+          {current ? current.name : t("theme.defaultName")}
         </span>
       </button>
     </div>

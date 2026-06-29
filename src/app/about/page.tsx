@@ -1,4 +1,4 @@
-import { AboutPageDesign } from "@/components/designs/pages/AboutPages";
+import { AboutPageDesign } from "@/components/designs/lazy-pages";
 import { JsonLd } from "@/components/JsonLd";
 import { listPageMetadata } from "@/lib/i18n/page-metadata";
 import { personJsonLd } from "@/lib/structured-data";

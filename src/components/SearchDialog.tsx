@@ -13,10 +13,11 @@ type Props = {
 };
 
 function useModKey() {
-  const [modKey, setModKey] = useState("Ctrl");
-  useEffect(() => {
-    setModKey(/Mac|iPhone|iPad/.test(navigator.platform) ? "⌘" : "Ctrl");
-  }, []);
+  const [modKey] = useState(() =>
+    typeof navigator !== "undefined" && /Mac|iPhone|iPad/.test(navigator.platform)
+      ? "⌘"
+      : "Ctrl",
+  );
   return modKey;
 }
 

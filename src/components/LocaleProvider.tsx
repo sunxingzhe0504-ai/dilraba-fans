@@ -45,19 +45,19 @@ export function useI18n() {
 }
 
 export function LocaleProvider({ children }: { children: React.ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>(DEFAULT_LOCALE);
+  const [locale, setLocaleState] = useState<Locale>(() => {
+    if (typeof window === "undefined") return DEFAULT_LOCALE;
+    try {
+      const stored = window.localStorage.getItem(LOCALE_STORAGE_KEY);
+      return stored === "en" ? "en" : DEFAULT_LOCALE;
+    } catch {
+      return DEFAULT_LOCALE;
+    }
+  });
 
   useEffect(() => {
-    let stored: string | null = null;
-    try {
-      stored = window.localStorage.getItem(LOCALE_STORAGE_KEY);
-    } catch {
-      /* ignore */
-    }
-    const current = (stored === "en" ? "en" : DEFAULT_LOCALE) as Locale;
-    setLocaleState(current);
-    document.documentElement.lang = current === "en" ? "en" : "zh-CN";
-  }, []);
+    document.documentElement.lang = locale === "en" ? "en" : "zh-CN";
+  }, [locale]);
 
   const setLocale = useCallback((next: Locale) => {
     setLocaleState(next);

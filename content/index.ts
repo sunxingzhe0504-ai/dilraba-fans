@@ -384,6 +384,27 @@ function buildSearchPool(locale: SearchLocale): SearchResult[] {
         )?.slice(0, 60),
       };
     }),
+    ...getHonors().map((h) => ({
+      title: isEn ? (h.titleEn ?? h.title) : h.title,
+      altTitle: isEn ? h.title : h.titleEn,
+      href: "/about",
+      type: isEn ? "Honor" : "荣誉",
+      excerpt: (isEn ? (h.sourceEn ?? h.source) : h.source)?.slice(0, 60),
+    })),
+    ...brandHighlights.map((b) => ({
+      title: isEn ? (b.titleEn ?? b.title) : b.title,
+      altTitle: isEn ? b.title : b.titleEn,
+      href: "/fashion",
+      type: isEn ? "Fashion" : "时尚",
+      excerpt: (isEn ? (b.summaryEn ?? b.summary) : b.summary)?.slice(0, 60),
+    })),
+    ...charityItems.map((c) => ({
+      title: isEn ? (c.titleEn ?? c.title) : c.title,
+      altTitle: isEn ? c.title : c.titleEn,
+      href: "/charity",
+      type: isEn ? "Charity" : "公益",
+      excerpt: (isEn ? (c.summaryEn ?? c.summary) : c.summary)?.slice(0, 60),
+    })),
   ];
 }
 

@@ -133,6 +133,11 @@ export function SiteFooter() {
                   {t("nav.changelog")}
                 </Link>
               </li>
+              <li>
+                <Link href="/contact" className="hover:text-gold-light">
+                  {t("nav.contact")}
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

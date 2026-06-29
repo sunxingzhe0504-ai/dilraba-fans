@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { WORKS_EN } from "@content/translations/en";
 import { getCharacterByWorkSlug, getNewsForWork, getWorkBySlug, getWorkSlugs } from "@content/index";
-import { WorkDetailPageDesign } from "@/components/designs/pages/WorkDetailPages";
+import { WorkDetailPageDesign } from "@/components/designs/lazy-pages";
 import { JsonLd } from "@/components/JsonLd";
 import { detailMetadata } from "@/lib/i18n/metadata";
 import { assetPath } from "@/lib/asset-path";

@@ -1,5 +1,5 @@
 import { getCharacters } from "@content/index";
-import { CharactersPageDesign } from "@/components/designs/pages/CharactersPages";
+import { CharactersPageDesign } from "@/components/designs/lazy-pages";
 import { listPageMetadata } from "@/lib/i18n/page-metadata";
 
 export const metadata = listPageMetadata("characters");

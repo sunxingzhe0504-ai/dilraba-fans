@@ -1,5 +1,5 @@
 import { getNews } from "@content/index";
-import { LatestPageDesign } from "@/components/designs/pages/LatestPages";
+import { LatestPageDesign } from "@/components/designs/lazy-pages";
 import { listPageMetadata } from "@/lib/i18n/page-metadata";
 
 export const metadata = listPageMetadata("latest", {

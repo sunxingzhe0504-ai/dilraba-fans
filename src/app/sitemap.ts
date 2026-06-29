@@ -33,6 +33,7 @@ const STATIC_ROUTES: {
   { path: "/fans", priority: 0.6, changeFrequency: "monthly" },
   { path: "/about", priority: 0.7, changeFrequency: "monthly" },
   { path: "/changelog", priority: 0.5, changeFrequency: "weekly" },
+  { path: "/contact", priority: 0.4, changeFrequency: "yearly" },
 ];
 
 function parseDate(value?: string, fallbackYear?: number): Date {

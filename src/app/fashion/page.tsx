@@ -1,5 +1,5 @@
 import { getBrandHighlights, getFeaturedMagazines, getFashionNews } from "@content/index";
-import { FashionPageDesign } from "@/components/designs/pages/FashionPages";
+import { FashionPageDesign } from "@/components/designs/lazy-pages";
 import { listPageMetadata } from "@/lib/i18n/page-metadata";
 
 export const metadata = listPageMetadata("fashion");

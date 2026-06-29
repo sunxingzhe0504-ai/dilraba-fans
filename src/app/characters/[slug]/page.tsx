@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CHARACTERS_EN } from "@content/translations/en";
 import { getCharacterSlugs, getCharacterWithWork } from "@content/index";
-import { CharacterDetailPageDesign } from "@/components/designs/pages/CharacterDetailPages";
+import { CharacterDetailPageDesign } from "@/components/designs/lazy-pages";
 import { JsonLd } from "@/components/JsonLd";
 import { detailMetadata } from "@/lib/i18n/metadata";
 import { assetPath } from "@/lib/asset-path";

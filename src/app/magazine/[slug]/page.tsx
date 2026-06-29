@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { MAGAZINES_EN } from "@content/translations/en";
 import { getMagazineBySlug, getMagazineSlugs } from "@content/index";
-import { MagazineDetailPageDesign } from "@/components/designs/pages/MagazineDetailPages";
+import { MagazineDetailPageDesign } from "@/components/designs/lazy-pages";
 import { JsonLd } from "@/components/JsonLd";
 import { detailMetadata } from "@/lib/i18n/metadata";
 import { assetPath } from "@/lib/asset-path";
