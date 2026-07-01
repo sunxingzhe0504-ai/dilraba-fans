@@ -305,6 +305,12 @@ export function getFeaturedStories(limit = 3) {
     .slice(0, limit);
 }
 
+export function getStoriesForEvent(eventSlug: string, limit = 2) {
+  return getStories()
+    .filter((s) => s.eventSlug === eventSlug)
+    .slice(0, limit);
+}
+
 export function getWorkSlugs() {
   return works.map((work) => work.slug);
 }

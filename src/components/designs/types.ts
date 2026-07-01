@@ -1,8 +1,18 @@
-import type { Character, FanEvent, Honor, Magazine, NewsItem, VideoItem, Work } from "@/lib/types";
+import type {
+  Character,
+  FanEvent,
+  Honor,
+  Magazine,
+  NewsItem,
+  Story,
+  VideoItem,
+  Work,
+} from "@/lib/types";
 
 export type HomeData = {
   hero: { tagline: string; subtitle: string };
   latestNews: NewsItem[];
+  featuredStories: Story[];
   works: Work[];
   upcoming: Work[];
   characters: Character[];

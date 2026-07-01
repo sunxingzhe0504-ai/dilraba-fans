@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "build:pages": "node scripts/build-pages.mjs",
-    "validate": "node scripts/validate-content.mjs",
+    "validate": "node scripts/validate-content.mjs && node scripts/validate-en-routes.mjs",
     "optimize:images": "node scripts/optimize-images.mjs",
     "generate:en-routes": "node scripts/generate-en-routes.mjs",
     "prebuild": "node scripts/optimize-images.mjs",

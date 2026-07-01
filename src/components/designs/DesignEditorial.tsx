@@ -8,6 +8,7 @@ import { getSiteMeta } from "@content/index";
 import { IMAGES } from "@content/images";
 import { FeaturedVideoStrip } from "@/components/FeaturedVideoStrip";
 import { LatestStrip } from "@/components/LatestStrip";
+import { StoriesStrip } from "@/components/StoriesStrip";
 import { CharacterCard } from "@/components/GalleryGrid";
 import { useLocale, useT } from "@/components/LocaleProvider";
 import {
@@ -22,7 +23,7 @@ import type { HomeData } from "./types";
 export function DesignEditorial({ data }: { data: HomeData }) {
   const locale = useLocale();
   const t = useT();
-  const { works: rawWorks, magazines: rawMagazines, events: rawEvents, latestNews, upcoming, characters, videos } = data;
+  const { works: rawWorks, magazines: rawMagazines, events: rawEvents, latestNews, featuredStories, upcoming, characters, videos } = data;
   const reduce = useReducedMotion();
 
   const hero = useMemo(() => {
@@ -123,6 +124,7 @@ export function DesignEditorial({ data }: { data: HomeData }) {
       </section>
 
       <LatestStrip items={latestNews} />
+      <StoriesStrip items={featuredStories} />
 
       {upcoming.length > 0 && (
         <div className="container-wide py-4 text-center">

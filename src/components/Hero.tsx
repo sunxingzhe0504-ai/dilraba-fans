@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { ContentImage } from "@/components/ContentImage";
 import { LocaleLink as Link } from "@/components/LocaleLink";
 import { ArrowDown, Heart, Sparkles } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
@@ -80,7 +80,7 @@ export function Hero() {
           className="relative order-1 lg:order-2"
         >
           <div className="relative mx-auto aspect-[3/4] w-full max-w-md overflow-hidden rounded-[2.25rem] shadow-2xl shadow-wine-deep/20 lg:max-w-none">
-            <Image
+            <ContentImage
               src={IMAGES.hero}
               alt={t("hero.portraitAlt")}
               fill

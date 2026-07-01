@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { ContentImage } from "@/components/ContentImage";
 import { Heart } from "lucide-react";
 import { IMAGES } from "@content/images";
 import { useT } from "@/components/LocaleProvider";
@@ -18,7 +18,7 @@ export function CinematicBand({ quote, caption }: CinematicBandProps) {
   return (
     <section className="relative overflow-hidden">
       <div className="relative h-[60vh] min-h-[420px] w-full">
-        <Image
+        <ContentImage
           src={IMAGES.backdrop.changge}
           alt="迪丽热巴《长歌行》剧照"
           fill

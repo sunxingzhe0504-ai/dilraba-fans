@@ -2,18 +2,23 @@
 
 import { useMemo } from "react";
 import { Calendar, MapPin } from "lucide-react";
-import type { FanEvent, NewsItem } from "@/lib/types";
+import type { FanEvent, NewsItem, Story } from "@/lib/types";
 import { formatDate } from "@/lib/format";
 import { Container } from "@/components/Container";
 import { ExternalLinks } from "@/components/ExternalLinks";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { RelatedNewsList } from "@/components/RelatedNewsList";
+import { RelatedStoriesList } from "@/components/RelatedStoriesList";
 import { useLocale, useT } from "@/components/LocaleProvider";
 import { localizeEvent } from "@/lib/i18n/localize";
 import { eventCategoryLabel } from "@/lib/i18n/labels";
 import { DesignPageRouter } from "../DesignPageRouter";
 
-export type EventDetailPageProps = { event: FanEvent; relatedNews?: NewsItem[] };
+export type EventDetailPageProps = {
+  event: FanEvent;
+  relatedNews?: NewsItem[];
+  relatedStories?: Story[];
+};
 
 function useLocalizedEvent(event: FanEvent) {
   const locale = useLocale();
@@ -43,7 +48,15 @@ function EventMeta({ event }: { event: FanEvent }) {
   );
 }
 
-function EventBody({ event, relatedNews }: { event: FanEvent; relatedNews?: NewsItem[] }) {
+function EventBody({
+  event,
+  relatedNews,
+  relatedStories,
+}: {
+  event: FanEvent;
+  relatedNews?: NewsItem[];
+  relatedStories?: Story[];
+}) {
   const t = useT();
   return (
     <>
@@ -56,6 +69,9 @@ function EventBody({ event, relatedNews }: { event: FanEvent; relatedNews?: News
           <ExternalLinks links={event.externalLinks} className="mt-4" size="md" />
         </div>
       )}
+      {relatedStories && relatedStories.length > 0 && (
+        <RelatedStoriesList items={relatedStories} className="mt-10" />
+      )}
       {relatedNews && relatedNews.length > 0 && (
         <RelatedNewsList items={relatedNews} className="mt-10" />
       )}
@@ -63,7 +79,7 @@ function EventBody({ event, relatedNews }: { event: FanEvent; relatedNews?: News
   );
 }
 
-export function EventDetailWarmCinema({ event: raw, relatedNews }: EventDetailPageProps) {
+export function EventDetailWarmCinema({ event: raw, relatedNews, relatedStories }: EventDetailPageProps) {
   const t = useT();
   const event = useLocalizedEvent(raw);
   return (
@@ -79,13 +95,13 @@ export function EventDetailWarmCinema({ event: raw, relatedNews }: EventDetailPa
       <article className="mx-auto max-w-3xl">
         <EventMeta event={event} />
         <h1 className="display mt-4 text-4xl text-wine-deep sm:text-5xl">{event.title}</h1>
-        <EventBody event={event} relatedNews={relatedNews} />
+        <EventBody event={event} relatedNews={relatedNews} relatedStories={relatedStories} />
       </article>
     </Container>
   );
 }
 
-export function EventDetailXianxia({ event: raw, relatedNews }: EventDetailPageProps) {
+export function EventDetailXianxia({ event: raw, relatedNews, relatedStories }: EventDetailPageProps) {
   const t = useT();
   const event = useLocalizedEvent(raw);
   return (
@@ -102,14 +118,14 @@ export function EventDetailXianxia({ event: raw, relatedNews }: EventDetailPageP
         <EventMeta event={event} />
         <h1 className="zh-display mt-6 text-4xl text-wine-deep">{event.title}</h1>
         <div className="mt-8 text-left">
-          <EventBody event={event} relatedNews={relatedNews} />
+          <EventBody event={event} relatedNews={relatedNews} relatedStories={relatedStories} />
         </div>
       </div>
     </div>
   );
 }
 
-export function EventDetailFanSticker({ event: raw, relatedNews }: EventDetailPageProps) {
+export function EventDetailFanSticker({ event: raw, relatedNews, relatedStories }: EventDetailPageProps) {
   const t = useT();
   const event = useLocalizedEvent(raw);
   return (
@@ -125,13 +141,13 @@ export function EventDetailFanSticker({ event: raw, relatedNews }: EventDetailPa
       <article className="mt-8 max-w-2xl rounded-3xl border border-border bg-paper p-8 shadow-md">
         <EventMeta event={event} />
         <h1 className="mt-4 text-3xl font-extrabold text-wine-deep">{event.title}</h1>
-        <EventBody event={event} relatedNews={relatedNews} />
+        <EventBody event={event} relatedNews={relatedNews} relatedStories={relatedStories} />
       </article>
     </Container>
   );
 }
 
-export function EventDetailEditorial({ event: raw, relatedNews }: EventDetailPageProps) {
+export function EventDetailEditorial({ event: raw, relatedNews, relatedStories }: EventDetailPageProps) {
   const t = useT();
   const event = useLocalizedEvent(raw);
   return (
@@ -147,7 +163,7 @@ export function EventDetailEditorial({ event: raw, relatedNews }: EventDetailPag
       <article className="mt-10 max-w-3xl">
         <EventMeta event={event} />
         <h1 className="display mt-4 text-5xl text-wine-deep">{event.title}</h1>
-        <EventBody event={event} relatedNews={relatedNews} />
+        <EventBody event={event} relatedNews={relatedNews} relatedStories={relatedStories} />
       </article>
     </Container>
   );

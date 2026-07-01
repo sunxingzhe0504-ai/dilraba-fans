@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { ContentImage } from "@/components/ContentImage";
 import { LocaleLink as Link } from "@/components/LocaleLink";
 import { ExternalLink, Play } from "lucide-react";
 import type { VideoItem } from "@/lib/types";
@@ -34,7 +34,7 @@ export function VideoCard({ video: raw, className, layout = "card" }: Props) {
         )}
       >
         <div className="relative h-20 w-32 shrink-0 overflow-hidden rounded-lg">
-          <Image src={video.thumbnail} alt="" fill sizes="8rem" className="object-cover" />
+          <ContentImage src={video.thumbnail} alt="" fill sizes="8rem" className="object-cover" />
           <span className="absolute inset-0 flex items-center justify-center bg-wine-deep/25">
             <Play size={20} className="fill-paper text-paper" />
           </span>
@@ -67,7 +67,7 @@ export function VideoCard({ video: raw, className, layout = "card" }: Props) {
         className="block"
       >
         <div className="relative aspect-video overflow-hidden">
-          <Image
+          <ContentImage
             src={video.thumbnail}
             alt={video.title}
             fill

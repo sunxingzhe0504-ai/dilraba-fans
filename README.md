@@ -33,6 +33,7 @@ content/              # 结构化内容数据（可后期替换为 CMS）
   gallery.ts          # 图库壁纸
   videos.ts           # 视频专区
   fan-culture.ts      # 粉丝文化 / 公益 / 更新日志
+  stories.ts          # 专题长文（Markdown）
   site-meta.ts        # 站点元信息
   index.ts            # 统一查询函数（含全站搜索）
 public/images/        # 图片资源（本地托管）
@@ -132,8 +133,11 @@ npm run start
 | 路由 | 说明 |
 |------|------|
 | `/` | 首页（四套百变风格可切换） |
-| `/latest` | 最新动态列表 |
+| `/latest` | 最新动态列表（支持分类筛选） |
 | `/latest/[slug]` | 动态详情 |
+| `/stories` | 专题长文列表 |
+| `/stories/[slug]` | 专题详情（Markdown） |
+| `/en/*` | 英文路径镜像（与中文页面对应） |
 | `/works` | 作品库（支持类型筛选） |
 | `/works/[slug]` | 作品详情 |
 | `/upcoming` | 待播待映专区 |
@@ -150,6 +154,7 @@ npm run start
 | `/fans` | 粉丝文化 |
 | `/about` | 关于她 |
 | `/changelog` | 更新日志 |
+| `/contact` | 联系与反馈 |
 | `/feed.xml` | RSS 订阅（中文） |
 | `/feed-en.xml` | RSS 订阅（English） |
 | `/sitemap.xml` | 站点地图 |
@@ -157,8 +162,9 @@ npm run start
 
 ## 功能特性
 
-- **全站搜索**：导航栏 `Ctrl+K` / `⌘K` 快捷搜索作品、角色、杂志、活动、动态（支持中英关键词）
-- **中英双语**：导航栏 `中文 / EN` 切换，UI 与内容字段同步本地化，偏好保存在本机
+- **全站搜索**：导航栏 `Ctrl+K` / `⌘K` 快捷搜索作品、角色、杂志、活动、动态、专题（支持中英关键词）
+- **中英双语**：导航栏 `中文 / EN` 切换；`/en/*` 英文路径 + hreflang；UI 与内容字段同步本地化，偏好保存在本机
+- **WebP 图片**：构建时自动生成 WebP 副本，首页与列表优先加载 WebP
 - **四套百变风格**：右下角主题切换，偏好保存在本机
 - **RSS 订阅**：`/feed.xml`（中文）与 `/feed-en.xml`（English）聚合最新动态与站点更新
 - **SEO**：自动生成 `sitemap.xml`、`robots.txt`、Open Graph 与 Twitter Card 预览；列表页双语 metadata；JSON-LD 结构化数据
@@ -167,7 +173,9 @@ npm run start
 ## 后续扩展（Roadmap）
 
 - [ ] 接入 Headless CMS（Notion / Contentful）
-- [ ] MDX 长文（`/stories/[slug]`）活动回顾
+- [x] MDX / Markdown 专题长文（`/stories/[slug]`）活动回顾
+- [x] URL 级英文路由（`/en/*`）与 hreflang
+- [x] 构建时 WebP 图片优化（`npm run optimize:images`）
 - [x] 补全更多内容的英文翻译字段（作品/角色/图库/公益等，见 `content/translations/en.ts`）
 
 ## 免责声明

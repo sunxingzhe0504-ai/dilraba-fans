@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { ContentImage } from "@/components/ContentImage";
 import { LocaleLink as Link } from "@/components/LocaleLink";
 import { Download } from "lucide-react";
 import type { GalleryItem, GalleryCategory, Character } from "@/lib/types";
@@ -25,7 +25,7 @@ export function GalleryGrid({ items, className }: Props) {
         return (
         <article key={item.slug} className="edit-card group overflow-hidden">
           <div className="relative aspect-[3/4] overflow-hidden bg-background-deep">
-            <Image
+            <ContentImage
               src={item.image}
               alt={item.title}
               fill
@@ -70,7 +70,7 @@ export function CharacterCard({ character: raw }: { character: Character }) {
       className="edit-card hover-zoom group block overflow-hidden scroll-mt-24"
     >
       <div className="relative aspect-[3/4] overflow-hidden">
-        <Image
+        <ContentImage
           src={character.image}
           alt={character.name}
           fill

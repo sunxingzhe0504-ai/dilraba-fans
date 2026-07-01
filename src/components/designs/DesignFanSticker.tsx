@@ -9,6 +9,7 @@ import { getSiteMeta } from "@content/index";
 import { IMAGES } from "@content/images";
 import { FeaturedVideoStrip } from "@/components/FeaturedVideoStrip";
 import { LatestStrip } from "@/components/LatestStrip";
+import { StoriesStrip } from "@/components/StoriesStrip";
 import { CharacterCard } from "@/components/GalleryGrid";
 import { useLocale, useT } from "@/components/LocaleProvider";
 import {
@@ -34,7 +35,7 @@ const TILTS = ["-rotate-3", "rotate-2", "-rotate-1", "rotate-3", "-rotate-2", "r
 export function DesignFanSticker({ data }: { data: HomeData }) {
   const locale = useLocale();
   const t = useT();
-  const { works: rawWorks, magazines: rawMagazines, events: rawEvents, latestNews, upcoming, characters, videos } = data;
+  const { works: rawWorks, magazines: rawMagazines, events: rawEvents, latestNews, featuredStories, upcoming, characters, videos } = data;
   const reduce = useReducedMotion();
   const photos = [
     IMAGES.portraits.redPearl,
@@ -81,6 +82,7 @@ export function DesignFanSticker({ data }: { data: HomeData }) {
       </div>
 
       <LatestStrip items={latestNews} />
+      <StoriesStrip items={featuredStories} />
 
       {upcoming.length > 0 && (
         <div className="container-wide py-4 text-center">

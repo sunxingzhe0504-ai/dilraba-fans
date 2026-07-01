@@ -106,6 +106,10 @@ const zh = {
     pill: "Latest · 最新",
     viewAll: "全部动态",
   },
+  stories: {
+    pill: "专题 · Stories",
+    viewAll: "全部专题 →",
+  },
   work: {
     upcoming: "即将上映",
     posterAlt: "海报",
@@ -168,6 +172,7 @@ const zh = {
     relatedEventLabel: "活动",
     relatedMagazineLabel: "杂志",
     relatedNews: "相关动态",
+    relatedStories: "相关专题",
     viewCharacter: "查看",
     backToWorks: "返回作品库",
     backToWorksA: "← 返回卷宗",
@@ -549,6 +554,10 @@ const en = {
     pill: "Latest",
     viewAll: "All updates",
   },
+  stories: {
+    pill: "Stories",
+    viewAll: "All stories →",
+  },
   work: {
     upcoming: "Coming Soon",
     posterAlt: "poster",
@@ -611,6 +620,7 @@ const en = {
     relatedEventLabel: "Event",
     relatedMagazineLabel: "Magazine",
     relatedNews: "Related news",
+    relatedStories: "Related stories",
     viewCharacter: "View",
     backToWorks: "Back to filmography",
     backToWorksA: "← Back to archive",

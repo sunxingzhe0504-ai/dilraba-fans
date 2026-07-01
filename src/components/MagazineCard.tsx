@@ -1,7 +1,7 @@
 "use client";
 
 import { LocaleLink as Link } from "@/components/LocaleLink";
-import Image from "next/image";
+import { ContentImage } from "@/components/ContentImage";
 import type { Magazine } from "@/lib/types";
 import { ExternalLinks } from "@/components/ExternalLinks";
 import { useLocale } from "@/components/LocaleProvider";
@@ -21,7 +21,7 @@ export function MagazineCard({ magazine: raw, className }: MagazineCardProps) {
     <div className={cn("group edit-card hover-zoom flex-shrink-0", className)}>
       <Link href={`/magazine/${magazine.slug}`} className="block">
         <div className="relative aspect-[3/4] overflow-hidden bg-background-deep">
-          <Image
+          <ContentImage
             src={magazine.cover}
             alt={`${magazine.name} ${magazine.issue}`}
             fill

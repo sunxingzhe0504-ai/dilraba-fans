@@ -7,6 +7,7 @@ import { getSiteMeta } from "@content/index";
 import { FeaturedVideoStrip } from "@/components/FeaturedVideoStrip";
 import { Hero } from "@/components/Hero";
 import { LatestStrip } from "@/components/LatestStrip";
+import { StoriesStrip } from "@/components/StoriesStrip";
 import { CharacterCard } from "@/components/GalleryGrid";
 import { Container } from "@/components/Container";
 import { CinematicBand } from "@/components/CinematicBand";
@@ -23,7 +24,7 @@ import type { HomeData } from "./types";
 export function DesignWarmCinema({ data }: { data: HomeData }) {
   const locale = useLocale();
   const t = useT();
-  const { works, magazines, events, latestNews, upcoming, characters, videos } = data;
+  const { works, magazines, events, latestNews, featuredStories, upcoming, characters, videos } = data;
 
   const stats = useMemo(
     () => localizeSiteMeta(getSiteMeta(), locale).stats,
@@ -38,6 +39,7 @@ export function DesignWarmCinema({ data }: { data: HomeData }) {
     <>
       <Hero />
       <LatestStrip items={latestNews} />
+      <StoriesStrip items={featuredStories} />
 
       {upcoming.length > 0 && (
         <div className="container-wide py-6 text-center">

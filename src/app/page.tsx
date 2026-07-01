@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import {
   getFeaturedEvents,
   getFeaturedMagazines,
+  getFeaturedStories,
   getFeaturedWorks,
   getFeaturedCharacters,
   getFeaturedVideos,
@@ -24,6 +25,7 @@ export default function HomePage() {
   const data: HomeData = {
     hero: { tagline: heroTagline, subtitle: heroSubtitle },
     latestNews: getLatestNews(5),
+    featuredStories: getFeaturedStories(2),
     works: getFeaturedWorks(4),
     upcoming: getUpcomingWorks(),
     characters: getFeaturedCharacters(3),

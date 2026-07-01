@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getEventBySlug, getEventSlugs, getNewsForEvent } from "@content/index";
+import { getEventBySlug, getEventSlugs, getNewsForEvent, getStoriesForEvent } from "@content/index";
 import { EventDetailPageDesign } from "@/components/designs/lazy-pages";
 import { JsonLd } from "@/components/JsonLd";
 import { detailMetadata } from "@/lib/i18n/metadata";
@@ -32,6 +32,7 @@ export default async function EventDetailPage({ params }: Props) {
   if (!event) notFound();
 
   const relatedNews = getNewsForEvent(slug);
+  const relatedStories = getStoriesForEvent(slug);
 
   return (
     <>
@@ -43,7 +44,11 @@ export default async function EventDetailPage({ params }: Props) {
           { name: event.titleEn ?? event.title, url: siteUrl(`/events/${slug}`) },
         ])}
       />
-      <EventDetailPageDesign event={event} relatedNews={relatedNews} />
+      <EventDetailPageDesign
+        event={event}
+        relatedNews={relatedNews}
+        relatedStories={relatedStories}
+      />
     </>
   );
 }
