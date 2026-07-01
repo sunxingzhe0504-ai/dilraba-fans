@@ -83,6 +83,7 @@ const workSlugs = new Set(extractSlugs(worksSrc, "works").map((x) => x.slug));
 const magazineSlugs = new Set(extractSlugs(magazinesSrc, "magazines").map((x) => x.slug));
 const eventSlugs = new Set(extractSlugs(eventsSrc, "events").map((x) => x.slug));
 const newsSlugs = new Set(extractSlugs(newsSrc, "news").map((x) => x.slug));
+const storySlugs = new Set(extractSlugs(storiesSrc, "stories").map((x) => x.slug));
 
 checkDuplicateSlugs([
   ...extractSlugs(worksSrc, "works"),
@@ -160,5 +161,5 @@ if (errors.length) {
 }
 
 console.log(
-  `\n✓ Content OK — ${workSlugs.size} works, ${magazineSlugs.size} magazines, ${eventSlugs.size} events, ${newsSlugs.size} news, ${imagePaths.size} image paths checked`,
+  `\n✓ Content OK — ${workSlugs.size} works, ${magazineSlugs.size} magazines, ${eventSlugs.size} events, ${newsSlugs.size} news, ${storySlugs.size} stories, ${imagePaths.size} image paths checked`,
 );

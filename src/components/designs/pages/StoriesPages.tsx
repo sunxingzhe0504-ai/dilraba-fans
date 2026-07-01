@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { ContentImage } from "@/components/ContentImage";
 import { LocaleLink as Link } from "@/components/LocaleLink";
 import type { Story } from "@/lib/types";
 import { Container } from "@/components/Container";
@@ -26,7 +26,7 @@ function StoryList({ stories }: StoriesPageProps) {
             <Link href={`/stories/${story.slug}`} className="flex flex-col sm:flex-row">
               {story.cover && (
                 <div className="relative aspect-[16/10] w-full shrink-0 sm:w-56">
-                  <Image src={story.cover} alt="" fill className="object-cover" sizes="14rem" />
+                  <ContentImage src={story.cover} alt="" fill className="object-cover" sizes="14rem" />
                 </div>
               )}
               <div className="flex flex-1 flex-col justify-center p-5">

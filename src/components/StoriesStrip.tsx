@@ -11,7 +11,7 @@ type Props = {
   limit?: number;
 };
 
-export function StoriesStrip({ items, limit = 2 }: Props) {
+export function StoriesStrip({ items, limit = 3 }: Props) {
   const locale = useLocale();
   const t = useT();
   const list = items.slice(0, limit);

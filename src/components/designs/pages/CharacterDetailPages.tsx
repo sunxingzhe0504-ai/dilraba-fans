@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
-import Image from "next/image";
+import { ContentImage } from "@/components/ContentImage";
 import { LocaleLink as Link } from "@/components/LocaleLink";
 import type { Character, VideoItem, Work } from "@/lib/types";
 import { Container } from "@/components/Container";
@@ -37,7 +37,7 @@ function useLocalizedCharacterDetail({ character, work, videos }: CharacterDetai
 function CharacterHero({ character }: { character: Character }) {
   return (
     <div className="relative mx-auto aspect-[3/4] w-full max-w-xs overflow-hidden rounded-[var(--radius-card)] shadow-xl lg:mx-0">
-      <Image
+      <ContentImage
         src={character.image}
         alt={character.name}
         fill

@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { ContentImage } from "@/components/ContentImage";
 import { LocaleLink as Link } from "@/components/LocaleLink";
 import { useMemo } from "react";
 import { motion, useReducedMotion } from "framer-motion";
@@ -112,7 +112,7 @@ export function DesignXianxia({ data }: { data: HomeData }) {
         >
           <div className="relative rounded-[3rem] border-2 border-gold/50 bg-paper p-2 shadow-[0_30px_70px_-40px_rgba(80,90,80,0.5)]">
             <div className="relative aspect-[3/4] overflow-hidden rounded-[2.5rem]">
-              <Image
+              <ContentImage
                 src={IMAGES.heroAlt}
                 alt={t("hero.portraitAlt")}
                 fill
@@ -177,7 +177,7 @@ export function DesignXianxia({ data }: { data: HomeData }) {
                   className="group relative w-44 shrink-0 sm:w-52"
                 >
                   <div className="relative aspect-[3/4] overflow-hidden rounded-[2rem] border border-gold/40 bg-paper shadow-xl">
-                    <Image
+                    <ContentImage
                       src={work.poster}
                       alt={work.title}
                       fill
@@ -257,7 +257,7 @@ export function DesignXianxia({ data }: { data: HomeData }) {
           {magazines.slice(0, 4).map((m) => (
             <Link key={m.slug} href={`/magazine/${m.slug}`} className="group text-center">
               <div className="relative aspect-[3/4] overflow-hidden rounded-t-[6rem] rounded-b-[2rem] border border-gold/40 bg-paper shadow-lg">
-                <Image
+                <ContentImage
                   src={m.cover}
                   alt={m.name}
                   fill

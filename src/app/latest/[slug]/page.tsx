@@ -41,7 +41,11 @@ export default async function NewsDetailPage({ params }: Props) {
           { name: data.item.titleEn ?? data.item.title, url: siteUrl(`/latest/${slug}`) },
         ])}
       />
-      <NewsDetailPageDesign item={data.item} related={data.related} />
+      <NewsDetailPageDesign
+        item={data.item}
+        related={data.related}
+        relatedStories={data.relatedStories}
+      />
     </>
   );
 }

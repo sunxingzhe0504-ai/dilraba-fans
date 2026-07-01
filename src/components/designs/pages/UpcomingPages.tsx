@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { ContentImage } from "@/components/ContentImage";
 import { LocaleLink as Link } from "@/components/LocaleLink";
 import { useMemo } from "react";
 import type { Work } from "@/lib/types";
@@ -57,7 +57,7 @@ function UpcomingCards({ upcoming, layout }: { upcoming: Work[]; layout: "card" 
       {works.map((work) => (
         <article key={work.slug} className="edit-card overflow-hidden lg:flex">
           <div className="relative aspect-[3/4] w-full shrink-0 lg:w-56">
-            <Image src={work.poster} alt={work.title} fill className="object-cover" sizes="14rem" />
+            <ContentImage src={work.poster} alt={work.title} fill className="object-cover" sizes="14rem" />
             <span className="pill absolute left-3 top-3 bg-gold text-ink">{t("work.upcoming")}</span>
           </div>
           <div className="flex flex-col p-6">

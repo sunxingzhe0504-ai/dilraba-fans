@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
-import Image from "next/image";
+import { ContentImage } from "@/components/ContentImage";
 import { LocaleLink as Link } from "@/components/LocaleLink";
 import { ExternalLink, Heart } from "lucide-react";
 import { getHonors, getSiteMeta, getTimeline } from "@content/index";
@@ -118,7 +118,7 @@ export function AboutWarmCinema() {
         <div className="container-wide grid items-center gap-12 lg:grid-cols-[0.85fr_1.15fr]">
           <FadeIn>
             <div className="relative mx-auto aspect-[3/4] w-full max-w-sm overflow-hidden rounded-[var(--radius-card)] shadow-2xl shadow-wine-deep/20">
-              <Image
+              <ContentImage
                 src={IMAGES.portraits.tealFloral}
                 alt={t("hero.portraitAlt")}
                 fill
@@ -192,7 +192,7 @@ export function AboutXianxia() {
         <h1 className="zh-display mt-4 text-6xl text-wine-deep">{t("site.name")}</h1>
         <div className="relative mx-auto mt-10 w-full max-w-xs">
           <div className="relative aspect-[3/4] overflow-hidden rounded-[3rem] border-2 border-gold/50 p-2">
-            <Image
+            <ContentImage
               src={IMAGES.portraits.tealFloral}
               alt={t("hero.portraitAlt")}
               fill
@@ -251,7 +251,7 @@ export function AboutFanSticker() {
         </div>
         <div className="relative mx-auto h-80 w-64 rotate-2 rounded-2xl bg-paper p-3 shadow-xl">
           <div className="relative h-full overflow-hidden rounded-xl">
-            <Image src={IMAGES.portraits.warmCandid} alt="" fill className="object-cover" sizes="16rem" />
+            <ContentImage src={IMAGES.portraits.warmCandid} alt="" fill className="object-cover" sizes="16rem" />
           </div>
         </div>
       </section>
@@ -296,7 +296,7 @@ export function AboutEditorial() {
         <div className="gold-rule mt-6 h-px" />
         <div className="mt-12 grid gap-12 lg:grid-cols-2">
           <div className="relative aspect-[3/4] w-full max-w-md overflow-hidden border border-border lg:max-w-none">
-            <Image
+            <ContentImage
               src={IMAGES.portraits.redBlack}
               alt={t("hero.portraitAlt")}
               fill

@@ -25,7 +25,7 @@ export default function HomePage() {
   const data: HomeData = {
     hero: { tagline: heroTagline, subtitle: heroSubtitle },
     latestNews: getLatestNews(5),
-    featuredStories: getFeaturedStories(2),
+    featuredStories: getFeaturedStories(3),
     works: getFeaturedWorks(4),
     upcoming: getUpcomingWorks(),
     characters: getFeaturedCharacters(3),

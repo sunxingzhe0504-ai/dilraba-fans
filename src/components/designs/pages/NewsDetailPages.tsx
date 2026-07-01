@@ -3,11 +3,12 @@
 import { useMemo } from "react";
 import { LocaleLink as Link } from "@/components/LocaleLink";
 import { ExternalLink } from "lucide-react";
-import type { FanEvent, Magazine, NewsItem, Work } from "@/lib/types";
+import type { FanEvent, Magazine, NewsItem, Story, Work } from "@/lib/types";
 import { formatDate } from "@/lib/format";
 import { Container } from "@/components/Container";
 import { ExternalLinks } from "@/components/ExternalLinks";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { RelatedStoriesList } from "@/components/RelatedStoriesList";
 import { useLocale, useT } from "@/components/LocaleProvider";
 import {
   localizeEvent,
@@ -27,6 +28,7 @@ export type NewsDetailRelated = {
 export type NewsDetailPageProps = {
   item: NewsItem;
   related: NewsDetailRelated;
+  relatedStories?: Story[];
 };
 
 function useLocalizedNewsDetail({ item, related }: NewsDetailPageProps) {
@@ -113,8 +115,12 @@ function NewsRelated({
   );
 }
 
-function NewsBody(props: { item: NewsItem; related: NewsDetailRelated }) {
-  const { item, related } = props;
+function NewsBody(props: {
+  item: NewsItem;
+  related: NewsDetailRelated;
+  relatedStories?: Story[];
+}) {
+  const { item, related, relatedStories } = props;
   return (
     <>
       <NewsMeta item={item} />
@@ -128,6 +134,9 @@ function NewsBody(props: { item: NewsItem; related: NewsDetailRelated }) {
         </div>
       )}
       <NewsRelated item={item} related={related} />
+      {relatedStories && relatedStories.length > 0 && (
+        <RelatedStoriesList items={relatedStories} className="mt-10" />
+      )}
     </>
   );
 }
@@ -146,7 +155,7 @@ export function NewsDetailWarmCinema(props: NewsDetailPageProps) {
         ]}
       />
       <article className="mx-auto max-w-3xl">
-        <NewsBody item={item} related={related} />
+        <NewsBody item={item} related={related} relatedStories={props.relatedStories} />
       </article>
     </Container>
   );
@@ -167,7 +176,7 @@ export function NewsDetailXianxia(props: NewsDetailPageProps) {
           ]}
         />
         <article className="mt-8">
-          <NewsBody item={item} related={related} />
+          <NewsBody item={item} related={related} relatedStories={props.relatedStories} />
         </article>
       </div>
     </div>
@@ -188,7 +197,7 @@ export function NewsDetailFanSticker(props: NewsDetailPageProps) {
         ]}
       />
       <article className="mt-8 max-w-2xl rounded-3xl border border-border bg-paper p-8 shadow-md">
-        <NewsBody item={item} related={related} />
+        <NewsBody item={item} related={related} relatedStories={props.relatedStories} />
       </article>
     </Container>
   );
@@ -208,7 +217,7 @@ export function NewsDetailEditorial(props: NewsDetailPageProps) {
       />
       <div className="gold-rule mt-8 h-px" />
       <article className="mt-10 max-w-3xl">
-        <NewsBody item={item} related={related} />
+        <NewsBody item={item} related={related} relatedStories={props.relatedStories} />
       </article>
     </Container>
   );

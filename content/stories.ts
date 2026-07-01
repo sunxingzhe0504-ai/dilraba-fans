@@ -87,4 +87,41 @@ Fans sang **"Chaser of Light"** together; she responded warmly and reminded ever
 
 Event details follow official brand and studio releases.`,
   },
+  {
+    slug: "deeyeo-global-2026-recap",
+    title: "德佑全球代言人官宣 · 百城大屏与联名周边",
+    titleEn: "Deeyeo Global Ambassador · Citywide Screens & Merch",
+    date: "2026-06-13",
+    summary:
+      "6 月 10–12 日倒计时预热后正式官宣全球品牌代言人；据公开报道，品牌在全国多城上线大屏推广并推出联名系列。",
+    summaryEn:
+      "Countdown teasers June 10–12 led to the June 13 global ambassador launch — reported citywide screens and co-branded merchandise.",
+    cover: IMAGES.portraits.whiteBeauty,
+    tags: ["代言", "品牌"],
+    featured: true,
+    eventSlug: "deeyeo-global-2026",
+    newsSlug: "deeyeo-global-2026",
+    body: `## 官宣节奏
+
+德佑于 **6 月 10 日至 12 日** 发布倒计时物料，**6 月 13 日上午** 正式官宣迪丽热巴为全球品牌代言人。
+
+## 推广与周边
+
+据公开报道，品牌在全国多城上线 **大屏推广**，并推出 **联名周边系列**。
+
+## 说明
+
+合作细节与物料以品牌官方发布为准。`,
+    bodyEn: `## Launch timeline
+
+Deeyeo posted countdown teasers **June 10–12**, then announced Dilraba as **global brand ambassador** on the morning of **June 13**.
+
+## Campaign
+
+Public reports describe **citywide screen campaigns** and **co-branded merchandise** rollouts.
+
+## Note
+
+Partnership details follow official Deeyeo releases.`,
+  },
 ];

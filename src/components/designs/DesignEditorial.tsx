@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { ContentImage } from "@/components/ContentImage";
 import { LocaleLink as Link } from "@/components/LocaleLink";
 import { useMemo } from "react";
 import { motion, useReducedMotion } from "framer-motion";
@@ -104,7 +104,7 @@ export function DesignEditorial({ data }: { data: HomeData }) {
             transition={{ duration: 1, ease: [0.2, 0.7, 0.2, 1] }}
             className="relative aspect-[3/4] w-full max-w-lg justify-self-center overflow-hidden lg:max-w-none lg:justify-self-stretch"
           >
-            <Image
+            <ContentImage
               src={IMAGES.portraits.redBlack}
               alt={t("hero.portraitAlt")}
               fill
@@ -157,7 +157,7 @@ export function DesignEditorial({ data }: { data: HomeData }) {
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <div className="relative hidden aspect-[3/4] w-16 overflow-hidden sm:block">
-                  <Image
+                  <ContentImage
                     src={work.poster}
                     alt={work.title}
                     fill
@@ -242,7 +242,7 @@ export function DesignEditorial({ data }: { data: HomeData }) {
           {magazines.map((m, i) => (
             <Link key={m.slug} href={`/magazine/${m.slug}`} className="group">
               <div className="relative aspect-[3/4] overflow-hidden border border-border">
-                <Image
+                <ContentImage
                   src={m.cover}
                   alt={m.name}
                   fill

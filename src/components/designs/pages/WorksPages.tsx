@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import Image from "next/image";
+import { ContentImage } from "@/components/ContentImage";
 import { LocaleLink as Link } from "@/components/LocaleLink";
 import type { Work, WorkType } from "@/lib/types";
 import { Container } from "@/components/Container";
@@ -96,7 +96,7 @@ export function WorksXianxia({ works }: WorksPageProps) {
             >
               <Link href={`/works/${work.slug}`} className="relative w-40 shrink-0 sm:w-48">
                 <div className="relative aspect-[3/4] overflow-hidden rounded-[2rem] border border-gold/40 bg-paper shadow-lg">
-                  <Image src={work.poster} alt={work.title} fill sizes="12rem" className="object-cover" />
+                  <ContentImage src={work.poster} alt={work.title} fill sizes="12rem" className="object-cover" />
                 </div>
               </Link>
               <div className={`flex-1 ${flip ? "sm:text-right" : ""}`}>
@@ -152,7 +152,7 @@ export function WorksFanSticker({ works }: WorksPageProps) {
             }`}
           >
             <div className="relative aspect-[3/4] overflow-hidden rounded-xl">
-              <Image src={work.poster} alt={work.title} fill sizes="20vw" className="object-cover" />
+              <ContentImage src={work.poster} alt={work.title} fill sizes="20vw" className="object-cover" />
               <span className="pill absolute left-2 top-2 bg-wine/90 text-paper text-[10px]">
                 {workTypeLabel(work.type, locale)}
               </span>
@@ -198,7 +198,7 @@ export function WorksEditorial({ works }: WorksPageProps) {
                 {String(i + 1).padStart(2, "0")}
               </span>
               <div className="relative hidden aspect-[3/4] w-14 overflow-hidden sm:block">
-                <Image src={work.poster} alt="" fill sizes="3rem" className="portrait-cover" />
+                <ContentImage src={work.poster} alt="" fill sizes="3rem" className="portrait-cover" />
               </div>
               <div>
                 <h2 className="zh-display text-xl text-ink group-hover:text-wine-deep">

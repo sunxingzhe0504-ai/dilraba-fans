@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
-import Image from "next/image";
+import { ContentImage } from "@/components/ContentImage";
 import { LocaleLink as Link } from "@/components/LocaleLink";
 import type { Character, NewsItem, Work } from "@/lib/types";
 import { ExternalLinks } from "@/components/ExternalLinks";
@@ -130,7 +130,7 @@ export function WorkDetailWarmCinema(props: WorkDetailPageProps) {
       />
       <div className="grid gap-12 lg:grid-cols-[360px_1fr]">
         <div className="relative mx-auto aspect-[2/3] w-full max-w-xs overflow-hidden rounded-[var(--radius-card)] shadow-2xl lg:mx-0">
-          <Image src={work.poster} alt={`${work.title} ${t("work.posterAlt")}`} fill priority className="object-cover" sizes="320px" />
+          <ContentImage src={work.poster} alt={`${work.title} ${t("work.posterAlt")}`} fill priority className="object-cover" sizes="320px" />
         </div>
         <div>
           <WorkMeta work={work} />
@@ -159,7 +159,7 @@ export function WorkDetailXianxia(props: WorkDetailPageProps) {
         <div className="mt-12 text-center">
           <div className="relative mx-auto w-56">
             <div className="relative aspect-[3/4] overflow-hidden rounded-[2.5rem] border-2 border-gold/50 p-2">
-              <Image src={work.poster} alt="" fill className="rounded-[2rem] object-cover" sizes="14rem" />
+              <ContentImage src={work.poster} alt="" fill className="rounded-[2rem] object-cover" sizes="14rem" />
             </div>
           </div>
           <h1 className="zh-display mt-10 text-5xl text-wine-deep">{work.title}</h1>
@@ -189,7 +189,7 @@ export function WorkDetailFanSticker(props: WorkDetailPageProps) {
       <div className="mt-10 grid gap-10 lg:grid-cols-[280px_1fr]">
         <div className="rotate-2 rounded-2xl bg-paper p-3 shadow-xl">
           <div className="relative aspect-[3/4] overflow-hidden rounded-xl">
-            <Image src={work.poster} alt="" fill className="object-cover" sizes="280px" />
+            <ContentImage src={work.poster} alt="" fill className="object-cover" sizes="280px" />
           </div>
           <p className="mt-2 text-center text-xs text-wine">Dilraba ♡</p>
         </div>
@@ -219,7 +219,7 @@ export function WorkDetailEditorial(props: WorkDetailPageProps) {
         <div className="gold-rule mt-8 h-px" />
         <div className="mt-10 grid gap-12 lg:grid-cols-[1fr_1.1fr]">
           <div className="relative aspect-[2/3] w-full max-w-md border border-border lg:order-2 lg:max-w-none lg:justify-self-end">
-            <Image src={work.poster} alt="" fill className="portrait-cover" sizes="50vw" priority />
+            <ContentImage src={work.poster} alt="" fill className="portrait-cover" sizes="50vw" priority />
           </div>
           <div className="lg:order-1">
             <p className="text-xs uppercase tracking-[0.3em] text-gold">Feature</p>

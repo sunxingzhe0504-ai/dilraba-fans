@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
-import Image from "next/image";
+import { ContentImage } from "@/components/ContentImage";
 import { LocaleLink as Link } from "@/components/LocaleLink";
 import type { Magazine } from "@/lib/types";
 import { Container } from "@/components/Container";
@@ -59,7 +59,7 @@ export function MagazineXianxia({ magazines }: MagazinePageProps) {
           <div key={m.slug} className="text-center">
             <Link href={`/magazine/${m.slug}`} className="group block">
               <div className="relative aspect-[3/4] overflow-hidden rounded-t-[5rem] rounded-b-[1.75rem] border border-gold/40 shadow-lg">
-                <Image src={m.cover} alt={m.name} fill sizes="22vw" className="portrait-cover transition-transform duration-700 group-hover:scale-105" />
+                <ContentImage src={m.cover} alt={m.name} fill sizes="22vw" className="portrait-cover transition-transform duration-700 group-hover:scale-105" />
               </div>
               <p className="zh-display mt-3 text-lg text-ink">{m.name}</p>
               <p className="text-xs text-ink-mute">{m.issue}</p>
@@ -97,7 +97,7 @@ export function MagazineFanSticker({ magazines }: MagazinePageProps) {
           >
             <Link href={`/magazine/${m.slug}`} className="block">
               <div className="relative aspect-[3/4]">
-                <Image src={m.cover} alt={m.name} fill sizes="22vw" className="portrait-cover" />
+                <ContentImage src={m.cover} alt={m.name} fill sizes="22vw" className="portrait-cover" />
               </div>
               <p className="truncate px-2 py-2 text-center text-xs font-medium">{m.name}</p>
             </Link>
@@ -132,7 +132,7 @@ export function MagazineEditorial({ magazines }: MagazinePageProps) {
           <div key={m.slug}>
             <Link href={`/magazine/${m.slug}`} className="group block">
               <div className="relative aspect-[3/4] border border-border">
-                <Image src={m.cover} alt={m.name} fill sizes="22vw" className="portrait-cover transition-transform duration-700 group-hover:scale-105" />
+                <ContentImage src={m.cover} alt={m.name} fill sizes="22vw" className="portrait-cover transition-transform duration-700 group-hover:scale-105" />
               </div>
               <div className="mt-3 flex justify-between">
                 <p className="text-sm font-medium text-ink">{m.name}</p>

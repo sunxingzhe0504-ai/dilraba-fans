@@ -156,6 +156,7 @@ export function getNewsWithRelated(slug: string) {
       event: item.eventSlug ? getEventBySlug(item.eventSlug) : undefined,
       magazine: item.magazineSlug ? getMagazineBySlug(item.magazineSlug) : undefined,
     },
+    relatedStories: getStoriesForNews(slug),
   };
 }
 
@@ -308,6 +309,12 @@ export function getFeaturedStories(limit = 3) {
 export function getStoriesForEvent(eventSlug: string, limit = 2) {
   return getStories()
     .filter((s) => s.eventSlug === eventSlug)
+    .slice(0, limit);
+}
+
+export function getStoriesForNews(newsSlug: string, limit = 2) {
+  return getStories()
+    .filter((s) => s.newsSlug === newsSlug)
     .slice(0, limit);
 }
 

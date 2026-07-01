@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
-import Image from "next/image";
+import { ContentImage } from "@/components/ContentImage";
 import type { Magazine } from "@/lib/types";
 import { Container } from "@/components/Container";
 import { ExternalLinks } from "@/components/ExternalLinks";
@@ -55,7 +55,7 @@ function MagazineBody({ magazine }: { magazine: Magazine }) {
 function MagazineCover({ magazine, className }: { magazine: Magazine; className?: string }) {
   return (
     <div className={`relative mx-auto aspect-[3/4] w-full max-w-sm overflow-hidden shadow-xl lg:mx-0 ${className ?? ""}`}>
-      <Image src={magazine.cover} alt={magazine.name} fill priority className="object-cover" sizes="360px" />
+      <ContentImage src={magazine.cover} alt={magazine.name} fill priority className="object-cover" sizes="360px" />
     </div>
   );
 }

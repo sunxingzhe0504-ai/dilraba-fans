@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
-import Image from "next/image";
+import { ContentImage } from "@/components/ContentImage";
 import { LocaleLink as Link } from "@/components/LocaleLink";
 import { ExternalLink } from "lucide-react";
 import type { BrandHighlight, Magazine, NewsItem } from "@/lib/types";
@@ -119,7 +119,7 @@ function FashionList({ highlights, variant }: { highlights: BrandHighlight[]; va
                   : "relative aspect-[3/4] w-full overflow-hidden"
               }
             >
-              <Image src={item.image} alt="" fill className="portrait-cover" sizes="240px" />
+              <ContentImage src={item.image} alt="" fill className="portrait-cover" sizes="240px" />
             </div>
           )}
           <div className={variant === "b" ? "p-6" : "p-8"}>

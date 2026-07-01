@@ -1,8 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import { LocaleLink as Link } from "@/components/LocaleLink";
 import type { Story } from "@/lib/types";
+import { formatDate } from "@/lib/format";
+import { ContentImage } from "@/components/ContentImage";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Container } from "@/components/Container";
 import { StoryMarkdown } from "@/components/StoryMarkdown";
@@ -27,11 +28,11 @@ function StoryArticle({ story }: StoryDetailPageProps) {
         ]}
       />
       <article className="mt-8 max-w-3xl">
-        <time className="text-xs text-ink-mute">{story.date}</time>
+        <time className="text-xs text-ink-mute">{formatDate(story.date, locale)}</time>
         <h1 className="mt-2 text-3xl font-medium text-ink sm:text-4xl">{title}</h1>
         {story.cover && (
           <div className="relative mt-8 aspect-[16/9] overflow-hidden rounded-2xl border border-border">
-            <Image src={story.cover} alt="" fill className="object-cover" sizes="(max-width:768px) 100vw, 48rem" priority />
+            <ContentImage src={story.cover} alt="" fill className="object-cover" sizes="(max-width:768px) 100vw, 48rem" priority />
           </div>
         )}
         <div className="mt-8">

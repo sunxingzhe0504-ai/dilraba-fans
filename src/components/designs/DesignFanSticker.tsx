@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { ContentImage } from "@/components/ContentImage";
 import { LocaleLink as Link } from "@/components/LocaleLink";
 import { useMemo } from "react";
 import { Heart, Sparkles, Star } from "lucide-react";
@@ -146,7 +146,7 @@ export function DesignFanSticker({ data }: { data: HomeData }) {
                 className={`absolute w-44 rounded-2xl bg-paper p-2.5 pb-9 shadow-xl sm:w-52 ${styles[i]}`}
               >
                 <div className="relative aspect-[3/4] overflow-hidden rounded-xl">
-                  <Image
+                  <ContentImage
                     src={src}
                     alt={t("hero.portraitAlt")}
                     fill
@@ -186,7 +186,7 @@ export function DesignFanSticker({ data }: { data: HomeData }) {
               }`}
             >
               <div className="relative aspect-[3/4] overflow-hidden rounded-xl">
-                <Image
+                <ContentImage
                   src={work.poster}
                   alt={work.title}
                   fill
@@ -247,7 +247,7 @@ export function DesignFanSticker({ data }: { data: HomeData }) {
               } hover:rotate-0`}
             >
               <div className="relative aspect-[3/4] overflow-hidden">
-                <Image
+                <ContentImage
                   src={m.cover}
                   alt={m.name}
                   fill
