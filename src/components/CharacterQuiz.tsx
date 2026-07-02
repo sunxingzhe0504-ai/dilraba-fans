@@ -6,6 +6,8 @@ import { RotateCcw, Sparkles, Trophy } from "lucide-react";
 import type { Character } from "@/lib/types";
 import { useLocale, useT } from "@/components/LocaleProvider";
 import { localizeCharacter } from "@/lib/i18n/localize";
+import { unlockAchievement, saveQuizBest } from "@/lib/fan-storage";
+import { checkAchievements } from "@/lib/achievements";
 import { cn } from "@/lib/cn";
 
 const ROUNDS = 5;
@@ -96,12 +98,21 @@ export function CharacterQuiz({ characters: raw, variant = "c" }: Props) {
     if (picked || !current) return;
     setPicked(slug);
     const correct = slug === current.slug;
-    if (correct) setScore((s) => s + 1);
     setTimeout(() => {
       const nextRound = round + 1;
+      const newScore = correct ? score + 1 : score;
+      setScore(newScore);
       setRound(nextRound);
       if (nextRound >= ROUNDS) {
         setFinished(true);
+        saveQuizBest(newScore, ROUNDS);
+        if (newScore === ROUNDS) {
+          checkAchievements({
+            watchedCount: 0,
+            streak: 0,
+            quizPerfect: true,
+          }).forEach((id) => unlockAchievement(id));
+        }
       } else {
         startRound(nextRound, used);
       }

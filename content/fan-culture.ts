@@ -199,6 +199,17 @@ export const changelog: ChangelogEntry[] = [
   {
     date: "2026-07-02",
     items: [
+      "待播页倒计时徽章；首页期待清单条；作品页观影清单与追光成就系统",
+      "粉丝页台词壁纸生成器；时尚页红毯时光轴；生日季花瓣特效",
+    ],
+    itemsEn: [
+      "Upcoming countdown badges; works watchlist and achievement badges",
+      "Quote wallpaper maker on fans page; red carpet timeline on fashion; birthday petals",
+    ],
+  },
+  {
+    date: "2026-07-02",
+    items: [
       "首页新增每日一言与追光日历倒计时，粉丝页接入纪念日全景与追光数字",
       "图库支持 Lightbox 全屏预览与键盘左右切换；粉丝页新增「角色猜猜看」互动小游戏",
     ],

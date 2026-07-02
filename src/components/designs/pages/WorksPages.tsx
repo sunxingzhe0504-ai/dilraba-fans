@@ -14,6 +14,7 @@ import { useLocale, useT } from "@/components/LocaleProvider";
 import { localizeWork } from "@/lib/i18n/localize";
 import { workTypeLabel } from "@/lib/i18n/labels";
 import { WorkTypeFilter } from "../shared/WorkTypeFilter";
+import { WatchlistPanel } from "@/components/WatchlistPanel";
 import { DesignPageRouter } from "../DesignPageRouter";
 
 const TILTS = ["-rotate-2", "rotate-2", "-rotate-1", "rotate-3"];
@@ -42,6 +43,7 @@ export function WorksWarmCinema({ works }: WorksPageProps) {
           subtitle={t("pages.works.subtitle")}
         />
       </FadeIn>
+      <WatchlistPanel works={works} />
       <WorkTypeFilter variant="c" active={active} onChange={setActive} />
       {filtered.length === 0 ? (
         <div className="mt-12">
@@ -83,6 +85,9 @@ export function WorksXianxia({ works }: WorksPageProps) {
         <div className="mt-8">
           <WorkTypeFilter variant="a" active={active} onChange={setActive} />
         </div>
+      </div>
+      <div className="container-main mb-8">
+        <WatchlistPanel works={works} />
       </div>
       <div className="container-main space-y-14 pb-8">
         {localized.map((work, i) => {
@@ -141,6 +146,7 @@ export function WorksFanSticker({ works }: WorksPageProps) {
         </h1>
         <p className="mt-3 text-sm text-ink-soft">{t("design.works.fanStickerSubtitle")}</p>
       </div>
+      <WatchlistPanel works={works} />
       <WorkTypeFilter variant="b" active={active} onChange={setActive} />
       <div className="mt-10 grid grid-cols-2 gap-x-5 gap-y-10 sm:grid-cols-3 lg:grid-cols-4">
         {localized.map((work, i) => (
@@ -184,6 +190,9 @@ export function WorksEditorial({ works }: WorksPageProps) {
         {t("design.works.editorialIndex")}
       </p>
       <div className="gold-rule mt-6 h-px" />
+      <div className="mt-8">
+        <WatchlistPanel works={works} />
+      </div>
       <div className="mt-8">
         <WorkTypeFilter variant="d" active={active} onChange={setActive} />
       </div>

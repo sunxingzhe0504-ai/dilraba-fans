@@ -367,6 +367,25 @@
   }
 }
 
+.birthday-petal {
+  animation: birthday-petal-fall linear infinite;
+  pointer-events: none;
+}
+
+@keyframes birthday-petal-fall {
+  0% {
+    transform: translate3d(0, -4vh, 0) rotate(0deg);
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate3d(24px, 105vh, 0) rotate(280deg);
+    opacity: 0;
+  }
+}
+
 @keyframes heart-rise {
   0% {
     transform: translate3d(0, 0, 0) scale(0.7);

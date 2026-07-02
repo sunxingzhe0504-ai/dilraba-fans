@@ -10,6 +10,7 @@ import { FeaturedVideoStrip } from "@/components/FeaturedVideoStrip";
 import { LatestStrip } from "@/components/LatestStrip";
 import { HomeFanBand } from "@/components/HomeFanBand";
 import { StoriesStrip } from "@/components/StoriesStrip";
+import { UpcomingPreviewStrip } from "@/components/UpcomingPreviewStrip";
 import { CharacterCard } from "@/components/GalleryGrid";
 import { useLocale, useT } from "@/components/LocaleProvider";
 import {
@@ -142,13 +143,7 @@ export function DesignXianxia({ data }: { data: HomeData }) {
       <LatestStrip items={latestNews} />
       <StoriesStrip items={featuredStories} />
 
-      {upcoming.length > 0 && (
-        <div className="container-main py-4 text-center">
-          <Link href="/upcoming" className="text-sm text-wine hover:text-wine-deep">
-            {t("design.home.xianxia.upcoming", { n: upcoming.length })}
-          </Link>
-        </div>
-      )}
+      <UpcomingPreviewStrip items={upcoming} />
 
       <InkRule />
 

@@ -10,6 +10,7 @@ import { FeaturedVideoStrip } from "@/components/FeaturedVideoStrip";
 import { LatestStrip } from "@/components/LatestStrip";
 import { HomeFanBand } from "@/components/HomeFanBand";
 import { StoriesStrip } from "@/components/StoriesStrip";
+import { UpcomingPreviewStrip } from "@/components/UpcomingPreviewStrip";
 import { CharacterCard } from "@/components/GalleryGrid";
 import { useLocale, useT } from "@/components/LocaleProvider";
 import {
@@ -127,17 +128,7 @@ export function DesignEditorial({ data }: { data: HomeData }) {
       <HomeFanBand />
       <LatestStrip items={latestNews} />
       <StoriesStrip items={featuredStories} />
-
-      {upcoming.length > 0 && (
-        <div className="container-wide py-4 text-center">
-          <Link
-            href="/upcoming"
-            className="text-[11px] uppercase tracking-[0.25em] text-wine hover:text-wine-deep"
-          >
-            Upcoming · {upcoming.length} titles →
-          </Link>
-        </div>
-      )}
+      <UpcomingPreviewStrip items={upcoming} />
 
       <section className="container-wide py-24">
         <div className="flex items-end justify-between">

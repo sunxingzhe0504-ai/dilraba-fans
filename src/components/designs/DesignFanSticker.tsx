@@ -11,6 +11,7 @@ import { FeaturedVideoStrip } from "@/components/FeaturedVideoStrip";
 import { LatestStrip } from "@/components/LatestStrip";
 import { HomeFanBand } from "@/components/HomeFanBand";
 import { StoriesStrip } from "@/components/StoriesStrip";
+import { UpcomingPreviewStrip } from "@/components/UpcomingPreviewStrip";
 import { CharacterCard } from "@/components/GalleryGrid";
 import { useLocale, useT } from "@/components/LocaleProvider";
 import {
@@ -85,17 +86,7 @@ export function DesignFanSticker({ data }: { data: HomeData }) {
       <HomeFanBand />
       <LatestStrip items={latestNews} />
       <StoriesStrip items={featuredStories} />
-
-      {upcoming.length > 0 && (
-        <div className="container-wide py-4 text-center">
-          <Link
-            href="/upcoming"
-            className="inline-flex items-center gap-1 rounded-full bg-rouge/15 px-5 py-2 text-sm font-semibold text-wine-deep hover:bg-rouge/25"
-          >
-            {t("design.home.fanSticker.upcoming", { n: upcoming.length })}
-          </Link>
-        </div>
-      )}
+      <UpcomingPreviewStrip items={upcoming} />
 
       <section className="container-wide grid items-center gap-10 py-16 lg:grid-cols-2 lg:py-20">
         <div>

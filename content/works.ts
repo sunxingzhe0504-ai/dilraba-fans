@@ -383,6 +383,8 @@ export const works: Work[] = [
     status: "upcoming",
     featured: true,
     airInfo: "爱奇艺 · 2026 年待播（以平台官宣为准）",
+    countdownTarget: "2026-09-01",
+    countdownApproximate: true,
     cast: ["迪丽热巴", "陈昊森", "严屹宽", "叶童"],
   },
   {
@@ -486,6 +488,8 @@ export const works: Work[] = [
     airInfo: "2026 年暑期档待映（以片方官宣为准）",
     airInfoEn: "Summer 2026 (subject to official release date)",
     status: "upcoming",
+    countdownTarget: "2026-07-15",
+    countdownApproximate: true,
   },
 
   // ===== 综艺 =====

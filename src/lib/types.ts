@@ -38,6 +38,9 @@ export type Work = {
   /** 播出平台、集数等补充信息 */
   airInfo?: string;
   airInfoEn?: string;
+  /** 待播倒计时目标日 YYYY-MM-DD（可选，estimated 时展示「约」） */
+  countdownTarget?: string;
+  countdownApproximate?: boolean;
   cast?: string[];
 };
 

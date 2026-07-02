@@ -7,6 +7,8 @@ import { LocaleProvider } from "@/components/LocaleProvider";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 import { Decorations } from "@/components/Decorations";
+import { BirthdayPetals } from "@/components/BirthdayPetals";
+import { FanProgressTracker } from "@/components/FanProgressTracker";
 import { DEFAULT_THEME, THEME_STORAGE_KEY } from "@/lib/themes";
 import { DEFAULT_LOCALE, LOCALE_STORAGE_KEY } from "@/lib/i18n/types";
 import { JsonLd } from "@/components/JsonLd";
@@ -110,6 +112,8 @@ export default function RootLayout({
               跳过导航 / Skip to content
             </a>
             <Decorations />
+            <BirthdayPetals />
+            <FanProgressTracker />
             <SiteHeader />
             <main id="main-content" className="flex-1">
               {children}

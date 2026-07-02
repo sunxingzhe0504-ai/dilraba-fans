@@ -10,6 +10,7 @@ import { ExternalLinks } from "@/components/ExternalLinks";
 import { useLocale, useT } from "@/components/LocaleProvider";
 import { localizeWork } from "@/lib/i18n/localize";
 import { workTypeLabel } from "@/lib/i18n/labels";
+import { UpcomingCountdownBadge } from "@/components/UpcomingCountdownBadge";
 import { DesignPageRouter } from "../DesignPageRouter";
 
 export type UpcomingPageProps = { upcoming: Work[] };
@@ -38,6 +39,9 @@ function UpcomingCards({ upcoming, layout }: { upcoming: Work[]; layout: "card" 
           <li key={work.slug} className="border-b border-gold/30 pb-8">
             <span className="index-num">{work.year}</span>
             <h2 className="zh-display mt-2 text-2xl text-ink">{work.title}</h2>
+            <div className="mt-2">
+              <UpcomingCountdownBadge work={work} />
+            </div>
             <p className="mt-1 text-sm text-wine">{t("work.role")} {work.role}</p>
             <p className="mt-3 text-sm leading-relaxed text-ink-soft">{work.synopsis}</p>
             <div className="mt-4 flex flex-wrap gap-3">
@@ -59,6 +63,9 @@ function UpcomingCards({ upcoming, layout }: { upcoming: Work[]; layout: "card" 
           <div className="relative aspect-[3/4] w-full shrink-0 lg:w-56">
             <ContentImage src={work.poster} alt={work.title} fill className="object-cover" sizes="14rem" />
             <span className="pill absolute left-3 top-3 bg-gold text-ink">{t("work.upcoming")}</span>
+            <div className="absolute bottom-3 left-3">
+              <UpcomingCountdownBadge work={work} size="md" />
+            </div>
           </div>
           <div className="flex flex-col p-6">
             <p className="text-xs text-wine">

@@ -4,7 +4,7 @@ import { useMemo } from "react";
 import { ContentImage } from "@/components/ContentImage";
 import { LocaleLink as Link } from "@/components/LocaleLink";
 import { ExternalLink } from "lucide-react";
-import type { BrandHighlight, Magazine, NewsItem, Story } from "@/lib/types";
+import type { BrandHighlight, FanEvent, GalleryItem, Magazine, NewsItem, Story } from "@/lib/types";
 import { resolveNewsHref } from "@content/index";
 import { Container } from "@/components/Container";
 import { SectionTitle } from "@/components/SectionTitle";
@@ -13,6 +13,7 @@ import { StoriesStrip } from "@/components/StoriesStrip";
 import { formatDate } from "@/lib/format";
 import { useLocale, useT } from "@/components/LocaleProvider";
 import { localizeNews, localizeBrandHighlight } from "@/lib/i18n/localize";
+import { RedCarpetTimeline } from "@/components/RedCarpetTimeline";
 import { DesignPageRouter } from "../DesignPageRouter";
 
 export type FashionPageProps = {
@@ -20,6 +21,8 @@ export type FashionPageProps = {
   magazines: Magazine[];
   fashionNews: NewsItem[];
   fashionStories: Story[];
+  redCarpetEvents: FanEvent[];
+  redCarpetGallery: GalleryItem[];
 };
 
 function FashionStories({ stories }: { stories: Story[] }) {
@@ -173,7 +176,7 @@ function FashionList({ highlights, variant }: { highlights: BrandHighlight[]; va
   );
 }
 
-export function FashionWarmCinema({ highlights, magazines, fashionNews, fashionStories }: FashionPageProps) {
+export function FashionWarmCinema({ highlights, magazines, fashionNews, fashionStories, redCarpetEvents, redCarpetGallery }: FashionPageProps) {
   const t = useT();
   return (
     <Container wide className="section-padding pt-16">
@@ -186,12 +189,13 @@ export function FashionWarmCinema({ highlights, magazines, fashionNews, fashionS
       <FashionList highlights={highlights} variant="c" />
       <FashionMagazines magazines={magazines} />
       <FashionStories stories={fashionStories} />
+      <RedCarpetTimeline events={redCarpetEvents} gallery={redCarpetGallery} />
       <FashionNews fashionNews={fashionNews} />
     </Container>
   );
 }
 
-export function FashionXianxia({ highlights, magazines, fashionNews, fashionStories }: FashionPageProps) {
+export function FashionXianxia({ highlights, magazines, fashionNews, fashionStories, redCarpetEvents, redCarpetGallery }: FashionPageProps) {
   const t = useT();
   return (
     <div className="section-padding pt-16">
@@ -203,13 +207,14 @@ export function FashionXianxia({ highlights, magazines, fashionNews, fashionStor
         <FashionList highlights={highlights} variant="a" />
         <FashionMagazines magazines={magazines} />
         <FashionStories stories={fashionStories} />
+        <RedCarpetTimeline events={redCarpetEvents} gallery={redCarpetGallery} />
         <FashionNews fashionNews={fashionNews} />
       </div>
     </div>
   );
 }
 
-export function FashionFanSticker({ highlights, magazines, fashionNews, fashionStories }: FashionPageProps) {
+export function FashionFanSticker({ highlights, magazines, fashionNews, fashionStories, redCarpetEvents, redCarpetGallery }: FashionPageProps) {
   const t = useT();
   return (
     <Container wide className="section-padding pt-16">
@@ -219,12 +224,13 @@ export function FashionFanSticker({ highlights, magazines, fashionNews, fashionS
       <FashionList highlights={highlights} variant="b" />
       <FashionMagazines magazines={magazines} />
       <FashionStories stories={fashionStories} />
+      <RedCarpetTimeline events={redCarpetEvents} gallery={redCarpetGallery} />
       <FashionNews fashionNews={fashionNews} />
     </Container>
   );
 }
 
-export function FashionEditorial({ highlights, magazines, fashionNews, fashionStories }: FashionPageProps) {
+export function FashionEditorial({ highlights, magazines, fashionNews, fashionStories, redCarpetEvents, redCarpetGallery }: FashionPageProps) {
   const t = useT();
   return (
     <Container wide className="section-padding pt-16">
@@ -235,6 +241,7 @@ export function FashionEditorial({ highlights, magazines, fashionNews, fashionSt
       <FashionList highlights={highlights} variant="d" />
       <FashionMagazines magazines={magazines} />
       <FashionStories stories={fashionStories} />
+      <RedCarpetTimeline events={redCarpetEvents} gallery={redCarpetGallery} />
       <FashionNews fashionNews={fashionNews} />
     </Container>
   );

@@ -9,6 +9,7 @@ import { Hero } from "@/components/Hero";
 import { LatestStrip } from "@/components/LatestStrip";
 import { HomeFanBand } from "@/components/HomeFanBand";
 import { StoriesStrip } from "@/components/StoriesStrip";
+import { UpcomingPreviewStrip } from "@/components/UpcomingPreviewStrip";
 import { CharacterCard } from "@/components/GalleryGrid";
 import { Container } from "@/components/Container";
 import { CinematicBand } from "@/components/CinematicBand";
@@ -43,13 +44,7 @@ export function DesignWarmCinema({ data }: { data: HomeData }) {
       <LatestStrip items={latestNews} />
       <StoriesStrip items={featuredStories} />
 
-      {upcoming.length > 0 && (
-        <div className="container-wide py-6 text-center">
-          <Link href="/upcoming" className="text-sm font-medium text-wine hover:text-wine-deep">
-            {t("home.upcoming", { n: upcoming.length })}
-          </Link>
-        </div>
-      )}
+      <UpcomingPreviewStrip items={upcoming} />
 
       <Container id="featured-works" wide>
         <FadeIn>

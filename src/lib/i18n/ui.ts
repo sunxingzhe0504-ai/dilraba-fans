@@ -106,6 +106,11 @@ const zh = {
     pill: "Latest · 最新",
     viewAll: "全部动态",
   },
+  upcomingPreview: {
+    kicker: "Upcoming · 待播",
+    title: "期待清单",
+    viewAll: "全部待播 →",
+  },
   stories: {
     pill: "专题 · Stories",
     viewAll: "全部专题 →",
@@ -148,6 +153,33 @@ const zh = {
     lightboxClose: "关闭预览",
     lightboxPrev: "上一张",
     lightboxNext: "下一张",
+  },
+  watchlist: {
+    kicker: "补剧 · Watchlist",
+    title: "我的观影清单",
+    subtitle: "标记已看过的作品，记录追光进度（仅保存在本设备）。",
+    progress: "已看比例",
+    hint: "点击条目切换「已看」状态，解锁追光成就徽章。",
+  },
+  achievements: {
+    kicker: "成就 · Badges",
+    title: "追光成就",
+    subtitle: "浏览、互动与打卡，点亮你的 Dear Bar 徽章。",
+    unlocked: "已点亮 {n} / {total}",
+  },
+  wallpaper: {
+    kicker: "创作 · Create",
+    title: "台词壁纸生成器",
+    subtitle: "挑选语录与配色，一键生成 9:16 手机壁纸。",
+    pickQuote: "选择语录",
+    pickTheme: "配色主题",
+    download: "下载壁纸",
+  },
+  redCarpet: {
+    kicker: "Timeline",
+    title: "红毯时光轴",
+    subtitle: "公开活动中的红毯造型与荣誉时刻。",
+    viewEvent: "查看活动详情 →",
   },
   work: {
     upcoming: "即将上映",
@@ -598,6 +630,11 @@ const en = {
     pill: "Latest",
     viewAll: "All updates",
   },
+  upcomingPreview: {
+    kicker: "Upcoming",
+    title: "Anticipation List",
+    viewAll: "All upcoming →",
+  },
   stories: {
     pill: "Stories",
     viewAll: "All stories →",
@@ -640,6 +677,33 @@ const en = {
     lightboxClose: "Close preview",
     lightboxPrev: "Previous",
     lightboxNext: "Next",
+  },
+  watchlist: {
+    kicker: "Watchlist",
+    title: "My Viewing List",
+    subtitle: "Track watched works locally on this device.",
+    progress: "Watched",
+    hint: "Tap to toggle watched — unlock achievement badges on the fans page.",
+  },
+  achievements: {
+    kicker: "Badges",
+    title: "Light Achievements",
+    subtitle: "Explore, play, and visit to light up Dear Bar badges.",
+    unlocked: "{n} / {total} unlocked",
+  },
+  wallpaper: {
+    kicker: "Create",
+    title: "Quote Wallpaper Maker",
+    subtitle: "Pick a quote and palette — export a 9:16 phone wallpaper.",
+    pickQuote: "Quote",
+    pickTheme: "Theme",
+    download: "Download wallpaper",
+  },
+  redCarpet: {
+    kicker: "Timeline",
+    title: "Red Carpet Timeline",
+    subtitle: "Red carpet looks and award moments from public events.",
+    viewEvent: "View event →",
   },
   work: {
     upcoming: "Coming Soon",

@@ -6,6 +6,7 @@ import type { GalleryItem } from "@/lib/types";
 import { useLocale, useT } from "@/components/LocaleProvider";
 import { localizeGalleryItem } from "@/lib/i18n/localize";
 import { galleryCategoryLabel } from "@/lib/i18n/labels";
+import { unlockAchievement } from "@/lib/fan-storage";
 import { cn } from "@/lib/cn";
 
 type Props = {
@@ -32,6 +33,7 @@ export function GalleryLightbox({ items, initialIndex, onClose }: Props) {
   }, [hasNext]);
 
   useEffect(() => {
+    unlockAchievement("gallery-light");
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
       if (e.key === "ArrowLeft") goPrev();

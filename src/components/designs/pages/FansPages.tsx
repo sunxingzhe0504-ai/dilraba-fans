@@ -9,7 +9,9 @@ import { Container } from "@/components/Container";
 import { SectionTitle } from "@/components/SectionTitle";
 import { AnniversaryCountdown } from "@/components/AnniversaryCountdown";
 import { CharacterQuiz } from "@/components/CharacterQuiz";
+import { FanAchievements } from "@/components/FanAchievements";
 import { FanMilestonesStrip } from "@/components/FanMilestonesStrip";
+import { QuoteWallpaperMaker } from "@/components/QuoteWallpaperMaker";
 import { useLocale, useT } from "@/components/LocaleProvider";
 import { localizeFanCulture, localizeQuote } from "@/lib/i18n/localize";
 import { DesignPageRouter } from "../DesignPageRouter";
@@ -81,6 +83,14 @@ function FansContent({ culture: rawCulture, quotes: rawQuotes, characters, miles
 
       <Container wide className="section-padding pt-0">
         <CharacterQuiz characters={characters} variant={variant} />
+      </Container>
+
+      <Container wide className="section-padding pt-0">
+        <FanAchievements variant={variant} />
+      </Container>
+
+      <Container wide className="section-padding pt-0">
+        <QuoteWallpaperMaker quotes={rawQuotes} variant={variant} />
       </Container>
 
       <Container wide className={variant === "c" ? "soft-section" : "section-padding"}>
