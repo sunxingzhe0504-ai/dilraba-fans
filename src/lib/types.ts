@@ -147,10 +147,11 @@ export type Story = {
   cover?: string;
   tags?: string[];
   featured?: boolean;
-  /** 关联活动 / 动态 / 杂志 */
+  /** 关联活动 / 动态 / 杂志 / 作品 */
   eventSlug?: string;
   newsSlug?: string;
   magazineSlug?: string;
+  workSlug?: string;
 };
 
 export type GalleryCategory =

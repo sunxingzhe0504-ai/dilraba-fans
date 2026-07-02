@@ -350,6 +350,7 @@ const zh = {
       relatedEvent: "查看相关活动 →",
       relatedNews: "阅读相关动态 →",
       relatedMagazine: "查看相关杂志 →",
+      relatedWork: "查看相关作品 →",
     },
   },
   design: {
@@ -798,6 +799,7 @@ const en = {
       relatedEvent: "Related event →",
       relatedNews: "Related news →",
       relatedMagazine: "Related cover →",
+      relatedWork: "Related work →",
     },
   },
   design: {

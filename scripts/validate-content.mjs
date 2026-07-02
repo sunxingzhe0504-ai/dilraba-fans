@@ -105,6 +105,7 @@ checkRefs(newsSrc, "magazineSlug", magazineSlugs, "news", "magazines");
 checkRefs(storiesSrc, "eventSlug", eventSlugs, "stories", "events");
 checkRefs(storiesSrc, "newsSlug", newsSlugs, "stories", "news");
 checkRefs(storiesSrc, "magazineSlug", magazineSlugs, "stories", "magazines");
+checkRefs(storiesSrc, "workSlug", workSlugs, "stories", "works");
 
 // Characters → works
 checkRefs(charactersSrc, "workSlug", workSlugs, "characters", "works");

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { WORKS_EN } from "@content/translations/en";
-import { getCharacterByWorkSlug, getNewsForWork, getWorkBySlug, getWorkSlugs } from "@content/index";
+import { getCharacterByWorkSlug, getNewsForWork, getStoriesForWork, getWorkBySlug, getWorkSlugs } from "@content/index";
 import { WorkDetailPageDesign } from "@/components/designs/lazy-pages";
 import { JsonLd } from "@/components/JsonLd";
 import { detailMetadata } from "@/lib/i18n/metadata";
@@ -41,6 +41,7 @@ export default async function WorkDetailPage({ params }: Props) {
 
   const character = getCharacterByWorkSlug(slug);
   const relatedNews = getNewsForWork(slug);
+  const relatedStories = getStoriesForWork(slug);
 
   return (
     <>
@@ -52,7 +53,12 @@ export default async function WorkDetailPage({ params }: Props) {
           { name: work.titleEn ?? work.title, url: siteUrl(`/works/${slug}`) },
         ])}
       />
-      <WorkDetailPageDesign work={work} character={character} relatedNews={relatedNews} />
+      <WorkDetailPageDesign
+        work={work}
+        character={character}
+        relatedNews={relatedNews}
+        relatedStories={relatedStories}
+      />
     </>
   );
 }

@@ -15,6 +15,7 @@ export const stories: Story[] = [
     cover: IMAGES.portraits.redBlack,
     tags: ["红毯", "荣誉", "CMG"],
     featured: true,
+    workSlug: "li-jian-mei-gui",
     eventSlug: "china-film-tv-night-2026",
     newsSlug: "china-film-tv-night-2026",
     body: `## 公开亮相
@@ -169,5 +170,41 @@ Public assets paired **couture** with **Mikimoto** jewelry.
 ## Note
 
 Cover copy follows official Marie Claire China releases.`,
+  },
+  {
+    slug: "elle-2026-season-opener-recap",
+    title: "ELLE 2026 开季刊 ·「万变之中」封面大片",
+    titleEn: "ELLE March 2026 Season Opener · \"Within Change\"",
+    date: "2026-02-20",
+    summary:
+      "登上 ELLE 世界时装之苑 2026 年 3 月开季刊封面，以「万变之中」为主题呈现时尚镜头下的多元气质。",
+    summaryEn:
+      'ELLE China March 2026 season opener — theme "Within Change" showcasing versatile fashion presence.',
+    cover: IMAGES.magazines.elle2026,
+    tags: ["杂志", "开季刊"],
+    magazineSlug: "elle-2026-03",
+    newsSlug: "elle-2026-cover",
+    body: `## 封面发布
+
+2026 年 2 月 20 日，**ELLE 世界时装之苑** 释出 **2026 年 3 月开季刊** 封面大片。
+
+## 主题
+
+本期以 **「万变之中」** 为题，呈现迪丽热巴在时尚镜头下的多元气质与从容气场。
+
+## 说明
+
+刊面与文案以 ELLE 官方发布为准。`,
+    bodyEn: `## Cover release
+
+On February 20, 2026, **ELLE China** released the **March 2026 season opener** cover story.
+
+## Theme
+
+**"Within Change"** — capturing Dilraba's versatile presence in fashion photography.
+
+## Note
+
+Cover copy follows official ELLE China releases.`,
   },
 ];

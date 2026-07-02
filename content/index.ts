@@ -328,6 +328,33 @@ export function getStoriesForMagazine(magazineSlug: string, limit = 2) {
     .slice(0, limit);
 }
 
+export function getStoriesForWork(workSlug: string, limit = 2) {
+  const seen = new Set<string>();
+  const results: ReturnType<typeof getStories> = [];
+
+  const add = (story: (typeof results)[number]) => {
+    if (seen.has(story.slug)) return;
+    seen.add(story.slug);
+    results.push(story);
+  };
+
+  for (const story of getStories()) {
+    if (story.workSlug === workSlug) add(story);
+  }
+
+  if (results.length < limit) {
+    const newsSlugs = new Set(
+      getNews().filter((n) => n.workSlug === workSlug).map((n) => n.slug),
+    );
+    for (const story of getStories()) {
+      if (story.newsSlug && newsSlugs.has(story.newsSlug)) add(story);
+      if (results.length >= limit) break;
+    }
+  }
+
+  return results.slice(0, limit);
+}
+
 export function getWorkSlugs() {
   return works.map((work) => work.slug);
 }

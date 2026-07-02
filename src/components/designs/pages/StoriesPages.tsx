@@ -5,6 +5,7 @@ import { LocaleLink as Link } from "@/components/LocaleLink";
 import type { Story } from "@/lib/types";
 import { Container } from "@/components/Container";
 import { SectionTitle } from "@/components/SectionTitle";
+import { formatDate } from "@/lib/format";
 import { useLocale, useT } from "@/components/LocaleProvider";
 import { DesignPageRouter } from "../DesignPageRouter";
 
@@ -30,7 +31,7 @@ function StoryList({ stories }: StoriesPageProps) {
                 </div>
               )}
               <div className="flex flex-1 flex-col justify-center p-5">
-                <time className="text-xs text-ink-mute">{story.date}</time>
+                <time className="text-xs text-ink-mute">{formatDate(story.date, locale)}</time>
                 <h2 className="mt-1 text-lg font-medium text-ink">{title}</h2>
                 <p className="mt-2 line-clamp-2 text-sm text-ink-soft">{summary}</p>
               </div>

@@ -3,10 +3,11 @@
 import { useMemo } from "react";
 import { ContentImage } from "@/components/ContentImage";
 import { LocaleLink as Link } from "@/components/LocaleLink";
-import type { Character, NewsItem, Work } from "@/lib/types";
+import type { Character, NewsItem, Story, Work } from "@/lib/types";
 import { ExternalLinks } from "@/components/ExternalLinks";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { RelatedNewsList } from "@/components/RelatedNewsList";
+import { RelatedStoriesList } from "@/components/RelatedStoriesList";
 import { Container } from "@/components/Container";
 import { useLocale, useT } from "@/components/LocaleProvider";
 import { localizeCharacter, localizeWork } from "@/lib/i18n/localize";
@@ -17,6 +18,7 @@ export type WorkDetailPageProps = {
   work: Work;
   character?: Character;
   relatedNews?: NewsItem[];
+  relatedStories?: Story[];
 };
 
 function useLocalizedWorkDetail({ work, character, relatedNews }: WorkDetailPageProps) {
@@ -65,10 +67,12 @@ function WorkBody({
   work,
   character,
   relatedNews,
+  relatedStories,
 }: {
   work: Work;
   character?: Character;
   relatedNews?: NewsItem[];
+  relatedStories?: Story[];
 }) {
   const t = useT();
   return (
@@ -108,6 +112,9 @@ function WorkBody({
           <ExternalLinks links={work.externalLinks} className="mt-4" size="md" />
         </div>
       )}
+      {relatedStories && relatedStories.length > 0 && (
+        <RelatedStoriesList items={relatedStories} className="mt-10" />
+      )}
       {relatedNews && relatedNews.length > 0 && (
         <RelatedNewsList items={relatedNews} className="mt-10" />
       )}
@@ -135,7 +142,7 @@ export function WorkDetailWarmCinema(props: WorkDetailPageProps) {
         <div>
           <WorkMeta work={work} />
           <h1 className="zh-display mt-4 text-5xl text-wine-deep sm:text-6xl">{work.title}</h1>
-          <WorkBody work={work} character={character} relatedNews={relatedNews} />
+          <WorkBody work={work} character={character} relatedNews={relatedNews} relatedStories={props.relatedStories} />
         </div>
       </div>
     </Container>
@@ -165,7 +172,7 @@ export function WorkDetailXianxia(props: WorkDetailPageProps) {
           <h1 className="zh-display mt-10 text-5xl text-wine-deep">{work.title}</h1>
           <WorkMeta work={work} />
           <div className="mx-auto mt-10 max-w-2xl text-left">
-            <WorkBody work={work} character={character} relatedNews={relatedNews} />
+            <WorkBody work={work} character={character} relatedNews={relatedNews} relatedStories={props.relatedStories} />
           </div>
         </div>
       </div>
@@ -196,7 +203,7 @@ export function WorkDetailFanSticker(props: WorkDetailPageProps) {
         <div>
           <h1 className="text-4xl font-extrabold text-wine-deep">{work.title}</h1>
           <WorkMeta work={work} />
-          <WorkBody work={work} character={character} relatedNews={relatedNews} />
+          <WorkBody work={work} character={character} relatedNews={relatedNews} relatedStories={props.relatedStories} />
         </div>
       </div>
     </Container>
@@ -225,7 +232,7 @@ export function WorkDetailEditorial(props: WorkDetailPageProps) {
             <p className="text-xs uppercase tracking-[0.3em] text-gold">Feature</p>
             <h1 className="display mt-2 text-5xl text-wine-deep sm:text-6xl">{work.title}</h1>
             <WorkMeta work={work} />
-            <WorkBody work={work} character={character} relatedNews={relatedNews} />
+            <WorkBody work={work} character={character} relatedNews={relatedNews} relatedStories={props.relatedStories} />
           </div>
         </div>
       </Container>
