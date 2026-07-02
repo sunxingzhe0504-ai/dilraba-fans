@@ -310,6 +310,35 @@ export function getFeaturedStories(limit = 3) {
     .slice(0, limit);
 }
 
+export function getStoryTags() {
+  const tags = new Set<string>();
+  for (const story of stories) {
+    for (const tag of story.tags ?? []) tags.add(tag);
+  }
+  return [...tags].sort((a, b) => a.localeCompare(b, "zh"));
+}
+
+/** 时尚页展示的专题：杂志封面、代言与时尚类动态关联长文 */
+export function getFashionStories(limit = 4) {
+  const fashionNewsSlugs = new Set(
+    news.filter((n) => n.category === "fashion").map((n) => n.slug),
+  );
+  const fashionTags = new Set(["杂志", "代言", "品牌", "开季刊", "生日刊", "全满贯", "红毯"]);
+
+  return getStories()
+    .filter(
+      (s) =>
+        s.magazineSlug ||
+        (s.newsSlug && fashionNewsSlugs.has(s.newsSlug)) ||
+        s.tags?.some((t) => fashionTags.has(t)),
+    )
+    .slice(0, limit);
+}
+
+export function getMoreStories(excludeSlug: string, limit = 2) {
+  return getStories().filter((s) => s.slug !== excludeSlug).slice(0, limit);
+}
+
 export function getStoriesForEvent(eventSlug: string, limit = 2) {
   return getStories()
     .filter((s) => s.eventSlug === eventSlug)

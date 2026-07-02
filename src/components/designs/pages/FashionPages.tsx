@@ -4,11 +4,12 @@ import { useMemo } from "react";
 import { ContentImage } from "@/components/ContentImage";
 import { LocaleLink as Link } from "@/components/LocaleLink";
 import { ExternalLink } from "lucide-react";
-import type { BrandHighlight, Magazine, NewsItem } from "@/lib/types";
+import type { BrandHighlight, Magazine, NewsItem, Story } from "@/lib/types";
 import { resolveNewsHref } from "@content/index";
 import { Container } from "@/components/Container";
 import { SectionTitle } from "@/components/SectionTitle";
 import { MagazineCard } from "@/components/MagazineCard";
+import { StoriesStrip } from "@/components/StoriesStrip";
 import { formatDate } from "@/lib/format";
 import { useLocale, useT } from "@/components/LocaleProvider";
 import { localizeNews, localizeBrandHighlight } from "@/lib/i18n/localize";
@@ -18,7 +19,25 @@ export type FashionPageProps = {
   highlights: BrandHighlight[];
   magazines: Magazine[];
   fashionNews: NewsItem[];
+  fashionStories: Story[];
 };
+
+function FashionStories({ stories }: { stories: Story[] }) {
+  const t = useT();
+  if (!stories.length) return null;
+  return (
+    <div className="mt-16">
+      <SectionTitle
+        index="—"
+        kicker="Stories"
+        title={t("pages.fashion.storiesTitle")}
+        subtitle={t("pages.fashion.storiesSubtitle")}
+        className="mb-0"
+      />
+      <StoriesStrip items={stories} limit={stories.length} />
+    </div>
+  );
+}
 
 function FashionMagazines({ magazines }: { magazines: Magazine[] }) {
   const t = useT();
@@ -154,7 +173,7 @@ function FashionList({ highlights, variant }: { highlights: BrandHighlight[]; va
   );
 }
 
-export function FashionWarmCinema({ highlights, magazines, fashionNews }: FashionPageProps) {
+export function FashionWarmCinema({ highlights, magazines, fashionNews, fashionStories }: FashionPageProps) {
   const t = useT();
   return (
     <Container wide className="section-padding pt-16">
@@ -166,12 +185,13 @@ export function FashionWarmCinema({ highlights, magazines, fashionNews }: Fashio
       />
       <FashionList highlights={highlights} variant="c" />
       <FashionMagazines magazines={magazines} />
+      <FashionStories stories={fashionStories} />
       <FashionNews fashionNews={fashionNews} />
     </Container>
   );
 }
 
-export function FashionXianxia({ highlights, magazines, fashionNews }: FashionPageProps) {
+export function FashionXianxia({ highlights, magazines, fashionNews, fashionStories }: FashionPageProps) {
   const t = useT();
   return (
     <div className="section-padding pt-16">
@@ -182,13 +202,14 @@ export function FashionXianxia({ highlights, magazines, fashionNews }: FashionPa
       <div className="container-main">
         <FashionList highlights={highlights} variant="a" />
         <FashionMagazines magazines={magazines} />
+        <FashionStories stories={fashionStories} />
         <FashionNews fashionNews={fashionNews} />
       </div>
     </div>
   );
 }
 
-export function FashionFanSticker({ highlights, magazines, fashionNews }: FashionPageProps) {
+export function FashionFanSticker({ highlights, magazines, fashionNews, fashionStories }: FashionPageProps) {
   const t = useT();
   return (
     <Container wide className="section-padding pt-16">
@@ -197,12 +218,13 @@ export function FashionFanSticker({ highlights, magazines, fashionNews }: Fashio
       </h1>
       <FashionList highlights={highlights} variant="b" />
       <FashionMagazines magazines={magazines} />
+      <FashionStories stories={fashionStories} />
       <FashionNews fashionNews={fashionNews} />
     </Container>
   );
 }
 
-export function FashionEditorial({ highlights, magazines, fashionNews }: FashionPageProps) {
+export function FashionEditorial({ highlights, magazines, fashionNews, fashionStories }: FashionPageProps) {
   const t = useT();
   return (
     <Container wide className="section-padding pt-16">
@@ -212,6 +234,7 @@ export function FashionEditorial({ highlights, magazines, fashionNews }: Fashion
       <div className="gold-rule mt-6 h-px" />
       <FashionList highlights={highlights} variant="d" />
       <FashionMagazines magazines={magazines} />
+      <FashionStories stories={fashionStories} />
       <FashionNews fashionNews={fashionNews} />
     </Container>
   );

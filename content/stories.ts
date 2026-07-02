@@ -207,4 +207,41 @@ On February 20, 2026, **ELLE China** released the **March 2026 season opener** c
 
 Cover copy follows official ELLE China releases.`,
   },
+  {
+    slug: "dior-suzhou-high-jewelry-2026-recap",
+    title: "Dior 苏州 VILLA DIOR 臻赏晚宴 · Belle Dior 高级珠宝",
+    titleEn: "Dior Suzhou VILLA DIOR · Belle Dior High Jewelry",
+    date: "2026-03-20",
+    summary:
+      "以 Dior 全球品牌大使身份出席苏州高级珠宝晚宴，佩戴 Belle Dior 系列珠宝亮相，延续与品牌的深度合作。",
+    summaryEn:
+      "As Dior global ambassador at the Suzhou VILLA DIOR dinner in Belle Dior high jewelry — continuing a deep brand partnership.",
+    cover: IMAGES.portraits.goldCrown,
+    tags: ["代言", "珠宝", "Dior"],
+    featured: true,
+    eventSlug: "dior-suzhou-high-jewelry-2026",
+    newsSlug: "dior-suzhou-2026",
+    body: `## 活动概况
+
+2026 年 3 月 20 日，迪丽热巴以 **Dior 全球品牌大使** 身份出席品牌于 **苏州** 举办的 **VILLA DIOR 臻赏晚宴**。
+
+## 珠宝
+
+公开报道显示佩戴 **Belle Dior** 系列高级珠宝亮相。
+
+## 说明
+
+活动细节以 Dior 官方发布为准。`,
+    bodyEn: `## Overview
+
+On March 20, 2026, Dilraba attended the **VILLA DIOR** dinner in **Suzhou** as **Dior global brand ambassador**.
+
+## Jewelry
+
+Public reports describe **Belle Dior** high jewelry on the red carpet.
+
+## Note
+
+Event details follow official Dior releases.`,
+  },
 ];

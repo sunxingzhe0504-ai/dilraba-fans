@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getStoryBySlug, getStorySlugs } from "@content/index";
+import { getMoreStories, getStoryBySlug, getStorySlugs } from "@content/index";
 import { StoryDetailPageDesign } from "@/components/designs/lazy-pages";
+import { JsonLd } from "@/components/JsonLd";
 import { detailMetadata } from "@/lib/i18n/metadata";
 import { assetPath } from "@/lib/asset-path";
+import { breadcrumbJsonLd, storyJsonLd } from "@/lib/structured-data";
+import { siteUrl } from "@/lib/site-url";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -33,5 +36,19 @@ export default async function StoryDetailPage({ params }: Props) {
   const story = getStoryBySlug(slug);
   if (!story) notFound();
 
-  return <StoryDetailPageDesign story={story} />;
+  const moreStories = getMoreStories(slug);
+
+  return (
+    <>
+      <JsonLd data={storyJsonLd(story)} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", url: siteUrl("/") },
+          { name: "Stories", url: siteUrl("/stories") },
+          { name: story.titleEn ?? story.title, url: siteUrl(`/stories/${slug}`) },
+        ])}
+      />
+      <StoryDetailPageDesign story={story} moreStories={moreStories} />
+    </>
+  );
 }

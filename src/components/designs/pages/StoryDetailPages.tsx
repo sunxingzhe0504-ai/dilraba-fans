@@ -8,11 +8,15 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Container } from "@/components/Container";
 import { StoryMarkdown } from "@/components/StoryMarkdown";
 import { useLocale, useT } from "@/components/LocaleProvider";
+import { RelatedStoriesList } from "@/components/RelatedStoriesList";
 import { DesignPageRouter } from "../DesignPageRouter";
 
-export type StoryDetailPageProps = { story: Story };
+export type StoryDetailPageProps = {
+  story: Story;
+  moreStories?: Story[];
+};
 
-function StoryArticle({ story }: StoryDetailPageProps) {
+function StoryArticle({ story, moreStories }: StoryDetailPageProps) {
   const locale = useLocale();
   const t = useT();
   const title = locale === "en" && story.titleEn ? story.titleEn : story.title;
@@ -62,24 +66,27 @@ function StoryArticle({ story }: StoryDetailPageProps) {
             )}
           </div>
         )}
+        {moreStories && moreStories.length > 0 && (
+          <RelatedStoriesList items={moreStories} className="mt-10" />
+        )}
       </article>
     </>
   );
 }
 
-function StoryDetailShell({ story, variant }: StoryDetailPageProps & { variant: "c" | "a" | "b" | "d" }) {
+function StoryDetailShell({ story, moreStories, variant }: StoryDetailPageProps & { variant: "c" | "a" | "b" | "d" }) {
   if (variant === "a") {
     return (
       <div className="section-padding pt-16">
         <div className="container-main">
-          <StoryArticle story={story} />
+          <StoryArticle story={story} moreStories={moreStories} />
         </div>
       </div>
     );
   }
   return (
     <Container wide className="section-padding pt-16">
-      <StoryArticle story={story} />
+      <StoryArticle story={story} moreStories={moreStories} />
     </Container>
   );
 }

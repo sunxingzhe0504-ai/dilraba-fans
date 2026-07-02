@@ -1,5 +1,5 @@
 import { WORKS_EN, CHARACTERS_EN, MAGAZINES_EN } from "@content/translations/en";
-import type { Character, FanEvent, Magazine, NewsItem, Work } from "@/lib/types";
+import type { Character, FanEvent, Magazine, NewsItem, Story, Work } from "@/lib/types";
 import { siteUrl } from "@/lib/site-url";
 
 const PERSON = {
@@ -123,6 +123,24 @@ export function magazineJsonLd(magazine: Magazine) {
     url: siteUrl(`/magazine/${magazine.slug}`),
     ...(magazine.cover
       ? { image: magazine.cover.startsWith("http") ? magazine.cover : siteUrl(magazine.cover) }
+      : {}),
+  };
+}
+
+export function storyJsonLd(story: Story) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: story.titleEn ?? story.title,
+    ...(story.titleEn ? { alternativeHeadline: story.title } : {}),
+    description: story.summaryEn ?? story.summary,
+    datePublished: story.date,
+    url: siteUrl(`/stories/${story.slug}`),
+    author: PERSON,
+    ...(story.cover
+      ? {
+          image: story.cover.startsWith("http") ? story.cover : siteUrl(story.cover),
+        }
       : {}),
   };
 }

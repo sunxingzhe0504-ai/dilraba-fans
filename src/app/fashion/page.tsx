@@ -1,4 +1,4 @@
-import { getBrandHighlights, getFeaturedMagazines, getFashionNews } from "@content/index";
+import { getBrandHighlights, getFashionStories, getFeaturedMagazines, getFashionNews } from "@content/index";
 import { FashionPageDesign } from "@/components/designs/lazy-pages";
 import { listPageMetadata } from "@/lib/i18n/page-metadata";
 
@@ -10,6 +10,7 @@ export default function FashionPage() {
       highlights={getBrandHighlights()}
       magazines={getFeaturedMagazines(6)}
       fashionNews={getFashionNews(6)}
+      fashionStories={getFashionStories(4)}
     />
   );
 }

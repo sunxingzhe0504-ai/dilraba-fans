@@ -199,6 +199,19 @@ export const changelog: ChangelogEntry[] = [
   {
     date: "2026-06-30",
     items: [
+      "专题模块完善：标签筛选、Article JSON-LD、详情页更多推荐",
+      "时尚页接入时尚专题条；作品/杂志/动态/活动四类详情页关联专题",
+      "新增嘉人全满贯、ELLE 开季刊、Dior 苏州高珠等专题长文",
+    ],
+    itemsEn: [
+      "Stories: tag filters, Article JSON-LD, and related recommendations on detail pages",
+      "Fashion page story strip; related stories on work/magazine/news/event detail pages",
+      "New features: Marie Claire grand slam, ELLE opener, Dior Suzhou high jewelry",
+    ],
+  },
+  {
+    date: "2026-06-30",
+    items: [
       "新增专题长文模块 /stories：活动回顾、杂志专题与 Markdown 正文",
       "URL 级英文路由 /en/* 与 hreflang；首页专题条、动态分类筛选",
       "构建时 WebP 优化；全站内页 ContentImage 覆盖；RSS 纳入专题条目",
