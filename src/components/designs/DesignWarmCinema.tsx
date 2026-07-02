@@ -7,6 +7,7 @@ import { getSiteMeta } from "@content/index";
 import { FeaturedVideoStrip } from "@/components/FeaturedVideoStrip";
 import { Hero } from "@/components/Hero";
 import { LatestStrip } from "@/components/LatestStrip";
+import { HomeFanBand } from "@/components/HomeFanBand";
 import { StoriesStrip } from "@/components/StoriesStrip";
 import { CharacterCard } from "@/components/GalleryGrid";
 import { Container } from "@/components/Container";
@@ -38,6 +39,7 @@ export function DesignWarmCinema({ data }: { data: HomeData }) {
   return (
     <>
       <Hero />
+      <HomeFanBand />
       <LatestStrip items={latestNews} />
       <StoriesStrip items={featuredStories} />
 

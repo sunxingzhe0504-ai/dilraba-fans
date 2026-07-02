@@ -9,6 +9,7 @@ import { getSiteMeta } from "@content/index";
 import { IMAGES } from "@content/images";
 import { FeaturedVideoStrip } from "@/components/FeaturedVideoStrip";
 import { LatestStrip } from "@/components/LatestStrip";
+import { HomeFanBand } from "@/components/HomeFanBand";
 import { StoriesStrip } from "@/components/StoriesStrip";
 import { CharacterCard } from "@/components/GalleryGrid";
 import { useLocale, useT } from "@/components/LocaleProvider";
@@ -81,6 +82,7 @@ export function DesignFanSticker({ data }: { data: HomeData }) {
         </motion.div>
       </div>
 
+      <HomeFanBand />
       <LatestStrip items={latestNews} />
       <StoriesStrip items={featuredStories} />
 

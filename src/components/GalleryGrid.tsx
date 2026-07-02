@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { ContentImage } from "@/components/ContentImage";
 import { LocaleLink as Link } from "@/components/LocaleLink";
 import { Download } from "lucide-react";
@@ -7,6 +8,7 @@ import type { GalleryItem, GalleryCategory, Character } from "@/lib/types";
 import { useLocale, useT } from "@/components/LocaleProvider";
 import { localizeCharacter, localizeGalleryItem } from "@/lib/i18n/localize";
 import { galleryCategoryLabel } from "@/lib/i18n/labels";
+import { GalleryLightbox, GalleryLightboxTrigger } from "@/components/GalleryLightbox";
 import { cn } from "@/lib/cn";
 
 type Props = {
@@ -17,45 +19,59 @@ type Props = {
 export function GalleryGrid({ items, className }: Props) {
   const locale = useLocale();
   const t = useT();
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   return (
-    <div className={cn("grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4", className)}>
-      {items.map((raw) => {
-        const item = localizeGalleryItem(raw, locale);
-        return (
-        <article key={item.slug} className="edit-card group overflow-hidden">
-          <div className="relative aspect-[3/4] overflow-hidden bg-background-deep">
-            <ContentImage
-              src={item.image}
-              alt={item.title}
-              fill
-              sizes="(max-width:768px) 50vw, 25vw"
-              className="portrait-cover transition-transform duration-500 group-hover:scale-105"
-            />
-            <span className="pill absolute left-2 top-2 bg-paper/90 text-wine text-[10px]">
-              {galleryCategoryLabel(item.category as GalleryCategory, locale)}
-            </span>
-          </div>
-          <div className="p-4">
-            <h3 className="text-sm font-medium text-ink">{item.title}</h3>
-            {item.year && (
-              <p className="mt-0.5 text-xs text-ink-mute">{item.year}</p>
-            )}
-            {item.wallpaper && (
-              <a
-                href={item.image}
-                download
-                className="mt-3 inline-flex items-center gap-1.5 text-xs font-medium text-wine hover:text-wine-deep"
-              >
-                <Download size={12} />
-                {t("common.download")}
-              </a>
-            )}
-          </div>
-        </article>
-        );
-      })}
-    </div>
+    <>
+      <div className={cn("grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4", className)}>
+        {items.map((raw, index) => {
+          const item = localizeGalleryItem(raw, locale);
+          return (
+            <article key={item.slug} className="edit-card group overflow-hidden">
+              <GalleryLightboxTrigger onClick={() => setLightboxIndex(index)}>
+                <div className="relative aspect-[3/4] overflow-hidden bg-background-deep">
+                  <ContentImage
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    sizes="(max-width:768px) 50vw, 25vw"
+                    className="portrait-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <span className="pill absolute left-2 top-2 bg-paper/90 text-wine text-[10px]">
+                    {galleryCategoryLabel(item.category as GalleryCategory, locale)}
+                  </span>
+                </div>
+              </GalleryLightboxTrigger>
+              <div className="p-4">
+                <h3 className="text-sm font-medium text-ink">{item.title}</h3>
+                {item.year && (
+                  <p className="mt-0.5 text-xs text-ink-mute">{item.year}</p>
+                )}
+                {item.wallpaper && (
+                  <a
+                    href={item.image}
+                    download
+                    onClick={(e) => e.stopPropagation()}
+                    className="mt-3 inline-flex items-center gap-1.5 text-xs font-medium text-wine hover:text-wine-deep"
+                  >
+                    <Download size={12} />
+                    {t("common.download")}
+                  </a>
+                )}
+              </div>
+            </article>
+          );
+        })}
+      </div>
+
+      {lightboxIndex !== null && (
+        <GalleryLightbox
+          items={items}
+          initialIndex={lightboxIndex}
+          onClose={() => setLightboxIndex(null)}
+        />
+      )}
+    </>
   );
 }
 

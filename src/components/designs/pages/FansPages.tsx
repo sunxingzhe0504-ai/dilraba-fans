@@ -3,9 +3,13 @@
 import { useMemo } from "react";
 import { LocaleLink as Link } from "@/components/LocaleLink";
 import { ExternalLink } from "lucide-react";
-import type { FanCulture, Quote } from "@/lib/types";
+import type { Character, FanCulture, Quote } from "@/lib/types";
+import type { FanMilestones } from "@/lib/fan-milestones";
 import { Container } from "@/components/Container";
 import { SectionTitle } from "@/components/SectionTitle";
+import { AnniversaryCountdown } from "@/components/AnniversaryCountdown";
+import { CharacterQuiz } from "@/components/CharacterQuiz";
+import { FanMilestonesStrip } from "@/components/FanMilestonesStrip";
 import { useLocale, useT } from "@/components/LocaleProvider";
 import { localizeFanCulture, localizeQuote } from "@/lib/i18n/localize";
 import { DesignPageRouter } from "../DesignPageRouter";
@@ -13,9 +17,11 @@ import { DesignPageRouter } from "../DesignPageRouter";
 export type FansPageProps = {
   culture: FanCulture;
   quotes: Quote[];
+  characters: Character[];
+  milestones: FanMilestones;
 };
 
-function FansContent({ culture: rawCulture, quotes: rawQuotes, variant }: FansPageProps & { variant: "c" | "a" | "b" | "d" }) {
+function FansContent({ culture: rawCulture, quotes: rawQuotes, characters, milestones, variant }: FansPageProps & { variant: "c" | "a" | "b" | "d" }) {
   const locale = useLocale();
   const t = useT();
   const culture = useMemo(() => localizeFanCulture(rawCulture, locale), [rawCulture, locale]);
@@ -63,6 +69,18 @@ function FansContent({ culture: rawCulture, quotes: rawQuotes, variant }: FansPa
             ))}
           </div>
         </div>
+      </Container>
+
+      <Container wide className="section-padding pt-0">
+        <AnniversaryCountdown />
+      </Container>
+
+      <Container wide className="section-padding pt-0">
+        <FanMilestonesStrip data={milestones} variant={variant} />
+      </Container>
+
+      <Container wide className="section-padding pt-0">
+        <CharacterQuiz characters={characters} variant={variant} />
       </Container>
 
       <Container wide className={variant === "c" ? "soft-section" : "section-padding"}>

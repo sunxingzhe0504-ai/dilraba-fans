@@ -28,6 +28,8 @@ import {
   getPremiereNewsItems,
   isWorkLive,
 } from "./work-release";
+import type { FanMilestones } from "@/lib/fan-milestones";
+import { computeCareerYears } from "@/lib/fan-milestones";
 import type { EventCategory, WorkType, NewsItem } from "@/lib/types";
 import {
   CHARACTERS_EN,
@@ -223,6 +225,19 @@ export function getQuotes() {
 
 export function getFanCulture() {
   return fanCulture;
+}
+
+export function getFanMilestones(): FanMilestones {
+  return {
+    works: getWorks().length,
+    characters: getCharacters().length,
+    magazines: getMagazines().length,
+    stories: getStories().length,
+    gallery: getGallery().length,
+    videos: getVideos().length,
+    events: getEvents().length,
+    careerYears: computeCareerYears(2013),
+  };
 }
 
 export function getBrandHighlights() {

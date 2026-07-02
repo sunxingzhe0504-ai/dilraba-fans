@@ -197,6 +197,17 @@ export const charityItems: CharityItem[] = [
 
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-07-02",
+    items: [
+      "首页新增每日一言与追光日历倒计时，粉丝页接入纪念日全景与追光数字",
+      "图库支持 Lightbox 全屏预览与键盘左右切换；粉丝页新增「角色猜猜看」互动小游戏",
+    ],
+    itemsEn: [
+      "Home: daily quote and anniversary countdown; fans page milestones and full calendar",
+      "Gallery lightbox with keyboard navigation; character guessing quiz on the fans page",
+    ],
+  },
+  {
     date: "2026-06-30",
     items: [
       "专题模块完善：标签筛选、Article JSON-LD、详情页更多推荐",
