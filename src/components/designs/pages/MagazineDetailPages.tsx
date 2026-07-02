@@ -2,15 +2,21 @@
 
 import { useMemo } from "react";
 import { ContentImage } from "@/components/ContentImage";
-import type { Magazine } from "@/lib/types";
+import type { Magazine, NewsItem, Story } from "@/lib/types";
 import { Container } from "@/components/Container";
 import { ExternalLinks } from "@/components/ExternalLinks";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { RelatedNewsList } from "@/components/RelatedNewsList";
+import { RelatedStoriesList } from "@/components/RelatedStoriesList";
 import { useLocale, useT } from "@/components/LocaleProvider";
 import { localizeMagazine } from "@/lib/i18n/localize";
 import { DesignPageRouter } from "../DesignPageRouter";
 
-export type MagazineDetailPageProps = { magazine: Magazine };
+export type MagazineDetailPageProps = {
+  magazine: Magazine;
+  relatedNews?: NewsItem[];
+  relatedStories?: Story[];
+};
 
 function useLocalizedMagazine(magazine: Magazine) {
   const locale = useLocale();
@@ -35,7 +41,15 @@ function MagazineMeta({ magazine }: { magazine: Magazine }) {
   );
 }
 
-function MagazineBody({ magazine }: { magazine: Magazine }) {
+function MagazineBody({
+  magazine,
+  relatedNews,
+  relatedStories,
+}: {
+  magazine: Magazine;
+  relatedNews?: NewsItem[];
+  relatedStories?: Story[];
+}) {
   const t = useT();
   return (
     <>
@@ -47,6 +61,12 @@ function MagazineBody({ magazine }: { magazine: Magazine }) {
           <h2 className="kicker">{t("common.relatedLinks")}</h2>
           <ExternalLinks links={magazine.externalLinks} className="mt-4" size="md" />
         </div>
+      )}
+      {relatedStories && relatedStories.length > 0 && (
+        <RelatedStoriesList items={relatedStories} className="mt-10" />
+      )}
+      {relatedNews && relatedNews.length > 0 && (
+        <RelatedNewsList items={relatedNews} className="mt-10" />
       )}
     </>
   );
@@ -60,7 +80,7 @@ function MagazineCover({ magazine, className }: { magazine: Magazine; className?
   );
 }
 
-export function MagazineDetailWarmCinema({ magazine: raw }: MagazineDetailPageProps) {
+export function MagazineDetailWarmCinema({ magazine: raw, relatedNews, relatedStories }: MagazineDetailPageProps) {
   const t = useT();
   const magazine = useLocalizedMagazine(raw);
   return (
@@ -78,14 +98,14 @@ export function MagazineDetailWarmCinema({ magazine: raw }: MagazineDetailPagePr
         <div>
           <MagazineMeta magazine={magazine} />
           <h1 className="display mt-2 text-4xl text-wine-deep">{magazine.name}</h1>
-          <MagazineBody magazine={magazine} />
+          <MagazineBody magazine={magazine} relatedNews={relatedNews} relatedStories={relatedStories} />
         </div>
       </div>
     </Container>
   );
 }
 
-export function MagazineDetailXianxia({ magazine: raw }: MagazineDetailPageProps) {
+export function MagazineDetailXianxia({ magazine: raw, relatedNews, relatedStories }: MagazineDetailPageProps) {
   const t = useT();
   const magazine = useLocalizedMagazine(raw);
   return (
@@ -105,14 +125,14 @@ export function MagazineDetailXianxia({ magazine: raw }: MagazineDetailPageProps
         <h1 className="zh-display mt-10 text-4xl text-wine-deep">{magazine.name}</h1>
         <div className="mx-auto mt-8 max-w-xl text-left">
           <MagazineMeta magazine={magazine} />
-          <MagazineBody magazine={magazine} />
+          <MagazineBody magazine={magazine} relatedNews={relatedNews} relatedStories={relatedStories} />
         </div>
       </div>
     </div>
   );
 }
 
-export function MagazineDetailFanSticker({ magazine: raw }: MagazineDetailPageProps) {
+export function MagazineDetailFanSticker({ magazine: raw, relatedNews, relatedStories }: MagazineDetailPageProps) {
   const t = useT();
   const magazine = useLocalizedMagazine(raw);
   return (
@@ -132,14 +152,14 @@ export function MagazineDetailFanSticker({ magazine: raw }: MagazineDetailPagePr
         <div>
           <h1 className="text-3xl font-extrabold text-wine-deep">{magazine.name}</h1>
           <MagazineMeta magazine={magazine} />
-          <MagazineBody magazine={magazine} />
+          <MagazineBody magazine={magazine} relatedNews={relatedNews} relatedStories={relatedStories} />
         </div>
       </div>
     </Container>
   );
 }
 
-export function MagazineDetailEditorial({ magazine: raw }: MagazineDetailPageProps) {
+export function MagazineDetailEditorial({ magazine: raw, relatedNews, relatedStories }: MagazineDetailPageProps) {
   const t = useT();
   const magazine = useLocalizedMagazine(raw);
   return (
@@ -157,7 +177,7 @@ export function MagazineDetailEditorial({ magazine: raw }: MagazineDetailPagePro
           <p className="text-xs uppercase tracking-[0.3em] text-gold">Cover Story</p>
           <h1 className="display mt-2 text-5xl text-wine-deep">{magazine.name}</h1>
           <MagazineMeta magazine={magazine} />
-          <MagazineBody magazine={magazine} />
+          <MagazineBody magazine={magazine} relatedNews={relatedNews} relatedStories={relatedStories} />
         </div>
         <MagazineCover magazine={magazine} className="max-w-md border border-border lg:max-w-none lg:justify-self-end" />
       </div>
@@ -172,6 +192,6 @@ const magazineDetailVariants = {
   d: MagazineDetailEditorial,
 };
 
-export function MagazineDetailPageDesign({ magazine }: MagazineDetailPageProps) {
-  return <DesignPageRouter variants={magazineDetailVariants} props={{ magazine }} />;
+export function MagazineDetailPageDesign(props: MagazineDetailPageProps) {
+  return <DesignPageRouter variants={magazineDetailVariants} props={props} />;
 }

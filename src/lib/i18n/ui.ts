@@ -349,6 +349,7 @@ const zh = {
       subtitle: "活动回顾、公益专题与粉丝向深度图文。",
       relatedEvent: "查看相关活动 →",
       relatedNews: "阅读相关动态 →",
+      relatedMagazine: "查看相关杂志 →",
     },
   },
   design: {
@@ -796,6 +797,7 @@ const en = {
       subtitle: "Event recaps, charity features, and in-depth articles.",
       relatedEvent: "Related event →",
       relatedNews: "Related news →",
+      relatedMagazine: "Related cover →",
     },
   },
   design: {

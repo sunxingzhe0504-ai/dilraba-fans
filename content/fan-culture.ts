@@ -197,6 +197,21 @@ export const charityItems: CharityItem[] = [
 
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-06-30",
+    items: [
+      "新增专题长文模块 /stories：活动回顾、杂志专题与 Markdown 正文",
+      "URL 级英文路由 /en/* 与 hreflang；首页专题条、动态分类筛选",
+      "构建时 WebP 优化；全站内页 ContentImage 覆盖；RSS 纳入专题条目",
+      "动态/活动/杂志详情页关联专题；修正联系反馈 GitHub Issues 链接",
+    ],
+    itemsEn: [
+      "New /stories long-form features: event recaps, magazine features, Markdown body",
+      "URL-level /en/* routes with hreflang; home story strip and news category filters",
+      "Build-time WebP; ContentImage site-wide; RSS now includes story entries",
+      "Related stories on news/event/magazine detail pages; fixed GitHub Issues feedback URL",
+    ],
+  },
+  {
     date: "2026-06-19",
     items: [
       "详情页可视化面包屑导航；作品/活动页展示关联动态",

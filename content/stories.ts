@@ -124,4 +124,50 @@ Public reports describe **citywide screen campaigns** and **co-branded merchandi
 
 Partnership details follow official Deeyeo releases.`,
   },
+  {
+    slug: "jia-ren-birthday-cover-2026-recap",
+    title: "嘉人六月生日刊 ·「AS SHE IS / 如她所是」与五大女刊全满贯",
+    titleEn: "Marie Claire June · \"AS SHE IS\" & the Big Five Grand Slam",
+    date: "2026-06-02",
+    summary:
+      "2026 年 6 月生日刊封面大片释出，成为中国 90 后首位完成五大女刊全满贯的艺人；高定造型与 MIKIMOTO 珠宝联动呈现。",
+    summaryEn:
+      "June 2026 birthday cover \"AS SHE IS\" — first post-90s artist to complete China's Big Five women's magazine grand slam, with couture and Mikimoto jewels.",
+    cover: IMAGES.magazines.jiaren2026,
+    tags: ["杂志", "生日刊", "全满贯"],
+    featured: true,
+    eventSlug: "jia-ren-birthday-cover-2026",
+    newsSlug: "jia-ren-june-2026",
+    magazineSlug: "jia-ren-2026-06",
+    body: `## 封面释出
+
+2026 年 6 月 2 日，《嘉人 MARIE CLAIRE》六月 **生日刊** 封面大片 **「AS SHE IS / 如她所是」** 释出。
+
+## 里程碑
+
+成为中国 **90 后首位** 完成 **五大女刊全满贯** 的艺人。
+
+## 造型
+
+公开物料显示与高定造型、**MIKIMOTO** 珠宝联动呈现。
+
+## 说明
+
+刊面与文案以《嘉人》官方发布为准。`,
+    bodyEn: `## Cover release
+
+On June 2, 2026, **Marie Claire China** released the June **birthday cover** story **"AS SHE IS"**.
+
+## Milestone
+
+First **post-90s** artist to complete China's **Big Five** women's magazine **grand slam**.
+
+## Look
+
+Public assets paired **couture** with **Mikimoto** jewelry.
+
+## Note
+
+Cover copy follows official Marie Claire China releases.`,
+  },
 ];

@@ -36,5 +36,5 @@ export const siteMeta: SiteMeta = {
   officialLinks: getOfficialLinksForSite(),
   /** 素材下架 / 纠错反馈 — 部署前请改为你的仓库 Issues 地址 */
   feedbackUrl:
-    "https://github.com/OWNER/dilraba-fans/issues/new?labels=takedown&title=%5BTakedown%5D+",
+    "https://github.com/sunxingzhe0504-ai/dilraba-fans/issues/new?labels=feedback&title=%5BFeedback%5D+",
 };

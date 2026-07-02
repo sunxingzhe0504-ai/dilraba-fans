@@ -1,4 +1,4 @@
-import { getLatestNews, getChangelog } from "@content/index";
+import { getChangelog, getLatestNews, getStories } from "@content/index";
 import { siteUrl } from "@/lib/site-url";
 
 export type FeedLocale = "zh" | "en";
@@ -19,6 +19,7 @@ function pickText(zh: string, en?: string, locale: FeedLocale = "zh") {
 
 export function buildRssFeed(locale: FeedLocale = "zh") {
   const news = getLatestNews(20);
+  const stories = getStories().slice(0, 10);
   const changelog = getChangelog();
 
   const channel =
@@ -26,14 +27,16 @@ export function buildRssFeed(locale: FeedLocale = "zh") {
       ? {
           title: "Dilraba · Fan Info Site",
           description:
-            "Latest news and site updates — unofficial Dilraba Dilmurat fan site.",
+            "Latest news, story features, and site updates — unofficial Dilraba Dilmurat fan site.",
           language: "en-US",
         }
       : {
           title: "迪丽热巴 · 粉丝资讯站",
-          description: "迪丽热巴粉丝资讯站最新动态与更新 — 非官方",
+          description: "最新动态、专题长文与站点更新 — 非官方粉丝资讯站",
           language: "zh-CN",
         };
+
+  const storyPrefix = locale === "en" ? "Story · " : "专题 · ";
 
   const newsItems = news.map((n) => ({
     title: pickText(n.title, n.titleEn, locale),
@@ -41,6 +44,14 @@ export function buildRssFeed(locale: FeedLocale = "zh") {
     description: pickText(n.summary, n.summaryEn, locale),
     pubDate: new Date(n.date).toUTCString(),
     guid: siteUrl(`/latest/${n.slug}`),
+  }));
+
+  const storyItems = stories.map((s) => ({
+    title: `${storyPrefix}${pickText(s.title, s.titleEn, locale)}`,
+    link: siteUrl(`/stories/${s.slug}`),
+    description: pickText(s.summary, s.summaryEn, locale),
+    pubDate: new Date(s.date).toUTCString(),
+    guid: siteUrl(`/stories/${s.slug}`),
   }));
 
   const changelogItems = changelog.flatMap((entry) => {
@@ -56,7 +67,7 @@ export function buildRssFeed(locale: FeedLocale = "zh") {
     }));
   });
 
-  const items = [...newsItems, ...changelogItems].sort(
+  const items = [...newsItems, ...storyItems, ...changelogItems].sort(
     (a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime(),
   );
 

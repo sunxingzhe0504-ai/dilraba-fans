@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { MAGAZINES_EN } from "@content/translations/en";
-import { getMagazineBySlug, getMagazineSlugs } from "@content/index";
+import { getMagazineBySlug, getMagazineSlugs, getNewsForMagazine, getStoriesForMagazine } from "@content/index";
 import { MagazineDetailPageDesign } from "@/components/designs/lazy-pages";
 import { JsonLd } from "@/components/JsonLd";
 import { detailMetadata } from "@/lib/i18n/metadata";
@@ -37,6 +37,9 @@ export default async function MagazineDetailPage({ params }: Props) {
 
   const extra = MAGAZINES_EN[slug];
 
+  const relatedNews = getNewsForMagazine(slug);
+  const relatedStories = getStoriesForMagazine(slug);
+
   return (
     <>
       <JsonLd data={magazineJsonLd(mag)} />
@@ -47,7 +50,11 @@ export default async function MagazineDetailPage({ params }: Props) {
           { name: extra?.nameEn ?? mag.nameEn ?? mag.name, url: siteUrl(`/magazine/${slug}`) },
         ])}
       />
-      <MagazineDetailPageDesign magazine={mag} />
+      <MagazineDetailPageDesign
+        magazine={mag}
+        relatedNews={relatedNews}
+        relatedStories={relatedStories}
+      />
     </>
   );
 }

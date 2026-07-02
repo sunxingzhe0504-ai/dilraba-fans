@@ -205,6 +205,10 @@ export function getNewsForEvent(eventSlug: string, limit = 4) {
   return getNews().filter((n) => n.eventSlug === eventSlug).slice(0, limit);
 }
 
+export function getNewsForMagazine(magazineSlug: string, limit = 4) {
+  return getNews().filter((n) => n.magazineSlug === magazineSlug).slice(0, limit);
+}
+
 export function getCharacterWithWork(slug: string) {
   const character = getCharacterBySlug(slug);
   if (!character) return undefined;
@@ -315,6 +319,12 @@ export function getStoriesForEvent(eventSlug: string, limit = 2) {
 export function getStoriesForNews(newsSlug: string, limit = 2) {
   return getStories()
     .filter((s) => s.newsSlug === newsSlug)
+    .slice(0, limit);
+}
+
+export function getStoriesForMagazine(magazineSlug: string, limit = 2) {
+  return getStories()
+    .filter((s) => s.magazineSlug === magazineSlug)
     .slice(0, limit);
 }
 

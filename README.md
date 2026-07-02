@@ -155,7 +155,7 @@ npm run start
 | `/about` | 关于她 |
 | `/changelog` | 更新日志 |
 | `/contact` | 联系与反馈 |
-| `/feed.xml` | RSS 订阅（中文） |
+| `/feed.xml` | RSS 订阅（中文：动态 + 专题 + 站点更新） |
 | `/feed-en.xml` | RSS 订阅（English） |
 | `/sitemap.xml` | 站点地图 |
 | `/robots.txt` | 爬虫规则 |

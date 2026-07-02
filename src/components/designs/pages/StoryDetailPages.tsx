@@ -38,8 +38,13 @@ function StoryArticle({ story }: StoryDetailPageProps) {
         <div className="mt-8">
           <StoryMarkdown content={body} />
         </div>
-        {(story.eventSlug || story.newsSlug) && (
+        {(story.eventSlug || story.newsSlug || story.magazineSlug) && (
           <div className="mt-10 flex flex-wrap gap-3 border-t border-border pt-6 text-sm">
+            {story.magazineSlug && (
+              <Link href={`/magazine/${story.magazineSlug}`} className="text-wine hover:underline">
+                {t("pages.stories.relatedMagazine")}
+              </Link>
+            )}
             {story.eventSlug && (
               <Link href={`/events/${story.eventSlug}`} className="text-wine hover:underline">
                 {t("pages.stories.relatedEvent")}
