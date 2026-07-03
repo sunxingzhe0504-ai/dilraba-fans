@@ -17,6 +17,22 @@
 /.next/
 /out/
 
+# never commit Next.js build artifacts to repo root
+/_next/
+/_not-found/
+/__next.*
+/.nojekyll
+/index.html
+/index.txt
+/404.html
+/404/
+/favicon.ico
+/manifest.webmanifest
+/robots.txt
+/sitemap.xml
+/feed.xml
+/feed-en.xml
+
 # production
 /build
 

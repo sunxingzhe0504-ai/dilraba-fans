@@ -1,4 +1,0 @@
-User-Agent: *
-Allow: /
-
-Sitemap: https://sunxingzhe0504-ai.github.io/dilraba-fans/sitemap.xml
