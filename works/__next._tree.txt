@@ -1,0 +1,7 @@
+:HL["/dilraba-fans/_next/static/chunks/43ew0t_pvywut.css","style"]
+:HL["/dilraba-fans/_next/static/chunks/0vhk52nllx223.css","style"]
+:HL["/dilraba-fans/_next/static/chunks/3091ess1edvh8.css","style"]
+:HL["/dilraba-fans/_next/static/media/01e4147cff8141ee-s.p.3huc2loe0ie8a.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/dilraba-fans/_next/static/media/b7f3a346e7dd7646-s.p.33z2kn4k8lwju.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/dilraba-fans/_next/static/media/feb57b2dc8f29018-s.p.3qy4m29-cg3o4.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"works","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"Npdw3yYmuD4kPrfpYQMAO"}
