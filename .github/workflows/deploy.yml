@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
@@ -15,7 +15,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -25,17 +25,18 @@ jobs:
           node-version: 22
           cache: npm
 
-      - name: Configure Pages URL
+      - name: Configure Pages
+        id: pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Export Pages URL
         run: |
-          REPO="${{ github.event.repository.name }}"
-          OWNER="${{ github.repository_owner }}"
-          if [[ "$REPO" == *.github.io ]]; then
-            echo "BASE_PATH=" >> "$GITHUB_ENV"
-            echo "NEXT_PUBLIC_SITE_URL=https://${OWNER}.github.io" >> "$GITHUB_ENV"
-          else
-            echo "BASE_PATH=/${REPO}" >> "$GITHUB_ENV"
-            echo "NEXT_PUBLIC_SITE_URL=https://${OWNER}.github.io/${REPO}" >> "$GITHUB_ENV"
-          fi
+          BASE_PATH="${{ steps.pages.outputs.base_path }}"
+          ORIGIN="${{ steps.pages.outputs.origin }}"
+          echo "BASE_PATH=${BASE_PATH}" >> "$GITHUB_ENV"
+          echo "NEXT_PUBLIC_SITE_URL=${ORIGIN}${BASE_PATH}" >> "$GITHUB_ENV"
           echo "GITHUB_PAGES=true" >> "$GITHUB_ENV"
 
       - run: npm ci
@@ -43,24 +44,21 @@ jobs:
       - run: npm run validate
       - run: npm run build
 
-      - name: Disable Jekyll on GitHub Pages
+      - name: Disable Jekyll
         run: touch out/.nojekyll
 
-      - name: Publish static site to master root
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./out
-          publish_branch: master
-          keep_files: true
-          user_name: github-actions[bot]
-          user_email: github-actions[bot]@users.noreply.github.com
-          commit_message: "chore(pages): deploy static site"
+          path: ./out
 
-      - name: Publish static site to gh-pages branch
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./out
-          publish_branch: gh-pages
-          force_orphan: true
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
