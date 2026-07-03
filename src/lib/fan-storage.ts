@@ -4,6 +4,9 @@ const WATCHED_KEY = "dlrb-watched";
 const ACHIEVEMENTS_KEY = "dlrb-achievements";
 const VISIT_DAYS_KEY = "dlrb-visit-days";
 const QUIZ_BEST_KEY = "dlrb-quiz-best";
+const FAN_STORAGE_EVENT = "dlrb-fan-storage";
+
+const EMPTY_LIST: string[] = [];
 
 function safeParse<T>(raw: string | null, fallback: T): T {
   if (!raw) return fallback;
@@ -19,8 +22,58 @@ function readStorage(): Storage | null {
   return window.localStorage;
 }
 
+/** Stable empty list for useSyncExternalStore server snapshots. */
+export function getEmptyStringList(): string[] {
+  return EMPTY_LIST;
+}
+
+function parseStringList(raw: string | null): string[] {
+  if (!raw) return EMPTY_LIST;
+  const parsed = safeParse<string[] | null>(raw, null);
+  if (!parsed?.length) return EMPTY_LIST;
+  return parsed;
+}
+
+let watchedRaw: string | null | undefined;
+let watchedSnapshot: string[] = EMPTY_LIST;
+
+let achievementsRaw: string | null | undefined;
+let achievementsSnapshot: string[] = EMPTY_LIST;
+
+function invalidateWatchedCache() {
+  watchedRaw = undefined;
+}
+
+function invalidateAchievementsCache() {
+  achievementsRaw = undefined;
+}
+
+function notifyFanStorage() {
+  if (typeof window !== "undefined") {
+    window.dispatchEvent(new Event(FAN_STORAGE_EVENT));
+  }
+}
+
+/** Subscribe to fan-storage updates (same tab + other tabs). */
+export function subscribeFanStorage(onChange: () => void) {
+  if (typeof window === "undefined") return () => {};
+  const handler = () => onChange();
+  window.addEventListener(FAN_STORAGE_EVENT, handler);
+  window.addEventListener("storage", handler);
+  return () => {
+    window.removeEventListener(FAN_STORAGE_EVENT, handler);
+    window.removeEventListener("storage", handler);
+  };
+}
+
 export function getWatchedWorks(): string[] {
-  return safeParse(readStorage()?.getItem(WATCHED_KEY) ?? null, []);
+  const storage = readStorage();
+  if (!storage) return EMPTY_LIST;
+  const raw = storage.getItem(WATCHED_KEY);
+  if (raw === watchedRaw) return watchedSnapshot;
+  watchedRaw = raw;
+  watchedSnapshot = parseStringList(raw);
+  return watchedSnapshot;
 }
 
 export function toggleWatchedWork(slug: string): string[] {
@@ -31,11 +84,19 @@ export function toggleWatchedWork(slug: string): string[] {
   else set.add(slug);
   const next = [...set];
   storage.setItem(WATCHED_KEY, JSON.stringify(next));
+  invalidateWatchedCache();
+  notifyFanStorage();
   return next;
 }
 
 export function getUnlockedAchievements(): string[] {
-  return safeParse(readStorage()?.getItem(ACHIEVEMENTS_KEY) ?? null, []);
+  const storage = readStorage();
+  if (!storage) return EMPTY_LIST;
+  const raw = storage.getItem(ACHIEVEMENTS_KEY);
+  if (raw === achievementsRaw) return achievementsSnapshot;
+  achievementsRaw = raw;
+  achievementsSnapshot = parseStringList(raw);
+  return achievementsSnapshot;
 }
 
 export function unlockAchievement(id: string): boolean {
@@ -45,6 +106,8 @@ export function unlockAchievement(id: string): boolean {
   if (current.has(id)) return false;
   current.add(id);
   storage.setItem(ACHIEVEMENTS_KEY, JSON.stringify([...current]));
+  invalidateAchievementsCache();
+  notifyFanStorage();
   return true;
 }
 

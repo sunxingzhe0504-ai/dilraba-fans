@@ -3,31 +3,24 @@
 import { useSyncExternalStore } from "react";
 import { useLocale, useT } from "@/components/LocaleProvider";
 import { ACHIEVEMENTS } from "@/lib/achievements";
-import { getUnlockedAchievements } from "@/lib/fan-storage";
+import {
+  getEmptyStringList,
+  getUnlockedAchievements,
+  subscribeFanStorage,
+} from "@/lib/fan-storage";
 import { cn } from "@/lib/cn";
 
 type Props = {
   variant?: "c" | "a" | "b" | "d";
 };
 
-function subscribeAchievements(onChange: () => void) {
-  if (typeof window === "undefined") return () => {};
-  const handler = () => onChange();
-  window.addEventListener("storage", handler);
-  const interval = window.setInterval(handler, 2000);
-  return () => {
-    window.removeEventListener("storage", handler);
-    window.clearInterval(interval);
-  };
-}
-
 export function FanAchievements({ variant = "c" }: Props) {
   const locale = useLocale();
   const t = useT();
   const unlocked = useSyncExternalStore(
-    subscribeAchievements,
+    subscribeFanStorage,
     getUnlockedAchievements,
-    () => [] as string[],
+    getEmptyStringList,
   );
 
   const cardClass =

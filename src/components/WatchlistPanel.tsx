@@ -1,11 +1,17 @@
 "use client";
 
-import { useSyncExternalStore, useState } from "react";
+import { useSyncExternalStore } from "react";
 import { Check, Clapperboard } from "lucide-react";
 import type { Work } from "@/lib/types";
 import { useLocale, useT } from "@/components/LocaleProvider";
 import { localizeWork } from "@/lib/i18n/localize";
-import { getWatchedWorks, toggleWatchedWork, unlockAchievement } from "@/lib/fan-storage";
+import {
+  getEmptyStringList,
+  getWatchedWorks,
+  subscribeFanStorage,
+  toggleWatchedWork,
+  unlockAchievement,
+} from "@/lib/fan-storage";
 import { checkAchievements } from "@/lib/achievements";
 import { cn } from "@/lib/cn";
 
@@ -13,35 +19,21 @@ type Props = {
   works: Work[];
 };
 
-function subscribeWatched(onChange: () => void) {
-  if (typeof window === "undefined") return () => {};
-  const handler = () => onChange();
-  window.addEventListener("storage", handler);
-  return () => window.removeEventListener("storage", handler);
-}
-
 export function WatchlistPanel({ works }: Props) {
   const locale = useLocale();
   const t = useT();
   const released = works.filter((w) => w.status === "released");
   const watched = useSyncExternalStore(
-    subscribeWatched,
+    subscribeFanStorage,
     getWatchedWorks,
-    () => [] as string[],
+    getEmptyStringList,
   );
-  const [, bump] = useState(0);
-
-  const syncAchievements = (count: number) => {
-    checkAchievements({ watchedCount: count, streak: 0 }).forEach((id) =>
-      unlockAchievement(id),
-    );
-    bump((n) => n + 1);
-  };
 
   const toggle = (slug: string) => {
     const next = toggleWatchedWork(slug);
-    syncAchievements(next.length);
-    bump((n) => n + 1);
+    checkAchievements({ watchedCount: next.length, streak: 0 }).forEach((id) =>
+      unlockAchievement(id),
+    );
   };
 
   const watchedCount = watched.filter((s) => released.some((w) => w.slug === s)).length;
