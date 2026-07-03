@@ -3,19 +3,6 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main, master]
-    paths:
-      - ".github/workflows/deploy.yml"
-      - "content/**"
-      - "src/**"
-      - "public/**"
-      - "package.json"
-      - "package-lock.json"
-      - "next.config.ts"
-      - "postcss.config.mjs"
-      - "tsconfig.json"
-      - "scripts/**"
-      - "eslint.config.mjs"
-      - "AGENTS.md"
   workflow_dispatch:
 
 permissions:
@@ -59,8 +46,6 @@ jobs:
       - name: Disable Jekyll on GitHub Pages
         run: touch out/.nojekyll
 
-      # Merge static export into master root so existing "Deploy from branch / master / (root)"
-      # serves index.html instead of rendering README.md with Jekyll.
       - name: Publish static site to master root
         uses: peaceiris/actions-gh-pages@v4
         with:
@@ -70,31 +55,12 @@ jobs:
           keep_files: true
           user_name: github-actions[bot]
           user_email: github-actions[bot]@users.noreply.github.com
-          commit_message: "chore(pages): deploy static site to master root"
+          commit_message: "chore(pages): deploy static site"
 
-      - name: Publish to gh-pages branch (clean hosting copy)
+      - name: Publish static site to gh-pages branch
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./out
           publish_branch: gh-pages
           force_orphan: true
-
-      - name: Point GitHub Pages at gh-pages branch when possible
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          API="https://api.github.com/repos/${{ github.repository }}/pages"
-          BODY='{"source":{"branch":"gh-pages","path":"/"},"build_type":"legacy"}'
-          code=$(curl -sS -o /tmp/pages-gh.json -w "%{http_code}" -X PUT \
-            -H "Authorization: Bearer ${GH_TOKEN}" \
-            -H "Accept: application/vnd.github+json" \
-            -H "X-GitHub-Api-Version: 2022-11-28" \
-            "${API}" -d "${BODY}" || true)
-          if [ "${code}" = "404" ]; then
-            curl -sf -X POST \
-              -H "Authorization: Bearer ${GH_TOKEN}" \
-              -H "Accept: application/vnd.github+json" \
-              -H "X-GitHub-Api-Version: 2022-11-28" \
-              "${API}" -d "${BODY}" || true
-          fi
