@@ -2,5 +2,7 @@
 export function assetPath(path: string): string {
   if (!path.startsWith("/")) return path;
   const base = process.env.NEXT_PUBLIC_BASE_PATH?.replace(/\/$/, "") ?? "";
+  if (!base) return path;
+  if (path === base || path.startsWith(`${base}/`)) return path;
   return `${base}${path}`;
 }

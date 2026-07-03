@@ -1,16 +1,16 @@
-import { assetPath } from "@/lib/asset-path";
-
 /**
  * 本地托管图片清单（全部位于 public/images 下）
  * - 作品海报：来自 TMDB，已逐张人工目视核对与剧集一一对应
  * - 人物写真：TMDB 人物图库（迪丽热巴）
  * - 杂志封面：均为真实刊物封面/大片，已逐张核对刊名、期号与人物
  * 改为本地托管后不再受网络环境（CDN 解析到内网 IP）影响。
+ *
+ * 路径保持 /images/... 根相对形式；basePath 由 ContentImage / assetPath 在运行时或构建组件时统一加前缀。
  */
-const W = assetPath("/images/works");
-const P = assetPath("/images/portraits");
-const M = assetPath("/images/magazines");
-const B = assetPath("/images/backdrop");
+const W = "/images/works";
+const P = "/images/portraits";
+const M = "/images/magazines";
+const B = "/images/backdrop";
 
 export const IMAGES = {
   hero: `${P}/hero-red-pearl.jpg`,

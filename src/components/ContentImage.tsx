@@ -13,19 +13,21 @@ type Props = ImageProps & {
 
 /** 优先 WebP、JPEG/PNG 降级的图片组件 */
 export function ContentImage({ src, alt, className, fill, sizes, priority, ...rest }: Props) {
-  const webp = webpSrc(src);
+  const resolved = assetPath(src);
+  const webp = assetPath(webpSrc(src));
 
   if (fill) {
     return (
       <picture className="absolute inset-0 block">
-        <source srcSet={assetPath(webp)} type="image/webp" />
+        <source srcSet={webp} type="image/webp" />
         <Image
-          src={src}
+          src={resolved}
           alt={alt}
           fill
           sizes={sizes}
           priority={priority}
           className={cn(className)}
+          unoptimized
           {...rest}
         />
       </picture>
@@ -34,8 +36,16 @@ export function ContentImage({ src, alt, className, fill, sizes, priority, ...re
 
   return (
     <picture className={cn("block", className)}>
-      <source srcSet={assetPath(webp)} type="image/webp" />
-      <Image src={src} alt={alt} sizes={sizes} priority={priority} className={className} {...rest} />
+      <source srcSet={webp} type="image/webp" />
+      <Image
+        src={resolved}
+        alt={alt}
+        sizes={sizes}
+        priority={priority}
+        className={className}
+        unoptimized
+        {...rest}
+      />
     </picture>
   );
 }

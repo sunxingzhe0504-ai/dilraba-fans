@@ -9,6 +9,7 @@ import { useLocale, useT } from "@/components/LocaleProvider";
 import { localizeCharacter, localizeGalleryItem } from "@/lib/i18n/localize";
 import { galleryCategoryLabel } from "@/lib/i18n/labels";
 import { GalleryLightbox, GalleryLightboxTrigger } from "@/components/GalleryLightbox";
+import { assetPath } from "@/lib/asset-path";
 import { cn } from "@/lib/cn";
 
 type Props = {
@@ -48,9 +49,9 @@ export function GalleryGrid({ items, className }: Props) {
                   <p className="mt-0.5 text-xs text-ink-mute">{item.year}</p>
                 )}
                 {item.wallpaper && (
-                  <a
-                    href={item.image}
-                    download
+                <a
+                href={assetPath(item.image)}
+                download
                     onClick={(e) => e.stopPropagation()}
                     className="mt-3 inline-flex items-center gap-1.5 text-xs font-medium text-wine hover:text-wine-deep"
                   >

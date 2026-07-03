@@ -6,6 +6,7 @@ import type { GalleryItem } from "@/lib/types";
 import { useLocale, useT } from "@/components/LocaleProvider";
 import { localizeGalleryItem } from "@/lib/i18n/localize";
 import { galleryCategoryLabel } from "@/lib/i18n/labels";
+import { assetPath } from "@/lib/asset-path";
 import { unlockAchievement } from "@/lib/fan-storage";
 import { cn } from "@/lib/cn";
 
@@ -99,7 +100,7 @@ export function GalleryLightbox({ items, initialIndex, onClose }: Props) {
         <div className="relative max-h-[78vh] w-auto overflow-hidden rounded-2xl">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={item.image}
+            src={assetPath(item.image)}
             alt={item.title}
             className="max-h-[78vh] w-auto object-contain"
           />
@@ -117,7 +118,7 @@ export function GalleryLightbox({ items, initialIndex, onClose }: Props) {
           </div>
           {item.wallpaper && (
             <a
-              href={item.image}
+              href={assetPath(item.image)}
               download
               className="inline-flex items-center gap-1.5 rounded-full bg-paper/15 px-4 py-2 text-sm font-medium text-paper hover:bg-paper/25"
             >
