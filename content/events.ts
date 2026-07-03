@@ -6,6 +6,38 @@ import type { FanEvent } from "@/lib/types";
  */
 export const events: FanEvent[] = [
   {
+    slug: "land-rover-urban-camp-2026",
+    title: "路虎卫士都市营地 · 上海",
+    titleEn: "Land Rover Defender Urban Camp · Shanghai",
+    date: "2026-07-03",
+    category: "brand",
+    location: "上海 · 西岸星美术馆",
+    locationEn: "West Bund Star Museum of Art, Shanghai",
+    summary:
+      "出席路虎卫士都市营地线下活动，身着 Julien Fournié 特别定制白色套装亮相，为官宣全驭代言人后首次公开线下活动。",
+    summaryEn:
+      "Land Rover Defender Urban Camp in a Julien Fournié custom white suit — first public offline appearance since the ambassador announcement.",
+    description:
+      "据公开现场报道，迪丽热巴于 7 月 3 日出席上海西岸星美术馆路虎卫士都市营地活动。都市营地于 7 月 4 日起对公众开放，造型与活动细节以品牌官方发布为准。",
+    descriptionEn:
+      "Public reports describe the July 3 Urban Camp at West Bund Star Museum of Art. The camp opened to the public on July 4. Details follow official Land Rover releases.",
+    featured: true,
+  },
+  {
+    slug: "land-rover-defender-2026",
+    title: "路虎卫士全驭代言人官宣",
+    titleEn: "Land Rover Defender Brand Ambassador Launch",
+    date: "2026-06-20",
+    category: "brand",
+    location: "线上发布",
+    locationEn: "Online",
+    summary:
+      "正式官宣成为路虎卫士全驭代言人，与品牌共同推广卫士系列车型。",
+    summaryEn:
+      "Officially announced as Land Rover Defender brand ambassador.",
+    featured: true,
+  },
+  {
     slug: "macalline-brand-2026",
     title: "红星美凯龙品牌活动",
     titleEn: "Macalline Brand Event",
@@ -32,7 +64,7 @@ export const events: FanEvent[] = [
     location: "线上发布",
     locationEn: "Online",
     summary:
-      "正式官宣成为德佑（Deeyeo）全球品牌代言人，品牌同步启动百城大屏推广与联名周边。",
+      "正式官宣成为德佑（Deeyeo）全球品牌代言人，品牌同步启动多地推广与联名周边。",
     summaryEn:
       "Officially announced as Deeyeo global brand ambassador with a reported multi-city campaign and merchandise rollout.",
     featured: true,
@@ -92,9 +124,9 @@ export const events: FanEvent[] = [
     location: "线上发布",
     locationEn: "Online",
     summary:
-      "登上《嘉人》2026 年 6 月生日刊封面「AS SHE IS / 如她所是」，成为中国 90 后首位完成五大女刊全满贯的艺人。",
+      "登上《嘉人》2026 年 6 月生日刊封面「AS SHE IS / 如她所是」，与高定造型、MIKIMOTO 珠宝联动呈现。",
     summaryEn:
-      "Marie Claire China June 2026 \"AS SHE IS\" cover — first post-90s artist to complete the Big Five women's magazine grand slam.",
+      'Marie Claire China June 2026 "AS SHE IS" birthday cover with couture and Mikimoto jewelry.',
     featured: true,
   },
   {

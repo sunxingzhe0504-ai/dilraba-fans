@@ -24,7 +24,7 @@ export const gallery: GalleryItem[] = [
   { slug: "ni-guang-poster", title: "逆光之恋 · 江离", category: "wallpaper", image: W["ni-guang-zhi-lian"], year: 2015, wallpaper: true, tags: ["角色"] },
   { slug: "chuangzaoying-poster", title: "创造营 2019", category: "wallpaper", image: W["chuangzaoying-2019"], year: 2019, tags: ["综艺"] },
   { slug: "kaishi-s3-poster", title: "开始推理吧 第三季", category: "wallpaper", image: W["kaishi-tuili-ba-s3"], year: 2025, tags: ["综艺"] },
-  { slug: "jia-ren-2026", title: "嘉人 2026 生日刊", category: "magazine", image: M.jiaren2026, year: 2026, tags: ["封面", "全满贯"] },
+  { slug: "jia-ren-2026", title: "嘉人 2026 生日刊", category: "magazine", image: M.jiaren2026, year: 2026, tags: ["封面", "生日刊"] },
   { slug: "bai-ri-ti-deng-poster", title: "白日提灯 · 贺思慕", category: "wallpaper", image: W["bai-ri-ti-deng"], year: 2026, wallpaper: true, tags: ["角色"] },
   { slug: "elle-2026", title: "ELLE 2026 开季", category: "magazine", image: M.elle2026, year: 2026, tags: ["封面"] },
   { slug: "bazaar-2025", title: "芭莎 Limitless", category: "magazine", image: M.bazaar2025, year: 2025, tags: ["封面"] },

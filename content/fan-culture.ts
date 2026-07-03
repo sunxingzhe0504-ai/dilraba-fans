@@ -90,6 +90,18 @@ export const fanCulture: FanCulture = {
 
 export const brandHighlights: BrandHighlight[] = [
   {
+    slug: "land-rover-defender-2026",
+    title: "路虎卫士全驭代言人",
+    titleEn: "Land Rover Defender Brand Ambassador",
+    date: "2026-06-20",
+    summary:
+      "6 月 20 日正式官宣成为路虎卫士全驭代言人，7 月出席上海都市营地线下活动。",
+    summaryEn:
+      "Announced Land Rover Defender brand ambassador June 20; Shanghai Urban Camp event in July.",
+    image: IMAGES.portraits.redBlack,
+    externalUrl: "https://www.sina.cn/news/detail/5311824748614498.html",
+  },
+  {
     slug: "macalline-shenyang-2026",
     title: "红星美凯龙 · 沈阳品牌活动",
     titleEn: "Macalline · Shenyang Brand Event",
@@ -106,7 +118,7 @@ export const brandHighlights: BrandHighlight[] = [
     titleEn: "Deeyeo Global Brand Ambassador",
     date: "2026-06-13",
     summary:
-      "6 月 13 日正式官宣成为德佑（Deeyeo）全球品牌代言人，品牌同步启动百城大屏推广。",
+      "6 月 13 日正式官宣成为德佑（Deeyeo）全球品牌代言人，品牌同步启动多地推广。",
     summaryEn:
       "Announced as Deeyeo global brand ambassador on June 13 with a reported nationwide campaign.",
     image: IMAGES.portraits.warmCandid,
@@ -143,13 +155,15 @@ export const brandHighlights: BrandHighlight[] = [
   },
   {
     slug: "magazine-grand-slam-2026",
-    title: "嘉人六月刊 · 五大女刊全满贯",
-    titleEn: "Marie Claire · Big Five Grand Slam",
-    date: "2026-06",
-    summary: "登上《嘉人》2026 年 6 月生日刊封面，成为中国 90 后首位完成五大女刊全满贯的艺人。",
-    summaryEn: "First post-90s artist to complete all five major women's magazine solo covers.",
+    title: "VOGUE 八月刊 · 五大女刊单人正刊全满贯",
+    titleEn: "VOGUE August · Big Five Solo-Cover Grand Slam",
+    date: "2026-07",
+    summary:
+      "据时尚媒体报道，已于 7 月 1 日完成《VOGUE》2026 年 8 月刊单人封面拍摄，成为 90 后女演员中首位达成五大女刊单人正刊全满贯的艺人；刊面以杂志官方为准。",
+    summaryEn:
+      "Fashion media report August 2026 VOGUE China solo cover shoot July 1 — first post-90s actress with all five solo covers; official release TBA.",
     image: IMAGES.portraits.redPearl,
-    externalUrl: "https://www.marieclaire.com.cn/",
+    externalUrl: "https://ent.sina.cn/2026-07-02/detail-inifitan6107944.d.html",
   },
   {
     slug: "magazine-2026",
@@ -196,6 +210,19 @@ export const charityItems: CharityItem[] = [
 ];
 
 export const changelog: ChangelogEntry[] = [
+  {
+    date: "2026-07-03",
+    items: [
+      "补充路虎卫士全驭代言人（6/20）、上海都市营地活动（7/3）与 VOGUE 八月刊单人封面拍摄（7/1）",
+      "修正嘉人六月刊、德佑官宣等条目中「全满贯」「百城大屏」等未经核实的表述",
+      "新增路虎与 VOGUE 全满贯专题长文；荣誉与时间轴同步更新",
+    ],
+    itemsEn: [
+      "Added Land Rover ambassador (Jun 20), Shanghai Urban Camp (Jul 3), and VOGUE August solo cover shoot (Jul 1)",
+      "Corrected unverified claims such as premature grand slam and \"100-city screens\" in Deeyeo entries",
+      "New Land Rover and VOGUE grand slam story features; honors and timeline updated",
+    ],
+  },
   {
     date: "2026-07-02",
     items: [

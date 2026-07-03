@@ -4,6 +4,79 @@ import { IMAGES } from "./images";
 /** 专题长文（Markdown），活动回顾与深度图文 */
 export const stories: Story[] = [
   {
+    slug: "land-rover-2026-recap",
+    title: "路虎卫士全驭代言人 · 官宣与上海都市营地",
+    titleEn: "Land Rover Defender · Announcement & Shanghai Urban Camp",
+    date: "2026-07-03",
+    summary:
+      "6 月 20 日官宣路虎卫士全驭代言人；7 月 3 日出席上海都市营地线下活动，身着 Julien Fournié 定制高定亮相。",
+    summaryEn:
+      "Ambassador announced June 20; July 3 Urban Camp in Shanghai in Julien Fournié custom couture.",
+    cover: IMAGES.portraits.redBlack,
+    tags: ["代言", "品牌活动"],
+    featured: true,
+    eventSlug: "land-rover-urban-camp-2026",
+    newsSlug: "land-rover-urban-camp-2026",
+    body: `## 官宣
+
+2026 年 **6 月 20 日**，迪丽热巴正式官宣成为 **路虎卫士全驭代言人**。
+
+## 上海都市营地
+
+据公开现场报道，**7 月 3 日** 她出席上海西岸星美术馆 **路虎卫士都市营地** 线下活动，身着法国高定品牌 **Julien Fournié** 为其特别定制的白色无袖套装亮相。都市营地于 **7 月 4 日** 起对公众开放。
+
+## 说明
+
+合作与活动细节以路虎卫士官方发布为准。`,
+    bodyEn: `## Announcement
+
+On **June 20, 2026**, Dilraba was announced as **Land Rover Defender brand ambassador**.
+
+## Shanghai Urban Camp
+
+Public reports describe the **July 3** **Urban Camp** at West Bund Star Museum of Art in a **Julien Fournié** custom white suit. The camp opened to the public on **July 4**.
+
+## Note
+
+Partnership and event details follow official Land Rover releases.`,
+  },
+  {
+    slug: "vogue-solo-grand-slam-2026-recap",
+    title: "VOGUE 八月刊单人封面 · 五大女刊单人正刊全满贯",
+    titleEn: "VOGUE August Solo Cover · Big Five Solo-Cover Grand Slam",
+    date: "2026-07-01",
+    summary:
+      "据时尚媒体报道，已于 7 月 1 日完成《VOGUE服饰与美容》2026 年 8 月刊单人正刊封面拍摄，成为 90 后女演员中首位达成五大女刊单人正刊全满贯的艺人。",
+    summaryEn:
+      "Fashion media report the August 2026 VOGUE China solo cover shoot on July 1 — first post-90s actress with all five major solo covers.",
+    cover: IMAGES.portraits.redPearl,
+    tags: ["杂志", "VOGUE"],
+    featured: true,
+    newsSlug: "vogue-august-2026-cover-shoot",
+    body: `## 拍摄完成
+
+据新浪娱乐等 **时尚媒体报道**，迪丽热巴已于 **2026 年 7 月 1 日** 完成 **《VOGUE服饰与美容》2026 年 8 月刊** 单人正刊封面拍摄。
+
+## 行业意义
+
+中国五大女刊通常指《VOGUE》《ELLE》《时尚芭莎》《时尚COSMO》《嘉人》。媒体报道称，此次拍摄补齐 **VOGUE 单人正刊** 版图，使她成为 **90 后女演员中首位** 达成五大女刊 **单人正刊全满贯** 的艺人。
+
+## 说明
+
+正式刊面、官宣与发售时间以 **《VOGUE》官方公布** 为准；本站整理自公开报道，仅供粉丝交流。`,
+    bodyEn: `## Shoot completed
+
+**Fashion media** report Dilraba wrapped the **August 2026 VOGUE China** solo cover shoot on **July 1, 2026**.
+
+## Context
+
+China's Big Five women's magazines are VOGUE, ELLE, Harper's BAZAAR, COSMO, and Marie Claire. Reports describe this as completing the **VOGUE solo cover** — the first **post-90s actress** with all five **solo covers**.
+
+## Note
+
+Official magazine release dates follow **VOGUE China**. Compiled from public reports for fan appreciation.`,
+  },
+  {
     slug: "china-film-tv-night-2026-recap",
     title: "中国影视之夜 · 红毯与 CMG 年度推荐女演员",
     titleEn: "China Film & TV Night · Red Carpet & CMG Actress Honor",
@@ -90,8 +163,8 @@ Event details follow official brand and studio releases.`,
   },
   {
     slug: "deeyeo-global-2026-recap",
-    title: "德佑全球代言人官宣 · 百城大屏与联名周边",
-    titleEn: "Deeyeo Global Ambassador · Citywide Screens & Merch",
+    title: "德佑全球代言人官宣 · 多地推广与联名周边",
+    titleEn: "Deeyeo Global Ambassador · Multi-City Campaign & Merch",
     date: "2026-06-13",
     summary:
       "6 月 10–12 日倒计时预热后正式官宣全球品牌代言人；据公开报道，品牌在全国多城上线大屏推广并推出联名系列。",
@@ -127,15 +200,15 @@ Partnership details follow official Deeyeo releases.`,
   },
   {
     slug: "jia-ren-birthday-cover-2026-recap",
-    title: "嘉人六月生日刊 ·「AS SHE IS / 如她所是」与五大女刊全满贯",
-    titleEn: "Marie Claire June · \"AS SHE IS\" & the Big Five Grand Slam",
+    title: "嘉人六月生日刊 ·「AS SHE IS / 如她所是」",
+    titleEn: 'Marie Claire June · "AS SHE IS"',
     date: "2026-06-02",
     summary:
-      "2026 年 6 月生日刊封面大片释出，成为中国 90 后首位完成五大女刊全满贯的艺人；高定造型与 MIKIMOTO 珠宝联动呈现。",
+      "2026 年 6 月生日刊封面大片释出，主题「AS SHE IS / 如她所是」；高定造型与 MIKIMOTO 珠宝联动呈现。",
     summaryEn:
-      "June 2026 birthday cover \"AS SHE IS\" — first post-90s artist to complete China's Big Five women's magazine grand slam, with couture and Mikimoto jewels.",
+      'June 2026 birthday cover "AS SHE IS" with couture looks and Mikimoto jewelry.',
     cover: IMAGES.magazines.jiaren2026,
-    tags: ["杂志", "生日刊", "全满贯"],
+    tags: ["杂志", "生日刊"],
     featured: true,
     eventSlug: "jia-ren-birthday-cover-2026",
     newsSlug: "jia-ren-june-2026",
@@ -143,10 +216,6 @@ Partnership details follow official Deeyeo releases.`,
     body: `## 封面释出
 
 2026 年 6 月 2 日，《嘉人 MARIE CLAIRE》六月 **生日刊** 封面大片 **「AS SHE IS / 如她所是」** 释出。
-
-## 里程碑
-
-成为中国 **90 后首位** 完成 **五大女刊全满贯** 的艺人。
 
 ## 造型
 
@@ -158,10 +227,6 @@ Partnership details follow official Deeyeo releases.`,
     bodyEn: `## Cover release
 
 On June 2, 2026, **Marie Claire China** released the June **birthday cover** story **"AS SHE IS"**.
-
-## Milestone
-
-First **post-90s** artist to complete China's **Big Five** women's magazine **grand slam**.
 
 ## Look
 

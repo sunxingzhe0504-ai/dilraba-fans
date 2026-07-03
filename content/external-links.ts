@@ -209,9 +209,19 @@ export const EVENT_EXTERNAL_LINKS: Record<string, ExternalLink[]> = {
       href: "https://www.marieclaire.com.cn/",
       kind: "official",
     },
+  ],
+  "land-rover-defender-2026": [
     {
-      label: "新浪娱乐 · 五大女刊满贯",
-      href: "https://ent.sina.cn/2026-06-03/detail-iniacaet1017107.d.html",
+      label: "新浪 · 路虎卫士代言人官宣",
+      href: "https://www.sina.cn/news/detail/5311824748614498.html",
+      kind: "info",
+    },
+    linkWeiboPersonal(),
+  ],
+  "land-rover-urban-camp-2026": [
+    {
+      label: "新浪 · 都市营地活动现场",
+      href: "https://www.sina.cn/news/detail/5316277541014141.html",
       kind: "info",
     },
   ],

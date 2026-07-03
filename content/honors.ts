@@ -6,6 +6,20 @@ import type { Honor, TimelineEntry } from "@/lib/types";
 export const honors: Honor[] = [
   {
     year: 2026,
+    title: "路虎卫士全驭代言人官宣",
+    titleEn: "Land Rover Defender brand ambassador announced",
+    source: "公开官宣 / 媒体报道",
+    sourceEn: "Official announcement / media reports",
+  },
+  {
+    year: 2026,
+    title: "据时尚媒体报道完成 VOGUE 八月刊单人封面拍摄，达成五大女刊单人正刊全满贯",
+    titleEn: "VOGUE August solo cover shoot reported — Big Five solo-cover grand slam",
+    source: "时尚媒体报道（刊面以杂志官方为准）",
+    sourceEn: "Fashion media reports (official magazine release TBA)",
+  },
+  {
+    year: 2026,
     title: "德佑全球品牌代言人官宣，商业版图持续扩展",
     titleEn: "Deeyeo global brand ambassador announced",
     source: "公开官宣 / 媒体报道",
@@ -27,8 +41,8 @@ export const honors: Honor[] = [
   },
   {
     year: 2026,
-    title: "《白日提灯》热播，嘉人六月刊达成五大女刊全满贯",
-    titleEn: "Love Under the Lantern airs; Marie Claire completes Big Five grand slam",
+    title: "《白日提灯》热播，《嘉人》六月生日刊封面释出",
+    titleEn: "Love Under the Lantern airs; Marie Claire June birthday cover",
     source: "公开播出信息 / 时尚媒体报道",
     sourceEn: "Broadcast info / fashion media",
   },
@@ -238,11 +252,11 @@ export const timeline: TimelineEntry[] = [
   },
   {
     year: 2026,
-    title: "独立发展与新阶段",
-    titleEn: "A new chapter",
+    title: "代言与时尚新阶段",
+    titleEn: "New brand and fashion milestones",
     description:
-      "《嘉人》六月刊达成五大女刊全满贯；中国影视之夜红毯回归并获 CMG 年度推荐电视剧女演员；官宣德佑全球代言人，出席沈阳等品牌活动。",
+      "官宣路虎卫士全驭代言人与德佑全球代言人；据时尚媒体报道完成 VOGUE 八月刊单人封面拍摄；中国影视之夜红毯回归并获 CMG 年度推荐电视剧女演员。",
     descriptionEn:
-      "Marie Claire grand slam, China Film & TV Night return with CMG Recommended TV Actress, Deeyeo global ambassador, and brand events including Shenyang.",
+      "Land Rover Defender and Deeyeo global ambassador; reported VOGUE August solo cover shoot; China Film & TV Night return with CMG Recommended TV Actress.",
   },
 ];

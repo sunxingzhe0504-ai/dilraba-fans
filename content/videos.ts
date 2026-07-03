@@ -11,6 +11,32 @@ const m = IMAGES.magazines;
  */
 export const videos: VideoItem[] = [
   {
+    slug: "land-rover-urban-camp-2026-video",
+    title: "路虎卫士都市营地 · 上海活动现场",
+    titleEn: "Land Rover Defender Urban Camp · Shanghai Highlights",
+    date: "2026-07-03",
+    category: "event",
+    platform: "weibo",
+    href: "https://www.sina.cn/news/detail/5316277541014141.html",
+    thumbnail: p.redBlack,
+    summary: "7 月 3 日出席上海都市营地，Julien Fournié 定制高定亮相。",
+    summaryEn: "July 3 Urban Camp in Shanghai — Julien Fournié custom couture.",
+    featured: true,
+  },
+  {
+    slug: "land-rover-defender-2026-video",
+    title: "路虎卫士全驭代言人官宣",
+    titleEn: "Land Rover Defender Ambassador Announcement",
+    date: "2026-06-20",
+    category: "event",
+    platform: "weibo",
+    href: "https://www.sina.cn/news/detail/5311824748614498.html",
+    thumbnail: p.redBlack,
+    summary: "6 月 20 日正式官宣路虎卫士全驭代言人。",
+    summaryEn: "Official Land Rover Defender brand ambassador announcement on June 20.",
+    featured: true,
+  },
+  {
     slug: "macalline-shenyang-2026-video",
     title: "红星美凯龙沈阳品牌活动 · 现场回顾",
     titleEn: "Macalline Shenyang Event · On-Site Highlights",

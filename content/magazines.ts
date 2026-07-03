@@ -14,10 +14,10 @@ export const magazines: Magazine[] = [
     issue: "2026 年 6 月 · 生日刊「AS SHE IS / 如她所是」",
     year: 2026,
     cover: m.jiaren2026,
-    tags: ["生日刊", "五大女刊全满贯"],
+    tags: ["生日刊", "嘉人"],
     featured: true,
     description:
-      "2026 年 6 月生日刊封面大片「AS SHE IS / 如她所是」，成为中国 90 后首位完成五大女刊全满贯的艺人，与高定造型、MIKIMOTO 珠宝联动呈现。",
+      "2026 年 6 月生日刊封面大片「AS SHE IS / 如她所是」，与高定造型、MIKIMOTO 珠宝联动呈现。",
   },
   {
     slug: "elle-2026-03",

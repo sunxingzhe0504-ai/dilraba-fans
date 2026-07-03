@@ -4,6 +4,59 @@ import { OFFICIAL_CHANNELS } from "./official-channels";
 /** 最新动态：以公开信息为准，按时间倒序维护 */
 export const news: NewsItem[] = [
   {
+    slug: "land-rover-urban-camp-2026",
+    title: "路虎卫士都市营地 · 上海线下活动",
+    titleEn: "Land Rover Defender Urban Camp · Shanghai Event",
+    date: "2026-07-03",
+    category: "event",
+    summary:
+      "出席路虎卫士都市营地上海线下活动，身着 Julien Fournié 特别定制白色套装亮相；为 6 月官宣全驭代言人后的首次公开线下亮相。",
+    summaryEn:
+      "At the Land Rover Defender Urban Camp in Shanghai in a Julien Fournié custom white suit — first public offline appearance since the June ambassador announcement.",
+    body:
+      "据公开现场报道，迪丽热巴于 7 月 3 日出席上海西岸星美术馆路虎卫士都市营地活动，身着法国高定品牌 Julien Fournié 为其特别定制的白色无袖套装亮相。都市营地于 7 月 4 日起对公众开放，活动细节以品牌官方发布为准。",
+    bodyEn:
+      "Public reports describe the July 3 Urban Camp event at West Bund Star Museum of Art in Shanghai. The camp opened to the public on July 4. Details follow official Land Rover releases.",
+    eventSlug: "land-rover-urban-camp-2026",
+    externalUrl: "https://www.sina.cn/news/detail/5316277541014141.html",
+    featured: true,
+  },
+  {
+    slug: "vogue-august-2026-cover-shoot",
+    title: "《VOGUE》八月刊单人封面拍摄完成",
+    titleEn: "VOGUE China August 2026 Solo Cover Shoot Completed",
+    date: "2026-07-01",
+    category: "fashion",
+    summary:
+      "据时尚媒体报道，已于 7 月 1 日完成《VOGUE服饰与美容》2026 年 8 月刊单人正刊封面拍摄，成为 90 后女演员中首位达成五大女刊单人正刊全满贯的艺人；刊面官宣以杂志为准。",
+    summaryEn:
+      "Fashion media report the August 2026 VOGUE China solo cover shoot wrapped July 1 — first post-90s actress to complete all five major women's magazine solo covers; official release TBA.",
+    body:
+      "中国五大女刊通常指《VOGUE服饰与美容》《ELLE》《时尚芭莎》《时尚COSMO》《嘉人》。据新浪娱乐等公开报道，此次拍摄补齐 VOGUE 单人正刊版图；正式刊面与发售时间以《VOGUE》官方公布为准。",
+    bodyEn:
+      "China's Big Five women's magazines include VOGUE, ELLE, Harper's BAZAAR, COSMO, and Marie Claire. Public reports describe this as completing the solo-cover set; official magazine release dates TBA.",
+    externalUrl: "https://ent.sina.cn/2026-07-02/detail-inifitan6107944.d.html",
+    featured: true,
+  },
+  {
+    slug: "land-rover-defender-2026",
+    title: "官宣路虎卫士全驭代言人",
+    titleEn: "Announced Land Rover Defender Brand Ambassador",
+    date: "2026-06-20",
+    category: "fashion",
+    summary:
+      "6 月 20 日正式官宣成为路虎卫士全驭代言人，与品牌共同诠释「士不可挡」的拓界精神。",
+    summaryEn:
+      "Officially announced as Land Rover Defender brand ambassador on June 20 — \"Unstoppable\" spirit with the brand.",
+    body:
+      "迪丽热巴于微博发布官宣文案，以路虎卫士全驭代言人身份与品牌联动推广。合作范围与车型细节以路虎卫士官方发布为准。",
+    bodyEn:
+      "Dilraba announced the partnership on Weibo as Land Rover Defender brand ambassador. Scope and vehicle details follow official Land Rover releases.",
+    eventSlug: "land-rover-defender-2026",
+    externalUrl: "https://www.sina.cn/news/detail/5311824748614498.html",
+    featured: true,
+  },
+  {
     slug: "macalline-shenyang-2026",
     title: "沈阳红星美凯龙品牌活动 · 粉丝合唱《追光者》",
     titleEn: "Macalline Shenyang Event · Fans Sing \"Chaser of Light\"",
@@ -28,9 +81,9 @@ export const news: NewsItem[] = [
     date: "2026-06-13",
     category: "fashion",
     summary:
-      "6 月 13 日正式官宣成为德佑（Deeyeo）全球品牌代言人，品牌同步启动百城大屏应援等推广活动。",
+      "6 月 13 日正式官宣成为德佑（Deeyeo）全球品牌代言人，品牌同步启动多地线下推广与联名周边。",
     summaryEn:
-      "Officially announced as global brand ambassador for Deeyeo on June 13, with a major multi-city campaign rollout.",
+      "Officially announced as global brand ambassador for Deeyeo on June 13, with reported multi-city campaigns and co-branded merchandise.",
     body:
       "德佑于 6 月 10 日至 12 日发布倒计时物料，13 日上午正式官宣迪丽热巴为全球品牌代言人。据公开报道，品牌在全国多城上线大屏推广，并推出联名周边系列。",
     bodyEn:
@@ -110,9 +163,10 @@ export const news: NewsItem[] = [
     titleEn: "Marie Claire June Birthday Cover",
     date: "2026-06-02",
     category: "fashion",
-    summary: "登上《嘉人》2026 年 6 月生日刊封面「AS SHE IS / 如她所是」，成为中国 90 后首位完成五大女刊全满贯的艺人。",
+    summary:
+      "登上《嘉人》2026 年 6 月生日刊封面「AS SHE IS / 如她所是」，与高定造型、MIKIMOTO 珠宝联动呈现。",
     summaryEn:
-      "Covers Marie Claire China June 2026 \"AS SHE IS\" — first post-90s artist to complete China's \"Big Five\" women's magazine cover grand slam.",
+      'Covers Marie Claire China June 2026 birthday issue "AS SHE IS" with couture looks and Mikimoto jewelry.',
     magazineSlug: "jia-ren-2026-06",
     eventSlug: "jia-ren-birthday-cover-2026",
     externalUrl: "https://www.marieclaire.com.cn/",
@@ -124,9 +178,9 @@ export const news: NewsItem[] = [
     titleEn: "2026 Birthday · June Schedule",
     date: "2026-06-03",
     category: "event",
-    summary: "工作室发布 6 月 3 日生日祝福与六月行程，开启「甜心模式」夏日奇遇。",
+    summary: "工作室发布 6 月 3 日生日祝福与六月行程安排。",
     summaryEn:
-      "Studio shared birthday wishes on June 3 and released the June schedule — \"sweetheart mode\" summer adventures.",
+      "Studio shared birthday wishes on June 3 and released the June schedule.",
     eventSlug: "birthday-2026",
     externalUrl: OFFICIAL_CHANNELS.weibo.studio.href,
     featured: true,

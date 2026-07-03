@@ -258,7 +258,7 @@ export const MAGAZINES_EN: Record<
     nameEn: "Marie Claire China",
     issueEn: 'June 2026 Birthday Issue · "AS SHE IS"',
     descriptionEn:
-      "Birthday cover completing the post-90s Big Five women's magazine grand slam with couture and Mikimoto jewelry.",
+      'Birthday cover "AS SHE IS" with couture looks and Mikimoto jewelry.',
   },
   "elle-2026-03": {
     nameEn: "ELLE China",
@@ -533,6 +533,14 @@ export type VideoEn = {
 };
 
 export const VIDEOS_EN: Record<string, VideoEn> = {
+  "land-rover-urban-camp-2026-video": {
+    titleEn: "Land Rover Defender Urban Camp · Shanghai Highlights",
+    summaryEn: "July 3 Urban Camp in Shanghai — Julien Fournié custom couture.",
+  },
+  "land-rover-defender-2026-video": {
+    titleEn: "Land Rover Defender Ambassador Announcement",
+    summaryEn: "Official Land Rover Defender brand ambassador announcement on June 20.",
+  },
   "macalline-shenyang-2026-video": {
     titleEn: "Macalline Shenyang Event · On-Site Highlights",
     summaryEn: 'Shenyang brand event — fans sang "Chaser of Light" in a widely shared moment.',
@@ -701,6 +709,11 @@ export const QUOTES_EN: Record<string, { textEn: string; sourceEn: string }> = {
 };
 
 export const BRAND_HIGHLIGHTS_EN: Record<string, { titleEn: string; summaryEn: string }> = {
+  "land-rover-defender-2026": {
+    titleEn: "Land Rover Defender Brand Ambassador",
+    summaryEn:
+      "Announced June 20, 2026; Shanghai Urban Camp event in July.",
+  },
   "dior-global-ambassador": {
     titleEn: "Dior Global Brand Ambassador",
     summaryEn:
@@ -715,8 +728,9 @@ export const BRAND_HIGHLIGHTS_EN: Record<string, { titleEn: string; summaryEn: s
     summaryEn: "Belle Dior jewelry at Dior's Suzhou high jewelry dinner.",
   },
   "magazine-grand-slam-2026": {
-    titleEn: "Marie Claire · Big Five Grand Slam",
-    summaryEn: "First post-90s artist to complete all five major women's magazine solo covers.",
+    titleEn: "VOGUE August · Big Five Solo-Cover Grand Slam",
+    summaryEn:
+      "Fashion media report August 2026 VOGUE China solo cover shoot July 1 — first post-90s actress with all five solo covers; official release TBA.",
   },
   "magazine-2026": {
     titleEn: "2026 Multi-Cover Run",
@@ -728,6 +742,6 @@ export const BRAND_HIGHLIGHTS_EN: Record<string, { titleEn: string; summaryEn: s
   },
   "deeyeo-global-2026": {
     titleEn: "Deeyeo Global Brand Ambassador",
-    summaryEn: "Announced June 13 with reported nationwide campaign.",
+    summaryEn: "Announced June 13 with reported multi-city campaigns.",
   },
 };
