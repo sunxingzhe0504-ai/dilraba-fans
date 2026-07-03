@@ -143,6 +143,24 @@ export const news: NewsItem[] = [
     featured: true,
   },
   {
+    slug: "lucky-coffee-global-2026",
+    title: "官宣幸运咖臻选咖啡全球代言人",
+    titleEn: "Announced Lucky Coffee Premium Coffee Global Ambassador",
+    date: "2026-04-19",
+    category: "fashion",
+    summary:
+      "蜜雪集团旗下幸运咖正式官宣，迪丽热巴出任臻选咖啡全球代言人；梁朝伟出任品牌代言人，以「相信就幸运」为主题同步上线品牌 TVC。",
+    summaryEn:
+      "Mixue Group's Lucky Coffee announced Dilraba as premium coffee global ambassador and Tony Leung as brand ambassador — \"Believe in Luck\" campaign TVC.",
+    body:
+      "4 月 19 日，幸运咖正式宣布全新代言人阵容。迪丽热巴与梁朝伟联袂出镜品牌 TVC，诠释「幸运咖在手，好运跟你走」。官宣同步推出杨梅系列新品及代言人限量周边等门店活动，合作细节以幸运咖官方发布为准。",
+    bodyEn:
+      "On April 19, Lucky Coffee announced its new ambassador lineup. Dilraba and Tony Leung appear in the brand TVC. Bayberry series products and limited ambassador merch rolled out at stores. Details follow official Lucky Coffee releases.",
+    eventSlug: "lucky-coffee-global-2026",
+    externalUrl: "https://news.qq.com/rain/a/20260420A04R8Y00",
+    featured: true,
+  },
+  {
     slug: "jiu-chong-tian-filming",
     title: "《九重天》进组拍摄",
     titleEn: "Nine Heavens — Starts Filming",

@@ -549,6 +549,10 @@ export const VIDEOS_EN: Record<string, VideoEn> = {
     titleEn: "Deeyeo Global Ambassador Announcement",
     summaryEn: "Official Deeyeo global ambassador announcement on June 13.",
   },
+  "lucky-coffee-global-2026-video": {
+    titleEn: "Lucky Coffee Global Ambassador Announcement",
+    summaryEn: 'Official premium coffee global ambassador announcement April 19 — "Believe in Luck" TVC.',
+  },
   "jia-ren-cover-2026-video": {
     titleEn: "Marie Claire June Cover Teaser",
     summaryEn: '"AS SHE IS" birthday cover release.',
@@ -743,5 +747,9 @@ export const BRAND_HIGHLIGHTS_EN: Record<string, { titleEn: string; summaryEn: s
   "deeyeo-global-2026": {
     titleEn: "Deeyeo Global Brand Ambassador",
     summaryEn: "Announced June 13 with reported multi-city campaigns.",
+  },
+  "lucky-coffee-global-2026": {
+    titleEn: "Lucky Coffee Premium Coffee Global Ambassador",
+    summaryEn: "Lucky Coffee announced April 19 — premium coffee global ambassador alongside Tony Leung.",
   },
 };

@@ -125,6 +125,18 @@ export const brandHighlights: BrandHighlight[] = [
     externalUrl: "https://k.sina.com.cn/article_7857201856_1d45362c001906pez6.html",
   },
   {
+    slug: "lucky-coffee-global-2026",
+    title: "幸运咖臻选咖啡全球代言人",
+    titleEn: "Lucky Coffee Premium Coffee Global Ambassador",
+    date: "2026-04-19",
+    summary:
+      "4 月 19 日幸运咖正式官宣，出任臻选咖啡全球代言人，与梁朝伟组成双代言人阵容。",
+    summaryEn:
+      "Lucky Coffee announced April 19 — premium coffee global ambassador alongside Tony Leung.",
+    image: IMAGES.portraits.warmCandid,
+    externalUrl: "https://news.qq.com/rain/a/20260420A04R8Y00",
+  },
+  {
     slug: "dior-global-ambassador",
     title: "Dior 全球品牌大使",
     titleEn: "Dior Global Brand Ambassador",
@@ -214,13 +226,15 @@ export const changelog: ChangelogEntry[] = [
     date: "2026-07-03",
     items: [
       "补充路虎卫士全驭代言人（6/20）、上海都市营地活动（7/3）与 VOGUE 八月刊单人封面拍摄（7/1）",
+      "新增幸运咖臻选咖啡全球代言人官宣（4/19）",
       "修正嘉人六月刊、德佑官宣等条目中「全满贯」「百城大屏」等未经核实的表述",
-      "新增路虎与 VOGUE 全满贯专题长文；荣誉与时间轴同步更新",
+      "新增路虎与 VOGUE 全满贯、幸运咖代言人专题长文；荣誉与时间轴同步更新",
     ],
     itemsEn: [
       "Added Land Rover ambassador (Jun 20), Shanghai Urban Camp (Jul 3), and VOGUE August solo cover shoot (Jul 1)",
+      "Added Lucky Coffee premium coffee global ambassador announcement (Apr 19)",
       "Corrected unverified claims such as premature grand slam and \"100-city screens\" in Deeyeo entries",
-      "New Land Rover and VOGUE grand slam story features; honors and timeline updated",
+      "New Land Rover, VOGUE grand slam, and Lucky Coffee ambassador story features; honors and timeline updated",
     ],
   },
   {

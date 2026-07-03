@@ -116,6 +116,24 @@ export const events: FanEvent[] = [
     featured: true,
   },
   {
+    slug: "lucky-coffee-global-2026",
+    title: "幸运咖臻选咖啡全球代言人官宣",
+    titleEn: "Lucky Coffee Premium Coffee Global Ambassador Launch",
+    date: "2026-04-19",
+    category: "brand",
+    location: "线上发布",
+    locationEn: "Online",
+    summary:
+      "蜜雪集团旗下幸运咖正式官宣迪丽热巴出任臻选咖啡全球代言人，梁朝伟出任品牌代言人；以「相信就幸运」为主题上线品牌 TVC。",
+    summaryEn:
+      "Lucky Coffee announced Dilraba as premium coffee global ambassador and Tony Leung as brand ambassador — \"Believe in Luck\" TVC launch.",
+    description:
+      "2026 年 4 月 19 日，幸运咖正式宣布全新代言人阵容。迪丽热巴出任臻选咖啡全球代言人，与梁朝伟联袂出镜品牌 TVC，诠释「幸运咖在手，好运跟你走」。官宣同步推出杨梅系列新品及门店互动、限量周边等活动。",
+    descriptionEn:
+      "On April 19, 2026, Lucky Coffee announced Dilraba as premium coffee global ambassador alongside Tony Leung in the brand TVC. Bayberry series products and store campaigns launched the same day.",
+    featured: true,
+  },
+  {
     slug: "jia-ren-birthday-cover-2026",
     title: "《嘉人》六月刊生日封面",
     titleEn: "Marie Claire June Birthday Cover",

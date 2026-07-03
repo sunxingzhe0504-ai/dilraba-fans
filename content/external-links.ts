@@ -162,6 +162,14 @@ export const EVENT_EXTERNAL_LINKS: Record<string, ExternalLink[]> = {
     },
     linkWeiboStudio(),
   ],
+  "lucky-coffee-global-2026": [
+    {
+      label: "腾讯新闻 · 幸运咖代言人官宣",
+      href: "https://news.qq.com/rain/a/20260420A04R8Y00",
+      kind: "info",
+    },
+    linkWeiboPersonal(),
+  ],
   "dior-suzhou-high-jewelry-2026": [
     linkDiorCn(),
     {

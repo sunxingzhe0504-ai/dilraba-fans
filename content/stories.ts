@@ -199,6 +199,57 @@ Public reports describe **citywide screen campaigns** and **co-branded merchandi
 Partnership details follow official Deeyeo releases.`,
   },
   {
+    slug: "lucky-coffee-global-2026-recap",
+    title: "幸运咖臻选咖啡全球代言人 ·「相信就幸运」",
+    titleEn: 'Lucky Coffee Global Ambassador · "Believe in Luck"',
+    date: "2026-04-19",
+    summary:
+      "4 月 19 日幸运咖正式官宣迪丽热巴出任臻选咖啡全球代言人，与梁朝伟联袂出镜品牌 TVC，同步推出杨梅系列新品。",
+    summaryEn:
+      "Lucky Coffee announced April 19 — Dilraba as premium coffee global ambassador with Tony Leung in the brand TVC; bayberry series launch.",
+    cover: IMAGES.portraits.warmCandid,
+    tags: ["代言", "品牌"],
+    featured: true,
+    eventSlug: "lucky-coffee-global-2026",
+    newsSlug: "lucky-coffee-global-2026",
+    body: `## 官宣
+
+2026 年 **4 月 19 日**，蜜雪集团旗下专业现磨咖啡品牌 **幸运咖** 正式宣布全新代言人阵容：
+
+- **迪丽热巴** 出任 **臻选咖啡全球代言人**
+- **梁朝伟** 出任 **品牌代言人**
+
+## 品牌 TVC
+
+以 **「相信就幸运」** 为主题，全新品牌 TVC 随官宣同步上线。迪丽热巴与梁朝伟联袂出镜，诠释 **「幸运咖在手，好运跟你走」**。
+
+## 门店活动
+
+据公开报道，官宣同步在全国门店上新 **杨梅系列** 新品，并推出代言人限量周边、互动打卡及优惠券等营销活动。
+
+## 说明
+
+合作与活动细节以 **幸运咖官方发布** 为准。`,
+    bodyEn: `## Announcement
+
+On **April 19, 2026**, **Lucky Coffee** (Mixue Group) announced:
+
+- **Dilraba** — **premium coffee global brand ambassador**
+- **Tony Leung** — **brand ambassador**
+
+## Brand TVC
+
+The **"Believe in Luck"** TVC launched the same day — **"Lucky Coffee in hand, good luck follows."**
+
+## Store campaign
+
+Public reports describe a **bayberry series** launch plus limited ambassador merch and store promotions.
+
+## Note
+
+Details follow official **Lucky Coffee** releases.`,
+  },
+  {
     slug: "jia-ren-birthday-cover-2026-recap",
     title: "嘉人六月生日刊 ·「AS SHE IS / 如她所是」",
     titleEn: 'Marie Claire June · "AS SHE IS"',

@@ -41,6 +41,13 @@ export const honors: Honor[] = [
   },
   {
     year: 2026,
+    title: "幸运咖臻选咖啡全球代言人官宣",
+    titleEn: "Lucky Coffee premium coffee global brand ambassador announced",
+    source: "品牌官宣 / 媒体报道",
+    sourceEn: "Official brand announcement / media reports",
+  },
+  {
+    year: 2026,
     title: "《白日提灯》热播，《嘉人》六月生日刊封面释出",
     titleEn: "Love Under the Lantern airs; Marie Claire June birthday cover",
     source: "公开播出信息 / 时尚媒体报道",
@@ -255,8 +262,8 @@ export const timeline: TimelineEntry[] = [
     title: "代言与时尚新阶段",
     titleEn: "New brand and fashion milestones",
     description:
-      "官宣路虎卫士全驭代言人与德佑全球代言人；据时尚媒体报道完成 VOGUE 八月刊单人封面拍摄；中国影视之夜红毯回归并获 CMG 年度推荐电视剧女演员。",
+      "官宣路虎卫士全驭代言人、德佑全球代言人与幸运咖臻选咖啡全球代言人；据时尚媒体报道完成 VOGUE 八月刊单人封面拍摄；中国影视之夜红毯回归并获 CMG 年度推荐电视剧女演员。",
     descriptionEn:
-      "Land Rover Defender and Deeyeo global ambassador; reported VOGUE August solo cover shoot; China Film & TV Night return with CMG Recommended TV Actress.",
+      "Land Rover Defender, Deeyeo, and Lucky Coffee global ambassador; reported VOGUE August solo cover shoot; China Film & TV Night return with CMG Recommended TV Actress.",
   },
 ];
