@@ -1,0 +1,4 @@
+1:"$Sreact.fragment"
+2:I[39756,["/dilraba-fans/_next/static/chunks/0f_3v94hsfvlb.js","/dilraba-fans/_next/static/chunks/421x0b88vh9pk.js","/dilraba-fans/_next/static/chunks/35ip4ctshr802.js","/dilraba-fans/_next/static/chunks/3i7y2k3ey72nw.js","/dilraba-fans/_next/static/chunks/00zt-lhd545sp.js"],"default"]
+3:I[37457,["/dilraba-fans/_next/static/chunks/0f_3v94hsfvlb.js","/dilraba-fans/_next/static/chunks/421x0b88vh9pk.js","/dilraba-fans/_next/static/chunks/35ip4ctshr802.js","/dilraba-fans/_next/static/chunks/3i7y2k3ey72nw.js","/dilraba-fans/_next/static/chunks/00zt-lhd545sp.js"],"default"]
+0:{"rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"aly3vALHXYcN01k071Eba"}
