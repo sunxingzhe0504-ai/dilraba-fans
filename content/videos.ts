@@ -5,6 +5,7 @@ import { OFFICIAL_CHANNELS } from "./official-channels";
 const w = IMAGES.works;
 const p = IMAGES.portraits;
 const m = IMAGES.magazines;
+const ev = IMAGES.events;
 
 /**
  * 视频专区：链接均为公开平台播放页，本站不托管视频文件。
@@ -18,7 +19,7 @@ export const videos: VideoItem[] = [
     category: "event",
     platform: "weibo",
     href: "https://www.sina.cn/news/detail/5316277541014141.html",
-    thumbnail: p.whiteBeauty,
+    thumbnail: ev.landRoverUrbanCamp2026,
     summary: "7 月 3 日出席上海都市营地，Julien Fournié 定制高定亮相。",
     summaryEn: "July 3 Urban Camp in Shanghai — Julien Fournié custom couture.",
     featured: true,
@@ -31,7 +32,7 @@ export const videos: VideoItem[] = [
     category: "event",
     platform: "weibo",
     href: "https://www.sina.cn/news/detail/5311824748614498.html",
-    thumbnail: p.redBlack,
+    thumbnail: ev.landRoverDefender2026,
     summary: "6 月 20 日正式官宣路虎卫士全驭代言人。",
     summaryEn: "Official Land Rover Defender brand ambassador announcement on June 20.",
     featured: true,
@@ -44,7 +45,7 @@ export const videos: VideoItem[] = [
     category: "event",
     platform: "weibo",
     href: "https://ent.sina.cn/2026-06-28/detail-inieykzq0408857.d.html",
-    thumbnail: p.warmCandid,
+    thumbnail: ev.macallineShenyang2026,
     summary: "沈阳线下品牌活动，粉丝合唱《追光者》互动名场面。",
     summaryEn: 'Shenyang brand event — fans sang "Chaser of Light" in a widely shared moment.',
     featured: true,
@@ -57,7 +58,7 @@ export const videos: VideoItem[] = [
     category: "event",
     platform: "weibo",
     href: "https://k.sina.com.cn/article_7857201856_1d45362c001906pez6.html",
-    thumbnail: p.mono,
+    thumbnail: ev.deeyeoGlobal2026,
     summary: "6 月 13 日正式官宣德佑全球品牌代言人。",
     summaryEn: "Official Deeyeo global ambassador announcement on June 13.",
     featured: true,
@@ -70,7 +71,7 @@ export const videos: VideoItem[] = [
     category: "event",
     platform: "other",
     href: "https://news.qq.com/rain/a/20260420A04R8Y00",
-    thumbnail: p.tealFloral,
+    thumbnail: ev.luckyCoffeeGlobal2026,
     summary: "4 月 19 日正式官宣臻选咖啡全球代言人，品牌 TVC「相信就幸运」同步上线。",
     summaryEn: 'Official premium coffee global ambassador announcement April 19 — "Believe in Luck" TVC.',
     featured: true,
@@ -96,7 +97,7 @@ export const videos: VideoItem[] = [
     category: "event",
     platform: "weibo",
     href: "https://weibo.com/search?q=中国影视之夜%20迪丽热巴",
-    thumbnail: p.redPearl,
+    thumbnail: ev.chinaFilmTvNight2026,
     summary: "Georges Hobeika 高定搭配 Mikimoto 珠宝，时隔 605 天重返红毯。",
     summaryEn: "Georges Hobeika couture with Mikimoto jewels — red carpet return after 605 days.",
     featured: true,
@@ -429,7 +430,7 @@ export const videos: VideoItem[] = [
     category: "event",
     platform: "weibo",
     href: "https://news.qq.com/rain/a/20260320A08FSQ00",
-    thumbnail: p.redWall,
+    thumbnail: ev.diorSuzhou2026,
     summary: "全球品牌大使出席苏州高级珠宝晚宴，佩戴 Belle Dior 系列珠宝亮相。",
     featured: true,
   },

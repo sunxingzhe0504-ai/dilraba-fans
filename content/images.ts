@@ -11,6 +11,7 @@ const W = "/images/works";
 const P = "/images/portraits";
 const M = "/images/magazines";
 const B = "/images/backdrop";
+const E = "/images/events";
 
 export const IMAGES = {
   hero: `${P}/hero-red-pearl.jpg`,
@@ -29,6 +30,17 @@ export const IMAGES = {
 
   backdrop: {
     changge: `${B}/chang-ge-xing.jpg`,
+  },
+
+  /** 2026 品牌/活动现场图（来源：公开新闻报道与品牌物料） */
+  events: {
+    landRoverUrbanCamp2026: `${E}/land-rover-urban-camp-2026.jpg`,
+    landRoverDefender2026: `${E}/land-rover-defender-2026.jpg`,
+    macallineShenyang2026: `${E}/macalline-shenyang-2026.jpg`,
+    deeyeoGlobal2026: `${E}/deeyeo-global-2026.jpg`,
+    luckyCoffeeGlobal2026: `${E}/lucky-coffee-global-2026.jpg`,
+    chinaFilmTvNight2026: `${E}/china-film-tv-night-2026.jpg`,
+    diorSuzhou2026: `${E}/dior-suzhou-2026.jpg`,
   },
 
   // key 与 content/works.ts 的 slug 对应

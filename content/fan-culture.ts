@@ -98,7 +98,7 @@ export const brandHighlights: BrandHighlight[] = [
       "6 月 20 日正式官宣成为路虎卫士全驭代言人，7 月出席上海都市营地线下活动。",
     summaryEn:
       "Announced Land Rover Defender brand ambassador June 20; Shanghai Urban Camp event in July.",
-    image: IMAGES.portraits.whiteBeauty,
+    image: IMAGES.events.landRoverDefender2026,
     externalUrl: "https://www.sina.cn/news/detail/5311824748614498.html",
   },
   {
@@ -110,7 +110,7 @@ export const brandHighlights: BrandHighlight[] = [
       "6 月 27–28 日出席红星美凯龙沈阳品牌活动，与品牌共同推广家居生活美学。",
     summaryEn:
       "Macalline Shenyang brand event on June 27–28 promoting home lifestyle aesthetics.",
-    image: IMAGES.portraits.warmCandid,
+    image: IMAGES.events.macallineShenyang2026,
   },
   {
     slug: "deeyeo-global-2026",
@@ -121,7 +121,7 @@ export const brandHighlights: BrandHighlight[] = [
       "6 月 13 日正式官宣成为德佑（Deeyeo）全球品牌代言人，品牌同步启动多地推广。",
     summaryEn:
       "Announced as Deeyeo global brand ambassador on June 13 with a reported nationwide campaign.",
-    image: IMAGES.portraits.mono,
+    image: IMAGES.events.deeyeoGlobal2026,
     externalUrl: "https://k.sina.com.cn/article_7857201856_1d45362c001906pez6.html",
   },
   {
@@ -133,7 +133,7 @@ export const brandHighlights: BrandHighlight[] = [
       "4 月 19 日幸运咖正式官宣，出任臻选咖啡全球代言人，与梁朝伟组成双代言人阵容。",
     summaryEn:
       "Lucky Coffee announced April 19 — premium coffee global ambassador alongside Tony Leung.",
-    image: IMAGES.portraits.tealFloral,
+    image: IMAGES.events.luckyCoffeeGlobal2026,
     externalUrl: "https://news.qq.com/rain/a/20260420A04R8Y00",
   },
   {
@@ -144,7 +144,7 @@ export const brandHighlights: BrandHighlight[] = [
     summary: "2023 年 2 月官宣 Dior 品牌大使，同年 12 月升任全球品牌大使及全球彩妆及香氛代言人，连续受邀出席巴黎时装周、高级珠宝活动。",
     summaryEn:
       "Ambassador since Feb 2023, elevated to global ambassador Dec 2023 — Paris Fashion Week and high jewelry.",
-    image: IMAGES.portraits.redBlack,
+    image: IMAGES.events.diorSuzhou2026,
     externalUrl: "https://www.dior.cn/zh_cn",
   },
   {
