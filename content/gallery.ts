@@ -8,9 +8,9 @@ const B = IMAGES.backdrop;
 
 export const gallery: GalleryItem[] = [
   { slug: "macalline-shenyang-2026", title: "红星美凯龙 · 沈阳品牌活动", titleEn: "Macalline · Shenyang Event", category: "portrait", image: P.warmCandid, year: 2026, tags: ["品牌活动", "线下"] },
-  { slug: "deeyeo-2026", title: "德佑全球代言人", titleEn: "Deeyeo Global Ambassador", category: "magazine", image: P.warmCandid, year: 2026, tags: ["代言"] },
-  { slug: "dior-suzhou-2026", title: "Dior 苏州高珠", titleEn: "Dior Suzhou High Jewelry", category: "red-carpet", image: P.redBlack, year: 2026, wallpaper: true, tags: ["Dior", "珠宝"] },
-  { slug: "red-black-2026", title: "中国影视之夜 · 红毯造型", titleEn: "China Film & TV Night Look", category: "red-carpet", image: P.redBlack, year: 2026, wallpaper: true, tags: ["红毯", "高定"] },
+  { slug: "deeyeo-2026", title: "德佑全球代言人", titleEn: "Deeyeo Global Ambassador", category: "magazine", image: P.mono, year: 2026, tags: ["代言"] },
+  { slug: "dior-suzhou-2026", title: "Dior 苏州高珠", titleEn: "Dior Suzhou High Jewelry", category: "red-carpet", image: P.redWall, year: 2026, wallpaper: true, tags: ["Dior", "珠宝"] },
+  { slug: "red-black-2026", title: "中国影视之夜 · 红毯造型", titleEn: "China Film & TV Night Look", category: "red-carpet", image: P.redPearl, year: 2026, wallpaper: true, tags: ["红毯", "高定"] },
   { slug: "hero-red-pearl", title: "红珠礼服", category: "portrait", image: P.redPearl, year: 2024, wallpaper: true, tags: ["经典"] },
   { slug: "teal-floral", title: "青碧花韵", category: "portrait", image: P.tealFloral, year: 2023, wallpaper: true },
   { slug: "white-beauty", title: "纯白优雅", category: "portrait", image: P.whiteBeauty, year: 2022, wallpaper: true },
