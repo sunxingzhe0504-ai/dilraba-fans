@@ -23,5 +23,6 @@ export default async function Image({ params }: { params: Promise<{ slug: string
     title: story.titleEn ?? story.title,
     subtitle: story.summaryEn ?? story.summary,
     tag: "Stories · 专题",
+    imagePath: story.cover,
   });
 }

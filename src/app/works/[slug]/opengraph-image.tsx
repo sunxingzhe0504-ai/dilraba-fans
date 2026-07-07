@@ -25,5 +25,6 @@ export default async function Image({ params }: { params: Promise<{ slug: string
     title: work.titleEn ?? work.title,
     subtitle: extra?.roleEn ?? work.role,
     tag: "Works · 作品",
+    imagePath: work.poster,
   });
 }

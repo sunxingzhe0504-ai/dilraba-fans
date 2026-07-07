@@ -22,6 +22,12 @@ import {
   type ThemeId,
 } from "@/lib/themes";
 import { prefetchHomeTheme } from "@/components/designs/HomeDesignRouter";
+import {
+  routeToPageId,
+  prefetchCommonPages,
+  prefetchInactivePageVariants,
+} from "@/lib/design-prefetch";
+import { stripLocalePrefix } from "@/lib/i18n/path";
 
 type ThemeContextValue = {
   theme: ThemeId;
@@ -97,6 +103,10 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       /* ignore */
     }
     prefetchHomeTheme(id);
+    const bare = stripLocalePrefix(window.location.pathname).replace(/\/$/, "") || "/";
+    const pageId = routeToPageId(bare);
+    if (!pageId || pageId === "home") prefetchCommonPages(id);
+    else prefetchInactivePageVariants(pageId, id);
   }, []);
 
   const setColorScheme = useCallback((pref: ColorSchemePreference) => {

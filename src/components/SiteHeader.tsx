@@ -7,6 +7,8 @@ import { LocaleLink } from "@/components/LocaleLink";
 import { LocaleSwitcher } from "@/components/LocaleSwitcher";
 import { SearchDialog } from "@/components/SearchDialog";
 import { useT } from "@/components/LocaleProvider";
+import { prefetchRouteDesign } from "@/lib/design-prefetch";
+import { useTheme } from "@/components/ThemeProvider";
 import { stripLocalePrefix } from "@/lib/i18n/path";
 import { cn } from "@/lib/cn";
 
@@ -14,6 +16,7 @@ export function SiteHeader() {
   const pathname = usePathname();
   const barePath = stripLocalePrefix(pathname);
   const t = useT();
+  const { theme } = useTheme();
   const [open, setOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -74,6 +77,8 @@ export function SiteHeader() {
               <LocaleLink
                 key={item.href}
                 href={item.href}
+                onMouseEnter={() => prefetchRouteDesign(item.href, theme)}
+                onFocus={() => prefetchRouteDesign(item.href, theme)}
                 className={cn(
                   "group relative text-sm tracking-wide transition-colors",
                   active ? "text-wine" : "text-ink-soft hover:text-wine",

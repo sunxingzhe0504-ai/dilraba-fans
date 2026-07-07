@@ -1,8 +1,9 @@
 import type { Story } from "@/lib/types";
 import { IMAGES } from "./images";
+import { storiesFromMarkdown } from "./stories-from-md";
 
 /** 专题长文（Markdown），活动回顾与深度图文 */
-export const stories: Story[] = [
+const coreStories: Story[] = [
   {
     slug: "land-rover-2026-recap",
     title: "路虎卫士全驭代言人 · 官宣与上海都市营地",
@@ -360,4 +361,10 @@ Public reports describe **Belle Dior** high jewelry on the red carpet.
 
 Event details follow official Dior releases.`,
   },
+];
+
+const mdSlugs = new Set(storiesFromMarkdown.map((s) => s.slug));
+export const stories: Story[] = [
+  ...coreStories.filter((s) => !mdSlugs.has(s.slug)),
+  ...storiesFromMarkdown,
 ];

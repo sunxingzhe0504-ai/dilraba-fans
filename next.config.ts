@@ -1,4 +1,9 @@
 import type { NextConfig } from "next";
+import bundleAnalyzer from "@next/bundle-analyzer";
+
+const withBundleAnalyzer = bundleAnalyzer({
+  enabled: process.env.ANALYZE === "true",
+});
 
 const isGithubPages = process.env.GITHUB_PAGES === "true";
 const basePath = process.env.BASE_PATH || "";
@@ -16,7 +21,6 @@ const nextConfig: NextConfig = {
       }
     : {}),
   images: {
-    // 所有图片均本地托管于 public/images，无需远程域名白名单。
     dangerouslyAllowSVG: true,
     contentDispositionType: "attachment",
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
@@ -24,4 +28,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+export default withBundleAnalyzer(nextConfig);
