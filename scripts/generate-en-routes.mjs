@@ -56,6 +56,16 @@ const routes = [
     src: "../../../works/[slug]/page",
     exports: ["default", "generateMetadata", "generateStaticParams"],
   },
+  {
+    file: "works/[slug]/opengraph-image.tsx",
+    src: "../../../works/[slug]/opengraph-image",
+    exports: ["default", "alt", "size", "contentType", "generateStaticParams"],
+  },
+  {
+    file: "stories/[slug]/opengraph-image.tsx",
+    src: "../../../stories/[slug]/opengraph-image",
+    exports: ["default", "alt", "size", "contentType", "generateStaticParams"],
+  },
 ];
 
 for (const route of routes) {

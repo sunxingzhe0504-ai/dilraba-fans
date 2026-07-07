@@ -159,3 +159,82 @@ export function saveQuizBest(score: number, total: number): void {
 export function getQuizBest(): { score: number; total: number } | null {
   return safeParse(readStorage()?.getItem(QUIZ_BEST_KEY) ?? null, null);
 }
+
+/** Schema for fan progress export/import. */
+export type FanDataExport = {
+  version: 1;
+  exportedAt: string;
+  watched: string[];
+  achievements: string[];
+  visitDays: string[];
+  quizBest: { score: number; total: number } | null;
+};
+
+function isFanDataExport(value: unknown): value is FanDataExport {
+  if (!value || typeof value !== "object") return false;
+  const v = value as FanDataExport;
+  return (
+    v.version === 1 &&
+    typeof v.exportedAt === "string" &&
+    Array.isArray(v.watched) &&
+    Array.isArray(v.achievements) &&
+    Array.isArray(v.visitDays) &&
+    (v.quizBest === null ||
+      (typeof v.quizBest.score === "number" && typeof v.quizBest.total === "number"))
+  );
+}
+
+/** Export all fan progress as JSON string. */
+export function exportFanData(): string {
+  const payload: FanDataExport = {
+    version: 1,
+    exportedAt: new Date().toISOString(),
+    watched: [...getWatchedWorks()],
+    achievements: [...getUnlockedAchievements()],
+    visitDays: safeParse<string[]>(readStorage()?.getItem(VISIT_DAYS_KEY) ?? null, []),
+    quizBest: getQuizBest(),
+  };
+  return JSON.stringify(payload, null, 2);
+}
+
+/** Merge imported fan progress into localStorage. */
+export function importFanData(json: string): { ok: true } | { ok: false; error: string } {
+  const storage = readStorage();
+  if (!storage) return { ok: false, error: "no-storage" };
+
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(json);
+  } catch {
+    return { ok: false, error: "invalid-json" };
+  }
+
+  if (!isFanDataExport(parsed)) {
+    return { ok: false, error: "invalid-schema" };
+  }
+
+  const watched = new Set([...getWatchedWorks(), ...parsed.watched]);
+  storage.setItem(WATCHED_KEY, JSON.stringify([...watched]));
+  invalidateWatchedCache();
+
+  const achievements = new Set([...getUnlockedAchievements(), ...parsed.achievements]);
+  storage.setItem(ACHIEVEMENTS_KEY, JSON.stringify([...achievements]));
+  invalidateAchievementsCache();
+
+  const visitDays = new Set([
+    ...safeParse<string[]>(storage.getItem(VISIT_DAYS_KEY), []),
+    ...parsed.visitDays,
+  ]);
+  const sortedDays = [...visitDays].sort().slice(-90);
+  storage.setItem(VISIT_DAYS_KEY, JSON.stringify(sortedDays));
+
+  if (parsed.quizBest) {
+    const prev = getQuizBest();
+    if (!prev || parsed.quizBest.score > prev.score) {
+      storage.setItem(QUIZ_BEST_KEY, JSON.stringify(parsed.quizBest));
+    }
+  }
+
+  notifyFanStorage();
+  return { ok: true };
+}

@@ -10,6 +10,7 @@ import { SectionTitle } from "@/components/SectionTitle";
 import { AnniversaryCountdown } from "@/components/AnniversaryCountdown";
 import { CharacterQuiz } from "@/components/CharacterQuiz";
 import { FanAchievements } from "@/components/FanAchievements";
+import { FanDataBackup } from "@/components/FanDataBackup";
 import { FanMilestonesStrip } from "@/components/FanMilestonesStrip";
 import { QuoteWallpaperMaker } from "@/components/QuoteWallpaperMaker";
 import { useLocale, useT } from "@/components/LocaleProvider";
@@ -87,6 +88,10 @@ function FansContent({ culture: rawCulture, quotes: rawQuotes, characters, miles
 
       <Container wide className="section-padding pt-0">
         <FanAchievements variant={variant} />
+      </Container>
+
+      <Container wide className="section-padding pt-0">
+        <FanDataBackup variant={variant} />
       </Container>
 
       <Container wide className="section-padding pt-0">

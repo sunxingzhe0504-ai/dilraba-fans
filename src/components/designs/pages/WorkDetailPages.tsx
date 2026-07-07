@@ -5,6 +5,7 @@ import { ContentImage } from "@/components/ContentImage";
 import { LocaleLink as Link } from "@/components/LocaleLink";
 import type { Character, NewsItem, Story, Work } from "@/lib/types";
 import { ExternalLinks } from "@/components/ExternalLinks";
+import { ShareButtons } from "@/components/ShareButtons";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { RelatedNewsList } from "@/components/RelatedNewsList";
 import { RelatedStoriesList } from "@/components/RelatedStoriesList";
@@ -77,6 +78,12 @@ function WorkBody({
   const t = useT();
   return (
     <>
+      <ShareButtons
+        title={work.title}
+        description={work.synopsis}
+        imagePath={work.poster}
+        className="mb-6"
+      />
       <div className="mt-8">
         <h2 className="kicker">{t("common.synopsis")}</h2>
         <p className="mt-4 leading-relaxed text-ink-soft">{work.synopsis}</p>

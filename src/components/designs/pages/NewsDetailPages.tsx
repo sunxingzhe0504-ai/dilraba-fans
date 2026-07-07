@@ -9,6 +9,7 @@ import { Container } from "@/components/Container";
 import { ExternalLinks } from "@/components/ExternalLinks";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { RelatedStoriesList } from "@/components/RelatedStoriesList";
+import { ShareButtons } from "@/components/ShareButtons";
 import { useLocale, useT } from "@/components/LocaleProvider";
 import {
   localizeEvent,
@@ -125,6 +126,7 @@ function NewsBody(props: {
     <>
       <NewsMeta item={item} />
       <h1 className="display mt-4 text-4xl text-wine-deep sm:text-5xl">{item.title}</h1>
+      <ShareButtons title={item.title} description={item.summary} className="mt-4" />
       <p className="mt-8 text-lg leading-relaxed text-ink-soft">{item.summary}</p>
       {item.body && (
         <div className="mt-6 space-y-4 leading-relaxed text-ink-soft">

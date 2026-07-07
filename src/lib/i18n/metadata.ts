@@ -41,12 +41,23 @@ export function detailMetadata(opts: {
     openGraph: {
       title,
       description,
-      ...(opts.image ? { images: [{ url: opts.image, alt: title }] } : {}),
+      ...(opts.image
+        ? {
+            images: [
+              {
+                url: opts.image.startsWith("http") ? opts.image : siteUrl(opts.image),
+                alt: title,
+              },
+            ],
+          }
+        : {}),
     },
     twitter: {
       title,
       description,
-      ...(opts.image ? { images: [opts.image] } : {}),
+      ...(opts.image
+        ? { images: [opts.image.startsWith("http") ? opts.image : siteUrl(opts.image)] }
+        : {}),
     },
   };
 }

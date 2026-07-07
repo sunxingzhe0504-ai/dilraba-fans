@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight, Download, X } from "lucide-react";
+import { ShareButtons } from "@/components/ShareButtons";
 import type { GalleryItem } from "@/lib/types";
 import { useLocale, useT } from "@/components/LocaleProvider";
 import { localizeGalleryItem } from "@/lib/i18n/localize";
@@ -115,6 +116,11 @@ export function GalleryLightbox({ items, initialIndex, onClose }: Props) {
                 {index + 1} / {items.length}
               </span>
             </p>
+            <ShareButtons
+              title={item.title}
+              imagePath={item.image}
+              className="mt-3 [&_span]:text-paper/60 [&_a]:border-paper/20 [&_a]:bg-paper/10 [&_a]:text-paper [&_button]:border-paper/20 [&_button]:bg-paper/10 [&_button]:text-paper"
+            />
           </div>
           {item.wallpaper && (
             <a

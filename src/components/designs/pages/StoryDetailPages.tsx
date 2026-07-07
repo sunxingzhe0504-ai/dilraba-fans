@@ -9,6 +9,7 @@ import { Container } from "@/components/Container";
 import { StoryMarkdown } from "@/components/StoryMarkdown";
 import { useLocale, useT } from "@/components/LocaleProvider";
 import { RelatedStoriesList } from "@/components/RelatedStoriesList";
+import { ShareButtons } from "@/components/ShareButtons";
 import { DesignPageRouter } from "../DesignPageRouter";
 
 export type StoryDetailPageProps = {
@@ -34,6 +35,12 @@ function StoryArticle({ story, moreStories }: StoryDetailPageProps) {
       <article className="mt-8 max-w-3xl">
         <time className="text-xs text-ink-mute">{formatDate(story.date, locale)}</time>
         <h1 className="mt-2 text-3xl font-medium text-ink sm:text-4xl">{title}</h1>
+        <ShareButtons
+          title={title}
+          description={story.summary}
+          imagePath={story.cover}
+          className="mt-4"
+        />
         {story.cover && (
           <div className="relative mt-8 aspect-[16/9] overflow-hidden rounded-2xl border border-border">
             <ContentImage src={story.cover} alt="" fill className="object-cover" sizes="(max-width:768px) 100vw, 48rem" priority />
