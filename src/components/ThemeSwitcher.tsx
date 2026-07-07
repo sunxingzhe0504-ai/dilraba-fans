@@ -1,15 +1,22 @@
 "use client";
 
 import { useState } from "react";
-import { Check, Sparkles, X } from "lucide-react";
+import { Check, Monitor, Moon, Sparkles, Sun, X } from "lucide-react";
 import { STYLE_COUNT, THEMES } from "@/lib/themes";
+import type { ColorSchemePreference } from "@/lib/color-scheme";
 import { useT } from "@/components/LocaleProvider";
 import { useTheme } from "./ThemeProvider";
 import { cn } from "@/lib/cn";
 
+const COLOR_SCHEMES: { id: ColorSchemePreference; icon: typeof Sun }[] = [
+  { id: "light", icon: Sun },
+  { id: "dark", icon: Moon },
+  { id: "system", icon: Monitor },
+];
+
 export function ThemeSwitcher() {
   const t = useT();
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme, colorScheme, setColorScheme } = useTheme();
   const [open, setOpen] = useState(false);
   const current = THEMES.find((item) => item.id === theme);
 
@@ -33,6 +40,33 @@ export function ThemeSwitcher() {
               </button>
             </div>
           </div>
+
+          <div className="border-b border-border px-5 py-4">
+            <p className="text-xs font-medium text-ink">{t("theme.colorScheme")}</p>
+            <div className="mt-2 flex gap-1.5" role="group" aria-label={t("theme.colorScheme")}>
+              {COLOR_SCHEMES.map(({ id, icon: Icon }) => {
+                const active = colorScheme === id;
+                return (
+                  <button
+                    key={id}
+                    type="button"
+                    onClick={() => setColorScheme(id)}
+                    aria-pressed={active}
+                    className={cn(
+                      "flex flex-1 items-center justify-center gap-1.5 rounded-xl border px-2 py-2 text-xs transition-colors",
+                      active
+                        ? "border-wine bg-blush/40 text-wine"
+                        : "border-transparent text-ink-mute hover:border-border hover:bg-background-deep/50",
+                    )}
+                  >
+                    <Icon size={14} aria-hidden />
+                    {t(`theme.scheme.${id}`)}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
           <ul className="max-h-[58vh] space-y-1.5 overflow-auto p-3">
             {THEMES.map((item) => {
               const active = item.id === theme;

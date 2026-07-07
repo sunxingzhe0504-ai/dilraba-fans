@@ -99,6 +99,100 @@
 
   --radius-card: 0.5rem;
 }
+
+/* ===== 深色模式 · 四套主题暗色配色 ===== */
+html[data-color-scheme="dark"] {
+  color-scheme: dark;
+}
+
+html[data-color-scheme="light"] {
+  color-scheme: light;
+}
+
+[data-color-scheme="dark"][data-theme="c"] {
+  --background: #1a1210;
+  --background-deep: #120d0b;
+  --paper: #261a17;
+  --ink: #f5ebe3;
+  --ink-soft: #d4b5a3;
+  --ink-mute: #9a7a68;
+  --wine: #e8808f;
+  --wine-deep: #d3697a;
+  --rouge: #f5a882;
+  --gold: #f5b05a;
+  --gold-light: #c48840;
+  --gold-glow: #3d2818;
+  --blush: #3d2420;
+  --blush-deep: #4a2c28;
+  --border: #3d2820;
+  --border-strong: #523530;
+}
+
+[data-color-scheme="dark"][data-theme="a"] {
+  --background: #141a18;
+  --background-deep: #0e1311;
+  --paper: #1c2421;
+  --ink: #e8f0ec;
+  --ink-soft: #b8c8c0;
+  --ink-mute: #7a9088;
+  --wine: #e89bb0;
+  --wine-deep: #d27d97;
+  --rouge: #f0b0c0;
+  --gold: #7eb8a8;
+  --gold-light: #5a9888;
+  --gold-glow: #1a2824;
+  --blush: #2a2228;
+  --blush-deep: #352830;
+  --border: #2a3530;
+  --border-strong: #3a4840;
+}
+
+[data-color-scheme="dark"][data-theme="b"] {
+  --background: #1a1015;
+  --background-deep: #120a0e;
+  --paper: #241820;
+  --ink: #ffe8f0;
+  --ink-soft: #e0a8bc;
+  --ink-mute: #a87088;
+  --wine: #ff8fb0;
+  --wine-deep: #ff6f9c;
+  --rouge: #ffa0c0;
+  --gold: #ffc060;
+  --gold-light: #d49840;
+  --gold-glow: #3d2810;
+  --blush: #3d2030;
+  --blush-deep: #4a2838;
+  --border: #3d2830;
+  --border-strong: #523540;
+}
+
+[data-color-scheme="dark"][data-theme="d"] {
+  --background: #16120f;
+  --background-deep: #0e0c0a;
+  --paper: #201a16;
+  --ink: #f0e8e0;
+  --ink-soft: #c8b8a8;
+  --ink-mute: #908070;
+  --wine: #c2566b;
+  --wine-deep: #a04055;
+  --rouge: #d87088;
+  --gold: #c8a060;
+  --gold-light: #a08048;
+  --gold-glow: #2a2018;
+  --blush: #302420;
+  --blush-deep: #3a2c28;
+  --border: #302820;
+  --border-strong: #403530;
+}
+
+[data-color-scheme="dark"] .edit-card {
+  box-shadow: 0 14px 34px -22px rgba(0, 0, 0, 0.45);
+}
+
+[data-color-scheme="dark"] .edit-card:hover {
+  box-shadow: 0 30px 60px -26px rgba(0, 0, 0, 0.55);
+}
+
 /* E / F 复用默认 C 调色，仅装饰层不同（由 JS 控制） */
 
 @theme inline {

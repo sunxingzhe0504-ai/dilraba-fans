@@ -94,6 +94,12 @@ const zh = {
     close: "关闭",
     countHint: "共 {n} 套风格 · 无需只选其一",
     defaultName: "百变风格",
+    colorScheme: "明暗模式",
+    scheme: {
+      light: "浅色",
+      dark: "深色",
+      system: "跟随系统",
+    },
   },
   hero: {
     browseWorks: "浏览作品",
@@ -641,6 +647,12 @@ const en = {
     close: "Close",
     countHint: "{n} themes · no need to pick just one",
     defaultName: "Themes",
+    colorScheme: "Color mode",
+    scheme: {
+      light: "Light",
+      dark: "Dark",
+      system: "System",
+    },
   },
   hero: {
     browseWorks: "Browse Works",

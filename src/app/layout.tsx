@@ -9,7 +9,10 @@ import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 import { Decorations } from "@/components/Decorations";
 import { BirthdayPetals } from "@/components/BirthdayPetals";
 import { FanProgressTracker } from "@/components/FanProgressTracker";
+import { Analytics } from "@/components/Analytics";
+import { ServiceWorkerRegister } from "@/components/ServiceWorkerRegister";
 import { DEFAULT_THEME, THEME_STORAGE_KEY } from "@/lib/themes";
+import { COLOR_SCHEME_STORAGE_KEY, DEFAULT_COLOR_SCHEME } from "@/lib/color-scheme";
 import { DEFAULT_LOCALE, LOCALE_STORAGE_KEY } from "@/lib/i18n/types";
 import { JsonLd } from "@/components/JsonLd";
 import { SITE_METADATA_EN } from "@/lib/i18n/metadata";
@@ -98,8 +101,9 @@ export default function RootLayout({
     >
       <head>
         <Script id="theme-init" strategy="beforeInteractive">
-          {`(function(){try{var t=localStorage.getItem('${THEME_STORAGE_KEY}')||'${DEFAULT_THEME}';document.documentElement.dataset.theme=t;var p=location.pathname;var fromPath=(p==='/en'||p.indexOf('/en/')===0)?'en':null;var l=fromPath||(localStorage.getItem('${LOCALE_STORAGE_KEY}')||'${DEFAULT_LOCALE}');document.documentElement.lang=l==='en'?'en':'zh-CN';}catch(e){document.documentElement.dataset.theme='${DEFAULT_THEME}';document.documentElement.lang='zh-CN';}})();`}
+          {`(function(){try{var t=localStorage.getItem('${THEME_STORAGE_KEY}')||'${DEFAULT_THEME}';document.documentElement.dataset.theme=t;var cs=localStorage.getItem('${COLOR_SCHEME_STORAGE_KEY}')||'${DEFAULT_COLOR_SCHEME}';var dark=cs==='dark'||(cs==='system'&&window.matchMedia('(prefers-color-scheme: dark)').matches);document.documentElement.dataset.colorScheme=dark?'dark':'light';var p=location.pathname;var fromPath=(p==='/en'||p.indexOf('/en/')===0)?'en':null;var l=fromPath||(localStorage.getItem('${LOCALE_STORAGE_KEY}')||'${DEFAULT_LOCALE}');document.documentElement.lang=l==='en'?'en':'zh-CN';}catch(e){document.documentElement.dataset.theme='${DEFAULT_THEME}';document.documentElement.dataset.colorScheme='light';document.documentElement.lang='zh-CN';}})();`}
         </Script>
+        <Analytics />
       </head>
       <body className="flex min-h-full flex-col antialiased">
         <JsonLd data={websiteJsonLd()} />
@@ -114,6 +118,7 @@ export default function RootLayout({
             <Decorations />
             <BirthdayPetals />
             <FanProgressTracker />
+            <ServiceWorkerRegister />
             <SiteHeader />
             <main id="main-content" className="flex-1">
               {children}
