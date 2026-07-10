@@ -59,6 +59,38 @@ export const WORK_RELEASE: Record<string, WorkReleaseConfig> = {
     status: "upcoming",
     airInfo: "上映信息待官宣",
   },
+  "shaolin-nvzu": {
+    status: "upcoming",
+    airInfo: "2026 年 7 月 11 日全国上映",
+    live: false,
+    premiereDate: "2026-07-11",
+    premiereNews: {
+      slug: "shaolin-nvzu-premiere-2026",
+      title: "《功夫女足》全国上映",
+      titleEn: "Kung Fu Women's Soccer Opens Nationwide",
+      date: "2026-07-11",
+      category: "work",
+      summary:
+        "周星驰编剧执导的喜剧电影《功夫女足》于全国院线上映，迪丽热巴饰前锋钰珑，与张小斐、张艺兴领衔主演。",
+      summaryEn:
+        "Stephen Chow's Kung Fu Women's Soccer opens nationwide — Dilraba as forward Yu Long with Zhang Xiaofei and Lay Zhang.",
+      featured: true,
+      externalUrl: "https://ent.sina.cn/2026-07-06/detail-inifwfpx1891264.d.html",
+    },
+    premiereEvent: {
+      slug: "shaolin-nvzu-premiere-2026",
+      title: "《功夫女足》全国上映",
+      titleEn: "Kung Fu Women's Soccer · Nationwide Release",
+      date: "2026-07-11",
+      category: "premiere",
+      location: "全国院线",
+      locationEn: "Nationwide cinemas",
+      summary:
+        "周星驰导演功夫足球喜剧全国上映，迪丽热巴饰前锋钰珑。",
+      summaryEn:
+        "Stephen Chow's kung fu soccer comedy opens nationwide — Dilraba as Yu Long.",
+    },
+  },
 };
 
 export function isWorkLive(slug: string): boolean {

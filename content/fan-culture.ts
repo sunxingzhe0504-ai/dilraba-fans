@@ -90,6 +90,18 @@ export const fanCulture: FanCulture = {
 
 export const brandHighlights: BrandHighlight[] = [
   {
+    slug: "kezhu-global-2026",
+    title: "可逐全球品牌代言人",
+    titleEn: "KAZOO Global Brand Ambassador",
+    date: "2026-03-30",
+    summary:
+      "3 月 30 日正式官宣成为可逐（KAZOO）全球品牌代言人，为品牌首位全球代言人，聚焦颈部等局部精细护理。",
+    summaryEn:
+      "Announced as KAZOO global brand ambassador March 30 — the brand's first, focused on targeted neck care.",
+    image: IMAGES.portraits.warmCandid,
+    externalUrl: "https://news.qq.com/rain/a/20260330A07ST100",
+  },
+  {
     slug: "land-rover-defender-2026",
     title: "路虎卫士全驭代言人",
     titleEn: "Land Rover Defender Brand Ambassador",
@@ -222,6 +234,21 @@ export const charityItems: CharityItem[] = [
 ];
 
 export const changelog: ChangelogEntry[] = [
+  {
+    date: "2026-07-10",
+    items: [
+      "补充《功夫女足》7 月 11 日定档（7/6）、安慕希西安品牌活动（7/5）",
+      "回填可逐全球代言人（3/30）、《白日提灯》北京追剧团（4/1）、嘉行合约到期独立运营（2/26）",
+      "待播页更新《少林女足》上映倒计时；work-release 配置一键上映",
+      "荣誉与时间轴、视频区与外链同步更新",
+    ],
+    itemsEn: [
+      "Added Kung Fu Women's Soccer July 11 release (Jul 6) and Ambrosial Xi'an event (Jul 5)",
+      "Backfilled KAZOO ambassador (Mar 30), Love Under the Lantern roadshow (Apr 1), Jaywalk contract end (Feb 26)",
+      "Updated Shaolin Women's Soccer countdown; work-release premiere config ready",
+      "Honors, timeline, videos, and external links synced",
+    ],
+  },
   {
     date: "2026-07-03",
     items: [

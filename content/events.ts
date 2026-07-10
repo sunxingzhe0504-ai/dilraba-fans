@@ -6,6 +6,42 @@ import type { FanEvent } from "@/lib/types";
  */
 export const events: FanEvent[] = [
   {
+    slug: "gongfu-nvzu-dingdang-2026",
+    title: "《功夫女足》定档上映",
+    titleEn: "Kung Fu Women's Soccer · Release Date Locked",
+    date: "2026-07-06",
+    category: "premiere",
+    location: "全国院线",
+    locationEn: "Nationwide cinemas",
+    summary:
+      "周星驰编剧执导的《功夫女足》定档 7 月 11 日全国上映并开启预售，迪丽热巴饰前锋钰珑。",
+    summaryEn:
+      "Stephen Chow's Kung Fu Women's Soccer opens July 11 nationwide — Dilraba as forward Yu Long.",
+    description:
+      "7 月 6 日片方发布定档海报与预告，确认 7 月 11 日全国上映。领衔主演为张小斐、迪丽热巴、张艺兴，刘嘉玲、佐藤健等特别出演。上映信息以片方与院线官宣为准。",
+    descriptionEn:
+      "Release locked July 11 on July 6 with poster and trailer. Led by Zhang Xiaofei, Dilraba, and Lay Zhang. Follow official announcements.",
+    featured: true,
+  },
+  {
+    slug: "ambrosial-xian-2026",
+    title: "安慕希夏日冰雪城 · 西安",
+    titleEn: "Ambrosial Summer Ice City · Xi'an",
+    date: "2026-07-05",
+    category: "brand",
+    location: "陕西 · 西安",
+    locationEn: "Xi'an, Shaanxi",
+    summary:
+      "出席安慕希西安线下品牌活动，AADNEVIK 冰蓝色高定裙装亮相夏日冰雪城主题现场。",
+    summaryEn:
+      "Ambrosial brand event in Xi'an — AADNEVIK ice-blue couture at the Summer Ice City theme.",
+    description:
+      "据公开现场报道，迪丽热巴于 7 月 5 日赴西安出席安慕希品牌活动，造型搭配 Messika 与 FENG J 珠宝。活动细节以品牌官方发布为准。",
+    descriptionEn:
+      "Public reports describe the July 5 Xi'an event with Messika and FENG J jewelry. Details follow Ambrosial releases.",
+    featured: true,
+  },
+  {
     slug: "land-rover-urban-camp-2026",
     title: "路虎卫士都市营地 · 上海",
     titleEn: "Land Rover Defender Urban Camp · Shanghai",
@@ -159,6 +195,38 @@ export const events: FanEvent[] = [
       "工作室发布生日祝福与六月行程，粉丝以「今天星期巴」等话题送上祝福。",
     summaryEn:
       "Studio shared birthday wishes and the June schedule; fans celebrated with trending topics.",
+    featured: true,
+  },
+  {
+    slug: "bai-ri-ti-deng-roadshow-2026",
+    title: "《白日提灯》北京线下追剧团",
+    titleEn: "Love Under the Lantern · Beijing Fan Event",
+    date: "2026-04-01",
+    category: "premiere",
+    location: "北京",
+    locationEn: "Beijing",
+    summary:
+      "出席《白日提灯》北京线下追剧团，双造型亮相并与粉丝互动。",
+    summaryEn:
+      "Beijing fan event for Love Under the Lantern with dual looks and fan interactions.",
+    description:
+      "4 月 1 日，迪丽热巴与陈飞宇等主创赴北京出席线下追剧团。公开报道显示她以粉色针织与黑色蕾丝两套造型亮相。",
+    descriptionEn:
+      "April 1 Beijing fan event with cast — pink knit and black lace looks per public reports.",
+    featured: true,
+  },
+  {
+    slug: "kezhu-global-2026",
+    title: "可逐全球品牌代言人官宣",
+    titleEn: "KAZOO Global Brand Ambassador Launch",
+    date: "2026-03-30",
+    category: "brand",
+    location: "线上发布",
+    locationEn: "Online",
+    summary:
+      "正式官宣成为可逐（KAZOO）全球品牌代言人，为品牌首位全球代言人。",
+    summaryEn:
+      "Officially announced as KAZOO global brand ambassador — the brand's first.",
     featured: true,
   },
   {

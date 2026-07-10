@@ -6,6 +6,27 @@ import type { Honor, TimelineEntry } from "@/lib/types";
 export const honors: Honor[] = [
   {
     year: 2026,
+    title: "《功夫女足》定档 7 月 11 日全国上映",
+    titleEn: "Kung Fu Women's Soccer locked for July 11 nationwide release",
+    source: "片方官宣 / 媒体报道",
+    sourceEn: "Official announcement / media reports",
+  },
+  {
+    year: 2026,
+    title: "与嘉行传媒合约到期，个人工作室独立运营",
+    titleEn: "Jaywalk contract ended; independent studio operations",
+    source: "公开媒体报道",
+    sourceEn: "Media reports",
+  },
+  {
+    year: 2026,
+    title: "可逐全球品牌代言人官宣",
+    titleEn: "KAZOO global brand ambassador announced",
+    source: "品牌官宣 / 媒体报道",
+    sourceEn: "Official brand announcement / media reports",
+  },
+  {
+    year: 2026,
     title: "路虎卫士全驭代言人官宣",
     titleEn: "Land Rover Defender brand ambassador announced",
     source: "公开官宣 / 媒体报道",
@@ -259,11 +280,11 @@ export const timeline: TimelineEntry[] = [
   },
   {
     year: 2026,
-    title: "代言与时尚新阶段",
-    titleEn: "New brand and fashion milestones",
+    title: "独立运营新阶段",
+    titleEn: "Independent operations",
     description:
-      "官宣路虎卫士全驭代言人、德佑全球代言人与幸运咖臻选咖啡全球代言人；据时尚媒体报道完成 VOGUE 八月刊单人封面拍摄；中国影视之夜红毯回归并获 CMG 年度推荐电视剧女演员。",
+      "与嘉行传媒 13 年合约到期后，个人工作室全面接管演艺事务；《功夫女足》定档 7 月 11 日，代言与时尚版图持续扩展。",
     descriptionEn:
-      "Land Rover Defender, Deeyeo, and Lucky Coffee global ambassador; reported VOGUE August solo cover shoot; China Film & TV Night return with CMG Recommended TV Actress.",
+      "After 13 years with Jaywalk, her studio fully manages career affairs; Kung Fu Women's Soccer opens July 11; brand and fashion milestones continue.",
   },
 ];

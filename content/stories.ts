@@ -5,6 +5,52 @@ import { storiesFromMarkdown } from "./stories-from-md";
 /** 专题长文（Markdown），活动回顾与深度图文 */
 const coreStories: Story[] = [
   {
+    slug: "gongfu-nvzu-dingdang-2026-recap",
+    title: "《功夫女足》定档 7 月 11 日 · 暑期档功夫足球喜剧",
+    titleEn: "Kung Fu Women's Soccer · July 11 Summer Release",
+    date: "2026-07-06",
+    summary:
+      "周星驰编剧执导的《功夫女足》定档 7 月 11 日全国上映，迪丽热巴饰前锋钰珑，与张小斐、张艺兴领衔主演。",
+    summaryEn:
+      "Stephen Chow's Kung Fu Women's Soccer opens July 11 — Dilraba as Yu Long with Zhang Xiaofei and Lay Zhang.",
+    cover: IMAGES.works["shaolin-nvzu"],
+    tags: ["作品", "待映"],
+    featured: true,
+    workSlug: "shaolin-nvzu",
+    newsSlug: "gongfu-nvzu-dingdang-2026",
+    eventSlug: "gongfu-nvzu-dingdang-2026",
+    body: `## 定档官宣
+
+**2026 年 7 月 6 日**，喜剧电影 **《功夫女足》**（原《少林女足》）发布定档海报与预告，确认 **7 月 11 日** 全国上映并开启预售。
+
+## 阵容与角色
+
+- **导演/编剧**：周星驰
+- **领衔主演**：张小斐（双双 / 10 号）、**迪丽热巴**（钰珑 / 8 号）、张艺兴（徐风）
+- **特别出演**：刘嘉玲、佐藤健等
+
+据公开解读，角色名「双双」「钰珑」与《少林足球》玉面双飞龙一脉相承。
+
+## 说明
+
+此前片方曾以「弹性定档」表述后期制作进度（7 月 10 日或 17 日等），最终锁定 **7 月 11 日**。上映信息以院线与片方官宣为准。`,
+    bodyEn: `## Release locked
+
+On **July 6, 2026**, **Kung Fu Women's Soccer** (formerly Shaolin Women's Soccer) announced a **July 11** nationwide release with presales.
+
+## Cast
+
+- **Writer/Director**: Stephen Chow
+- **Leads**: Zhang Xiaofei (Shuangshuang / #10), **Dilraba** (Yu Long / #8), Lay Zhang (Xu Feng)
+- **Special appearances**: Carina Lau, Sato Takeru, and more
+
+Character names reportedly nod to *Shaolin Soccer*.
+
+## Note
+
+The film previously used a flexible release window during post-production. Final date follows official announcements.`,
+  },
+  {
     slug: "land-rover-2026-recap",
     title: "路虎卫士全驭代言人 · 官宣与上海都市营地",
     titleEn: "Land Rover Defender · Announcement & Shanghai Urban Camp",

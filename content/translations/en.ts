@@ -200,9 +200,9 @@ export const WORKS_EN: Record<string, WorkEn> = {
   "shaolin-nvzu": {
     roleEn: "Yu Long",
     synopsisEn:
-      "Stephen Chow-directed kung fu soccer film; summer 2026 release reported.",
-    highlightsEn: ["Stephen Chow", "Kung fu soccer"],
-    airInfoEn: "Summer 2026 (subject to confirmation)",
+      "Stephen Chow-directed film (Kung Fu Women's Soccer) — forward Yu Long (#8); opens July 11, 2026 nationwide.",
+    highlightsEn: ["Stephen Chow", "Kung fu soccer", "Opens July 11"],
+    airInfoEn: "Nationwide release July 11, 2026",
   },
   "pao-pao": {
     roleEn: "Regular member",

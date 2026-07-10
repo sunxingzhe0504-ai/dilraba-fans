@@ -12,6 +12,33 @@ const ev = IMAGES.events;
  */
 export const videos: VideoItem[] = [
   {
+    slug: "gongfu-nvzu-dingdang-2026-video",
+    title: "《功夫女足》定档预告",
+    titleEn: "Kung Fu Women's Soccer · Release Trailer",
+    date: "2026-07-06",
+    category: "trailer",
+    platform: "other",
+    href: "https://ent.sina.cn/2026-07-06/detail-inifwfpx1891264.d.html",
+    thumbnail: w["shaolin-nvzu"],
+    summary: "7 月 6 日片方发布定档海报与预告，确认 7 月 11 日全国上映。",
+    summaryEn: "Release trailer and poster dropped July 6 — opens July 11 nationwide.",
+    workSlug: "shaolin-nvzu",
+    featured: true,
+  },
+  {
+    slug: "ambrosial-xian-2026-video",
+    title: "安慕希西安品牌活动 · 现场回顾",
+    titleEn: "Ambrosial Xi'an Event · On-Site Highlights",
+    date: "2026-07-05",
+    category: "event",
+    platform: "weibo",
+    href: "https://www.sina.cn/news/detail/5316700406809642.html",
+    thumbnail: p.tealFloral,
+    summary: "西安夏日冰雪城品牌活动，AADNEVIK 冰蓝色高定裙装亮相。",
+    summaryEn: "Summer Ice City event in Xi'an — AADNEVIK ice-blue couture.",
+    featured: true,
+  },
+  {
     slug: "land-rover-urban-camp-2026-video",
     title: "路虎卫士都市营地 · 上海活动现场",
     titleEn: "Land Rover Defender Urban Camp · Shanghai Highlights",

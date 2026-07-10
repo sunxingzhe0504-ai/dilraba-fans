@@ -218,6 +218,37 @@ export const EVENT_EXTERNAL_LINKS: Record<string, ExternalLink[]> = {
       kind: "official",
     },
   ],
+  "gongfu-nvzu-dingdang-2026": [
+    {
+      label: "新浪 · 功夫女足定档",
+      href: "https://ent.sina.cn/2026-07-06/detail-inifwfpx1891264.d.html",
+      kind: "info",
+    },
+    db("36452545"),
+  ],
+  "ambrosial-xian-2026": [
+    {
+      label: "新浪 · 西安品牌活动",
+      href: "https://www.sina.cn/news/detail/5316700406809642.html",
+      kind: "info",
+    },
+  ],
+  "bai-ri-ti-deng-roadshow-2026": [
+    {
+      label: "腾讯新闻 · 追剧团报道",
+      href: "https://news.qq.com/rain/a/20260407A0288700",
+      kind: "info",
+    },
+    db("35929169"),
+    watchTencent("白日提灯"),
+  ],
+  "kezhu-global-2026": [
+    {
+      label: "腾讯新闻 · 可逐官宣",
+      href: "https://news.qq.com/rain/a/20260330A07ST100",
+      kind: "info",
+    },
+  ],
   "land-rover-defender-2026": [
     {
       label: "新浪 · 路虎卫士代言人官宣",

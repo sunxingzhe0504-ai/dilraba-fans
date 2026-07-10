@@ -482,16 +482,16 @@ export const works: Work[] = [
     role: "钰珑",
     poster: w["shaolin-nvzu"],
     synopsis:
-      "周星驰导演作品，迪丽热巴饰演钰珑，融合功夫与女子足球元素；据公开报道有望于 2026 年暑期档上映，具体以片方官宣为准。",
+      "周星驰导演作品（上映片名《功夫女足》），迪丽热巴饰演前锋钰珑（8 号），融合功夫与女子足球元素；已定档 2026 年 7 月 11 日全国上映。",
     synopsisEn:
-      "Stephen Chow-directed film with Dilraba as Yu Long — kung fu meets women's soccer; summer 2026 release reported, subject to official confirmation.",
-    highlights: ["周星驰导演", "功夫足球题材"],
-    highlightsEn: ["Directed by Stephen Chow", "Kung fu soccer"],
-    airInfo: "2026 年暑期档待映（以片方官宣为准）",
-    airInfoEn: "Summer 2026 release expected (subject to official confirmation)",
+      "Stephen Chow-directed film (release title Kung Fu Women's Soccer) — Dilraba as forward Yu Long (#8); kung fu meets women's soccer, opening July 11, 2026 nationwide.",
+    highlights: ["周星驰导演", "功夫足球题材", "定档 7 月 11 日"],
+    highlightsEn: ["Directed by Stephen Chow", "Kung fu soccer", "Opens July 11"],
+    airInfo: "2026 年 7 月 11 日全国上映",
+    airInfoEn: "Nationwide release July 11, 2026",
     status: "upcoming",
-    countdownTarget: "2026-07-15",
-    countdownApproximate: true,
+    countdownTarget: "2026-07-11",
+    countdownApproximate: false,
   },
 
   // ===== 综艺 =====

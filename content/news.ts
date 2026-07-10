@@ -4,6 +4,43 @@ import { OFFICIAL_CHANNELS } from "./official-channels";
 /** 最新动态：以公开信息为准，按时间倒序维护 */
 export const news: NewsItem[] = [
   {
+    slug: "gongfu-nvzu-dingdang-2026",
+    title: "《功夫女足》定档 7 月 11 日全国上映",
+    titleEn: "Kung Fu Women's Soccer Locks July 11 Release",
+    date: "2026-07-06",
+    category: "work",
+    summary:
+      "周星驰编剧执导的喜剧电影《功夫女足》（原《少林女足》）正式定档 7 月 11 日全国上映并开启预售；迪丽热巴饰前锋钰珑（8 号），与张小斐、张艺兴领衔主演。",
+    summaryEn:
+      "Stephen Chow's Kung Fu Women's Soccer (formerly Shaolin Women's Soccer) opens nationwide July 11 with presales — Dilraba as forward Yu Long (#8) alongside Zhang Xiaofei and Lay Zhang.",
+    body:
+      "7 月 6 日，片方发布定档海报与预告，确认影片于 7 月 11 日全国上映。此前片方曾以「弹性定档」表述后期冲刺进度，最终锁定暑期档。角色名「双双」「钰珑」据公开解读与《少林足球》玉面双飞龙一脉相承；上映信息以院线与片方官宣为准。",
+    bodyEn:
+      "On July 6 the film locked July 11 nationwide release with presales. Character names reportedly nod to Shaolin Soccer. Release details follow official announcements.",
+    workSlug: "shaolin-nvzu",
+    eventSlug: "gongfu-nvzu-dingdang-2026",
+    externalUrl: "https://ent.sina.cn/2026-07-06/detail-inifwfpx1891264.d.html",
+    featured: true,
+  },
+  {
+    slug: "ambrosial-xian-2026",
+    title: "安慕希夏日冰雪城 · 西安品牌活动",
+    titleEn: "Ambrosial Summer Ice City · Xi'an Brand Event",
+    date: "2026-07-05",
+    category: "event",
+    summary:
+      "出席安慕希西安线下品牌活动，身着 AADNEVIK 2026 秋冬系列冰蓝色裙装亮相「夏日冰雪城」主题现场，Messika 珠宝点缀造型。",
+    summaryEn:
+      "At Ambrosial's Xi'an Summer Ice City event in an AADNEVIK 2026 FW ice-blue gown with Messika jewelry.",
+    body:
+      "据公开现场报道，迪丽热巴于 7 月 5 日赴西安出席安慕希品牌线下活动。造型为 AADNEVIK 2026 秋冬系列蓝色裙装，搭配 FENG J 艺术珠宝与 Messika 系列，活动细节以品牌官方发布为准。",
+    bodyEn:
+      "Public reports describe the July 5 Xi'an brand event in AADNEVIK couture with Messika jewels. Details follow official Ambrosial releases.",
+    eventSlug: "ambrosial-xian-2026",
+    externalUrl: "https://www.sina.cn/news/detail/5316700406809642.html",
+    featured: true,
+  },
+  {
     slug: "land-rover-urban-camp-2026",
     title: "路虎卫士都市营地 · 上海线下活动",
     titleEn: "Land Rover Defender Urban Camp · Shanghai Event",
@@ -143,6 +180,25 @@ export const news: NewsItem[] = [
     featured: true,
   },
   {
+    slug: "bai-ri-ti-deng-roadshow-2026",
+    title: "《白日提灯》北京线下追剧团",
+    titleEn: "Love Under the Lantern · Beijing Fan Event",
+    date: "2026-04-01",
+    category: "event",
+    summary:
+      "出席《白日提灯》北京线下追剧团，粉色针织与黑色蕾丝双造型亮相；现场即兴舞蹈与互动环节引发广泛传播。",
+    summaryEn:
+      "Beijing fan event for Love Under the Lantern — dual pink and black lace looks; impromptu dance moment widely shared.",
+    body:
+      "4 月 1 日，迪丽热巴与陈飞宇等主创赴北京出席《白日提灯》线下追剧团。公开现场报道显示，她以粉色针织短上衣与黑色蕾丝长裙两套造型亮相，并与到场粉丝互动。活动细节以平台与工作室公开信息为准。",
+    bodyEn:
+      "On April 1 Dilraba joined the cast at a Beijing fan event with two on-site looks and fan interactions. Details follow official releases.",
+    workSlug: "bai-ri-ti-deng",
+    eventSlug: "bai-ri-ti-deng-roadshow-2026",
+    externalUrl: "https://news.qq.com/rain/a/20260407A0288700",
+    featured: true,
+  },
+  {
     slug: "lucky-coffee-global-2026",
     title: "官宣幸运咖臻选咖啡全球代言人",
     titleEn: "Announced Lucky Coffee Premium Coffee Global Ambassador",
@@ -204,6 +260,24 @@ export const news: NewsItem[] = [
     featured: true,
   },
   {
+    slug: "kezhu-global-2026",
+    title: "官宣可逐全球品牌代言人",
+    titleEn: "Announced KAZOO Global Brand Ambassador",
+    date: "2026-03-30",
+    category: "fashion",
+    summary:
+      "海尼集团旗下护肤品牌可逐（KAZOO）正式官宣，迪丽热巴出任首位全球品牌代言人，聚焦颈部等局部精细护理赛道。",
+    summaryEn:
+      "KAZOO skincare announced Dilraba as its first global brand ambassador — focused on targeted neck and local care.",
+    body:
+      "3 月 30 日，可逐正式宣布迪丽热巴为全球品牌代言人。据公开报道，品牌深耕眼周、颈部等局部护理领域，此次合作为品牌首次启用全球代言人；产品与合作细节以品牌官方发布为准。",
+    bodyEn:
+      "KAZOO announced the global ambassadorship on March 30 — the brand's first global ambassador for targeted skincare. Details follow official releases.",
+    eventSlug: "kezhu-global-2026",
+    externalUrl: "https://news.qq.com/rain/a/20260330A07ST100",
+    featured: true,
+  },
+  {
     slug: "bai-ri-ti-deng-air",
     title: "《白日提灯》腾讯视频开播",
     titleEn: "Moonlit Reunion Premieres on Tencent Video",
@@ -215,6 +289,23 @@ export const news: NewsItem[] = [
     workSlug: "bai-ri-ti-deng",
     eventSlug: "bai-ri-ti-deng-premiere-2026",
     externalUrl: "https://movie.douban.com/subject/35929169/",
+    featured: true,
+  },
+  {
+    slug: "studio-independence-2026",
+    title: "与嘉行传媒合约到期 · 个人工作室独立运营",
+    titleEn: "Jaywalk Contract Ends · Independent Studio Operations",
+    date: "2026-02-26",
+    category: "studio",
+    summary:
+      "与合作 13 年的嘉行传媒经纪合约于 2 月 26 日正式到期，双方协商一致不再续约；演艺、商务与宣传事务由其 100% 持股的上海镜砚影视文化工作室接管。",
+    summaryEn:
+      "After 13 years with Jaywalk Media, the contract ended Feb 26 by mutual agreement; her wholly owned Shanghai Jingyan studio now handles all career affairs.",
+    body:
+      "据多家媒体报道，迪丽热巴与嘉行传媒的经纪合约于 2026 年 2 月 26 日自然到期，双方未续约。其于 2017 年注册的个人独资企业上海镜砚影视文化工作室已全面负责后续影视、商务与宣传等工作。具体安排以本人及工作室官方发布为准。",
+    bodyEn:
+      "Media reports describe a peaceful contract end on Feb 26, 2026, with her Shanghai Jingyan studio (100% owned, registered 2017) taking over career operations. Follow official studio announcements.",
+    externalUrl: "https://www.sina.cn/news/detail/5309061449127329.html",
     featured: true,
   },
   {
