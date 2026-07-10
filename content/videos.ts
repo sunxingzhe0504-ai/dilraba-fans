@@ -12,6 +12,20 @@ const ev = IMAGES.events;
  */
 export const videos: VideoItem[] = [
   {
+    slug: "gongfu-nvzu-long-trailer-2026-video",
+    title: "《功夫女足》首支长预告",
+    titleEn: "Kung Fu Women's Soccer · Full Trailer",
+    date: "2026-07-10",
+    category: "trailer",
+    platform: "other",
+    href: "https://ent.sina.cn/2026-07-10/detail-inihinfz5203133.d.html",
+    thumbnail: w["shaolin-nvzu"],
+    summary: "7 月 10 日发布首支完整长预告，定档 7 月 11 日全国上映。",
+    summaryEn: "Full trailer released July 10 — opens July 11 nationwide.",
+    workSlug: "shaolin-nvzu",
+    featured: true,
+  },
+  {
     slug: "gongfu-nvzu-dingdang-2026-video",
     title: "《功夫女足》定档预告",
     titleEn: "Kung Fu Women's Soccer · Release Trailer",
@@ -36,6 +50,19 @@ export const videos: VideoItem[] = [
     thumbnail: p.tealFloral,
     summary: "西安夏日冰雪城品牌活动，AADNEVIK 冰蓝色高定裙装亮相。",
     summaryEn: "Summer Ice City event in Xi'an — AADNEVIK ice-blue couture.",
+    featured: true,
+  },
+  {
+    slug: "fakeme-live-2026-video",
+    title: "Fakeme 梦镜商店 · 直播回顾",
+    titleEn: "Fakeme Dream Mirror Store · Live Highlights",
+    date: "2026-04-13",
+    category: "event",
+    platform: "other",
+    href: "https://www.sina.cn/news/detail/5287341950507321.html",
+    thumbnail: p.goldCrown,
+    summary: "4 月 13 日 Fakeme 抖音品牌直播，高定造型与墨镜产品线互动。",
+    summaryEn: "April 13 Fakeme Douyin live — couture looks and eyewear showcase.",
     featured: true,
   },
   {

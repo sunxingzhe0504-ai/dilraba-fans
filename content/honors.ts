@@ -6,10 +6,17 @@ import type { Honor, TimelineEntry } from "@/lib/types";
 export const honors: Honor[] = [
   {
     year: 2026,
-    title: "《功夫女足》定档 7 月 11 日全国上映",
-    titleEn: "Kung Fu Women's Soccer locked for July 11 nationwide release",
-    source: "片方官宣 / 媒体报道",
-    sourceEn: "Official announcement / media reports",
+    title: "《功夫女足》定档上映，为角色增重 8 公斤完成足球特训",
+    titleEn: "Kung Fu Women's Soccer release — 8 kg gain and football training for role",
+    source: "公开报道 / 片方宣发",
+    sourceEn: "Public reports / official promotion",
+  },
+  {
+    year: 2026,
+    title: "Fakeme 首位全球品牌代言人官宣",
+    titleEn: "Fakeme first global brand ambassador announced",
+    source: "品牌官宣 / 媒体报道",
+    sourceEn: "Official brand announcement / media reports",
   },
   {
     year: 2026,

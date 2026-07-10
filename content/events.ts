@@ -6,6 +6,42 @@ import type { FanEvent } from "@/lib/types";
  */
 export const events: FanEvent[] = [
   {
+    slug: "gongfu-nvzu-long-trailer-2026",
+    title: "《功夫女足》首支长预告发布",
+    titleEn: "Kung Fu Women's Soccer · Full Trailer Release",
+    date: "2026-07-10",
+    category: "premiere",
+    location: "线上发布",
+    locationEn: "Online",
+    summary:
+      "上映前一日发布首支完整长预告；据公开报道预售票房已突破 6000 万元。",
+    summaryEn:
+      "Full trailer one day before release; reported presales passed 60M yuan.",
+    description:
+      "7 月 10 日片方释出完整长预告。公开报道提及迪丽热巴为角色增重 8 公斤并完成三个月足球特训。预售与口碑数据以正式上映后为准。",
+    descriptionEn:
+      "Full trailer on July 10. Reports note 8 kg weight gain and three months of football training. Box office follows official release.",
+    featured: true,
+  },
+  {
+    slug: "gongfu-nvzu-roadshow-2026",
+    title: "《功夫女足》路演宣传",
+    titleEn: "Kung Fu Women's Soccer · Roadshow",
+    date: "2026-07-09",
+    category: "premiere",
+    location: "多城（以片方官宣为准）",
+    locationEn: "Multiple cities (official schedule TBA)",
+    summary:
+      "据公开报道启动多城路演宣传，为迪丽热巴时隔八年后再参与的电影路演。",
+    summaryEn:
+      "Reported multi-city roadshows — Dilraba's first film roadshow in eight years.",
+    description:
+      "媒体报道《功夫女足》于上映前启动路演宣传。片方曾提醒勿轻信非官方渠道售票信息，具体场次以官方发布为准。",
+    descriptionEn:
+      "Media report pre-release roadshows. Studio warned against unofficial ticket sales. Schedules follow official releases.",
+    featured: true,
+  },
+  {
     slug: "gongfu-nvzu-dingdang-2026",
     title: "《功夫女足》定档上映",
     titleEn: "Kung Fu Women's Soccer · Release Date Locked",
@@ -195,6 +231,48 @@ export const events: FanEvent[] = [
       "工作室发布生日祝福与六月行程，粉丝以「今天星期巴」等话题送上祝福。",
     summaryEn:
       "Studio shared birthday wishes and the June schedule; fans celebrated with trending topics.",
+    featured: true,
+  },
+  {
+    slug: "fakeme-live-2026",
+    title: "Fakeme 梦镜商店 · 抖音直播",
+    titleEn: "Fakeme Dream Mirror Store · Douyin Live",
+    date: "2026-04-13",
+    category: "brand",
+    location: "抖音直播间",
+    locationEn: "Douyin Live",
+    summary:
+      "以全球代言人身份出席 Fakeme 抖音品牌直播，Ulyana Sergeenko 高定造型亮相。",
+    summaryEn:
+      "Global ambassador at Fakeme Douyin live in Ulyana Sergeenko couture.",
+    featured: true,
+  },
+  {
+    slug: "libai-live-2026",
+    title: "立白大师香氛 · 南法寻香之旅直播",
+    titleEn: "Liby Master Fragrance · Provence Live",
+    date: "2026-03-22",
+    category: "brand",
+    location: "抖音 · 立白官方旗舰店",
+    locationEn: "Douyin · Liby Official Store",
+    summary:
+      "出席立白大师香氛抖音直播，Alexis Mabille 高定礼服亮相并预热《白日提灯》。",
+    summaryEn:
+      "Liby Master Fragrance Douyin live in Alexis Mabille couture — teased Love Under the Lantern.",
+    featured: true,
+  },
+  {
+    slug: "fakeme-global-2026",
+    title: "Fakeme 全球品牌代言人官宣",
+    titleEn: "Fakeme Global Brand Ambassador Launch",
+    date: "2026-01-26",
+    category: "brand",
+    location: "线上发布",
+    locationEn: "Online",
+    summary:
+      "正式官宣成为 Fakeme 眼镜首位全球品牌代言人。",
+    summaryEn:
+      "Officially announced as Fakeme eyewear's first global brand ambassador.",
     featured: true,
   },
   {

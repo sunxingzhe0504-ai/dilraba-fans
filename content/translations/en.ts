@@ -201,7 +201,7 @@ export const WORKS_EN: Record<string, WorkEn> = {
     roleEn: "Yu Long",
     synopsisEn:
       "Stephen Chow-directed film (Kung Fu Women's Soccer) — forward Yu Long (#8); opens July 11, 2026 nationwide.",
-    highlightsEn: ["Stephen Chow", "Kung fu soccer", "Opens July 11"],
+    highlightsEn: ["Stephen Chow", "Kung fu soccer", "Opens July 11", "8 kg gain & training"],
     airInfoEn: "Nationwide release July 11, 2026",
   },
   "pao-pao": {
@@ -480,8 +480,9 @@ export const CHARACTERS_EN: Record<
   },
   "yu-long": {
     nameEn: "Yu Long",
-    workTitleEn: "Shaolin Women's Soccer",
-    descriptionEn: "Stephen Chow film role blending kung fu and women's soccer — upcoming.",
+    workTitleEn: "Kung Fu Women's Soccer",
+    descriptionEn:
+      "Forward #8 and core scorer for Emei FC; gained 8 kg and trained three months — action scenes performed herself.",
   },
 };
 

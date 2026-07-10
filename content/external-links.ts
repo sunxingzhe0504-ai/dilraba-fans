@@ -218,6 +218,42 @@ export const EVENT_EXTERNAL_LINKS: Record<string, ExternalLink[]> = {
       kind: "official",
     },
   ],
+  "gongfu-nvzu-long-trailer-2026": [
+    {
+      label: "新浪 · 长预告与预售",
+      href: "https://ent.sina.cn/2026-07-10/detail-inihinfz5203133.d.html",
+      kind: "info",
+    },
+    db("36452545"),
+  ],
+  "gongfu-nvzu-roadshow-2026": [
+    {
+      label: "新浪 · 路演报道",
+      href: "https://ent.sina.cn/2026-07-09/detail-inihczpf1482717.d.html",
+      kind: "info",
+    },
+  ],
+  "fakeme-live-2026": [
+    {
+      label: "新浪 · Fakeme 直播",
+      href: "https://www.sina.cn/news/detail/5287341950507321.html",
+      kind: "info",
+    },
+  ],
+  "fakeme-global-2026": [
+    {
+      label: "新浪 · Fakeme 代言",
+      href: "https://www.sina.cn/news/detail/5287341950507321.html",
+      kind: "info",
+    },
+  ],
+  "libai-live-2026": [
+    {
+      label: "新浪 · 立白直播",
+      href: "https://k.sina.cn/article_7879776328_1d5abd84806801i8we.html?from=fashion",
+      kind: "info",
+    },
+  ],
   "gongfu-nvzu-dingdang-2026": [
     {
       label: "新浪 · 功夫女足定档",

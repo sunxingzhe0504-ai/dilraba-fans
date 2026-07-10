@@ -4,6 +4,44 @@ import { OFFICIAL_CHANNELS } from "./official-channels";
 /** 最新动态：以公开信息为准，按时间倒序维护 */
 export const news: NewsItem[] = [
   {
+    slug: "gongfu-nvzu-long-trailer-2026",
+    title: "《功夫女足》发布首支长预告 · 预售破 6000 万",
+    titleEn: "Kung Fu Women's Soccer · First Full Trailer & Presales Hit 60M",
+    date: "2026-07-10",
+    category: "work",
+    summary:
+      "上映前一日发布首支完整长预告；据公开报道预售票房已突破 6000 万元。迪丽热巴为贴合前锋钰珑增重 8 公斤并完成三个月封闭足球特训，动作戏份亲自完成。",
+    summaryEn:
+      "Full trailer dropped one day before release; reported presales passed 60M yuan. Dilraba gained 8 kg and trained three months for Yu Long — action scenes done herself.",
+    body:
+      "7 月 10 日，片方释出《功夫女足》首支完整长预告。据新浪娱乐等公开报道，截至当日预售总票房已突破 6000 万元。迪丽热巴在采访中谈及为角色增重 8 公斤、接受前女足国脚指导并完成倒挂金钩等动作戏份。票房与口碑以正式上映后数据为准。",
+    bodyEn:
+      "The full trailer released July 10. Media report presales passed 60M yuan by that date. Dilraba discussed gaining 8 kg and football training for the role. Box office follows official release data.",
+    workSlug: "shaolin-nvzu",
+    eventSlug: "gongfu-nvzu-long-trailer-2026",
+    externalUrl: "https://ent.sina.cn/2026-07-10/detail-inihinfz5203133.d.html",
+    featured: true,
+  },
+  {
+    slug: "gongfu-nvzu-roadshow-2026",
+    title: "《功夫女足》路演宣传启动",
+    titleEn: "Kung Fu Women's Soccer · Roadshow Promotion Begins",
+    date: "2026-07-09",
+    category: "work",
+    summary:
+      "据公开报道，《功夫女足》路演宣传陆续启动，为迪丽热巴时隔八年后再参与的电影路演；具体场次与购票信息以片方官方发布为准。",
+    summaryEn:
+      "Reported roadshow promotion begins — Dilraba's first film roadshow in eight years; official schedules and tickets follow studio releases only.",
+    body:
+      "多家媒体报道《功夫女足》于上映前启动多城路演宣传，迪丽热巴与周星驰等主创为影片造势。片方曾提醒观众勿轻信非官方渠道的路演售票信息。本站仅整理公开报道，活动详情以官方为准。",
+    bodyEn:
+      "Media report multi-city roadshows ahead of release. The studio has warned against unofficial ticket sales. Details follow official announcements.",
+    workSlug: "shaolin-nvzu",
+    eventSlug: "gongfu-nvzu-roadshow-2026",
+    externalUrl: "https://ent.sina.cn/2026-07-09/detail-inihczpf1482717.d.html",
+    featured: true,
+  },
+  {
     slug: "gongfu-nvzu-dingdang-2026",
     title: "《功夫女足》定档 7 月 11 日全国上映",
     titleEn: "Kung Fu Women's Soccer Locks July 11 Release",
@@ -199,6 +237,24 @@ export const news: NewsItem[] = [
     featured: true,
   },
   {
+    slug: "fakeme-live-2026",
+    title: "Fakeme 梦镜商店 · 抖音品牌直播",
+    titleEn: "Fakeme Dream Mirror Store · Douyin Live",
+    date: "2026-04-13",
+    category: "fashion",
+    summary:
+      "以 Fakeme 首位全球代言人身份亮相抖音直播间，Ulyana Sergeenko 2026 春夏高定蕾丝上衣搭配 MIKIMOTO 珠宝，「梦镜商店」主题互动。",
+    summaryEn:
+      "First global ambassador live on Douyin — Ulyana Sergeenko 2026 SS couture lace top with Mikimoto jewels at the Dream Mirror Store event.",
+    body:
+      "4 月 13 日，迪丽热巴出席 Fakeme 品牌抖音直播，解析墨镜产品线并参与风格切换互动。据公开报道，直播实时在线人数达数百万量级，活动细节以品牌官方发布为准。",
+    bodyEn:
+      "April 13 Douyin live for Fakeme eyewear. Public reports describe millions concurrent viewers. Details follow official brand releases.",
+    eventSlug: "fakeme-live-2026",
+    externalUrl: "https://www.sina.cn/news/detail/5287341950507321.html",
+    featured: true,
+  },
+  {
     slug: "lucky-coffee-global-2026",
     title: "官宣幸运咖臻选咖啡全球代言人",
     titleEn: "Announced Lucky Coffee Premium Coffee Global Ambassador",
@@ -260,6 +316,24 @@ export const news: NewsItem[] = [
     featured: true,
   },
   {
+    slug: "libai-live-2026",
+    title: "立白大师香氛 · 南法寻香之旅直播",
+    titleEn: "Liby Master Fragrance · Provence Scent Journey Live",
+    date: "2026-03-22",
+    category: "fashion",
+    summary:
+      "出席立白大师香氛抖音直播「南法寻香之旅」，Alexis Mabille 2025 春夏高定礼服亮相，并预热《白日提灯》腾讯视频开播。",
+    summaryEn:
+      "Liby Master Fragrance Douyin live in Alexis Mabille 2025 SS couture — also teased Love Under the Lantern on Tencent Video.",
+    body:
+      "3 月 22 日，迪丽热巴以立白品牌代言人身份出席抖音官方旗舰店直播，打造「南法假日」场景互动。据公开报道，为合约到期后个人工作室独立运营时期的重要品牌活动之一，并同步为新剧《白日提灯》预热。",
+    bodyEn:
+      "March 22 Liby Douyin live with Provence-themed interactions — reported as a key brand event after independent studio operations, teasing Love Under the Lantern.",
+    eventSlug: "libai-live-2026",
+    externalUrl: "https://k.sina.cn/article_7879776328_1d5abd84806801i8we.html?from=fashion",
+    featured: true,
+  },
+  {
     slug: "kezhu-global-2026",
     title: "官宣可逐全球品牌代言人",
     titleEn: "Announced KAZOO Global Brand Ambassador",
@@ -289,6 +363,20 @@ export const news: NewsItem[] = [
     workSlug: "bai-ri-ti-deng",
     eventSlug: "bai-ri-ti-deng-premiere-2026",
     externalUrl: "https://movie.douban.com/subject/35929169/",
+    featured: true,
+  },
+  {
+    slug: "fakeme-global-2026",
+    title: "官宣 Fakeme 首位全球品牌代言人",
+    titleEn: "Announced Fakeme First Global Brand Ambassador",
+    date: "2026-01-26",
+    category: "fashion",
+    summary:
+      "1 月 26 日 Fakeme 眼镜正式官宣，迪丽热巴出任品牌首位全球品牌代言人，以「我本多面，镜在掌握」为主题。",
+    summaryEn:
+      "Fakeme eyewear announced Dilraba as first global brand ambassador on Jan 26 — \"Many sides, mastery in the mirror.\"",
+    eventSlug: "fakeme-global-2026",
+    externalUrl: "https://www.sina.cn/news/detail/5287341950507321.html",
     featured: true,
   },
   {

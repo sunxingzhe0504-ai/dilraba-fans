@@ -90,6 +90,30 @@ export const fanCulture: FanCulture = {
 
 export const brandHighlights: BrandHighlight[] = [
   {
+    slug: "fakeme-global-2026",
+    title: "Fakeme 首位全球品牌代言人",
+    titleEn: "Fakeme First Global Brand Ambassador",
+    date: "2026-01-26",
+    summary:
+      "1 月 26 日正式官宣成为 Fakeme 眼镜首位全球品牌代言人，4 月出席「梦镜商店」抖音直播。",
+    summaryEn:
+      "Announced as Fakeme's first global ambassador Jan 26; Dream Mirror Store Douyin live in April.",
+    image: IMAGES.portraits.goldCrown,
+    externalUrl: "https://www.sina.cn/news/detail/5287341950507321.html",
+  },
+  {
+    slug: "libai-brand",
+    title: "立白品牌代言人",
+    titleEn: "Liby Brand Ambassador",
+    date: "2024-08",
+    summary:
+      "立白品牌代言人，2026 年 3 月出席大师香氛「南法寻香之旅」抖音直播，高定造型亮相。",
+    summaryEn:
+      "Liby brand ambassador — March 2026 Master Fragrance Provence live on Douyin in couture.",
+    image: IMAGES.portraits.whiteBeauty,
+    externalUrl: "https://k.sina.cn/article_7879776328_1d5abd84806801i8we.html?from=fashion",
+  },
+  {
     slug: "kezhu-global-2026",
     title: "可逐全球品牌代言人",
     titleEn: "KAZOO Global Brand Ambassador",
@@ -237,16 +261,15 @@ export const changelog: ChangelogEntry[] = [
   {
     date: "2026-07-10",
     items: [
-      "补充《功夫女足》7 月 11 日定档（7/6）、安慕希西安品牌活动（7/5）",
-      "回填可逐全球代言人（3/30）、《白日提灯》北京追剧团（4/1）、嘉行合约到期独立运营（2/26）",
-      "待播页更新《少林女足》上映倒计时；work-release 配置一键上映",
-      "荣誉与时间轴、视频区与外链同步更新",
+      "补充《功夫女足》7/10 长预告与预售、7/9 路演及定档（7/6）、安慕希西安活动（7/5）",
+      "回填 Fakeme 全球代言人（1/26）与直播（4/13）、立白南法寻香直播（3/22）",
+      "回填可逐代言人（3/30）、《白日提灯》追剧团（4/1）、嘉行合约到期独立运营（2/26）",
+      "更新钰珑角色设定；视频区与专题长文同步",
     ],
     itemsEn: [
-      "Added Kung Fu Women's Soccer July 11 release (Jul 6) and Ambrosial Xi'an event (Jul 5)",
-      "Backfilled KAZOO ambassador (Mar 30), Love Under the Lantern roadshow (Apr 1), Jaywalk contract end (Feb 26)",
-      "Updated Shaolin Women's Soccer countdown; work-release premiere config ready",
-      "Honors, timeline, videos, and external links synced",
+      "Kung Fu Women's Soccer: Jul 10 trailer/presales, Jul 9 roadshow, Jul 6 release lock, Jul 5 Ambrosial",
+      "Backfilled Fakeme ambassador & live, Liby live, KAZOO, roadshow, studio independence",
+      "Updated Yu Long character; videos and story recap synced",
     ],
   },
   {

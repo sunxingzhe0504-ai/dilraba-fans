@@ -8,20 +8,25 @@ const coreStories: Story[] = [
     slug: "gongfu-nvzu-dingdang-2026-recap",
     title: "《功夫女足》定档 7 月 11 日 · 暑期档功夫足球喜剧",
     titleEn: "Kung Fu Women's Soccer · July 11 Summer Release",
-    date: "2026-07-06",
+    date: "2026-07-10",
     summary:
-      "周星驰编剧执导的《功夫女足》定档 7 月 11 日全国上映，迪丽热巴饰前锋钰珑，与张小斐、张艺兴领衔主演。",
+      "定档 7 月 11 日全国上映；7 月 10 日发布首支长预告。迪丽热巴饰前锋钰珑，增重 8 公斤完成三个月足球特训。",
     summaryEn:
-      "Stephen Chow's Kung Fu Women's Soccer opens July 11 — Dilraba as Yu Long with Zhang Xiaofei and Lay Zhang.",
+      "Opens July 11 nationwide; full trailer July 10. Dilraba as Yu Long — 8 kg gain and three months of football training.",
     cover: IMAGES.works["shaolin-nvzu"],
     tags: ["作品", "待映"],
     featured: true,
     workSlug: "shaolin-nvzu",
-    newsSlug: "gongfu-nvzu-dingdang-2026",
-    eventSlug: "gongfu-nvzu-dingdang-2026",
+    newsSlug: "gongfu-nvzu-long-trailer-2026",
+    eventSlug: "gongfu-nvzu-long-trailer-2026",
     body: `## 定档官宣
 
 **2026 年 7 月 6 日**，喜剧电影 **《功夫女足》**（原《少林女足》）发布定档海报与预告，确认 **7 月 11 日** 全国上映并开启预售。
+
+## 上映前宣发
+
+- **7 月 10 日**：发布首支完整长预告；据公开报道预售票房已突破 **6000 万元**
+- **7 月 9 日起**：据媒体报道启动多城路演宣传（具体场次以片方官方为准）
 
 ## 阵容与角色
 
@@ -29,26 +34,34 @@ const coreStories: Story[] = [
 - **领衔主演**：张小斐（双双 / 10 号）、**迪丽热巴**（钰珑 / 8 号）、张艺兴（徐风）
 - **特别出演**：刘嘉玲、佐藤健等
 
-据公开解读，角色名「双双」「钰珑」与《少林足球》玉面双飞龙一脉相承。
+## 角色准备
+
+据公开采访与报道，迪丽热巴为贴合女足运动员形象 **增重 8 公斤**，在前女足国脚指导下完成 **三个月封闭足球特训**，片中带球、射门等动作戏份亲自完成。
 
 ## 说明
 
-此前片方曾以「弹性定档」表述后期制作进度（7 月 10 日或 17 日等），最终锁定 **7 月 11 日**。上映信息以院线与片方官宣为准。`,
+角色名「双双」「钰珑」据公开解读与《少林足球》玉面双飞龙一脉相承。上映信息以院线与片方官宣为准。`,
     bodyEn: `## Release locked
 
-On **July 6, 2026**, **Kung Fu Women's Soccer** (formerly Shaolin Women's Soccer) announced a **July 11** nationwide release with presales.
+On **July 6, 2026**, **Kung Fu Women's Soccer** announced a **July 11** nationwide release with presales.
+
+## Pre-release
+
+- **July 10**: Full trailer; reported presales passed **60M yuan**
+- **From July 9**: Reported multi-city roadshows (official schedules TBA)
 
 ## Cast
 
 - **Writer/Director**: Stephen Chow
-- **Leads**: Zhang Xiaofei (Shuangshuang / #10), **Dilraba** (Yu Long / #8), Lay Zhang (Xu Feng)
-- **Special appearances**: Carina Lau, Sato Takeru, and more
+- **Leads**: Zhang Xiaofei (#10), **Dilraba** (Yu Long / #8), Lay Zhang
 
-Character names reportedly nod to *Shaolin Soccer*.
+## Preparation
+
+Reports describe **8 kg weight gain** and **three months** of football training with former national team players — action scenes performed herself.
 
 ## Note
 
-The film previously used a flexible release window during post-production. Final date follows official announcements.`,
+Follow official release announcements.`,
   },
   {
     slug: "land-rover-2026-recap",

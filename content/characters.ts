@@ -311,11 +311,16 @@ export const characters: Character[] = [
   {
     slug: "yu-long",
     name: "钰珑",
+    nameEn: "Yu Long",
     workSlug: "shaolin-nvzu",
-    workTitle: "少林女足",
+    workTitle: "功夫女足",
+    workTitleEn: "Kung Fu Women's Soccer",
     year: 2025,
     image: W["shaolin-nvzu"],
-    description: "周星驰导演待映电影角色，融合功夫与女子足球元素。",
+    description:
+      "峨眉队 8 号前锋、球队核心得分手；为贴合运动员形象增重 8 公斤并完成三个月封闭足球特训，动作戏份亲自完成。",
+    descriptionEn:
+      "Forward #8 and core scorer for Emei FC; gained 8 kg and trained three months — action scenes performed herself.",
   },
   {
     slug: "ren-anle",
