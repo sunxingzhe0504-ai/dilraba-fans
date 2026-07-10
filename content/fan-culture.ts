@@ -259,6 +259,17 @@ export const charityItems: CharityItem[] = [
 
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-07-11",
+    items: [
+      "《功夫女足》正式上映：work-release live 切换，作品状态更新为已上映",
+      "自动注入全国上映动态与活动；图库海报标签「待映」→「已上映」",
+    ],
+    itemsEn: [
+      "Kung Fu Women's Soccer now live — work-release toggled, status set to released",
+      "Premiere news/event auto-injected; gallery poster tag updated to released",
+    ],
+  },
+  {
     date: "2026-07-10",
     items: [
       "补充《功夫女足》7/10 长预告与预售、7/9 路演及定档（7/6）、安慕希西安活动（7/5）",

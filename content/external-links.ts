@@ -203,6 +203,14 @@ export const EVENT_EXTERNAL_LINKS: Record<string, ExternalLink[]> = {
     db("36707564"),
     watchIqiyi("虽然不能同时拥有一切"),
   ],
+  "shaolin-nvzu-premiere-2026": [
+    {
+      label: "新浪 · 功夫女足定档上映",
+      href: "https://ent.sina.cn/2026-07-06/detail-inifwfpx1891264.d.html",
+      kind: "info",
+    },
+    db("36452545"),
+  ],
   "sui-ran-bu-neng-yiqie-premiere-2026": [
     db("36707564"),
     watchIqiyi("虽然不能同时拥有一切"),

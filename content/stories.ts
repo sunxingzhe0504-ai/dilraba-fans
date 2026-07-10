@@ -14,7 +14,7 @@ const coreStories: Story[] = [
     summaryEn:
       "Opens July 11 nationwide; full trailer July 10. Dilraba as Yu Long — 8 kg gain and three months of football training.",
     cover: IMAGES.works["shaolin-nvzu"],
-    tags: ["作品", "待映"],
+    tags: ["作品", "已上映"],
     featured: true,
     workSlug: "shaolin-nvzu",
     newsSlug: "gongfu-nvzu-long-trailer-2026",

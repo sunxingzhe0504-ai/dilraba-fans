@@ -171,6 +171,9 @@ export function getGallery() {
     if (item.slug === "sui-ran-poster" && isWorkLive("sui-ran-bu-neng-yiqie")) {
       return { ...item, tags: GALLERY_LIVE_TAG_PATCH["sui-ran-poster"] };
     }
+    if (item.slug === "shaolin-poster" && isWorkLive("shaolin-nvzu")) {
+      return { ...item, tags: GALLERY_LIVE_TAG_PATCH["shaolin-poster"] };
+    }
     return item;
   });
 }
