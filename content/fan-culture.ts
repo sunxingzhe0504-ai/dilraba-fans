@@ -259,6 +259,19 @@ export const charityItems: CharityItem[] = [
 
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-07-12",
+    items: [
+      "补充《功夫女足》上映首日票房破 2 亿（7/11）、累计破 3 亿（7/12）与天津路演",
+      "作品页更新为热映中，钰珑角色设为精选；专题长文同步票房与路演信息",
+      "图库、视频区、荣誉与时间轴同步更新",
+    ],
+    itemsEn: [
+      "Added Kung Fu Women's Soccer 200M+ opening day (Jul 11), 300M cumulative (Jul 12), Tianjin roadshow",
+      "Work page now showing in cinemas; Yu Long featured; story recap updated",
+      "Gallery, videos, honors, and timeline synced",
+    ],
+  },
+  {
     date: "2026-07-11",
     items: [
       "《功夫女足》正式上映：work-release live 切换，作品状态更新为已上映",

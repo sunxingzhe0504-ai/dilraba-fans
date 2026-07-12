@@ -6,6 +6,13 @@ import type { Honor, TimelineEntry } from "@/lib/types";
 export const honors: Honor[] = [
   {
     year: 2026,
+    title: "《功夫女足》上映首日票房突破 2 亿，打破 7 项影史纪录",
+    titleEn: "Kung Fu Women's Soccer opening day passes 200M yuan, 7 records broken",
+    source: "灯塔专业版 / 公开报道",
+    sourceEn: "Lighthouse / public reports",
+  },
+  {
+    year: 2026,
     title: "《功夫女足》定档上映，为角色增重 8 公斤完成足球特训",
     titleEn: "Kung Fu Women's Soccer release — 8 kg gain and football training for role",
     source: "公开报道 / 片方宣发",
@@ -290,8 +297,8 @@ export const timeline: TimelineEntry[] = [
     title: "独立运营新阶段",
     titleEn: "Independent operations",
     description:
-      "与嘉行传媒 13 年合约到期后，个人工作室全面接管演艺事务；《功夫女足》定档 7 月 11 日，代言与时尚版图持续扩展。",
+      "与嘉行传媒 13 年合约到期后，个人工作室全面接管演艺事务；《功夫女足》7 月 11 日上映首日票房破 2 亿，代言与时尚版图持续扩展。",
     descriptionEn:
-      "After 13 years with Jaywalk, her studio fully manages career affairs; Kung Fu Women's Soccer opens July 11; brand and fashion milestones continue.",
+      "After 13 years with Jaywalk, her studio fully manages career affairs; Kung Fu Women's Soccer opened July 11 with 200M+ opening day; brand and fashion milestones continue.",
   },
 ];

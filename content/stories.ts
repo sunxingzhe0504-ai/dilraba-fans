@@ -6,62 +6,73 @@ import { storiesFromMarkdown } from "./stories-from-md";
 const coreStories: Story[] = [
   {
     slug: "gongfu-nvzu-dingdang-2026-recap",
-    title: "《功夫女足》定档 7 月 11 日 · 暑期档功夫足球喜剧",
-    titleEn: "Kung Fu Women's Soccer · July 11 Summer Release",
-    date: "2026-07-10",
+    title: "《功夫女足》暑期档热映 · 首日票房破 2 亿",
+    titleEn: "Kung Fu Women's Soccer · Summer Hit, 200M+ Opening Day",
+    date: "2026-07-12",
     summary:
-      "定档 7 月 11 日全国上映；7 月 10 日发布首支长预告。迪丽热巴饰前锋钰珑，增重 8 公斤完成三个月足球特训。",
+      "7 月 11 日全国上映，首日票房突破 2 亿元；迪丽热巴饰 8 号前锋钰珑，天津路演与工作室 Live 图引热议。",
     summaryEn:
-      "Opens July 11 nationwide; full trailer July 10. Dilraba as Yu Long — 8 kg gain and three months of football training.",
+      "Opened July 11 with 200M+ opening day — Dilraba as Yu Long (#8); Tianjin roadshow and studio live photos trending.",
     cover: IMAGES.works["shaolin-nvzu"],
-    tags: ["作品", "已上映"],
+    tags: ["作品", "热映"],
     featured: true,
     workSlug: "shaolin-nvzu",
-    newsSlug: "gongfu-nvzu-long-trailer-2026",
-    eventSlug: "gongfu-nvzu-long-trailer-2026",
-    body: `## 定档官宣
+    newsSlug: "gongfu-nvzu-boxoffice-3yi-2026",
+    eventSlug: "gongfu-nvzu-boxoffice-day1-2026",
+    body: `## 全国上映
 
-**2026 年 7 月 6 日**，喜剧电影 **《功夫女足》**（原《少林女足》）发布定档海报与预告，确认 **7 月 11 日** 全国上映并开启预售。
+**2026 年 7 月 11 日**，喜剧电影 **《功夫女足》**（原《少林女足》）于全国院线上映。迪丽热巴饰 **8 号前锋钰珑**，与张小斐、张艺兴领衔主演。
 
-## 上映前宣发
+## 票房表现
 
-- **7 月 10 日**：发布首支完整长预告；据公开报道预售票房已突破 **6000 万元**
-- **7 月 9 日起**：据媒体报道启动多城路演宣传（具体场次以片方官方为准）
+据 **灯塔专业版**、新浪娱乐等公开报道：
 
-## 阵容与角色
+- **首日票房突破 2 亿元**，打破 7 项中国影史纪录
+- 首日排片超 23 万场，观影人次超 579 万
+- **7 月 12 日上午**累计票房已突破 **3 亿元**
+- 猫眼开画评分 **9.4**（以平台实时数据为准）
 
-- **导演/编剧**：周星驰
-- **领衔主演**：张小斐（双双 / 10 号）、**迪丽热巴**（钰珑 / 8 号）、张艺兴（徐风）
-- **特别出演**：刘嘉玲、佐藤健等
+工作室在票房破 2 亿后发布庆祝海报，配文「攻势不减，燃力升级」。
+
+## 天津路演
+
+上映同日，迪丽热巴赴 **天津** 出席路演，分享为角色 **增重 8 公斤**、封闭足球特训等经历；工作室发布手机 **Live 图** 宣传。
 
 ## 角色准备
 
-据公开采访与报道，迪丽热巴为贴合女足运动员形象 **增重 8 公斤**，在前女足国脚指导下完成 **三个月封闭足球特训**，片中带球、射门等动作戏份亲自完成。
+- 三个月封闭足球特训，动作戏份亲自完成
+- 路演中提及从零基础练到连续颠球 200 次
 
 ## 说明
 
-角色名「双双」「钰珑」据公开解读与《少林足球》玉面双飞龙一脉相承。上映信息以院线与片方官宣为准。`,
-    bodyEn: `## Release locked
+票房与评分数据以灯塔、猫眼等专业平台实时统计为准。`,
+    bodyEn: `## Nationwide release
 
-On **July 6, 2026**, **Kung Fu Women's Soccer** announced a **July 11** nationwide release with presales.
+**July 11, 2026** — **Kung Fu Women's Soccer** opened nationwide. **Dilraba** as forward **Yu Long (#8)** with Zhang Xiaofei and Lay Zhang.
 
-## Pre-release
+## Box office
 
-- **July 10**: Full trailer; reported presales passed **60M yuan**
-- **From July 9**: Reported multi-city roadshows (official schedules TBA)
+Public reports (Lighthouse, Sina Entertainment):
 
-## Cast
+- **Opening day passed 200M yuan**, 7 records broken
+- 230k+ screens, 5.79M+ admissions on day one
+- **300M+ cumulative** by the morning of **July 12**
+- **Maoyan opening score 9.4** (follow live platform data)
 
-- **Writer/Director**: Stephen Chow
-- **Leads**: Zhang Xiaofei (#10), **Dilraba** (Yu Long / #8), Lay Zhang
+Studio posted celebration artwork at the 200M milestone.
+
+## Tianjin roadshow
+
+Opening-day **Tianjin** roadshow — training stories including **8 kg weight gain** and football camp; studio **live photos** shared.
 
 ## Preparation
 
-Reports describe **8 kg weight gain** and **three months** of football training with former national team players — action scenes performed herself.
+- Three months of football training, action scenes performed herself
+- Roadshow: 200 consecutive juggles from zero baseline
 
 ## Note
 
-Follow official release announcements.`,
+Box office and ratings follow official platform data.`,
   },
   {
     slug: "land-rover-2026-recap",

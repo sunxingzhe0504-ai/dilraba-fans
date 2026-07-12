@@ -38,7 +38,7 @@ export const gallery: GalleryItem[] = [
   { slug: "sui-ran-poster", title: "虽然不能同时拥有一切", category: "wallpaper", image: W["sui-ran-bu-neng-yiqie"], year: 2026, tags: ["待播"] },
   { slug: "jiu-chong-poster", title: "九重天", category: "wallpaper", image: W["jiu-chong-tian"], year: 2026, tags: ["待播"] },
   { slug: "riyue-poster", title: "日月 · 嫦娥", category: "wallpaper", image: W["ri-yue"], year: 2019, tags: ["待映"] },
-  { slug: "shaolin-poster", title: "少林女足", category: "wallpaper", image: W["shaolin-nvzu"], year: 2025, tags: ["待映"] },
+  { slug: "shaolin-poster", title: "功夫女足 · 钰珑", category: "wallpaper", image: W["shaolin-nvzu"], year: 2026, wallpaper: true, tags: ["角色", "热映"] },
   { slug: "ke-la-poster", title: "克拉恋人 · 高雯", category: "wallpaper", image: W["ke-la-lian-ren"], year: 2015, wallpaper: true, tags: ["角色"] },
   { slug: "liehuo-poster", title: "烈火如歌 · 烈如歌", category: "wallpaper", image: W["lie-huo-ru-ge"], year: 2018, wallpaper: true, tags: ["角色"] },
   { slug: "yiqianye-poster", title: "一千零一夜 · 凌凌七", category: "wallpaper", image: W["yi-qian-ling-yi-ye"], year: 2018, wallpaper: true, tags: ["角色"] },

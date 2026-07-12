@@ -6,6 +6,42 @@ import type { FanEvent } from "@/lib/types";
  */
 export const events: FanEvent[] = [
   {
+    slug: "gongfu-nvzu-boxoffice-day1-2026",
+    title: "《功夫女足》上映首日票房破 2 亿",
+    titleEn: "Kung Fu Women's Soccer · Opening Day 200M+",
+    date: "2026-07-11",
+    category: "premiere",
+    location: "全国院线",
+    locationEn: "Nationwide cinemas",
+    summary:
+      "据灯塔专业版，上映首日票房突破 2 亿元，打破 7 项中国影史纪录；工作室发布破亿庆祝海报。",
+    summaryEn:
+      "Lighthouse reports 200M+ opening day, 7 records broken; studio posted celebration artwork.",
+    description:
+      "7 月 11 日全国上映后票房迅速走高。公开报道显示首日排片超 23 万场、观影人次超 579 万，猫眼开画评分 9.4。数据以专业平台为准。",
+    descriptionEn:
+      "July 11 nationwide release. Reports cite 230k+ screens and 5.79M+ admissions; Maoyan opening score 9.4 per media. Follow platform data.",
+    featured: true,
+  },
+  {
+    slug: "gongfu-nvzu-tianjin-roadshow-2026",
+    title: "《功夫女足》天津路演",
+    titleEn: "Kung Fu Women's Soccer · Tianjin Roadshow",
+    date: "2026-07-11",
+    category: "premiere",
+    location: "天津 · 河东万达广场",
+    locationEn: "Hedong Wanda Plaza, Tianjin",
+    summary:
+      "上映首日赴天津出席路演，与观众互动并分享角色特训经历；工作室发布 Live 图宣传。",
+    summaryEn:
+      "Opening-day Tianjin roadshow — fan interactions and training stories; studio live photos.",
+    description:
+      "7 月 11 日，迪丽热巴于天津出席《功夫女足》路演。据公开报道，她分享从零基础练到连续颠球 200 次等特训细节，工作室同步发布 Live 图与票房喜报。",
+    descriptionEn:
+      "July 11 Tianjin roadshow. Reports describe football training anecdotes and studio live-photo posts.",
+    featured: true,
+  },
+  {
     slug: "gongfu-nvzu-long-trailer-2026",
     title: "《功夫女足》首支长预告发布",
     titleEn: "Kung Fu Women's Soccer · Full Trailer Release",

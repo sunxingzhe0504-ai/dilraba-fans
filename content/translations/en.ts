@@ -200,9 +200,9 @@ export const WORKS_EN: Record<string, WorkEn> = {
   "shaolin-nvzu": {
     roleEn: "Yu Long",
     synopsisEn:
-      "Stephen Chow-directed film (Kung Fu Women's Soccer) — forward Yu Long (#8); opens July 11, 2026 nationwide.",
-    highlightsEn: ["Stephen Chow", "Kung fu soccer", "Opens July 11", "8 kg gain & training"],
-    airInfoEn: "Nationwide release July 11, 2026",
+      "Stephen Chow's kung fu soccer comedy — forward Yu Long (#8); opened July 11, 2026 with 200M+ opening day per reports.",
+    highlightsEn: ["Stephen Chow", "Forward #8 Yu Long", "8 kg gain & training", "200M+ opening day"],
+    airInfoEn: "Released July 11, 2026 · Now in cinemas",
   },
   "pao-pao": {
     roleEn: "Regular member",
@@ -482,7 +482,7 @@ export const CHARACTERS_EN: Record<
     nameEn: "Yu Long",
     workTitleEn: "Kung Fu Women's Soccer",
     descriptionEn:
-      "Forward #8 and core scorer for Emei FC; gained 8 kg and trained three months — action scenes performed herself.",
+      "Forward #8 and core scorer for Emei FC; gained 8 kg and trained three months — roadshow stories of 200 consecutive juggles from zero.",
   },
 };
 
@@ -513,7 +513,7 @@ export const GALLERY_EN: Record<string, { titleEn: string }> = {
   "sui-ran-poster": { titleEn: "You Can't Have Everything at Once" },
   "jiu-chong-poster": { titleEn: "Nine Heavens" },
   "riyue-poster": { titleEn: "Saga of Light · Chang'e" },
-  "shaolin-poster": { titleEn: "Shaolin Women's Soccer" },
+  "shaolin-poster": { titleEn: "Kung Fu Women's Soccer · Yu Long" },
   "ke-la-poster": { titleEn: "Diamond Lover · Gao Wen" },
   "liehuo-poster": { titleEn: "The Flame's Daughter · Lie Ruge" },
   "yiqianye-poster": { titleEn: "Sweet Dreams · Ling Lingqi" },

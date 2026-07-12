@@ -315,12 +315,13 @@ export const characters: Character[] = [
     workSlug: "shaolin-nvzu",
     workTitle: "功夫女足",
     workTitleEn: "Kung Fu Women's Soccer",
-    year: 2025,
+    year: 2026,
     image: W["shaolin-nvzu"],
     description:
-      "峨眉队 8 号前锋、球队核心得分手；为贴合运动员形象增重 8 公斤并完成三个月封闭足球特训，动作戏份亲自完成。",
+      "峨眉队 8 号前锋、球队核心得分手；为贴合运动员形象增重 8 公斤并完成三个月封闭足球特训，路演中分享从零基础练到连续颠球 200 次。",
     descriptionEn:
-      "Forward #8 and core scorer for Emei FC; gained 8 kg and trained three months — action scenes performed herself.",
+      "Forward #8 and core scorer for Emei FC; gained 8 kg and trained three months — roadshow stories of 200 consecutive juggles from zero.",
+    featured: true,
   },
   {
     slug: "ren-anle",

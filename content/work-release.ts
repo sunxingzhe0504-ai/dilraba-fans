@@ -61,7 +61,7 @@ export const WORK_RELEASE: Record<string, WorkReleaseConfig> = {
   },
   "shaolin-nvzu": {
     status: "released",
-    airInfo: "2026 年 7 月 11 日全国上映",
+    airInfo: "2026 年 7 月 11 日全国上映 · 热映中",
     live: true,
     premiereDate: "2026-07-11",
     premiereNews: {
@@ -139,5 +139,5 @@ export function getPremiereEvents(): FanEvent[] {
 /** 图库 slug → 开播后替换的标签 */
 export const GALLERY_LIVE_TAG_PATCH: Record<string, string[]> = {
   "sui-ran-poster": ["已播"],
-  "shaolin-poster": ["已上映"],
+  "shaolin-poster": ["已上映", "热映"],
 };

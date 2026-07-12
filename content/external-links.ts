@@ -73,7 +73,19 @@ export const WORK_EXTERNAL_LINKS: Record<string, ExternalLink[]> = {
   "sui-ran-bu-neng-yiqie": [db("36707564"), watchIqiyi("虽然不能同时拥有一切")],
   "jiu-chong-tian": [db("37191662"), watchTencent("九重天")],
   "ri-yue": [db("27174271")],
-  "shaolin-nvzu": [db("36452545")],
+  "shaolin-nvzu": [
+    db("36452545"),
+    {
+      label: "新浪 · 首日票房报道",
+      href: "https://ent.sina.cn/2026-07-12/detail-inihpchf8004605.d.html",
+      kind: "info",
+    },
+    {
+      label: "淘票票 · 购票",
+      href: "https://www.taopiaopiao.com/search?kw=功夫女足",
+      kind: "buy",
+    },
+  ],
   "peng-ran-xing-dong": [db("26363254"), watchTencent("怦然星动")],
   "aojiao-yu-pianjian": [db("26926340"), watchTencent("傲娇与偏见")],
   "jie-you-zahuodian": [db("26654146"), watchTencent("解忧杂货店")],
@@ -225,6 +237,22 @@ export const EVENT_EXTERNAL_LINKS: Record<string, ExternalLink[]> = {
       href: "https://www.marieclaire.com.cn/",
       kind: "official",
     },
+  ],
+  "gongfu-nvzu-boxoffice-day1-2026": [
+    {
+      label: "新浪 · 首日票房突破 2 亿",
+      href: "https://ent.sina.cn/2026-07-12/detail-inihpchf8004605.d.html",
+      kind: "info",
+    },
+    db("36452545"),
+  ],
+  "gongfu-nvzu-tianjin-roadshow-2026": [
+    {
+      label: "新浪 · 天津路演报道",
+      href: "https://ent.sina.cn/2026-07-12/detail-inihnnkp8101688.d.html",
+      kind: "info",
+    },
+    linkWeiboStudio(),
   ],
   "gongfu-nvzu-long-trailer-2026": [
     {

@@ -4,6 +4,63 @@ import { OFFICIAL_CHANNELS } from "./official-channels";
 /** 最新动态：以公开信息为准，按时间倒序维护 */
 export const news: NewsItem[] = [
   {
+    slug: "gongfu-nvzu-boxoffice-3yi-2026",
+    title: "《功夫女足》上映次日票房突破 3 亿",
+    titleEn: "Kung Fu Women's Soccer Passes 300M Yuan on Day 2",
+    date: "2026-07-12",
+    category: "work",
+    summary:
+      "据灯塔专业版等公开报道，影片上映次日（7 月 12 日上午）累计票房已突破 3 亿元；首日票房突破 2 亿元并打破多项暑期档纪录。",
+    summaryEn:
+      "Lighthouse reports cumulative box office passed 300M yuan by the morning of July 12; opening day exceeded 200M with multiple summer records.",
+    body:
+      "《功夫女足》于 7 月 11 日全国上映后票房持续走高。据新浪娱乐等公开报道，首日票房突破 2 亿元，打破 7 项中国影史纪录；截至 7 月 12 日上午累计票房已突破 3 亿元。具体数据以专业平台实时统计为准。",
+    bodyEn:
+      "After the July 11 nationwide release, media report opening day passed 200M yuan with 7 box-office records broken; cumulative total passed 300M by the morning of July 12. Follow official platform data.",
+    workSlug: "shaolin-nvzu",
+    eventSlug: "gongfu-nvzu-boxoffice-day1-2026",
+    externalUrl: "https://ent.sina.cn/2026-07-12/detail-inihpchf8004605.d.html",
+    featured: true,
+  },
+  {
+    slug: "gongfu-nvzu-tianjin-roadshow-2026",
+    title: "《功夫女足》天津路演 · 工作室发布 Live 图",
+    titleEn: "Kung Fu Women's Soccer · Tianjin Roadshow Live Photos",
+    date: "2026-07-11",
+    category: "event",
+    summary:
+      "上映首日赴天津出席《功夫女足》路演，简约休闲造型亮相；工作室发布手机 Live 图并同步票房破亿喜报。",
+    summaryEn:
+      "Opening-day roadshow in Tianjin in casual looks; studio shared phone live photos and box-office milestone posts.",
+    body:
+      "7 月 11 日，迪丽热巴于天津河东万达广场出席《功夫女足》路演，与观众分享为角色封闭足球特训的经历。迪丽热巴工作室于社交平台发布一组 Live 图，并配文庆祝影片票房破亿。活动细节以官方发布为准。",
+    bodyEn:
+      "July 11 Tianjin roadshow at Hedong Wanda Plaza — Dilraba shared football training stories for Yu Long. Studio posted live photos and box-office celebrations. Details follow official releases.",
+    workSlug: "shaolin-nvzu",
+    eventSlug: "gongfu-nvzu-tianjin-roadshow-2026",
+    externalUrl: "https://ent.sina.cn/2026-07-12/detail-inihnnkp8101688.d.html",
+    featured: true,
+  },
+  {
+    slug: "gongfu-nvzu-boxoffice-day1-2026",
+    title: "《功夫女足》上映首日票房突破 2 亿",
+    titleEn: "Kung Fu Women's Soccer · Opening Day Tops 200M Yuan",
+    date: "2026-07-11",
+    category: "work",
+    summary:
+      "据灯塔专业版数据，上映首日票房突破 2 亿元，首日排片超 23 万场、观影人次超 579 万，打破 7 项中国影史纪录；猫眼开画评分 9.4。",
+    summaryEn:
+      "Lighthouse data: opening day passed 200M yuan, 230k+ screens, 5.79M+ admissions, 7 records broken; Maoyan opening score 9.4 per reports.",
+    body:
+      "7 月 11 日全国上映后，《功夫女足》票房迅速走高。据灯塔专业版、新浪娱乐等公开报道，首日票房突破 2 亿元，带动大盘时隔 136 天再破 3 亿。迪丽热巴工作室在票房破 2 亿后发布庆祝海报，配文「攻势不减，燃力升级」。票房与评分数据以平台实时统计为准。",
+    bodyEn:
+      "Nationwide release July 11. Reports cite 200M+ opening day, 7 records broken, and studio celebration posts at the 200M milestone. Data follows official platforms.",
+    workSlug: "shaolin-nvzu",
+    eventSlug: "gongfu-nvzu-boxoffice-day1-2026",
+    externalUrl: "https://ent.sina.cn/2026-07-12/detail-inihpchf8004605.d.html",
+    featured: true,
+  },
+  {
     slug: "gongfu-nvzu-long-trailer-2026",
     title: "《功夫女足》发布首支长预告 · 预售破 6000 万",
     titleEn: "Kung Fu Women's Soccer · First Full Trailer & Presales Hit 60M",
