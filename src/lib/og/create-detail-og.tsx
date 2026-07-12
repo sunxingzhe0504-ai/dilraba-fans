@@ -12,14 +12,29 @@ const MIME: Record<string, string> = {
   ".webp": "image/webp",
 };
 
+function imageMimeFromBuffer(buf: Buffer): string | null {
+  if (buf.length >= 2 && buf[0] === 0xff && buf[1] === 0xd8) return "image/jpeg";
+  if (buf.length >= 8 && buf[0] === 0x89 && buf[1] === 0x50 && buf[2] === 0x4e && buf[3] === 0x47) {
+    return "image/png";
+  }
+  if (
+    buf.length >= 12 &&
+    buf.subarray(0, 4).toString("ascii") === "RIFF" &&
+    buf.subarray(8, 12).toString("ascii") === "WEBP"
+  ) {
+    return "image/webp";
+  }
+  return null;
+}
+
 async function loadPublicImage(imagePath?: string): Promise<string | null> {
   if (!imagePath?.startsWith("/")) return null;
   const ext = path.extname(imagePath).toLowerCase();
-  const mime = MIME[ext];
-  if (!mime) return null;
   try {
     const filePath = path.join(process.cwd(), "public", imagePath.replace(/^\//, ""));
     const buf = await readFile(filePath);
+    const mime = imageMimeFromBuffer(buf) ?? MIME[ext];
+    if (mime !== "image/jpeg" && mime !== "image/png") return null;
     return `data:${mime};base64,${buf.toString("base64")}`;
   } catch {
     return null;
