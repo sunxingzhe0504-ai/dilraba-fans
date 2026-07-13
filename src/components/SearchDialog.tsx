@@ -68,7 +68,7 @@ export function SearchDialog({
         <button
           type="button"
           onClick={() => setOpen(true)}
-          className="hidden items-center gap-2 rounded-full border border-border px-3 py-1.5 text-xs text-ink-mute transition-colors hover:border-wine hover:text-wine lg:inline-flex"
+          className="hidden items-center gap-2 rounded-full border border-border px-3 py-1.5 text-xs text-ink/75 transition-colors hover:border-wine hover:text-wine lg:inline-flex"
           aria-label={t("nav.search")}
         >
           <Search size={14} />
@@ -116,7 +116,7 @@ export function SearchDialog({
                       onClick={close}
                       className="block rounded-xl px-3 py-3 hover:bg-blush/30"
                     >
-                      <span className="text-[10px] uppercase tracking-wider text-wine">
+                      <span className="text-xs font-medium text-wine-deep">
                         {r.type}
                       </span>
                       <p className="font-medium text-ink">{r.title}</p>

@@ -8,10 +8,12 @@ import { getSiteMeta } from "@content/index";
 import { IMAGES } from "@content/images";
 import { useLocale, useT } from "@/components/LocaleProvider";
 import { localizeSiteMeta } from "@/lib/i18n/localize";
+import { HOME_SECTIONS } from "@/lib/home-sections";
 
 export function Hero() {
   const locale = useLocale();
   const t = useT();
+  const isEn = locale === "en";
   const { heroTagline, heroSubtitle } = localizeSiteMeta(getSiteMeta(), locale);
   const reduce = useReducedMotion();
 
@@ -30,7 +32,7 @@ export function Hero() {
         <div className="absolute left-1/3 top-1/4 h-[30vh] w-[30vh] rounded-full bg-gold-glow/60 blur-[120px]" />
       </div>
 
-      <div className="container-wide relative grid min-h-[92vh] items-center gap-10 py-24 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+      <div className="container-wide relative grid min-h-[80vh] items-center gap-10 py-20 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:py-24">
         <motion.div
           {...rise}
           transition={{ duration: 0.9, ease: [0.2, 0.7, 0.2, 1] }}
@@ -38,16 +40,21 @@ export function Hero() {
         >
           <p className="kicker mb-6">
             <Heart size={13} className="fill-rouge text-rouge" aria-hidden />
-            Dilraba Dilmurat · 迪丽热巴
+            {isEn ? t("hero.kickerEn") : t("hero.kicker")}
           </p>
 
-          <h1 className="zh-display text-wine-deep leading-[0.95]">
+          <h1 className="leading-[0.95] text-wine-deep">
             <span
-              className="block"
+              className={isEn ? "display block" : "zh-display block"}
               style={{ fontSize: "clamp(3.4rem, 11vw, 8rem)" }}
             >
-              迪丽热巴
+              {isEn ? t("hero.nameEn") : t("hero.nameZh")}
             </span>
+            {!isEn ? null : (
+              <span className="zh-display mt-2 block text-3xl text-ink/70 sm:text-4xl">
+                {t("hero.nameZh")}
+              </span>
+            )}
           </h1>
 
           <p
@@ -110,7 +117,7 @@ export function Hero() {
       </div>
 
       <Link
-        href="#featured-works"
+        href={`#${HOME_SECTIONS.latest}`}
         className="absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 text-xs uppercase tracking-[0.25em] text-ink-mute transition-colors hover:text-wine"
         aria-label={t("site.scrollHint")}
       >

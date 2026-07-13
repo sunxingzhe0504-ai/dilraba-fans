@@ -21,6 +21,8 @@ import { StatStrip } from "@/components/StatStrip";
 import { FadeIn, StaggerGrid, StaggerItem } from "@/components/FadeIn";
 import { useLocale, useT } from "@/components/LocaleProvider";
 import { localizeHonor, localizeSiteMeta } from "@/lib/i18n/localize";
+import { HOME_SECTION_SCROLL_MT, HOME_SECTIONS } from "@/lib/home-sections";
+import { cn } from "@/lib/cn";
 import type { HomeData } from "./types";
 
 export function DesignWarmCinema({ data }: { data: HomeData }) {
@@ -46,7 +48,7 @@ export function DesignWarmCinema({ data }: { data: HomeData }) {
 
       <UpcomingPreviewStrip items={upcoming} />
 
-      <Container id="featured-works" wide>
+      <Container id={HOME_SECTIONS.works} wide className={HOME_SECTION_SCROLL_MT}>
         <FadeIn>
           <div className="mb-12 flex flex-wrap items-end justify-between gap-6">
             <SectionTitle
@@ -69,10 +71,10 @@ export function DesignWarmCinema({ data }: { data: HomeData }) {
       </Container>
 
       {characters.length > 0 && (
-        <Container wide>
+        <Container id={HOME_SECTIONS.characters} wide className={HOME_SECTION_SCROLL_MT}>
           <FadeIn>
             <SectionTitle
-              index="—"
+              index="02 —"
               kicker={t("home.characters.kicker")}
               title={t("home.characters.title")}
               subtitle={t("home.characters.subtitle")}
@@ -100,11 +102,11 @@ export function DesignWarmCinema({ data }: { data: HomeData }) {
 
       <CinematicBand />
 
-      <Container wide className="soft-section">
+      <Container id={HOME_SECTIONS.magazines} wide className={cn("soft-section", HOME_SECTION_SCROLL_MT)}>
         <FadeIn>
           <div className="mb-12 flex flex-wrap items-end justify-between gap-6">
             <SectionTitle
-              index="02 —"
+              index="03 —"
               kicker={t("home.magazines.kicker")}
               title={t("home.magazines.title")}
               subtitle={t("home.magazines.subtitle")}
@@ -124,11 +126,11 @@ export function DesignWarmCinema({ data }: { data: HomeData }) {
         </div>
       </Container>
 
-      <Container wide>
+      <Container id={HOME_SECTIONS.events} wide className={HOME_SECTION_SCROLL_MT}>
         <FadeIn>
           <div className="mb-12 flex flex-wrap items-end justify-between gap-6">
             <SectionTitle
-              index="03 —"
+              index="04 —"
               kicker={t("home.events.kicker")}
               title={t("design.home.warmCinema.eventsTitle")}
               subtitle={t("design.home.warmCinema.eventsSubtitle")}
@@ -149,7 +151,7 @@ export function DesignWarmCinema({ data }: { data: HomeData }) {
       <Container wide className="soft-section">
         <FadeIn>
           <SectionTitle
-            index="04 —"
+            index="05 —"
             kicker={t("home.honors.kicker")}
             title={t("design.home.warmCinema.honorsTitle")}
             subtitle={t("design.home.warmCinema.honorsSubtitle")}

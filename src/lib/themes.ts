@@ -51,6 +51,7 @@ export const THEMES: ThemeMeta[] = [
 
 export const DEFAULT_THEME: ThemeId = "c";
 export const THEME_STORAGE_KEY = "dlrb-theme";
+export const THEME_HINT_SEEN_KEY = "dlrb-theme-hint-seen";
 export const STYLE_COUNT = THEMES.length;
 
 export function getThemeMeta(id: string | null | undefined): ThemeMeta | undefined {

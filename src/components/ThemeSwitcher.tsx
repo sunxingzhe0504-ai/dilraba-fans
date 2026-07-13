@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Check, Monitor, Moon, Sparkles, Sun, X } from "lucide-react";
-import { STYLE_COUNT, THEMES } from "@/lib/themes";
+import { STYLE_COUNT, THEMES, THEME_HINT_SEEN_KEY } from "@/lib/themes";
 import type { ColorSchemePreference } from "@/lib/color-scheme";
 import { useT } from "@/components/LocaleProvider";
 import { useTheme } from "./ThemeProvider";
@@ -14,14 +14,60 @@ const COLOR_SCHEMES: { id: ColorSchemePreference; icon: typeof Sun }[] = [
   { id: "system", icon: Monitor },
 ];
 
+function readHintSeen(): boolean {
+  if (typeof window === "undefined") return true;
+  try {
+    return window.localStorage.getItem(THEME_HINT_SEEN_KEY) === "1";
+  } catch {
+    return true;
+  }
+}
+
+function markHintSeen() {
+  try {
+    window.localStorage.setItem(THEME_HINT_SEEN_KEY, "1");
+  } catch {
+    /* ignore */
+  }
+}
+
 export function ThemeSwitcher() {
   const t = useT();
   const { theme, setTheme, colorScheme, setColorScheme } = useTheme();
   const [open, setOpen] = useState(false);
+  const [hintSeen, setHintSeen] = useState(() => readHintSeen());
+  const [showHint, setShowHint] = useState(() => !readHintSeen());
   const current = THEMES.find((item) => item.id === theme);
+
+  useEffect(() => {
+    if (!showHint) return;
+    const timer = window.setTimeout(() => {
+      setShowHint(false);
+      markHintSeen();
+      setHintSeen(true);
+    }, 8000);
+    return () => window.clearTimeout(timer);
+  }, [showHint]);
+
+  const dismissHint = () => {
+    setShowHint(false);
+    markHintSeen();
+    setHintSeen(true);
+  };
+
+  const handleToggle = () => {
+    dismissHint();
+    setOpen((value) => !value);
+  };
 
   return (
     <div className="fixed bottom-5 right-5 z-[60] flex flex-col items-end gap-3">
+      {showHint && !open && (
+        <p className="max-w-[14rem] rounded-2xl border border-border bg-paper/95 px-4 py-3 text-xs leading-relaxed text-ink-soft shadow-lg backdrop-blur-xl">
+          {t("theme.firstHint")}
+        </p>
+      )}
+
       {open && (
         <div className="w-[19rem] overflow-hidden rounded-3xl border border-border bg-paper/95 shadow-2xl backdrop-blur-xl sm:w-80">
           <div className="border-b border-border px-5 py-4">
@@ -112,10 +158,15 @@ export function ThemeSwitcher() {
 
       <button
         type="button"
-        onClick={() => setOpen((v) => !v)}
+        onClick={handleToggle}
         aria-label={t("theme.switch")}
         aria-expanded={open}
-        className="btn-primary !px-5 !py-3 shadow-xl"
+        className={cn(
+          "inline-flex items-center gap-2 rounded-full px-4 py-3 text-sm font-medium tracking-wide transition-all duration-300 sm:px-5",
+          hintSeen && !open
+            ? "border border-wine/25 bg-paper/90 text-wine shadow-lg backdrop-blur hover:border-wine hover:bg-blush/30"
+            : "btn-primary shadow-xl",
+        )}
       >
         <Sparkles size={18} />
         <span className="hidden sm:inline">

@@ -20,6 +20,8 @@ import {
   localizeWork,
 } from "@/lib/i18n/localize";
 import { workTypeLabel } from "@/lib/i18n/labels";
+import { HOME_SECTION_SCROLL_MT, HOME_SECTIONS } from "@/lib/home-sections";
+import { cn } from "@/lib/cn";
 import type { HomeData } from "./types";
 
 function Seal({ text }: { text: string }) {
@@ -147,7 +149,7 @@ export function DesignXianxia({ data }: { data: HomeData }) {
 
       <InkRule />
 
-      <section className="container-main">
+      <section id={HOME_SECTIONS.works} className={cn("container-main", HOME_SECTION_SCROLL_MT)}>
         <div className="mb-12 text-center">
           <p className="kicker justify-center">卷一 · Filmography</p>
           <h2 className="zh-display mt-3 text-4xl text-wine-deep sm:text-5xl">
@@ -213,7 +215,10 @@ export function DesignXianxia({ data }: { data: HomeData }) {
       {characters.length > 0 && (
         <>
           <InkRule />
-          <section className="container-main">
+          <section
+            id={HOME_SECTIONS.characters}
+            className={cn("container-main", HOME_SECTION_SCROLL_MT)}
+          >
             <div className="mb-10 text-center">
               <p className="kicker justify-center">卷 · Characters</p>
               <h2 className="zh-display mt-3 text-4xl text-wine-deep sm:text-5xl">
@@ -243,7 +248,10 @@ export function DesignXianxia({ data }: { data: HomeData }) {
 
       <InkRule />
 
-      <section className="container-main">
+      <section
+        id={HOME_SECTIONS.magazines}
+        className={cn("container-main", HOME_SECTION_SCROLL_MT)}
+      >
         <div className="mb-12 text-center">
           <p className="kicker justify-center">卷二 · Editorial</p>
           <h2 className="zh-display mt-3 text-4xl text-wine-deep sm:text-5xl">
@@ -271,7 +279,10 @@ export function DesignXianxia({ data }: { data: HomeData }) {
 
       <InkRule />
 
-      <section className="container-main">
+      <section
+        id={HOME_SECTIONS.events}
+        className={cn("container-main", HOME_SECTION_SCROLL_MT)}
+      >
         <div className="mb-10 text-center">
           <p className="kicker justify-center">卷三 · Recent</p>
           <h2 className="zh-display mt-3 text-4xl text-wine-deep sm:text-5xl">

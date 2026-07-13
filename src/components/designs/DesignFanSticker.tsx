@@ -21,6 +21,8 @@ import {
   localizeWork,
 } from "@/lib/i18n/localize";
 import { workTypeLabel } from "@/lib/i18n/labels";
+import { HOME_SECTION_SCROLL_MT, HOME_SECTIONS } from "@/lib/home-sections";
+import { cn } from "@/lib/cn";
 import type { HomeData } from "./types";
 
 const TICKER = [
@@ -161,7 +163,10 @@ export function DesignFanSticker({ data }: { data: HomeData }) {
         </div>
       </section>
 
-      <section className="container-wide py-12">
+      <section
+        id={HOME_SECTIONS.works}
+        className={cn("container-wide py-12", HOME_SECTION_SCROLL_MT)}
+      >
         <div className="mb-10 flex items-center justify-center gap-2 text-center">
           <Heart size={18} className="fill-rouge text-rouge" />
           <h2 className="text-3xl font-extrabold text-wine-deep sm:text-4xl">
@@ -200,7 +205,10 @@ export function DesignFanSticker({ data }: { data: HomeData }) {
       </section>
 
       {characters.length > 0 && (
-        <section className="container-wide py-12">
+        <section
+          id={HOME_SECTIONS.characters}
+          className={cn("container-wide py-12", HOME_SECTION_SCROLL_MT)}
+        >
           <div className="mb-8 flex items-center justify-center gap-2">
             <Sparkles size={18} className="text-gold" />
             <h2 className="text-3xl font-extrabold text-wine-deep">{t("design.home.fanSticker.charactersTitle")}</h2>
@@ -224,7 +232,10 @@ export function DesignFanSticker({ data }: { data: HomeData }) {
         </div>
       )}
 
-      <section className="container-wide py-12">
+      <section
+        id={HOME_SECTIONS.magazines}
+        className={cn("container-wide py-12", HOME_SECTION_SCROLL_MT)}
+      >
         <div className="mb-10 text-center">
           <h2 className="text-3xl font-extrabold text-wine-deep sm:text-4xl">
             {t("design.home.fanSticker.magazinesTitle")}
@@ -273,7 +284,10 @@ export function DesignFanSticker({ data }: { data: HomeData }) {
         </div>
       </section>
 
-      <section className="container-main py-12">
+      <section
+        id={HOME_SECTIONS.events}
+        className={cn("container-main py-12", HOME_SECTION_SCROLL_MT)}
+      >
         <h2 className="mb-8 text-center text-3xl font-extrabold text-wine-deep">
           {t("design.home.fanSticker.eventsTitle")}
         </h2>

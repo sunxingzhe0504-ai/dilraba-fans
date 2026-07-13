@@ -284,6 +284,11 @@ html[data-color-scheme="light"] {
     @apply inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.28em] text-wine;
   }
 
+  html[lang="zh-CN"] .kicker {
+    text-transform: none;
+    letter-spacing: 0.12em;
+  }
+
   .display {
     font-family: var(--font-cormorant), Georgia, serif;
     font-weight: 600;

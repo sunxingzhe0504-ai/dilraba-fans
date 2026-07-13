@@ -5,11 +5,17 @@ import { useEffect, useState } from "react";
 import { Heart, Menu, Search, X } from "lucide-react";
 import { LocaleLink } from "@/components/LocaleLink";
 import { LocaleSwitcher } from "@/components/LocaleSwitcher";
+import { NavMoreMenu } from "@/components/NavMoreMenu";
 import { SearchDialog } from "@/components/SearchDialog";
 import { useT } from "@/components/LocaleProvider";
 import { prefetchRouteDesign } from "@/lib/design-prefetch";
 import { useTheme } from "@/components/ThemeProvider";
 import { stripLocalePrefix } from "@/lib/i18n/path";
+import {
+  isMoreNavActive,
+  navItemActive,
+  PRIMARY_NAV,
+} from "@/lib/site-nav";
 import { cn } from "@/lib/cn";
 
 export function SiteHeader() {
@@ -21,19 +27,6 @@ export function SiteHeader() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  const navItems = [
-    { href: "/", label: t("nav.home") },
-    { href: "/latest", label: t("nav.latest") },
-    { href: "/stories", label: t("nav.stories") },
-    { href: "/works", label: t("nav.works") },
-    { href: "/videos", label: t("nav.videos") },
-    { href: "/gallery", label: t("nav.gallery") },
-    { href: "/characters", label: t("nav.characters") },
-    { href: "/magazine", label: t("nav.magazine") },
-    { href: "/events", label: t("nav.events") },
-    { href: "/about", label: t("nav.about") },
-  ];
-
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16);
     onScroll();
@@ -41,8 +34,8 @@ export function SiteHeader() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const isActive = (href: string) =>
-    href === "/" ? barePath === "/" : barePath === href || barePath.startsWith(`${href}/`);
+  const isActive = (href: string) => navItemActive(barePath, href);
+  const moreActive = isMoreNavActive(barePath);
 
   return (
     <header
@@ -70,8 +63,8 @@ export function SiteHeader() {
           </span>
         </LocaleLink>
 
-        <nav className="hidden items-center gap-5 lg:flex xl:gap-7" aria-label={t("nav.main")}>
-          {navItems.map((item) => {
+        <nav className="hidden items-center gap-5 md:flex lg:gap-6" aria-label={t("nav.main")}>
+          {PRIMARY_NAV.map((item) => {
             const active = isActive(item.href);
             return (
               <LocaleLink
@@ -81,10 +74,10 @@ export function SiteHeader() {
                 onFocus={() => prefetchRouteDesign(item.href, theme)}
                 className={cn(
                   "group relative text-sm tracking-wide transition-colors",
-                  active ? "text-wine" : "text-ink-soft hover:text-wine",
+                  active ? "text-wine" : "text-ink/80 hover:text-wine",
                 )}
               >
-                {item.label}
+                {t(item.labelKey)}
                 <span
                   className={cn(
                     "absolute -bottom-1.5 left-0 h-[3px] rounded-full bg-rouge transition-all duration-300",
@@ -94,14 +87,15 @@ export function SiteHeader() {
               </LocaleLink>
             );
           })}
+          <NavMoreMenu active={moreActive} isItemActive={isActive} />
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
+        <div className="hidden items-center gap-3 md:flex">
           <LocaleSwitcher />
           <SearchDialog open={searchOpen} onOpenChange={setSearchOpen} />
         </div>
 
-        <div className="flex items-center gap-2 lg:hidden">
+        <div className="flex items-center gap-2 md:hidden">
           <LocaleSwitcher />
           <button
             type="button"
@@ -127,36 +121,28 @@ export function SiteHeader() {
 
       {open && (
         <nav
-          className="border-t border-border bg-background px-5 py-4 lg:hidden"
+          className="border-t border-border bg-background px-5 py-4 md:hidden"
           aria-label={t("nav.mobile")}
         >
-          {navItems.map((item) => (
+          {PRIMARY_NAV.map((item) => (
             <LocaleLink
               key={item.href}
               href={item.href}
               onClick={() => setOpen(false)}
               className={cn(
                 "block border-b border-border/60 py-4 text-base last:border-0",
-                isActive(item.href) ? "text-wine" : "text-ink-soft",
+                isActive(item.href) ? "text-wine" : "text-ink/80",
               )}
             >
-              {item.label}
+              {t(item.labelKey)}
             </LocaleLink>
           ))}
-          <div className="mt-4 flex flex-wrap gap-3 border-t border-border pt-4 text-sm">
-            <LocaleLink href="/videos" className="text-wine" onClick={() => setOpen(false)}>
-              {t("nav.videoZone")}
-            </LocaleLink>
-            <LocaleLink href="/upcoming" className="text-wine" onClick={() => setOpen(false)}>
-              {t("nav.upcoming")}
-            </LocaleLink>
-            <LocaleLink href="/fashion" className="text-wine" onClick={() => setOpen(false)}>
-              {t("nav.fashion")}
-            </LocaleLink>
-            <LocaleLink href="/fans" className="text-wine" onClick={() => setOpen(false)}>
-              {t("nav.fans")}
-            </LocaleLink>
-          </div>
+          <NavMoreMenu
+            variant="mobile"
+            active={moreActive}
+            isItemActive={isActive}
+            onNavigate={() => setOpen(false)}
+          />
         </nav>
       )}
     </header>

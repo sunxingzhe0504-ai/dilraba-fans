@@ -2,6 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { useTheme } from "@/components/ThemeProvider";
+import { HomeChapterNav } from "@/components/HomeChapterNav";
 import { DEFAULT_THEME } from "@/lib/themes";
 import type { HomeData } from "./types";
 import { DesignPageFallback } from "./DesignPageFallback";
@@ -26,17 +27,26 @@ const DesignEditorial = dynamic(
 export function HomeDesignRouter({ data }: { data: HomeData }) {
   const { theme } = useTheme();
 
-  switch (theme) {
-    case "a":
-      return <DesignXianxia data={data} />;
-    case "b":
-      return <DesignFanSticker data={data} />;
-    case "d":
-      return <DesignEditorial data={data} />;
-    case "c":
-    default:
-      return <DesignWarmCinema data={data} />;
-  }
+  const content = (() => {
+    switch (theme) {
+      case "a":
+        return <DesignXianxia data={data} />;
+      case "b":
+        return <DesignFanSticker data={data} />;
+      case "d":
+        return <DesignEditorial data={data} />;
+      case "c":
+      default:
+        return <DesignWarmCinema data={data} />;
+    }
+  })();
+
+  return (
+    <>
+      {content}
+      <HomeChapterNav />
+    </>
+  );
 }
 
 /** Preload inactive home themes during idle time after theme switch. */

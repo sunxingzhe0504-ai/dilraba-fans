@@ -6,6 +6,8 @@ import type { Work } from "@/lib/types";
 import { useLocale, useT } from "@/components/LocaleProvider";
 import { localizeWork } from "@/lib/i18n/localize";
 import { UpcomingCountdownBadge } from "@/components/UpcomingCountdownBadge";
+import { HOME_SECTION_SCROLL_MT, HOME_SECTIONS } from "@/lib/home-sections";
+import { cn } from "@/lib/cn";
 
 type Props = {
   items: Work[];
@@ -18,7 +20,13 @@ export function UpcomingPreviewStrip({ items }: Props) {
   if (items.length === 0) return null;
 
   return (
-    <section className="border-y border-border/60 bg-gradient-to-r from-blush/20 via-paper to-blush/10 py-8">
+    <section
+      id={HOME_SECTIONS.upcoming}
+      className={cn(
+        "border-y border-border/60 bg-gradient-to-r from-blush/20 via-paper to-blush/10 py-8",
+        HOME_SECTION_SCROLL_MT,
+      )}
+    >
       <div className="container-wide">
         <div className="mb-5 flex flex-wrap items-end justify-between gap-3">
           <div>

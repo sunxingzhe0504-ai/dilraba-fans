@@ -8,6 +8,8 @@ import { formatDate } from "@/lib/format";
 import { useLocale, useT } from "@/components/LocaleProvider";
 import { localizeNews } from "@/lib/i18n/localize";
 import { newsCategoryLabel } from "@/lib/i18n/labels";
+import { HOME_SECTION_SCROLL_MT, HOME_SECTIONS } from "@/lib/home-sections";
+import { cn } from "@/lib/cn";
 
 type Props = {
   items: NewsItem[];
@@ -21,7 +23,10 @@ export function LatestStrip({ items, limit = 4 }: Props) {
   if (!list.length) return null;
 
   return (
-    <section className="border-y border-border bg-paper/60">
+    <section
+      id={HOME_SECTIONS.latest}
+      className={cn("border-y border-border bg-paper/60", HOME_SECTION_SCROLL_MT)}
+    >
       <div className="container-wide flex flex-wrap items-center gap-4 py-4">
         <span className="pill shrink-0 bg-wine/10 text-wine">{t("latest.pill")}</span>
         <ul className="flex min-w-0 flex-1 flex-col gap-2 sm:flex-row sm:flex-wrap sm:gap-x-6 sm:gap-y-1">

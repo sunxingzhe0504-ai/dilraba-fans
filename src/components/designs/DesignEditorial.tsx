@@ -20,6 +20,8 @@ import {
   localizeWork,
 } from "@/lib/i18n/localize";
 import { workTypeLabel } from "@/lib/i18n/labels";
+import { HOME_SECTION_SCROLL_MT, HOME_SECTIONS } from "@/lib/home-sections";
+import { cn } from "@/lib/cn";
 import type { HomeData } from "./types";
 
 export function DesignEditorial({ data }: { data: HomeData }) {
@@ -130,7 +132,10 @@ export function DesignEditorial({ data }: { data: HomeData }) {
       <StoriesStrip items={featuredStories} />
       <UpcomingPreviewStrip items={upcoming} />
 
-      <section className="container-wide py-24">
+      <section
+        id={HOME_SECTIONS.works}
+        className={cn("container-wide py-24", HOME_SECTION_SCROLL_MT)}
+      >
         <div className="flex items-end justify-between">
           <h2 className="display text-4xl text-ink sm:text-5xl">Contents</h2>
           <span className="text-[11px] uppercase tracking-[0.3em] text-ink-mute">
@@ -193,7 +198,10 @@ export function DesignEditorial({ data }: { data: HomeData }) {
       </section>
 
       {characters.length > 0 && (
-        <section className="container-wide py-24">
+        <section
+          id={HOME_SECTIONS.characters}
+          className={cn("container-wide py-24", HOME_SECTION_SCROLL_MT)}
+        >
           <div className="flex items-end justify-between">
             <h2 className="display text-4xl text-ink sm:text-5xl">Characters</h2>
             <span className="text-[11px] uppercase tracking-[0.3em] text-ink-mute">
@@ -223,7 +231,10 @@ export function DesignEditorial({ data }: { data: HomeData }) {
         </div>
       )}
 
-      <section className="container-wide py-24">
+      <section
+        id={HOME_SECTIONS.magazines}
+        className={cn("container-wide py-24", HOME_SECTION_SCROLL_MT)}
+      >
         <div className="flex items-end justify-between">
           <h2 className="display text-4xl text-ink sm:text-5xl">Editorials</h2>
           <span className="text-[11px] uppercase tracking-[0.3em] text-ink-mute">
@@ -255,7 +266,10 @@ export function DesignEditorial({ data }: { data: HomeData }) {
         </div>
       </section>
 
-      <section className="container-wide pb-24">
+      <section
+        id={HOME_SECTIONS.events}
+        className={cn("container-wide pb-24", HOME_SECTION_SCROLL_MT)}
+      >
         <div className="flex items-end justify-between">
           <h2 className="display text-4xl text-ink sm:text-5xl">Agenda</h2>
           <span className="text-[11px] uppercase tracking-[0.3em] text-ink-mute">
