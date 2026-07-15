@@ -84,7 +84,7 @@ export function CharacterCard({ character: raw }: { character: Character }) {
     <Link
       href={`/characters/${character.slug}`}
       id={character.slug}
-      className="edit-card hover-zoom group block overflow-hidden scroll-mt-24"
+      className="character-card group block overflow-hidden scroll-mt-24"
     >
       <div className="relative aspect-[3/4] overflow-hidden">
         <ContentImage
@@ -92,16 +92,31 @@ export function CharacterCard({ character: raw }: { character: Character }) {
           alt={character.name}
           fill
           sizes="25vw"
-          className="portrait-cover"
+          className="portrait-cover transition-transform duration-700 group-hover:scale-[1.05]"
         />
+        <div
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,color-mix(in_srgb,var(--gold-glow)_55%,transparent),transparent_70%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+          aria-hidden
+        />
+        {character.quote && (
+          <div className="absolute inset-x-0 bottom-0 translate-y-3 bg-gradient-to-t from-wine-deep/90 via-wine-deep/55 to-transparent px-5 pb-5 pt-16 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+            <p className="display text-center text-base leading-snug text-paper sm:text-lg">
+              「{character.quote}」
+            </p>
+          </div>
+        )}
       </div>
       <div className="p-5">
-        <p className="text-xs text-wine">{character.workTitle} · {character.year}</p>
-        <h3 className="zh-display mt-1 text-2xl text-ink group-hover:text-wine-deep">
+        <p className="text-xs text-wine">
+          {character.workTitle} · {character.year}
+        </p>
+        <h3 className="zh-display mt-1 text-2xl text-ink transition-colors group-hover:text-wine-deep">
           {character.name}
         </h3>
         {character.quote && (
-          <p className="mt-2 text-sm italic text-ink-soft">「{character.quote}」</p>
+          <p className="mt-2 line-clamp-2 text-sm italic text-ink-soft">
+            「{character.quote}」
+          </p>
         )}
         <p className="mt-3 line-clamp-2 text-sm text-ink-mute">{character.description}</p>
       </div>

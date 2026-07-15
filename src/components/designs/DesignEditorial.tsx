@@ -11,6 +11,7 @@ import { LatestStrip } from "@/components/LatestStrip";
 import { HomeFanBand } from "@/components/HomeFanBand";
 import { StoriesStrip } from "@/components/StoriesStrip";
 import { UpcomingPreviewStrip } from "@/components/UpcomingPreviewStrip";
+import { ChaseLightDivider } from "@/components/ChaseLightDivider";
 import { CharacterCard } from "@/components/GalleryGrid";
 import { useLocale, useT } from "@/components/LocaleProvider";
 import {
@@ -131,6 +132,8 @@ export function DesignEditorial({ data }: { data: HomeData }) {
       <LatestStrip items={latestNews} />
       <StoriesStrip items={featuredStories} />
       <UpcomingPreviewStrip items={upcoming} />
+
+      <ChaseLightDivider />
 
       <section
         id={HOME_SECTIONS.works}

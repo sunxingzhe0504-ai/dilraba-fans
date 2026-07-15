@@ -209,12 +209,18 @@ const zh = {
     subtitle: "标记已看过的作品，记录追光进度（仅保存在本设备）。",
     progress: "已看比例",
     hint: "点击条目切换「已看」状态，解锁追光成就徽章。",
+    localNote: "记录仅保存在本浏览器本地，不会上传。换设备前可在粉丝页导出备份。",
   },
   achievements: {
     kicker: "成就 · Badges",
     title: "追光成就",
     subtitle: "浏览、互动与打卡，点亮你的 Dear Bar 徽章。",
     unlocked: "已点亮 {n} / {total}",
+    localNote: "徽章进度存在本机，无需登录；清除浏览器数据会丢失，请及时备份。",
+    backupLink: "粉丝页备份",
+  },
+  brand: {
+    chaseLight: "追光而行",
   },
   wallpaper: {
     kicker: "创作 · Create",
@@ -235,6 +241,9 @@ const zh = {
     posterAlt: "海报",
     role: "饰",
     viewDetail: "View detail →",
+    watched: "已看",
+    markWatched: "标记已看",
+    unmarkWatched: "取消已看",
   },
   common: {
     viewAll: "查看全部",
@@ -782,12 +791,18 @@ const en = {
     subtitle: "Track watched works locally on this device.",
     progress: "Watched",
     hint: "Tap to toggle watched — unlock achievement badges on the fans page.",
+    localNote: "Saved in this browser only — not uploaded. Export a backup on the Fans page before switching devices.",
   },
   achievements: {
     kicker: "Badges",
     title: "Light Achievements",
     subtitle: "Explore, play, and visit to light up Dear Bar badges.",
     unlocked: "{n} / {total} unlocked",
+    localNote: "Progress stays on this device — no login needed. Clearing browser data resets badges.",
+    backupLink: "Fans page backup",
+  },
+  brand: {
+    chaseLight: "Chase the Light",
   },
   wallpaper: {
     kicker: "Create",
@@ -808,6 +823,9 @@ const en = {
     posterAlt: "poster",
     role: "as",
     viewDetail: "View detail →",
+    watched: "Watched",
+    markWatched: "Mark watched",
+    unmarkWatched: "Unmark watched",
   },
   common: {
     viewAll: "View all",

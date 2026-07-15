@@ -95,6 +95,9 @@ export function WatchlistPanel({ works }: Props) {
         })}
       </ul>
       <p className="mt-4 text-xs text-ink-mute">{t("watchlist.hint")}</p>
+      <p className="mt-2 text-xs leading-relaxed text-ink-mute/90">
+        {t("watchlist.localNote")}
+      </p>
     </section>
   );
 }

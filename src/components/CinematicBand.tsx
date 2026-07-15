@@ -26,11 +26,15 @@ export function CinematicBand({ quote, caption }: CinematicBandProps) {
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-wine-deep/80 via-wine/45 to-rouge/25" />
+        <div
+          className="pointer-events-none absolute inset-y-0 left-1/2 w-[min(56vw,28rem)] -translate-x-1/2 bg-[radial-gradient(ellipse_at_center,color-mix(in_srgb,var(--gold-glow)_40%,transparent),transparent_70%)] opacity-70"
+          aria-hidden
+        />
         <div className="absolute inset-0 flex items-center">
           <div className="container-wide">
             <p className="kicker mb-5 text-gold-light">
               <Heart size={13} className="fill-gold-light text-gold-light" aria-hidden />
-              In Her Words
+              {t("brand.chaseLight")}
             </p>
             <blockquote
               className="display max-w-3xl text-paper"

@@ -20,6 +20,7 @@ import { EventCard, ViewAllLink } from "@/components/EventCard";
 import { StatStrip } from "@/components/StatStrip";
 import { FadeIn, StaggerGrid, StaggerItem } from "@/components/FadeIn";
 import { useLocale, useT } from "@/components/LocaleProvider";
+import { ChaseLightDivider } from "@/components/ChaseLightDivider";
 import { localizeHonor, localizeSiteMeta } from "@/lib/i18n/localize";
 import { HOME_SECTION_SCROLL_MT, HOME_SECTIONS } from "@/lib/home-sections";
 import { cn } from "@/lib/cn";
@@ -47,6 +48,8 @@ export function DesignWarmCinema({ data }: { data: HomeData }) {
       <StoriesStrip items={featuredStories} />
 
       <UpcomingPreviewStrip items={upcoming} />
+
+      <ChaseLightDivider />
 
       <Container id={HOME_SECTIONS.works} wide className={HOME_SECTION_SCROLL_MT}>
         <FadeIn>
@@ -101,6 +104,8 @@ export function DesignWarmCinema({ data }: { data: HomeData }) {
       )}
 
       <CinematicBand />
+
+      <ChaseLightDivider compact />
 
       <Container id={HOME_SECTIONS.magazines} wide className={cn("soft-section", HOME_SECTION_SCROLL_MT)}>
         <FadeIn>

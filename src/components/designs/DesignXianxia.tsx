@@ -11,6 +11,7 @@ import { LatestStrip } from "@/components/LatestStrip";
 import { HomeFanBand } from "@/components/HomeFanBand";
 import { StoriesStrip } from "@/components/StoriesStrip";
 import { UpcomingPreviewStrip } from "@/components/UpcomingPreviewStrip";
+import { ChaseLightDivider } from "@/components/ChaseLightDivider";
 import { CharacterCard } from "@/components/GalleryGrid";
 import { useLocale, useT } from "@/components/LocaleProvider";
 import {
@@ -147,7 +148,7 @@ export function DesignXianxia({ data }: { data: HomeData }) {
 
       <UpcomingPreviewStrip items={upcoming} />
 
-      <InkRule />
+      <ChaseLightDivider />
 
       <section id={HOME_SECTIONS.works} className={cn("container-main", HOME_SECTION_SCROLL_MT)}>
         <div className="mb-12 text-center">

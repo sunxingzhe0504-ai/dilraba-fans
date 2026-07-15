@@ -18,17 +18,21 @@ export function MagazineCard({ magazine: raw, className }: MagazineCardProps) {
   const magazine = localizeMagazine(raw, locale);
 
   return (
-    <div className={cn("group edit-card hover-zoom flex-shrink-0", className)}>
+    <div className={cn("group magazine-card flex-shrink-0", className)}>
       <Link href={`/magazine/${magazine.slug}`} className="block">
         <div className="relative aspect-[3/4] overflow-hidden bg-background-deep">
           <ContentImage
             src={magazine.cover}
             alt={`${magazine.name} ${magazine.issue}`}
             fill
-            className="portrait-cover"
+            className="portrait-cover transition-transform duration-700 group-hover:scale-[1.03]"
             sizes="(max-width: 768px) 60vw, 25vw"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-wine-deep/85 via-wine-deep/10 to-transparent" />
+          <div
+            className="magazine-card__rule pointer-events-none absolute inset-x-8 top-5 h-px opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+            aria-hidden
+          />
           <div className="absolute inset-x-0 bottom-0 p-5 text-paper">
             <p className="index-num text-gold-light">{magazine.year}</p>
             <h3 className="display mt-1 text-xl leading-tight">{magazine.name}</h3>

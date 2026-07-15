@@ -12,6 +12,7 @@ import { LatestStrip } from "@/components/LatestStrip";
 import { HomeFanBand } from "@/components/HomeFanBand";
 import { StoriesStrip } from "@/components/StoriesStrip";
 import { UpcomingPreviewStrip } from "@/components/UpcomingPreviewStrip";
+import { ChaseLightDivider } from "@/components/ChaseLightDivider";
 import { CharacterCard } from "@/components/GalleryGrid";
 import { useLocale, useT } from "@/components/LocaleProvider";
 import {
@@ -89,6 +90,8 @@ export function DesignFanSticker({ data }: { data: HomeData }) {
       <LatestStrip items={latestNews} />
       <StoriesStrip items={featuredStories} />
       <UpcomingPreviewStrip items={upcoming} />
+
+      <ChaseLightDivider />
 
       <section className="container-wide grid items-center gap-10 py-16 lg:grid-cols-2 lg:py-20">
         <div>

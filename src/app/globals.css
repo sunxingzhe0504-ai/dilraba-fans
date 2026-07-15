@@ -334,6 +334,59 @@ html[data-color-scheme="light"] {
       0 10px 22px -12px rgba(224, 165, 137, 0.32);
   }
 
+  .work-card {
+    @apply relative overflow-hidden border border-border bg-paper;
+    border-radius: var(--radius-card);
+    box-shadow: 0 14px 34px -22px rgba(120, 60, 50, 0.26);
+    transition:
+      transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1),
+      box-shadow 0.45s ease,
+      border-color 0.45s ease;
+  }
+  .work-card:hover {
+    border-color: color-mix(in srgb, var(--wine) 35%, var(--border));
+    transform: translateY(-5px);
+    box-shadow:
+      0 28px 50px -24px rgba(120, 60, 50, 0.36),
+      0 0 0 1px color-mix(in srgb, var(--gold) 28%, transparent);
+  }
+
+  .character-card {
+    @apply relative overflow-hidden border border-border bg-paper;
+    border-radius: var(--radius-card);
+    box-shadow: 0 14px 34px -22px rgba(120, 60, 50, 0.22);
+    transition:
+      box-shadow 0.45s ease,
+      border-color 0.45s ease;
+  }
+  .character-card:hover {
+    border-color: color-mix(in srgb, var(--gold) 45%, var(--border));
+    box-shadow:
+      0 22px 48px -28px rgba(120, 60, 50, 0.28),
+      inset 0 0 0 1px color-mix(in srgb, var(--gold-light) 35%, transparent);
+  }
+
+  .magazine-card {
+    @apply relative overflow-hidden border border-border bg-paper;
+    border-radius: var(--radius-card);
+    box-shadow: 0 10px 28px -22px rgba(120, 60, 50, 0.2);
+    transition: border-color 0.45s ease, box-shadow 0.45s ease;
+  }
+  .magazine-card:hover {
+    border-color: color-mix(in srgb, var(--gold) 50%, var(--border-strong));
+    box-shadow: 0 16px 36px -24px rgba(120, 60, 50, 0.28);
+  }
+  .magazine-card__rule {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--gold-light) 20%,
+      var(--gold) 50%,
+      var(--gold-light) 80%,
+      transparent
+    );
+  }
+
   .hover-zoom img {
     transition: transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
   }
@@ -550,4 +603,60 @@ html[data-color-scheme="light"] {
   overflow: visible;
   clip: auto;
   white-space: normal;
+}
+
+/* ===== 追光分隔：品牌光束 ===== */
+.chase-light__beam {
+  position: absolute;
+  inset: 50% 8% auto;
+  height: 1px;
+  transform: translateY(-50%);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    color-mix(in srgb, var(--blush-deep) 55%, transparent) 18%,
+    color-mix(in srgb, var(--gold-light) 90%, transparent) 50%,
+    color-mix(in srgb, var(--blush-deep) 55%, transparent) 82%,
+    transparent 100%
+  );
+}
+
+.chase-light__flare {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(42vw, 18rem);
+  height: 4.5rem;
+  transform: translate(-50%, -50%);
+  border-radius: 9999px;
+  background: radial-gradient(
+    ellipse at center,
+    color-mix(in srgb, var(--gold-glow) 75%, transparent) 0%,
+    transparent 70%
+  );
+  filter: blur(8px);
+  opacity: 0.85;
+  animation: chase-light-pulse 4.5s ease-in-out infinite alternate;
+}
+
+.chase-light__mark {
+  background: color-mix(in srgb, var(--background) 88%, transparent);
+  backdrop-filter: blur(6px);
+}
+
+@keyframes chase-light-pulse {
+  0% {
+    opacity: 0.45;
+    transform: translate(-50%, -50%) scaleX(0.92);
+  }
+  100% {
+    opacity: 0.9;
+    transform: translate(-50%, -50%) scaleX(1.06);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chase-light__flare {
+    animation: none;
+  }
 }
