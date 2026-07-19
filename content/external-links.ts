@@ -81,6 +81,16 @@ export const WORK_EXTERNAL_LINKS: Record<string, ExternalLink[]> = {
       kind: "info",
     },
     {
+      label: "头条 · 票房破 10 亿",
+      href: "https://www.toutiao.com/article/7663411019796824610/",
+      kind: "info",
+    },
+    {
+      label: "新浪 · Be water 素颜自拍",
+      href: "https://ent.sina.cn/2026-07-18/detail-iniifhuc8372432.d.html",
+      kind: "info",
+    },
+    {
       label: "淘票票 · 购票",
       href: "https://www.taopiaopiao.com/search?kw=功夫女足",
       kind: "buy",

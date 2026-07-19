@@ -4,6 +4,60 @@ import { OFFICIAL_CHANNELS } from "./official-channels";
 /** 最新动态：以公开信息为准，按时间倒序维护 */
 export const news: NewsItem[] = [
   {
+    slug: "be-water-selfie-2026",
+    title: "微博素颜自拍 ·「Be water, my friend」",
+    titleEn: "Bare-faced Weibo Selfies · “Be water, my friend”",
+    date: "2026-07-18",
+    category: "studio",
+    summary:
+      "7 月 17–18 日于微博晒出原相机素颜怼脸自拍，配文「Be water, my friend~」，以真实状态回应增重等传言，并为《功夫女足》热映造势；亦晒出与张小斐的素颜合照。",
+    summaryEn:
+      "July 17–18 Weibo posts of unfiltered bare-faced selfies captioned “Be water, my friend~” — a candid reply to weight-gain rumors while promoting Kung Fu Women's Soccer; also shared a selfie with Zhang Xiaofei.",
+    body:
+      "据新浪娱乐等公开报道，迪丽热巴于 2026 年 7 月 17 日至 18 日在微博发布无滤镜、无美颜的素颜自拍，配文「Be water, my friend~」，幽默澄清外界关于「增重 16 斤」等讨论。她在《功夫女足》中为饰演前锋钰珑曾增重约 8 公斤并全程素颜出镜；此次晒照亦与影片宣传相连。活动与表述以工作室及本人微博发布为准。",
+    bodyEn:
+      "Public reports describe July 17–18 Weibo posts of unfiltered selfies and the caption “Be water, my friend~,” addressing weight-gain chatter. For Yu Long in Kung Fu Women's Soccer she reportedly gained ~8 kg and performed bare-faced. Details follow her studio and Weibo posts.",
+    workSlug: "shaolin-nvzu",
+    externalUrl: "https://ent.sina.cn/2026-07-18/detail-iniifhuc8372432.d.html",
+    featured: true,
+  },
+  {
+    slug: "vogue-august-2026-promo",
+    title: "《VOGUE》八月刊单人封面进入宣传期",
+    titleEn: "VOGUE China August Solo Cover Enters Promo Period",
+    date: "2026-07-17",
+    category: "fashion",
+    summary:
+      "据时尚媒体报道，VOGUE 服饰与美容 2026 年八月刊单人正刊封面于 7 月 17 日进入密集宣传；此为首次 VOGUE 单人正刊，亦标志 90 后女演员中首位达成五大女刊单人正刊全满贯。正式发售以杂志官方为准。",
+    summaryEn:
+      "Fashion media report VOGUE China August 2026 solo cover entered heavy promo on July 17 — her first VOGUE solo issue cover and a Big Five solo-cover grand slam among post-90s actresses. On-sale dates follow the magazine.",
+    body:
+      "此前本站已收录 7 月 1 日封面拍摄完成的公开报道。7 月 17 日媒体称刊面预热启动，品牌合作与造型细节陆续释出；开售与限量信息请以《VOGUE服饰与美容》官方公告为准，勿轻信非官方代购渠道。",
+    bodyEn:
+      "Following the July 1 shoot reports already on this site, media said promo intensified on July 17. Purchase and limited editions follow official VOGUE China announcements only.",
+    externalUrl: "https://ent.sina.cn/2026-07-17/detail-iniickay1411532.d.html",
+    featured: true,
+  },
+  {
+    slug: "gongfu-nvzu-boxoffice-10yi-2026",
+    title: "《功夫女足》累计票房突破 10 亿",
+    titleEn: "Kung Fu Women's Soccer Passes 1 Billion Yuan",
+    date: "2026-07-17",
+    category: "work",
+    summary:
+      "据公开报道，影片上映约一周累计综合票房（含预售）突破 10 亿元；多家票务平台上调总票房预测。迪丽热巴粉丝组织云包场助力热议。具体数据以灯塔、猫眼等专业平台为准。",
+    summaryEn:
+      "Public reports: cumulative box office (incl. presales) passed 1 billion yuan about a week after release; platforms raised total forecasts. Fan bulk-booking also made headlines. Follow Lighthouse / Maoyan live data.",
+    body:
+      "《功夫女足》于 7 月 11 日全国上映后票房持续走高。据今日头条、网易等公开报道，至 7 月 17 日前后累计票房已突破 10 亿元，预测总票房被上调至约 30 亿元量级（以平台实时预测为准）。另有报道称粉丝后援会等组织大规模云包场支持影片。本站仅整理公开信息，不构成票房承诺。",
+    bodyEn:
+      "After the July 11 release, media reported ~1B yuan cumulative by around July 17, with forecasts near the 3B yuan range on some platforms. Fan bulk bookings were widely covered. This site summarizes public reports only.",
+    workSlug: "shaolin-nvzu",
+    eventSlug: "gongfu-nvzu-boxoffice-10yi-2026",
+    externalUrl: "https://www.toutiao.com/article/7663411019796824610/",
+    featured: true,
+  },
+  {
     slug: "gongfu-nvzu-boxoffice-3yi-2026",
     title: "《功夫女足》上映次日票房突破 3 亿",
     titleEn: "Kung Fu Women's Soccer Passes 300M Yuan on Day 2",

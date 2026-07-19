@@ -6,6 +6,13 @@ import type { Honor, TimelineEntry } from "@/lib/types";
 export const honors: Honor[] = [
   {
     year: 2026,
+    title: "《功夫女足》累计票房突破 10 亿（据公开报道）",
+    titleEn: "Kung Fu Women's Soccer passes 1 billion yuan box office (public reports)",
+    source: "公开媒体 / 票房平台报道",
+    sourceEn: "Media / box-office platform reports",
+  },
+  {
+    year: 2026,
     title: "《功夫女足》上映首日票房突破 2 亿，打破 7 项影史纪录",
     titleEn: "Kung Fu Women's Soccer opening day passes 200M yuan, 7 records broken",
     source: "灯塔专业版 / 公开报道",
@@ -48,10 +55,10 @@ export const honors: Honor[] = [
   },
   {
     year: 2026,
-    title: "据时尚媒体报道完成 VOGUE 八月刊单人封面拍摄，达成五大女刊单人正刊全满贯",
-    titleEn: "VOGUE August solo cover shoot reported — Big Five solo-cover grand slam",
-    source: "时尚媒体报道（刊面以杂志官方为准）",
-    sourceEn: "Fashion media reports (official magazine release TBA)",
+    title: "VOGUE 八月刊单人封面进入宣传期，达成五大女刊单人正刊全满贯（刊面以官方为准）",
+    titleEn: "VOGUE August solo cover in promo — Big Five solo-cover grand slam (official release TBA)",
+    source: "时尚媒体报道（发售以杂志官方为准）",
+    sourceEn: "Fashion media reports (on-sale dates follow the magazine)",
   },
   {
     year: 2026,
@@ -297,8 +304,8 @@ export const timeline: TimelineEntry[] = [
     title: "独立运营新阶段",
     titleEn: "Independent operations",
     description:
-      "与嘉行传媒 13 年合约到期后，个人工作室全面接管演艺事务；《功夫女足》7 月 11 日上映首日票房破 2 亿，代言与时尚版图持续扩展。",
+      "与嘉行传媒 13 年合约到期后，个人工作室全面接管演艺事务；《功夫女足》暑期档热映，公开报道累计票房破 10 亿；VOGUE 八月刊单人封面进入宣传期，达成五大女刊单人正刊全满贯。",
     descriptionEn:
-      "After 13 years with Jaywalk, her studio fully manages career affairs; Kung Fu Women's Soccer opened July 11 with 200M+ opening day; brand and fashion milestones continue.",
+      "After 13 years with Jaywalk, her studio fully manages career affairs; Kung Fu Women's Soccer summer run with ~1B yuan box office per reports; VOGUE August solo cover in promo completes the Big Five solo-cover set.",
   },
 ];

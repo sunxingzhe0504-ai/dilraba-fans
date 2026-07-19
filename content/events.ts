@@ -6,6 +6,24 @@ import type { FanEvent } from "@/lib/types";
  */
 export const events: FanEvent[] = [
   {
+    slug: "gongfu-nvzu-boxoffice-10yi-2026",
+    title: "《功夫女足》累计票房破 10 亿",
+    titleEn: "Kung Fu Women's Soccer · 1B+ Box Office",
+    date: "2026-07-17",
+    category: "premiere",
+    location: "全国院线",
+    locationEn: "Nationwide cinemas",
+    summary:
+      "据公开报道，上映约一周累计综合票房突破 10 亿元；平台预测与粉丝云包场同步引发关注。",
+    summaryEn:
+      "Public reports: ~1B yuan cumulative about a week after release; forecasts and fan bulk-booking also trended.",
+    description:
+      "7 月 11 日上映后票房持续攀升。媒体报道至 7 月 17 日前后破 10 亿；数据与预测以专业平台实时统计为准。",
+    descriptionEn:
+      "Strong post–July 11 run; media cite ~1B by around July 17. Follow live platform data.",
+    featured: true,
+  },
+  {
     slug: "gongfu-nvzu-boxoffice-day1-2026",
     title: "《功夫女足》上映首日票房破 2 亿",
     titleEn: "Kung Fu Women's Soccer · Opening Day 200M+",

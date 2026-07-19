@@ -6,37 +6,42 @@ import { storiesFromMarkdown } from "./stories-from-md";
 const coreStories: Story[] = [
   {
     slug: "gongfu-nvzu-dingdang-2026-recap",
-    title: "《功夫女足》暑期档热映 · 首日票房破 2 亿",
-    titleEn: "Kung Fu Women's Soccer · Summer Hit, 200M+ Opening Day",
-    date: "2026-07-12",
+    title: "《功夫女足》暑期档热映 · 累计票房破 10 亿",
+    titleEn: "Kung Fu Women's Soccer · Summer Hit, 1B+ Box Office",
+    date: "2026-07-17",
     summary:
-      "7 月 11 日全国上映，首日票房突破 2 亿元；迪丽热巴饰 8 号前锋钰珑，天津路演与工作室 Live 图引热议。",
+      "7 月 11 日全国上映后票房走高，公开报道累计破 10 亿；钰珑特训、天津路演与「Be water」素颜自拍同步引发关注。",
     summaryEn:
-      "Opened July 11 with 200M+ opening day — Dilraba as Yu Long (#8); Tianjin roadshow and studio live photos trending.",
+      "Opened July 11 with a strong run — public reports cite 1B+ box office; Yu Long training, Tianjin roadshow, and “Be water” selfies also trended.",
     cover: IMAGES.works["shaolin-nvzu"],
     tags: ["作品", "热映"],
     featured: true,
     workSlug: "shaolin-nvzu",
-    newsSlug: "gongfu-nvzu-boxoffice-3yi-2026",
-    eventSlug: "gongfu-nvzu-boxoffice-day1-2026",
+    newsSlug: "gongfu-nvzu-boxoffice-10yi-2026",
+    eventSlug: "gongfu-nvzu-boxoffice-10yi-2026",
     body: `## 全国上映
 
 **2026 年 7 月 11 日**，喜剧电影 **《功夫女足》**（原《少林女足》）于全国院线上映。迪丽热巴饰 **8 号前锋钰珑**，与张小斐、张艺兴领衔主演。
 
 ## 票房表现
 
-据 **灯塔专业版**、新浪娱乐等公开报道：
+据 **灯塔专业版**、新浪娱乐、今日头条等公开报道：
 
 - **首日票房突破 2 亿元**，打破 7 项中国影史纪录
 - 首日排片超 23 万场，观影人次超 579 万
 - **7 月 12 日上午**累计票房已突破 **3 亿元**
+- **7 月 17 日前后**累计综合票房突破 **10 亿元**；平台预测曾上调至约 30 亿元量级
 - 猫眼开画评分 **9.4**（以平台实时数据为准）
 
-工作室在票房破 2 亿后发布庆祝海报，配文「攻势不减，燃力升级」。
+工作室在票房破 2 亿后发布庆祝海报，配文「攻势不减，燃力升级」。另有报道称粉丝组织大规模云包场助力。
 
 ## 天津路演
 
 上映同日，迪丽热巴赴 **天津** 出席路演，分享为角色 **增重 8 公斤**、封闭足球特训等经历；工作室发布手机 **Live 图** 宣传。
+
+## 「Be water」素颜自拍
+
+**7 月 17–18 日**，微博晒出原相机素颜怼脸自拍，配文「Be water, my friend~」，以真实状态回应增重等传言，并为热映造势。
 
 ## 角色准备
 
@@ -52,27 +57,32 @@ const coreStories: Story[] = [
 
 ## Box office
 
-Public reports (Lighthouse, Sina Entertainment):
+Public reports (Lighthouse, Sina Entertainment, Toutiao, etc.):
 
 - **Opening day passed 200M yuan**, 7 records broken
 - 230k+ screens, 5.79M+ admissions on day one
 - **300M+ cumulative** by the morning of **July 12**
+- **~1B yuan cumulative** around **July 17**; some forecasts rose toward the ~3B yuan range
 - **Maoyan opening score 9.4** (follow live platform data)
 
-Studio posted celebration artwork at the 200M milestone.
+Studio celebration posts followed the 200M milestone. Fan bulk-booking was also widely reported.
 
 ## Tianjin roadshow
 
-Opening-day **Tianjin** roadshow — training stories including **8 kg weight gain** and football camp; studio **live photos** shared.
+Opening-day **Tianjin** roadshow — stories of **~8 kg gain** and closed football training; studio **live photos**.
 
-## Preparation
+## “Be water” selfies
 
-- Three months of football training, action scenes performed herself
-- Roadshow: 200 consecutive juggles from zero baseline
+**July 17–18** Weibo posts of unfiltered bare-faced selfies captioned **“Be water, my friend~”**, addressing weight-gain chatter while promoting the film.
+
+## Role prep
+
+- Three months of closed football training; action performed herself
+- Roadshow anecdote: progressing to 200 consecutive juggles
 
 ## Note
 
-Box office and ratings follow official platform data.`,
+Box-office and scores follow live Lighthouse / Maoyan data.`,
   },
   {
     slug: "land-rover-2026-recap",

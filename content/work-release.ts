@@ -61,7 +61,7 @@ export const WORK_RELEASE: Record<string, WorkReleaseConfig> = {
   },
   "shaolin-nvzu": {
     status: "released",
-    airInfo: "2026 年 7 月 11 日全国上映 · 热映中",
+    airInfo: "2026 年 7 月 11 日全国上映 · 热映中（累计票房破 10 亿，据公开报道）",
     live: true,
     premiereDate: "2026-07-11",
     premiereNews: {

@@ -259,6 +259,17 @@ export const charityItems: CharityItem[] = [
 
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-07-20",
+    items: [
+      "补充《功夫女足》累计票房破 10 亿（7/17）、VOGUE 八月刊宣传期（7/17）与「Be water」素颜自拍（7/18）",
+      "更新作品热映信息、荣誉条目与专题长文；导航/卡片/追光视觉等设计优化已上线",
+    ],
+    itemsEn: [
+      "Added Kung Fu Women's Soccer 1B+ box office (Jul 17), VOGUE August promo (Jul 17), “Be water” selfies (Jul 18)",
+      "Updated work air info, honors, and story recap; prior nav/card/chase-light design polish shipped",
+    ],
+  },
+  {
     date: "2026-07-12",
     items: [
       "补充《功夫女足》上映首日票房破 2 亿（7/11）、累计破 3 亿（7/12）与天津路演",
