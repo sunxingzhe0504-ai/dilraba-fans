@@ -13,7 +13,7 @@
     "sync:stories": "node scripts/sync-stories-from-markdown.mjs",
     "sync:notion": "node scripts/sync-notion-stories.mjs",
     "analyze": "cross-env ANALYZE=true next build",
-    "prebuild": "node scripts/optimize-images.mjs && node scripts/sync-stories-from-markdown.mjs",
+    "prebuild": "npm run validate && node scripts/optimize-images.mjs && node scripts/sync-stories-from-markdown.mjs",
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",

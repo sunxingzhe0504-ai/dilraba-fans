@@ -76,6 +76,11 @@ export const WORK_EXTERNAL_LINKS: Record<string, ExternalLink[]> = {
   "shaolin-nvzu": [
     db("36452545"),
     {
+      label: "新浪 · 票房超 14.57 亿",
+      href: "https://ent.sina.cn/2026-07-20/detail-iniiktnw4921485.d.html",
+      kind: "info",
+    },
+    {
       label: "新浪 · 首日票房报道",
       href: "https://ent.sina.cn/2026-07-12/detail-inihpchf8004605.d.html",
       kind: "info",

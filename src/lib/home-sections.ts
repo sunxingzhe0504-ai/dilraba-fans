@@ -10,7 +10,7 @@ export const HOME_SECTIONS = {
   events: "home-events",
 } as const;
 
-export const HOME_SECTION_SCROLL_MT = "scroll-mt-24";
+export const HOME_SECTION_SCROLL_MT = "scroll-mt-36";
 
 export type HomeChapter = {
   id: string;

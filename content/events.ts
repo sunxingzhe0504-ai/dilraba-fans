@@ -6,6 +6,24 @@ import type { FanEvent } from "@/lib/types";
  */
 export const events: FanEvent[] = [
   {
+    slug: "gongfu-nvzu-boxoffice-14yi-2026",
+    title: "《功夫女足》累计票房超 14.57 亿",
+    titleEn: "Kung Fu Women's Soccer · 1.457B+ Box Office",
+    date: "2026-07-19",
+    category: "premiere",
+    location: "全国院线",
+    locationEn: "Nationwide cinemas",
+    summary:
+      "据公开报道，截至 7 月 19 日累计综合票房超 14.57 亿元，进入年度票房榜前三；迪丽热巴主演电影累计票房破 20 亿。",
+    summaryEn:
+      "Public reports: 1.457B+ yuan by July 19 (top-3 of the year); Dilraba starring filmography crosses 2B yuan.",
+    description:
+      "上映约 9 天票房持续走高。平台预测与口碑分化并存；数据以专业平台实时统计为准。",
+    descriptionEn:
+      "Strong ~9-day run with rising forecasts and mixed reviews. Follow live platform data.",
+    featured: true,
+  },
+  {
     slug: "gongfu-nvzu-boxoffice-10yi-2026",
     title: "《功夫女足》累计票房破 10 亿",
     titleEn: "Kung Fu Women's Soccer · 1B+ Box Office",

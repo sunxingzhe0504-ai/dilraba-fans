@@ -4,6 +4,25 @@ import { OFFICIAL_CHANNELS } from "./official-channels";
 /** 最新动态：以公开信息为准，按时间倒序维护 */
 export const news: NewsItem[] = [
   {
+    slug: "gongfu-nvzu-boxoffice-14yi-2026",
+    title: "《功夫女足》累计票房超 14.57 亿 · 个人主演电影票房破 20 亿",
+    titleEn: "Kung Fu Women's Soccer Tops 1.457B · Dilraba Filmography Crosses 2B",
+    date: "2026-07-19",
+    category: "work",
+    summary:
+      "据新浪娱乐等公开报道，截至 7 月 19 日影片累计综合票房超 14.57 亿元，进入 2026 年度票房榜前三；同期迪丽热巴主演电影累计票房迈过 20 亿元。平台预测仍在上调，数据以灯塔、猫眼实时统计为准。",
+    summaryEn:
+      "Public reports: by July 19 the film’s cumulative box office exceeded 1.457B yuan (top-3 of 2026); Dilraba’s starring filmography crossed 2B yuan. Forecasts keep rising — follow live Lighthouse / Maoyan data.",
+    body:
+      "《功夫女足》上映 9 天前后票房持续攀升。据新浪娱乐 7 月 20 日报道：截至 7 月 19 日累计综合票房超 14.57 亿元，进入 2026 年度票房榜前三；迪丽热巴主演电影累计票房达约 20.17 亿元，四部院线主演片均破亿。多家平台对影片最终票房预测集中在约 25–30 亿元区间（以平台实时预测为准）。另有报道称路演中提及续集进入前期规划，正式信息以片方官宣为准。本站仅整理公开报道。",
+    bodyEn:
+      "Media report ~1.457B yuan cumulative by July 19 (top-3 of 2026) and ~2.017B yuan across Dilraba’s starring films. Platform forecasts cluster around 2.5–3.0B yuan for the film. Sequel planning was mentioned on the roadshow circuit — confirm with official studio releases only.",
+    workSlug: "shaolin-nvzu",
+    eventSlug: "gongfu-nvzu-boxoffice-14yi-2026",
+    externalUrl: "https://ent.sina.cn/2026-07-20/detail-iniiktnw4921485.d.html",
+    featured: true,
+  },
+  {
     slug: "be-water-selfie-2026",
     title: "微博素颜自拍 ·「Be water, my friend」",
     titleEn: "Bare-faced Weibo Selfies · “Be water, my friend”",
@@ -74,7 +93,7 @@ export const news: NewsItem[] = [
     workSlug: "shaolin-nvzu",
     eventSlug: "gongfu-nvzu-boxoffice-day1-2026",
     externalUrl: "https://ent.sina.cn/2026-07-12/detail-inihpchf8004605.d.html",
-    featured: true,
+    featured: false,
   },
   {
     slug: "gongfu-nvzu-tianjin-roadshow-2026",
@@ -112,7 +131,7 @@ export const news: NewsItem[] = [
     workSlug: "shaolin-nvzu",
     eventSlug: "gongfu-nvzu-boxoffice-day1-2026",
     externalUrl: "https://ent.sina.cn/2026-07-12/detail-inihpchf8004605.d.html",
-    featured: true,
+    featured: false,
   },
   {
     slug: "gongfu-nvzu-long-trailer-2026",
@@ -131,7 +150,7 @@ export const news: NewsItem[] = [
     workSlug: "shaolin-nvzu",
     eventSlug: "gongfu-nvzu-long-trailer-2026",
     externalUrl: "https://ent.sina.cn/2026-07-10/detail-inihinfz5203133.d.html",
-    featured: true,
+    featured: false,
   },
   {
     slug: "gongfu-nvzu-roadshow-2026",
@@ -150,7 +169,7 @@ export const news: NewsItem[] = [
     workSlug: "shaolin-nvzu",
     eventSlug: "gongfu-nvzu-roadshow-2026",
     externalUrl: "https://ent.sina.cn/2026-07-09/detail-inihczpf1482717.d.html",
-    featured: true,
+    featured: false,
   },
   {
     slug: "gongfu-nvzu-dingdang-2026",

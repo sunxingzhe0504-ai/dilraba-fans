@@ -5,16 +5,19 @@ import { getSiteMeta } from "@content/index";
 import { useT } from "@/components/LocaleProvider";
 import { useLocale } from "@/components/LocaleProvider";
 import { localizeSiteMeta } from "@/lib/i18n/localize";
+import { MORE_NAV_GROUPS, PRIMARY_NAV } from "@/lib/site-nav";
 
 export function SiteFooter() {
   const t = useT();
   const locale = useLocale();
   const { officialLinks } = localizeSiteMeta(getSiteMeta(), locale);
 
+  const primaryLinks = PRIMARY_NAV.filter((item) => item.href !== "/");
+
   return (
     <footer className="paper-grain mt-auto border-t border-blush-deep/40 bg-gradient-to-br from-wine via-wine to-wine-deep text-paper">
       <div className="container-wide section-padding pb-10">
-        <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr]">
+        <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1.2fr]">
           <div>
             <p className="zh-display text-3xl text-gold-light">{t("site.name")}</p>
             <p className="mt-1 text-xs uppercase tracking-[0.3em] text-paper/50">
@@ -67,83 +70,33 @@ export function SiteFooter() {
             <h3 className="text-xs uppercase tracking-[0.25em] text-gold-light">
               {t("site.siteNav")}
             </h3>
-            <ul className="mt-5 space-y-3 text-sm text-paper/70">
-              <li>
-                <LocaleLink href="/latest" className="hover:text-gold-light">
-                  {t("nav.latestNews")}
-                </LocaleLink>
-              </li>
-              <li>
-                <LocaleLink href="/works" className="hover:text-gold-light">
-                  {t("nav.worksLib")}
-                </LocaleLink>
-              </li>
-              <li>
-                <LocaleLink href="/videos" className="hover:text-gold-light">
-                  {t("nav.videoZone")}
-                </LocaleLink>
-              </li>
-              <li>
-                <LocaleLink href="/gallery" className="hover:text-gold-light">
-                  {t("nav.galleryWall")}
-                </LocaleLink>
-              </li>
-              <li>
-                <LocaleLink href="/characters" className="hover:text-gold-light">
-                  {t("nav.charactersAtlas")}
-                </LocaleLink>
-              </li>
-              <li>
-                <LocaleLink href="/magazine" className="hover:text-gold-light">
-                  {t("nav.magazineCovers")}
-                </LocaleLink>
-              </li>
-              <li>
-                <LocaleLink href="/events" className="hover:text-gold-light">
-                  {t("nav.eventNews")}
-                </LocaleLink>
-              </li>
-              <li>
-                <LocaleLink href="/upcoming" className="hover:text-gold-light">
-                  {t("nav.upcomingWorks")}
-                </LocaleLink>
-              </li>
-              <li>
-                <LocaleLink href="/fashion" className="hover:text-gold-light">
-                  {t("nav.fashionBrand")}
-                </LocaleLink>
-              </li>
-              <li>
-                <LocaleLink href="/charity" className="hover:text-gold-light">
-                  {t("nav.charity")}
-                </LocaleLink>
-              </li>
-              <li>
-                <LocaleLink href="/fans" className="hover:text-gold-light">
-                  {t("nav.fans")}
-                </LocaleLink>
-              </li>
-              <li>
-                <LocaleLink href="/about" className="hover:text-gold-light">
-                  {t("nav.aboutHer")}
-                </LocaleLink>
-              </li>
-              <li>
-                <LocaleLink href="/changelog" className="hover:text-gold-light">
-                  {t("nav.changelog")}
-                </LocaleLink>
-              </li>
-              <li>
-                <LocaleLink href="/stories" className="hover:text-gold-light">
-                  {t("nav.stories")}
-                </LocaleLink>
-              </li>
-              <li>
-                <LocaleLink href="/contact" className="hover:text-gold-light">
-                  {t("nav.contact")}
-                </LocaleLink>
-              </li>
+            <ul className="mt-5 grid grid-cols-2 gap-x-6 gap-y-2.5 text-sm text-paper/70 sm:grid-cols-1">
+              {primaryLinks.map((item) => (
+                <li key={item.href}>
+                  <LocaleLink href={item.href} className="hover:text-gold-light">
+                    {t(item.labelKey)}
+                  </LocaleLink>
+                </li>
+              ))}
             </ul>
+            <div className="mt-6 space-y-4">
+              {MORE_NAV_GROUPS.map((group) => (
+                <div key={group.titleKey}>
+                  <p className="text-[11px] font-medium tracking-wide text-gold-light/75">
+                    {t(group.titleKey)}
+                  </p>
+                  <ul className="mt-2 grid grid-cols-2 gap-x-6 gap-y-2 text-sm text-paper/70 sm:grid-cols-1">
+                    {group.items.map((item) => (
+                      <li key={item.href}>
+                        <LocaleLink href={item.href} className="hover:text-gold-light">
+                          {t(item.labelKey)}
+                        </LocaleLink>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 

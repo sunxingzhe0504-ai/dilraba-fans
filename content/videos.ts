@@ -12,6 +12,20 @@ const ev = IMAGES.events;
  */
 export const videos: VideoItem[] = [
   {
+    slug: "gongfu-nvzu-boxoffice-14yi-2026-video",
+    title: "《功夫女足》累计票房超 14.57 亿",
+    titleEn: "Kung Fu Women's Soccer · 1.457B+ Box Office",
+    date: "2026-07-19",
+    category: "event",
+    platform: "other",
+    href: "https://ent.sina.cn/2026-07-20/detail-iniiktnw4921485.d.html",
+    thumbnail: w["shaolin-nvzu"],
+    summary: "据公开报道，截至 7 月 19 日累计票房超 14.57 亿；个人主演电影票房破 20 亿。",
+    summaryEn: "Public reports: 1.457B+ by July 19; starring filmography crosses 2B yuan.",
+    workSlug: "shaolin-nvzu",
+    featured: true,
+  },
+  {
     slug: "be-water-selfie-2026-video",
     title: "「Be water」素颜自拍 · 工作室动态",
     titleEn: "“Be water” Bare-faced Selfies",

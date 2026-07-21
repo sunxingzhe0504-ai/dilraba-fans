@@ -259,6 +259,19 @@ export const charityItems: CharityItem[] = [
 
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-07-22",
+    items: [
+      "补充《功夫女足》累计票房超 14.57 亿与个人主演电影票房破 20 亿（7/19，据公开报道）",
+      "页脚导航与顶栏分组对齐；首页章节锚点滚动偏移修正；精简部分中间票房节点的 featured 标记",
+      "本地 prebuild 增加内容校验，与 CI 一致",
+    ],
+    itemsEn: [
+      "Added Kung Fu Women's Soccer 1.457B+ box office and 2B+ starring filmography (Jul 19, public reports)",
+      "Footer nav aligned with header groups; chapter scroll offset fixed; trimmed intermediate featured flags",
+      "Local prebuild now runs content validate like CI",
+    ],
+  },
+  {
     date: "2026-07-20",
     items: [
       "补充《功夫女足》累计票房破 10 亿（7/17）、VOGUE 八月刊宣传期（7/17）与「Be water」素颜自拍（7/18）",
