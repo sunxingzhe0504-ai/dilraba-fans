@@ -482,7 +482,8 @@ export const CHARACTERS_EN: Record<
     nameEn: "Yu Long",
     workTitleEn: "Kung Fu Women's Soccer",
     descriptionEn:
-      "Forward #8 and core scorer for Emei FC; gained 8 kg and trained three months — roadshow stories of 200 consecutive juggles from zero.",
+      "Forward #8 and core scorer for Emei FC. Dilraba gained ~8 kg, cut her hair, trained outdoors bare-faced for three months, and performed mud tackles, bicycle kicks, and wire work herself. On the roadshow she shared progressing to 200 consecutive juggles; the director praised her as a gifted actor.",
+    quoteEn: "Plant, push, strike — every sprint shows the power built in training.",
   },
 };
 

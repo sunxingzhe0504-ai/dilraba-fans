@@ -247,6 +247,8 @@ export type CharityItem = {
   dateEn?: string;
   summary: string;
   summaryEn?: string;
+  /** Internal path (same-tab LocaleLink). */
+  href?: string;
   externalUrl?: string;
 };
 

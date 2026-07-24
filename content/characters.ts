@@ -317,10 +317,12 @@ export const characters: Character[] = [
     workTitleEn: "Kung Fu Women's Soccer",
     year: 2026,
     image: W["shaolin-nvzu"],
+    quote: "抬脚，发力，起势——每一次奔跑，都能见证训练时的 power。",
+    quoteEn: "Plant, push, strike — every sprint shows the power built in training.",
     description:
-      "峨眉队 8 号前锋、球队核心得分手；为贴合运动员形象增重 8 公斤并完成三个月封闭足球特训，路演中分享从零基础练到连续颠球 200 次。",
+      "峨眉队 8 号前锋、球队核心得分手。为贴合运动员形象，迪丽热巴主动增重约 8 公斤、剪短发、晒黑并全程素颜出镜，完成三个月封闭足球特训；泥地对抗、倒挂金钩与吊威亚等高难度动作均亲自完成。路演中她分享从零基础练到连续颠球 200 次的经历，也被导演称赞为「很有天分的演员」。",
     descriptionEn:
-      "Forward #8 and core scorer for Emei FC; gained 8 kg and trained three months — roadshow stories of 200 consecutive juggles from zero.",
+      "Forward #8 and core scorer for Emei FC. Dilraba gained ~8 kg, cut her hair, trained outdoors bare-faced for three months, and performed mud tackles, bicycle kicks, and wire work herself. On the roadshow she shared progressing to 200 consecutive juggles; the director praised her as a gifted actor.",
     featured: true,
   },
   {

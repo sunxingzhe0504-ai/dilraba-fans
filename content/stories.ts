@@ -6,33 +6,38 @@ import { storiesFromMarkdown } from "./stories-from-md";
 const coreStories: Story[] = [
   {
     slug: "gongfu-nvzu-dingdang-2026-recap",
-    title: "《功夫女足》暑期档热映 · 累计票房超 14 亿",
-    titleEn: "Kung Fu Women's Soccer · Summer Hit, 1.4B+ Box Office",
-    date: "2026-07-19",
+    title: "《功夫女足》暑期档热映 · 票房破 17 亿与续集确认",
+    titleEn: "Kung Fu Women's Soccer · 1.7B+ Box Office & Sequel",
+    date: "2026-07-23",
     summary:
-      "7 月 11 日全国上映后票房走高，公开报道累计超 14.57 亿；个人主演电影票房破 20 亿；钰珑特训、天津路演与「Be water」素颜自拍同步引发关注。",
+      "7 月 11 日全国上映后票房走高；公开报道累计破 17 亿，周星驰路演确认续集；个人主演电影票房破 20 亿；钰珑特训、天津路演与「Be water」素颜自拍同步引发关注。",
     summaryEn:
-      "Opened July 11 with a strong run — public reports cite 1.457B+ box office and 2B+ starring filmography; Yu Long training, Tianjin roadshow, and “Be water” selfies also trended.",
+      "Opened July 11 with a strong run — public reports cite 1.7B+ box office and a roadshow sequel confirmation; 2B+ starring filmography; Yu Long training, Tianjin roadshow, and “Be water” selfies also trended.",
     cover: IMAGES.works["shaolin-nvzu"],
     tags: ["作品", "热映"],
     featured: true,
     workSlug: "shaolin-nvzu",
-    newsSlug: "gongfu-nvzu-boxoffice-14yi-2026",
-    eventSlug: "gongfu-nvzu-boxoffice-14yi-2026",
+    newsSlug: "gongfu-nvzu-boxoffice-17yi-sequel-2026",
+    eventSlug: "gongfu-nvzu-boxoffice-17yi-sequel-2026",
     body: `## 全国上映
 
 **2026 年 7 月 11 日**，喜剧电影 **《功夫女足》**（原《少林女足》）于全国院线上映。迪丽热巴饰 **8 号前锋钰珑**，与张小斐、张艺兴领衔主演。
 
 ## 票房表现
 
-据 **灯塔专业版**、新浪娱乐等公开报道：
+据 **灯塔专业版**、新浪娱乐、镜周刊等公开报道：
 
 - **首日票房突破 2 亿元**，打破多项中国影史纪录
 - **7 月 12 日上午**累计票房已突破 **3 亿元**
 - **7 月 17 日前后**累计综合票房突破 **10 亿元**
 - **截至 7 月 19 日**累计综合票房超 **14.57 亿元**，进入 2026 年度票房榜前三
+- **至 7 月 23 日前后**累计票房突破 **17 亿元**，领跑暑期档
 - 同期迪丽热巴主演电影累计票房迈过 **20 亿元**
 - 平台对影片最终票房预测多集中在约 **25–30 亿元**区间（以实时预测为准）
+
+## 续集确认
+
+路演中周星驰被问及是否拍摄第二部时回应「有」，并曾表示峨眉队故事将延续。具体开机与阵容以片方官方发布为准。
 
 ## 天津路演
 
@@ -49,21 +54,26 @@ const coreStories: Story[] = [
 
 ## 说明
 
-票房与评分数据以灯塔、猫眼等专业平台实时统计为准。`,
+票房与评分数据以灯塔、猫眼等专业平台实时统计为准；续集进度以官方为准。`,
     bodyEn: `## Nationwide release
 
 **July 11, 2026** — **Kung Fu Women's Soccer** opened nationwide. **Dilraba** as forward **Yu Long (#8)** with Zhang Xiaofei and Lay Zhang.
 
 ## Box office
 
-Public reports (Lighthouse, Sina Entertainment, etc.):
+Public reports (Lighthouse, Sina Entertainment, Mirror Media, etc.):
 
 - **Opening day passed 200M yuan**, multiple records broken
 - **300M+ cumulative** by the morning of **July 12**
 - **~1B yuan cumulative** around **July 17**
 - **1.457B+ yuan** by **July 19** — top-3 of 2026
+- **1.7B+ yuan** around **July 23** — leading the summer slate
 - Dilraba’s starring filmography crossed **2B yuan** in the same window
 - Platform forecasts often cluster around **2.5–3.0B yuan** for the film
+
+## Sequel
+
+On the roadshow Stephen Chow answered “yes” about a second film and said the Emei FC story continues. Casting and start dates follow official studio releases only.
 
 ## Tianjin roadshow
 
@@ -80,7 +90,7 @@ Opening-day **Tianjin** roadshow — stories of **~8 kg gain** and closed footba
 
 ## Note
 
-Box-office and scores follow live Lighthouse / Maoyan data.`,
+Box-office and scores follow live Lighthouse / Maoyan data; sequel details follow official releases.`,
   },
   {
     slug: "land-rover-2026-recap",

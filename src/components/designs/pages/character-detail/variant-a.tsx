@@ -3,7 +3,8 @@
 import { useMemo } from "react";
 import { ContentImage } from "@/components/ContentImage";
 import { LocaleLink as Link } from "@/components/LocaleLink";
-import type { Character, VideoItem, Work } from "@/lib/types";
+import type { Character, NewsItem, VideoItem, Work } from "@/lib/types";
+import { RelatedNewsList } from "@/components/RelatedNewsList";
 import { Container } from "@/components/Container";
 import { ExternalLinks } from "@/components/ExternalLinks";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
@@ -14,9 +15,10 @@ export type CharacterDetailPageProps = {
   character: Character;
   work?: Work;
   videos: VideoItem[];
+  relatedNews?: NewsItem[];
 };
 
-function useLocalizedCharacterDetail({ character, work, videos }: CharacterDetailPageProps) {
+function useLocalizedCharacterDetail({ character, work, videos, relatedNews }: CharacterDetailPageProps) {
   const locale = useLocale();
   const localizedCharacter = useMemo(
     () => localizeCharacter(character, locale),
@@ -30,7 +32,7 @@ function useLocalizedCharacterDetail({ character, work, videos }: CharacterDetai
     () => videos.map((v) => localizeVideo(v, locale)),
     [videos, locale],
   );
-  return { character: localizedCharacter, work: localizedWork, videos: localizedVideos };
+  return { character: localizedCharacter, work: localizedWork, videos: localizedVideos, relatedNews };
 }
 
 function CharacterHero({ character }: { character: Character }) {
@@ -52,10 +54,12 @@ function CharacterBody({
   character,
   work,
   videos,
+  relatedNews,
 }: {
   character: Character;
   work?: Work;
   videos: VideoItem[];
+  relatedNews?: NewsItem[];
 }) {
   const t = useT();
   return (
@@ -105,6 +109,9 @@ function CharacterBody({
           </ul>
         </div>
       )}
+      {relatedNews && relatedNews.length > 0 && (
+        <RelatedNewsList items={relatedNews} className="mt-10" />
+      )}
       {work?.externalLinks && work.externalLinks.length > 0 && (
         <div className="mt-10">
           <h2 className="kicker">{t("common.watchInfo")}</h2>
@@ -117,7 +124,7 @@ function CharacterBody({
 
 export function CharacterDetailXianxia(props: CharacterDetailPageProps) {
   const t = useT();
-  const { character, work, videos } = useLocalizedCharacterDetail(props);
+  const { character, work, videos, relatedNews } = useLocalizedCharacterDetail(props);
   return (
     <div className="section-padding pt-16">
       <div className="container-main text-center">
@@ -134,7 +141,7 @@ export function CharacterDetailXianxia(props: CharacterDetailPageProps) {
         </div>
         <h1 className="zh-display mt-10 text-5xl text-wine-deep">{character.name}</h1>
         <div className="mx-auto mt-10 max-w-2xl text-left">
-          <CharacterBody character={character} work={work} videos={videos} />
+          <CharacterBody character={character} work={work} videos={videos} relatedNews={relatedNews} />
         </div>
       </div>
     </div>

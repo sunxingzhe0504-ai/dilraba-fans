@@ -166,6 +166,15 @@ export function getLatestNews(limit = 5) {
   return getNews().slice(0, limit);
 }
 
+/** Editorial picks — prefers `featured: true`, falls back to latest. */
+export function getFeaturedNews(limit = 5) {
+  const featured = getNews().filter((n) => n.featured);
+  if (featured.length >= limit) return featured.slice(0, limit);
+  const slugs = new Set(featured.map((n) => n.slug));
+  const rest = getNews().filter((n) => !slugs.has(n.slug));
+  return [...featured, ...rest].slice(0, limit);
+}
+
 export function getGallery() {
   return gallery.map((item) => {
     if (item.slug === "sui-ran-poster" && isWorkLive("sui-ran-bu-neng-yiqie")) {
@@ -180,6 +189,14 @@ export function getGallery() {
 
 export function getWallpapers() {
   return gallery.filter((g) => g.wallpaper);
+}
+
+export function getGalleryTags() {
+  const tags = new Set<string>();
+  for (const item of getGallery()) {
+    for (const tag of item.tags ?? []) tags.add(tag);
+  }
+  return [...tags].sort((a, b) => a.localeCompare(b, "zh"));
 }
 
 export function getCharacterByWorkSlug(workSlug: string) {
@@ -219,7 +236,8 @@ export function getCharacterWithWork(slug: string) {
   if (!character) return undefined;
   const work = getWorkBySlug(character.workSlug);
   const videos = getVideos().filter((v) => v.workSlug === character.workSlug).slice(0, 4);
-  return { character, work, videos };
+  const relatedNews = getNewsForWork(character.workSlug, 4);
+  return { character, work, videos, relatedNews };
 }
 
 export function getQuotes() {
@@ -249,6 +267,39 @@ export function getBrandHighlights() {
 
 export function getCharityItems() {
   return charityItems;
+}
+
+/** Charity page: static items + charity-category events/news as dated entries. */
+export function getCharityPageItems(): import("@/lib/types").CharityItem[] {
+  const fromEvents = getEventsByCategory("charity").map((event) => ({
+    slug: `event-${event.slug}`,
+    title: event.title,
+    titleEn: event.titleEn,
+    date: event.date,
+    summary: event.summary,
+    summaryEn: event.summaryEn,
+    href: `/events/${event.slug}`,
+  }));
+  const fromNews = getNews()
+    .filter((n) => n.category === "charity")
+    .map((item) => ({
+      slug: `news-${item.slug}`,
+      title: item.title,
+      titleEn: item.titleEn,
+      date: item.date,
+      summary: item.summary,
+      summaryEn: item.summaryEn,
+      href: `/latest/${item.slug}`,
+      externalUrl: item.externalUrl,
+    }));
+  const merged = [...fromEvents, ...fromNews, ...charityItems];
+  const seen = new Set<string>();
+  return merged.filter((item) => {
+    const key = item.title;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
 }
 
 export function getChangelog() {

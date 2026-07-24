@@ -259,6 +259,19 @@ export const charityItems: CharityItem[] = [
 
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-07-24",
+    items: [
+      "补充《功夫女足》累计票房破 17 亿与续集确认（7/23，据公开报道）",
+      "深化钰珑角色简介；首页精选动态；图库标签筛选；公益页合并活动/动态条目",
+      "角色详情页接入相关动态；专题长文与荣誉条目同步更新",
+    ],
+    itemsEn: [
+      "Added Kung Fu Women's Soccer 1.7B+ box office and sequel confirmation (Jul 23, public reports)",
+      "Deepened Yu Long bio; featured news on home; gallery tag filters; charity page merges events/news",
+      "Character detail related news; story recap and honors synced",
+    ],
+  },
+  {
     date: "2026-07-22",
     items: [
       "补充《功夫女足》累计票房超 14.57 亿与个人主演电影票房破 20 亿（7/19，据公开报道）",

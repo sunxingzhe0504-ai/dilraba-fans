@@ -4,6 +4,25 @@ import { OFFICIAL_CHANNELS } from "./official-channels";
 /** 最新动态：以公开信息为准，按时间倒序维护 */
 export const news: NewsItem[] = [
   {
+    slug: "gongfu-nvzu-boxoffice-17yi-sequel-2026",
+    title: "《功夫女足》累计票房破 17 亿 · 周星驰确认续集",
+    titleEn: "Kung Fu Women's Soccer Passes 1.7B · Sequel Confirmed",
+    date: "2026-07-23",
+    category: "work",
+    summary:
+      "据公开报道，影片上映约 13 天累计票房突破 17 亿元，领跑暑期档；周星驰在路演中明确回应将拍摄《功夫女足2》。具体数据与续集进度以专业平台及片方官宣为准。",
+    summaryEn:
+      "Public reports: cumulative box office passed 1.7B yuan about 13 days after release, leading the summer slate; Stephen Chow confirmed Kung Fu Women's Soccer 2 on the roadshow. Follow live platform data and official studio announcements.",
+    body:
+      "《功夫女足》热映持续。据新浪娱乐、镜周刊等公开报道，至 7 月 23 日前后累计票房突破 17 亿元，跻身中国影史票房前列区间；猫眼等平台预测仍在上调。路演中周星驰被问及是否拍第二部时回应「有」，并曾表示峨眉队故事「打爆全世界」的创意将延续。迪丽热巴饰 8 号前锋钰珑。本站仅整理公开信息，续集开机与阵容以官方为准。",
+    bodyEn:
+      "Media report ~1.7B yuan cumulative around July 23 and a leading summer run. On the roadshow Stephen Chow answered “yes” about a sequel, continuing the Emei FC story. Dilraba stars as forward Yu Long (#8). Sequel casting and start dates follow official releases only.",
+    workSlug: "shaolin-nvzu",
+    eventSlug: "gongfu-nvzu-boxoffice-17yi-sequel-2026",
+    externalUrl: "https://ent.sina.cn/2026-07-24/detail-iniivtws4422361.d.html",
+    featured: true,
+  },
+  {
     slug: "gongfu-nvzu-boxoffice-14yi-2026",
     title: "《功夫女足》累计票房超 14.57 亿 · 个人主演电影票房破 20 亿",
     titleEn: "Kung Fu Women's Soccer Tops 1.457B · Dilraba Filmography Crosses 2B",
@@ -20,7 +39,7 @@ export const news: NewsItem[] = [
     workSlug: "shaolin-nvzu",
     eventSlug: "gongfu-nvzu-boxoffice-14yi-2026",
     externalUrl: "https://ent.sina.cn/2026-07-20/detail-iniiktnw4921485.d.html",
-    featured: true,
+    featured: false,
   },
   {
     slug: "be-water-selfie-2026",

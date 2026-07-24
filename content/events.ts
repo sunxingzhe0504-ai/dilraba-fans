@@ -6,6 +6,24 @@ import type { FanEvent } from "@/lib/types";
  */
 export const events: FanEvent[] = [
   {
+    slug: "gongfu-nvzu-boxoffice-17yi-sequel-2026",
+    title: "《功夫女足》票房破 17 亿 · 续集确认",
+    titleEn: "Kung Fu Women's Soccer · 1.7B+ & Sequel Confirmed",
+    date: "2026-07-23",
+    category: "premiere",
+    location: "全国院线 / 路演",
+    locationEn: "Nationwide cinemas / roadshow",
+    summary:
+      "据公开报道累计票房破 17 亿；周星驰路演确认将拍《功夫女足2》。",
+    summaryEn:
+      "Public reports: 1.7B+ box office; Stephen Chow confirmed a sequel on the roadshow.",
+    description:
+      "暑期档持续领跑。续集创意与开机信息以片方官方发布为准；票房以专业平台实时统计为准。",
+    descriptionEn:
+      "Continued summer lead. Sequel details follow official studio releases; box office follows live platforms.",
+    featured: true,
+  },
+  {
     slug: "gongfu-nvzu-boxoffice-14yi-2026",
     title: "《功夫女足》累计票房超 14.57 亿",
     titleEn: "Kung Fu Women's Soccer · 1.457B+ Box Office",
@@ -21,7 +39,7 @@ export const events: FanEvent[] = [
       "上映约 9 天票房持续走高。平台预测与口碑分化并存；数据以专业平台实时统计为准。",
     descriptionEn:
       "Strong ~9-day run with rising forecasts and mixed reviews. Follow live platform data.",
-    featured: true,
+    featured: false,
   },
   {
     slug: "gongfu-nvzu-boxoffice-10yi-2026",

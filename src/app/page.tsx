@@ -7,7 +7,7 @@ import {
   getFeaturedCharacters,
   getFeaturedVideos,
   getHonors,
-  getLatestNews,
+  getFeaturedNews,
   getSiteMeta,
   getUpcomingWorks,
 } from "@content/index";
@@ -24,7 +24,7 @@ export default function HomePage() {
 
   const data: HomeData = {
     hero: { tagline: heroTagline, subtitle: heroSubtitle },
-    latestNews: getLatestNews(5),
+    latestNews: getFeaturedNews(5),
     featuredStories: getFeaturedStories(3),
     works: getFeaturedWorks(4),
     upcoming: getUpcomingWorks(),

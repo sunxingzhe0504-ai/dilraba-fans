@@ -186,6 +186,7 @@ const zh = {
     lightboxClose: "关闭预览",
     lightboxPrev: "上一张",
     lightboxNext: "下一张",
+    tagsLabel: "标签",
   },
   fanData: {
     kicker: "备份 · Backup",
@@ -768,6 +769,7 @@ const en = {
     lightboxClose: "Close preview",
     lightboxPrev: "Previous",
     lightboxNext: "Next",
+    tagsLabel: "Tags",
   },
   fanData: {
     kicker: "Backup",

@@ -76,6 +76,11 @@ export const WORK_EXTERNAL_LINKS: Record<string, ExternalLink[]> = {
   "shaolin-nvzu": [
     db("36452545"),
     {
+      label: "新浪 · 票房破 17 亿与续集",
+      href: "https://ent.sina.cn/2026-07-24/detail-iniivtws4422361.d.html",
+      kind: "info",
+    },
+    {
       label: "新浪 · 票房超 14.57 亿",
       href: "https://ent.sina.cn/2026-07-20/detail-iniiktnw4921485.d.html",
       kind: "info",
@@ -252,6 +257,14 @@ export const EVENT_EXTERNAL_LINKS: Record<string, ExternalLink[]> = {
       href: "https://www.marieclaire.com.cn/",
       kind: "official",
     },
+  ],
+  "gongfu-nvzu-boxoffice-17yi-sequel-2026": [
+    {
+      label: "新浪 · 票房破 17 亿与续集",
+      href: "https://ent.sina.cn/2026-07-24/detail-iniivtws4422361.d.html",
+      kind: "info",
+    },
+    db("36452545"),
   ],
   "gongfu-nvzu-boxoffice-day1-2026": [
     {

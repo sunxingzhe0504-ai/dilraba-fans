@@ -6,6 +6,13 @@ import type { Honor, TimelineEntry } from "@/lib/types";
 export const honors: Honor[] = [
   {
     year: 2026,
+    title: "《功夫女足》累计票房破 17 亿；周星驰路演确认续集（据公开报道）",
+    titleEn: "Kung Fu Women's Soccer passes 1.7B yuan; sequel confirmed on roadshow (public reports)",
+    source: "新浪娱乐 / 公开媒体报道",
+    sourceEn: "Sina Entertainment / media reports",
+  },
+  {
+    year: 2026,
     title: "主演电影累计票房破 20 亿；《功夫女足》累计超 14.57 亿（据公开报道）",
     titleEn: "Starring filmography crosses 2B yuan; Kung Fu Women's Soccer tops 1.457B (public reports)",
     source: "新浪娱乐 / 票房平台报道",
@@ -311,8 +318,8 @@ export const timeline: TimelineEntry[] = [
     title: "独立运营新阶段",
     titleEn: "Independent operations",
     description:
-      "与嘉行传媒 13 年合约到期后，个人工作室全面接管演艺事务；《功夫女足》暑期档热映，公开报道累计票房超 14.57 亿，个人主演电影票房破 20 亿；VOGUE 八月刊单人封面进入宣传期。",
+      "与嘉行传媒 13 年合约到期后，个人工作室全面接管演艺事务；《功夫女足》暑期档热映，公开报道累计票房破 17 亿、个人主演电影票房破 20 亿，续集经路演确认；VOGUE 八月刊单人封面进入宣传期。",
     descriptionEn:
-      "After 13 years with Jaywalk, her studio fully manages career affairs; Kung Fu Women's Soccer summer run with 1.457B+ yuan box office and 2B+ starring filmography per reports; VOGUE August solo cover in promo.",
+      "After 13 years with Jaywalk, her studio fully manages career affairs; Kung Fu Women's Soccer summer run with 1.7B+ yuan box office and 2B+ starring filmography per reports, sequel confirmed on roadshow; VOGUE August solo cover in promo.",
   },
 ];

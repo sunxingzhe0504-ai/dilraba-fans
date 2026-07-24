@@ -38,7 +38,7 @@ export default async function CharacterDetailPage({ params }: Props) {
   const data = getCharacterWithWork(slug);
   if (!data) notFound();
 
-  const { character, work, videos } = data;
+  const { character, work, videos, relatedNews } = data;
   const extra = CHARACTERS_EN[slug];
 
   return (
@@ -58,6 +58,7 @@ export default async function CharacterDetailPage({ params }: Props) {
         character={character}
         work={work}
         videos={videos}
+        relatedNews={relatedNews}
       />
     </>
   );
